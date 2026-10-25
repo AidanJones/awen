@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "genomeVersion": "awen-genome-1",
+  "genome": {
+    "activity": 0.7,
+    "softness": 0.5,
+    "warmth": 0.5,
+    "space": 0.5,
+    "bedPresence": 0.5,
+    "bedMotion": 0
+  },
+  "history": []
+}

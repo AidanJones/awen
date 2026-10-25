@@ -2,84 +2,112 @@
 
 *Every story has a soundtrack.*
 
-**Awen** — Welsh for *poetic inspiration* — is an open-source e-reader project that pairs stories with adaptive, procedurally generated atmospheric soundtracks. Lightweight n-gram and NLP analysis will guide a continuous Strudel score as you read, with no LLM or generative AI.
+A small, local science-fiction reader with an adaptive synthesiser soundtrack. The entire runnable app is **[index.html](index.html)**: inline CSS, JavaScript and three complete reading texts. No React, build, install, CDN, backend, account or API key. Approximately 850 KB, mostly book text; the application code is a few hundred lines.
 
-The goal is a soundtrack that breathes with the story: a subtle pulse as tension rises, open textures for moments of wonder, and space for silence. The reader sets the pace.
+Active work is tracked in **Beads**: run `bd ready` for available tasks. See the [Beads workflow](.beads/README.md) and [roadmap snapshot](TODO.md). Personal music evolution, a wider-choice gallery and richer starting palettes are the priorities.
 
-> **Project status: specification and research.** This repository currently contains design documents, not a runnable application. The features below describe the planned implementation; no browser or E Ink compatibility has been demonstrated yet.
+## Open it
 
-## The experience
+Download `index.html` and open it in a modern browser. Click **Start soundtrack** to enable audio. Everything needed for reading and synthesis is embedded; the external edition and licence links are optional.
 
-- **Read at your own pace.** One paragraph at a time gives the soundtrack an explicit reading-position signal, with keyboard navigation and saved progress.
-- **Hear a continuous score.** Drones, harmonic textures, sparse motifs and subtle pulses evolve together without restarting at paragraph boundaries.
-- **Keep the story local.** Offline-first reading, analysis, synthesis and storage, with assets available locally after initial setup.
-- **Follow different paths.** A story graph will support linear books and choose-your-own-adventure choices through the same reading and music pipeline.
-- **Understand the adaptation.** Inspectable text features and a developer overlay will show why the music changes.
-- **Work towards a dedicated reader.** Begin in the browser, then evaluate a standalone E Ink device that handles both reading and audio.
+For a consistent storage origin, serve the directory instead:
 
-The first prototype will use the opening chapter of H. G. Wells's *The War of the Worlds*, with edition, source and distribution rights checked before bundling. The broader aim is to support suitably licensed books across genres.
-
-## How it will work
-
-```mermaid
-flowchart TD
-    Book[Book or branching story] --> Graph[Parser and story graph]
-    Graph --> Analysis[Local n-gram and NLP analysis]
-    Analysis --> Context[Path-aware narrative features]
-    Reader[Current paragraph and reading history] --> Context
-    Context --> Director[Score director and motif memory]
-    Director --> Target[Musical targets and smooth transitions]
-    Target --> Strudel[Strudel adapter]
-    Strudel --> Audio[Web Audio output]
+```sh
+python -m http.server 8000 --bind 127.0.0.1
 ```
 
-The first analyser will use deterministic phrase dictionaries and linguistic cues to estimate valence, arousal, tension, mystery, wonder and action. A compact TF-IDF n-gram classifier is a later experiment, subject to evaluation on literary passages.
+Visit `http://localhost:8000`. Static hosting can serve the same HTML unchanged. A downloaded copy works offline; offline relaunch of a hosted URL is not implemented. Browser storage for `file://` pages varies, so localhost is recommended for reliable progress saving. There is no autoplay after a reload.
 
-The score director will translate those features into bounded musical targets, maintaining a tonal identity and recurring motifs. Smoothing, hysteresis and musical timing will keep navigation from producing abrupt changes. Unvisited branches and future plot events must not leak into the audible score.
+## Read and listen
 
-Procedural composition here means authored patterns, synthesis and explicit rules. It does not require a model to generate text, code or audio.
+- Choose a book from the shelf. Each book remembers its own paragraph.
+- Use Previous/Next, Left/Right, or Space. Chapter selection jumps to the first paragraph in that chapter. Long paragraphs scroll naturally.
+- **Restart book** returns to paragraph 1 and restarts the composition with the same seed, preserving settings and other books' positions. **Go to paragraph** accepts a whole number from 1 to the book-wide total; it saves the destination while keeping musical time running.
+- **Aa / Reading preferences** adjusts text size, spacing and width. Night reading and focus mode reduce visual distraction.
+- Start/pause the soundtrack, set its volume, or mix bass notes, chords, melody and pulse independently. Zero volume mutes with a short click-free fade.
+- **Check sound** plays a short 440 Hz tone at the selected app volume. **Mute now** or Escape stops music and the check tone. Signal detection distinguishes generated audio from a muted mix; if a signal is detected but you hear nothing, check browser-tab mute, system volume and the selected output device.
+- The waveform above Start/Pause is drawn from the actual limited output, including the check tone. It settles to a flat line on pause or mute, stops drawing while the page is hidden, and stays static when reduced motion is requested. It uses native Canvas and Web Audio with no visualisation library.
+- **Sound palette** offers Warm ensemble (the default: connected woodwind/string-like motifs, soft bass and occasional plucked accents) or Space synth. These are original synthesis approximations, not recordings or realistic orchestral samples. Both share a short synthesised stereo room.
+- **Continuous background** adds soft harmony under the foreground, initially at 30%. Chords follow an authored progression and crossfade at stable pitches, without pitch slides. Set it to zero for more space; the Chords mixer also scales it. All layers and effects use the same final limiter.
+- In **Follow the story**, paragraph changes update narrative intent and gently adjust expression without restarting the theme or cutting notes. A scene change must remain stable for a bar and satisfy a minimum three-bar dwell before entering at a bar line. At the fixed 72 BPM this means changes can take several seconds. The Playing label distinguishes the active scene from a pending direction. **Steady ambience** keeps the neutral intent while the same composition continues.
+- **Score seed** shows a seed saved separately for each book (initially `rat-001`, `war-001` and `time-001`). Apply a chosen seed or select **New interpretation**. During playback a new seed waits for the next four-bar phrase boundary; when paused it applies immediately. The active/queued status is shown. Unapplied queued changes are not committed across a reload.
+- **Follow the story** derives musical targets from local phrase rules. **Steady ambience** uses a fixed neutral target for comparison. Pause for silence.
+- **Behind the soundtrack** shows rule evidence, raw/contextual features, musical targets and the live smoothed state. Rules are artistic heuristics, not validated literary interpretation.
 
-## Planned stack
+Progress, appearance, audio preferences, per-book seeds and score checkpoints stay in `localStorage` under `awen.reader.v1`. Musical state is saved on navigation, pause and periodically while playing. Compatible checkpoints restore the next score-grid position, scene, voicing and motif position; a reload still requires a new user gesture for sound. Incompatible composer/content revisions start a fresh interpretation with the saved seed. Blocked/full storage is reported; reading and audio continue for the session.
 
-| Area | Technology |
-|---|---|
-| Reader | TypeScript, React, Vite |
-| Procedural score | Strudel behind an audio adapter |
-| Mixing and playback | Web Audio API |
-| Narrative analysis | Deterministic n-gram/NLP rules; optional local classifier later |
-| Local data | IndexedDB; small settings may use localStorage |
-| Preprocessing | Web Workers where needed |
-| Offline availability | Local assets and an explicit application-cache strategy |
-| Verification | Vitest, Playwright and listening evaluations |
+## Personal soundtrack evolution
 
-The web app is intended to need no backend, account, API key or inference service. Dependency versions and package APIs will be confirmed during implementation.
+Open **Shape your soundtrack** in the sound panel. Choose Whole score, Foreground or Background, then **Try a variation**. **Hear A** plays your current profile; **Hear B** plays a small mutation. Both replay the same passage, seed, musical cursor and narrative target through the same output graph. Listen for a phrase or longer before choosing. Previewing is explicit and interrupts playback; keep/cancel restores the original musical cursor and pauses. Press Start to continue. Navigating also cancels an unfinished comparison. Master volume and emergency mute remain available.
 
-## Roadmap
+**Keep A/B** records the comparison and adopts the chosen profile across all three books. **Neither · cancel** discards it; **Undo last choice** restores the previous profile. Changes made during ordinary playback (undo/import) wait for a four-bar phrase boundary. The bounded genome controls melody presence, attack softness, filtering warmth, room, background presence and slow background movement. Mutation changes two traits within the selected scope. Tonal rules, tempo, harmonic continuity, voice limits and the final output limiter remain fixed. This is listener selection with small mutations, not a trained preference model or an LLM critic.
 
-1. **Playable chapter:** paragraph reader, graph foundation, saved position and four-layer Strudel score with manual controls.
-2. **Narrative automation:** auditable lexical features, smooth musical targets and a debug overlay.
-3. **Continuity and choices:** motifs, branch navigation and history, accessibility, offline caching and audio lifecycle handling.
-4. **Evaluation:** compare silence, fixed ambience and adaptive scoring; assess immersion, distraction, comprehension and narrative fit. Evaluate classifiers only after the baseline works.
-5. **Standalone E Ink:** test the web application on an Android E Ink reader with supported audio. The discussion's provisional candidate was the Meebook M7, with BOOX Go 6 (Gen II) as an alternative; compatibility remains unverified.
-6. **Further exploration:** EPUB and interactive-fiction imports, reader integrations and an optional embedded synthesis port.
+The browser automatically stores the profile and its last 80 decisions alongside your reading settings. Each decision records the parent, candidate and winner, book/content/composer versions, paragraph, seed, musical snapshot, intent/targets and mix settings. Profiles are versioned and validated on import. There are no accounts or multiple-user sync; separate JSON files can hold different listeners' profiles.
 
-ESP32/CrossPoint and legacy Kindle routes remain research options. A native renderer and verified audio hardware would be needed for constrained devices; the presence of Bluetooth alone does not establish headphone-audio support.
+For a copy in this repo, click **Save profile to file**, then select **profiles/personal.json** in the file picker. A neutral starter file is included there. On browsers without the file-writing API, the button downloads `awen-personal.json`; move that file into `profiles/`. File saving is explicit: browser storage updates automatically, but you must save the JSON again after more choices. **Import profile** restores a saved JSON file. The app does not automatically read or overwrite repo files, and no server/build step is needed. Commit the saved JSON yourself if you want Git history.
 
-## Documentation
+## The shelf and its sources
 
-| File | Purpose |
-|---|---|
-| [Implementation specification](adaptive_reading_soundtrack_spec.md) | Requirements, data contracts, music rules, branching behaviour, research notes and E Ink roadmap |
-| [Research paper draft](paper.md) | Background, related work, proposed architecture, research questions and evaluation methodology |
+Reading text comes from these Standard Ebooks source editions, retrieved 25 October 2026:
 
-## Development
+| Book | Included reading text | Source |
+|---|---|---|
+| Harry Harrison, *The Stainless Steel Rat* | 19 chapters, 883 paragraphs | [Edition](https://standardebooks.org/ebooks/harry-harrison/the-stainless-steel-rat) · [Source](https://github.com/standardebooks/harry-harrison_the-stainless-steel-rat) |
+| H. G. Wells, *The War of the Worlds* | 27 chapters, 884 paragraphs | [Edition](https://standardebooks.org/ebooks/h-g-wells/the-war-of-the-worlds) · [Source](https://github.com/standardebooks/h-g-wells_the-war-of-the-worlds) |
+| H. G. Wells, *The Time Machine* | 12 chapters and epilogue, 308 paragraphs | [Edition](https://standardebooks.org/ebooks/h-g-wells/the-time-machine) · [Source](https://github.com/standardebooks/h-g-wells_the-time-machine) |
 
-There are no application source files, package manifest or install/run scripts yet. Start with Milestone 1 in the specification; setup commands will be documented when the scaffold exists.
+The [Stainless Steel Rat collection](https://standardebooks.org/collections/stainless-steel-rat) currently lists one downloadable edition; its other entries are marked `not-pd`. They are not bundled here. Standard Ebooks describes the bundled editions as believed public domain **in the United States**, with contributor work dedicated under [CC0](https://creativecommons.org/publicdomain/zero/1.0/). That does not establish public-domain status elsewhere; Harry Harrison's work in particular may remain copyrighted in your country.
 
-Contributions can begin with the reader/audio vertical slice, original synthesis presets, annotated literary passages, branching fixtures or reproducible hardware measurements. Keep domain logic independent of the UI and audio renderer, and keep analysis local and explainable.
+Each book retains its source link, exact source licence text, colophon and source ZIP SHA256 in the embedded data, accessible through **Edition notes**. Inline styling, artwork, front matter and note reference markers are omitted; endnotes are retained in Edition notes. Paragraph boundaries follow the source XHTML, including its longer paragraphs. The decorative covers are CSS illustrations, not Standard Ebooks artwork. Awen is independent of Standard Ebooks. The project has not yet selected a licence for its own application code.
 
-## Acknowledgements and licensing
+This MVP uses a curated embedded shelf, **not live catalogue search or arbitrary URL/EPUB import**. It avoids browser CORS restrictions and runtime network dependencies. To refresh the shelf, download source ZIPs from the three GitHub repositories and run the optional maintenance script:
 
-The concept draws on atmospheric film and radio scoring and the responsiveness of interactive game music. Strudel is the planned browser music engine. Related projects and scholarly sources are discussed in the paper; Awen does not claim to be the first adaptive reading soundtrack.
+```sh
+python tools/refresh_books.py rat.zip wells-war.zip wells-time.zip
+```
 
-An open-source release is the project intent. No project licence has been selected or added yet. Before distributing an implementation, choose a licence compatible with the selected dependencies and retain the licences and attribution for code, book editions, lexicons, fonts, samples and other assets. No third-party media is bundled with these documents.
+This replaces only the embedded JSON in `index.html`, following the EPUB spine order and excluding chapter headings from paragraphs. It is not a build step required to use or distribute the app.
+
+## Implementation
+
+The inline script keeps narrative analysis, context aggregation, score mapping, smoothing, the audio adapter and UI functions separate. Versioned lexical rules include phrases, limited negation/intensifiers, capped repetition and punctuation. Context uses the current paragraph and the **last visited** paragraph, with no analysis of unseen neighbours or unchosen chapter content. Opening a different book clears transient context.
+
+The pure `planStep` composer separates musical structure from rendering. It uses a 72 BPM grid, four-bar authored call/answer themes and a longer D-centred harmonic form. Closely related chord voicings retain common tones and minimise movement. Two banks of four quiet background oscillators crossfade over two seconds; frequencies change only on the incoming bank. Foreground notes have softer attacks, sustain and overlapping releases. Normal paragraph navigation never resets the musical cursor or releases existing foreground notes. Stable scene changes affect performance and rhythmic activity at bar lines. Intensity/density affect relative layer balance, brightness controls filtering, pulse affects rhythmic gain and spaciousness controls the shared room; the reported dissonance estimate is not a direct arbitrary-note generator.
+
+`AudioAdapter` retains the output graph across navigation and provides playback, mix, seed/reset and checkpoint methods. Background recovery skips missed scheduling windows instead of replaying a backlog. Pause stops the voices/effects output and retains the next score-grid position for resume; it does not freeze/recreate individual oscillator phases or effect tails. Page exit stops output.
+
+Composer version `awen-score-2` uses specified UTF-16 FNV-1a hashing and `sfc32` streams (with a 12-draw warm-up). Independent streams are keyed by version, seed, book, musical decision domain, phrase/bar index and decision index. Three original motif families and related harmonic forms provide identity; restrained omissions, expression and ornament decisions add variation. UI frames and mixer changes consume no composer randomness. Same seed, versions, initial state and musical-time-stamped intent history produce the same planned note/voicing events; different reading timings can change the performance. Cross-browser bit-identical audio and exact DSP automation replay are not promised.
+
+All sound, including the check tone, goes through a 55 Hz high-pass filter, dynamics compressor, faded master gain and a final bounded waveshaper. The final sample magnitude cannot exceed 0.14 (approximately −17 dBFS); no gain is applied after the limiter. This limits the digital signal, **not physical sound pressure or hardware amplifier output**. Keep device volume comfortable; the app cannot guarantee hearing or speaker safety at arbitrary system-volume settings. Mute also cancels a pending audio start and fades out the held layers, so a check tone cannot accidentally bring the paused score back.
+
+The richer ensemble preset is an artistic option, not a claimed cognitive benefit. See [background-music research notes](background_music_notes.md) for evidence and limits.
+
+**Deliberate departures from the original specification:** plain JavaScript replaces React/TypeScript/Vite; rendering remains native Web Audio with no CDN. Strudel integration is still unimplemented; the persistent composer is independent of the renderer. Character-specific leitmotif discovery/memory, branching stories, a trained classifier, annotation/listening studies, arbitrary imports, service-worker caching and E Ink validation remain future work. The score uses original authored material, deterministic rules and synthesis, with no LLM or generative audio service.
+
+## Verification
+
+```sh
+node --test tests/mvp.test.cjs
+```
+
+The dependency-free suite checks the books and feature bounds over all 2,075 paragraphs, analysis, smoothing, audio lifecycle, routing/limiting, specified RNG vectors, reproducible score events, independent streams, phrase continuity, scene dwell, compatible/corrupt checkpoints and per-voice constraints. It simulates ten minutes across eight seeds to check register, voice leading and polyphony.
+
+For the optional real-browser audio suite, install Playwright in your test environment (`npm install --no-save playwright`, then `npx playwright install chromium`) and run:
+
+```sh
+node tests/audio.browser.cjs
+```
+
+Alternatively, set `AWEN_BROWSER_CHANNEL=msedge` to use installed Edge in a separate headless test profile. Playwright is a testing dependency only. The suite renders the production graph in native `OfflineAudioContext`, including an 80-second score, both palettes, background controls, muted layers, maximum levels and overloads. Live checks cover uninterrupted musical position through 20 paragraph changes, scene dwell/bar boundaries, explicit/generated/queued seeds, per-book seeds and checkpoints, all playback/mute controls, waveform/reduced motion, restart/jumps, mobile layout and no autoplay. These verify generated samples and behaviour, not the physical speakers or artistic quality.
+
+The current revision passes 26 dependency-free tests. The isolated Playwright suite checks a final sample ceiling of 0.14, exact silence for zero master/all layers muted, audible output at the default level, and all controls described above. Listening quality and sustained real-device operation remain separate acceptance work.
+
+Manual browser smoke checks: initial silence; user-gesture start; navigation while playing; keyboard navigation; chapter jump; per-book restoration; reload with saved progress and audio off; steady ambience; inspector; appearance and pause. Browser playback state was checked in the Codex in-app Chromium browser. Audible quality, long sessions, Safari/iOS, mobile devices and interruptions on real hardware still need listening/device tests.
+
+Quick demo: choose *The Stainless Steel Rat*, **Steady ambience**, and seed `rat-001`; restart the book and listen for a minute to hear the recurring theme and harmonic form. Then select **Follow the story** and read normally. The first three paragraphs suggest caper, dialogue and chase intentions, but they no longer restart three musical cues. Hold an action passage to let the arrangement evolve. Use another seed to compare an interpretation, then return to `rat-001` and restart for the same initial composition. Lexical estimates can miss irony; these are artistic heuristics, not a comprehension aid.
+
+The [original implementation specification](adaptive_reading_soundtrack_spec.md) and [research paper draft](paper.md) retain the broader research direction; they describe planned features beyond this MVP.
+
+The [continuous-score review](continuous_score_review.md) records the former cue-like implementation and the design behind this revision. Persistent structure, seeds and basic transition rules are now implemented; Strudel integration and listening evaluation remain future work. The [SSX Tricky research note](ssx_tricky_audio_research.md) documents first-hand accounts and public parser/reverse-engineering code, with limits on what is known about EA's original runtime.
+
+Personalisation browser checks: `node tests/evolution.browser.cjs` (same Playwright setup as the audio checks).

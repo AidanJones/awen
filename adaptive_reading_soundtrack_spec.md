@@ -1,6 +1,7 @@
 # Awen — Adaptive Reading Soundtrack Implementation Specification
 
 **Status:** MVP build specification  
+**Implementation note:** A single-file, dependency-free MVP now lives in `index.html`; see README for implemented features and deliberate stack changes. The requirements below remain the broader design target, not a claim that all features are implemented.
 **Target:** Coding agent  
 **Product:** Browser-based, paragraph-by-paragraph e-reader with a continuous, adaptive procedural soundtrack  
 **Non-negotiable:** No LLM, hosted AI, text-to-music API, or runtime cloud dependency.
