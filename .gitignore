@@ -9,3 +9,6 @@
 # Maintenance download cache and Python bytecode
 tools/.source-cache/
 __pycache__/
+
+# Development audio experiments (WAVs and local model responses)
+.score-lab/

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "id": "awen-score-lab-1",
+  "description": "Tiny developer-authored timing fixtures, not independently annotated scene labels or a listening benchmark. Paragraph numbers are one-based within each chapter. No expected labels are copied from the scene classifier.",
+  "steps": 128,
+  "cases": [
+    {"id":"rat-opening","split":"development","book":"rat","seed":"rat-lab-001","passages":[{"step":0,"chapter":0,"paragraph":1},{"step":32,"chapter":0,"paragraph":2},{"step":64,"chapter":0,"paragraph":3},{"step":96,"chapter":1,"paragraph":1}]},
+    {"id":"riders-opening","split":"development","book":"riders","seed":"riders-lab-001","passages":[{"step":0,"chapter":0,"paragraph":1},{"step":32,"chapter":0,"paragraph":2},{"step":64,"chapter":0,"paragraph":3},{"step":96,"chapter":1,"paragraph":1}]},
+    {"id":"war-opening","split":"holdout","book":"war","seed":"war-lab-001","passages":[{"step":0,"chapter":0,"paragraph":1},{"step":32,"chapter":0,"paragraph":2},{"step":64,"chapter":0,"paragraph":3},{"step":96,"chapter":1,"paragraph":1}]}
+  ]
+}

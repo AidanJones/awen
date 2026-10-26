@@ -1,0 +1,334 @@
+{
+  "version": "awen-score-lab-1",
+  "date": "2026-10-26",
+  "runId": "79b74139b41be916d700727ed452046fd0aefe36f281be5914a47d9feb40c4e4",
+  "purpose": "Small production-renderer engineering proof, not a musical preference or reading study.",
+  "status": "awaiting-audio-judge",
+  "llmCalls": 0,
+  "winner": null,
+  "runtimeChanged": false,
+  "versions": {
+    "composer": "awen-score-2",
+    "sketch": "awen-sketch-1",
+    "htmlSha256": "c833ea4e21453b705c93002b0188e37e13201c31d037c5cc751777ff1dd2ec99",
+    "fixturesSha256": "87734a6064564b8697c525ddfe78d3e733cb480a0f6aa3a8d6d6e27dfc32cdf1",
+    "toolSha256": "63cc7e9e60a060f0038bc1b73a2fb2d274acfbddae563961561f7da7f5ca688b",
+    "metricsSha256": "4cebcea37cb1dbd827f8bc7ab6118b9feed05af92101a76da4246ad1e4ef7dd9",
+    "rubricSha256": "30384fa8e1427228513aaabdf33dee6e18b261dfd2ac9c874e68cc4c997132bd",
+    "browser": "156.0.4314.42",
+    "playwright": "1.62.1"
+  },
+  "seed": "proof-001",
+  "settings": {
+    "volume": 0.35,
+    "background": 0.3,
+    "mix": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "sampleRate": 24000,
+    "steps": 128
+  },
+  "limits": {
+    "peak": 0.140001,
+    "minRms": 0.0005,
+    "maxStateStep": 0.11,
+    "minPhrasePatterns": 2,
+    "maxOnsetsPerSecond": 4
+  },
+  "developmentCases": [
+    {
+      "id": "rat-opening",
+      "book": "rat",
+      "revision": "25 October 2026 \u00b7 source archive SHA256 e55d925cb64899e0343d42bb957e44598622f6f1a07976860194fc5d42620513",
+      "seed": "rat-lab-001"
+    },
+    {
+      "id": "riders-opening",
+      "book": "riders",
+      "revision": "26 October 2026 \u00b7 source archive SHA256 76ba675276206c1fda3f7024bcdd0f4863ea719842f5cf9dbeb1e207f913f2b8 \u00b7 source commit 03c724dab009e9e66648c19f5f5e7302e2d3f9f4",
+      "seed": "riders-lab-001"
+    }
+  ],
+  "heldOutCase": "war-opening; not rendered or used for selection",
+  "judgeRequestsPrepared": 14,
+  "candidates": [
+    {
+      "id": "c-a421dd7fe48e",
+      "genome": {
+        "activity": 0.7,
+        "softness": 0.5,
+        "warmth": 0.5,
+        "space": 0.5,
+        "bedPresence": 0.5,
+        "bedMotion": 0,
+        "scoreStyle": "classic"
+      },
+      "palette": "ensemble",
+      "eligible": true,
+      "clips": [
+        {
+          "case": "rat-opening",
+          "seconds": 58.333333333333336,
+          "wavSha256": "0ddc45db0c41e05ca58f25ab03bd3468fc1b9742711b972a6b5fe890334f25fd",
+          "rawRms": 0.03263559032337071,
+          "rawPeak": 0.09200695157051086,
+          "attenuationGain": 0.5515451021920078,
+          "structure": {
+            "resets": 0,
+            "regimeBreaks": 0,
+            "maxStateStep": 0.014758651385345392,
+            "phrasePatterns": 4,
+            "phrases": 4,
+            "onsetsPerSecond": 1.0687499999999999,
+            "regimes": 1
+          },
+          "observedScenes": [
+            "caper",
+            "chase",
+            "dialogue",
+            "reflective"
+          ],
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          }
+        },
+        {
+          "case": "riders-opening",
+          "seconds": 58.333333333333336,
+          "wavSha256": "96fd481c951c90b326748cad95a39fd2a3a36943d0aa32f996cc45f6d174d0ae",
+          "rawRms": 0.03037913750620266,
+          "rawPeak": 0.08851113170385361,
+          "attenuationGain": 0.5925118840627008,
+          "structure": {
+            "resets": 0,
+            "regimeBreaks": 0,
+            "maxStateStep": 0,
+            "phrasePatterns": 4,
+            "phrases": 4,
+            "onsetsPerSecond": 0.8624999999999999,
+            "regimes": 1
+          },
+          "observedScenes": [
+            "reflective"
+          ],
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "c-10470ed28022",
+      "genome": {
+        "activity": 0.7,
+        "softness": 0.8,
+        "warmth": 0.8657066129031591,
+        "space": 0.65,
+        "bedPresence": 0.30225537478690967,
+        "bedMotion": 0.45,
+        "scoreStyle": "frontier"
+      },
+      "palette": "frontier",
+      "eligible": true,
+      "clips": [
+        {
+          "case": "rat-opening",
+          "seconds": 58.333333333333336,
+          "wavSha256": "13ee59656a24facb318669757fbc5b416dc0f7d21c68f99941e3d233bc1415ba",
+          "rawRms": 0.0175634616779314,
+          "rawPeak": 0.08314932882785797,
+          "attenuationGain": 1,
+          "structure": {
+            "resets": 0,
+            "regimeBreaks": 0,
+            "maxStateStep": 0.014758651385345392,
+            "phrasePatterns": 4,
+            "phrases": 4,
+            "onsetsPerSecond": 0.22499999999999998,
+            "regimes": 1
+          },
+          "observedScenes": [
+            "caper",
+            "chase",
+            "dialogue",
+            "reflective"
+          ],
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          }
+        },
+        {
+          "case": "riders-opening",
+          "seconds": 58.333333333333336,
+          "wavSha256": "df5de2b841e590004a9003aa0a79c292fd162ba227a0b9380681cd84cd668f5f",
+          "rawRms": 0.017535418917983263,
+          "rawPeak": 0.08386236429214478,
+          "attenuationGain": 1,
+          "structure": {
+            "resets": 0,
+            "regimeBreaks": 0,
+            "maxStateStep": 0,
+            "phrasePatterns": 3,
+            "phrases": 4,
+            "onsetsPerSecond": 0.22499999999999998,
+            "regimes": 1
+          },
+          "observedScenes": [
+            "reflective"
+          ],
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "c-6a793a801594",
+      "genome": {
+        "activity": 0.7,
+        "softness": 0.6742140860063955,
+        "warmth": 0.65,
+        "space": 0.6485997935058548,
+        "bedPresence": 0.4,
+        "bedMotion": 0.3,
+        "scoreStyle": "dialogue"
+      },
+      "palette": "chamber",
+      "eligible": true,
+      "clips": [
+        {
+          "case": "rat-opening",
+          "seconds": 58.333333333333336,
+          "wavSha256": "50bbdd682925d4a6d9aacdaf75b5972ce1c0e2a50810772efd1500d6bbdffcc8",
+          "rawRms": 0.01609367650192879,
+          "rawPeak": 0.06726592034101486,
+          "attenuationGain": 1,
+          "structure": {
+            "resets": 0,
+            "regimeBreaks": 0,
+            "maxStateStep": 0.014758651385345392,
+            "phrasePatterns": 3,
+            "phrases": 4,
+            "onsetsPerSecond": 0.1875,
+            "regimes": 1
+          },
+          "observedScenes": [
+            "caper",
+            "chase",
+            "dialogue",
+            "reflective"
+          ],
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          }
+        },
+        {
+          "case": "riders-opening",
+          "seconds": 58.333333333333336,
+          "wavSha256": "03e9c370945e3bbae13de71839872c816f771b989a058a5e0117dba7ec3075e3",
+          "rawRms": 0.01579239311354772,
+          "rawPeak": 0.06616540253162384,
+          "attenuationGain": 1,
+          "structure": {
+            "resets": 0,
+            "regimeBreaks": 0,
+            "maxStateStep": 0,
+            "phrasePatterns": 3,
+            "phrases": 4,
+            "onsetsPerSecond": 0.1875,
+            "regimes": 1
+          },
+          "observedScenes": [
+            "reflective"
+          ],
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "c-b501f84dad98",
+      "genome": {
+        "activity": 0.72,
+        "softness": 0.8791175174876116,
+        "warmth": 0.55,
+        "space": 0.4,
+        "bedPresence": 0.45,
+        "bedMotion": 0.48002348575973885,
+        "scoreStyle": "caper"
+      },
+      "palette": "noir",
+      "eligible": true,
+      "clips": [
+        {
+          "case": "rat-opening",
+          "seconds": 58.333333333333336,
+          "wavSha256": "ef6772e81ea33c1d55acf60ed724b20db46e26d1a3c3220be5b56d376a571ca3",
+          "rawRms": 0.026380401682867944,
+          "rawPeak": 0.08495113253593445,
+          "attenuationGain": 0.6823247127313313,
+          "structure": {
+            "resets": 0,
+            "regimeBreaks": 0,
+            "maxStateStep": 0.014758651385345392,
+            "phrasePatterns": 4,
+            "phrases": 4,
+            "onsetsPerSecond": 0.84375,
+            "regimes": 1
+          },
+          "observedScenes": [
+            "caper",
+            "chase",
+            "dialogue",
+            "reflective"
+          ],
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          }
+        },
+        {
+          "case": "riders-opening",
+          "seconds": 58.333333333333336,
+          "wavSha256": "a4660fe3e00ad0de575ab3041d524bd5f37b3d1fed69fa1fedf6863810fa308b",
+          "rawRms": 0.025061364852884842,
+          "rawPeak": 0.08388296514749527,
+          "attenuationGain": 0.7182370196381382,
+          "structure": {
+            "resets": 0,
+            "regimeBreaks": 0,
+            "maxStateStep": 0,
+            "phrasePatterns": 4,
+            "phrases": 4,
+            "onsetsPerSecond": 0.525,
+            "regimes": 1
+          },
+          "observedScenes": [
+            "reflective"
+          ],
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          }
+        }
+      ]
+    }
+  ],
+  "failureControls": "Dependency-free unit controls cover silence, overlevel/nonfinite samples, constant phrase pattern, excessive density, abrupt inside-chapter changes, order bias, missing audio, identical audio, bad hashes and evidence. These are synthetic test verdicts/measurements, not actual model judgements.",
+  "limitsOfProof": [
+    "No listening quality, taste, paragraph fit, reading comfort or generalisation was measured.",
+    "Riders opening remained reflective under the current classifier; that fixture does not demonstrate scene adaptation.",
+    "Symbolic phrase variety does not establish perceptual variety; RMS attenuation does not establish equal perceived loudness.",
+    "Source/metrics/rubric and real WAV hashes are archived; raw audio and responses are ignored by Git."
+  ]
+}

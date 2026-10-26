@@ -106,6 +106,12 @@ python tools/refresh_books.py rat.zip wells-war.zip wells-time.zip riders.zip
 
 This replaces only the embedded JSON in `index.html`, following the EPUB spine order and excluding chapter headings from paragraphs. To refresh just the western while preserving the other editions, use `python tools/refresh_books.py --add riders riders.zip`. Source revision metadata records the archive hash, retrieval date and commit when present in the ZIP root. It is not a build step required to use or distribute the app.
 
+## Development-only score experiments
+
+The optional [score lab](research/score-lab.md) renders small, seeded batches through the production synthesiser, rejects signal/continuity/variation failures, and prepares blinded WAV comparisons for an audio-capable LLM during development. Fit, musical coherence and estimated intrusiveness stay separate. Swapped pairs, identical audio and missing-audio controls guard the judge exchange; no result is called better music without actual judgement. A bounded adapter-driven loop can propose a preset, with held-out book and listener checks before adoption. The initial proof rendered eight clips; it has no LLM ratings or musical winner.
+
+LLMs are development tools only. The finished reader keeps local deterministic rules/synthesis, with no model calls, build step or additional runtime dependency. The lab does not change app defaults or personal profiles. Run `node --test tests/score-lab.test.cjs` for its failure controls and see the research note for rendering and judge-adapter commands.
+
 ## Engine-readable scoring research
 
 The [film/theatre harmony research](research/scoring-knowledge.md) records nine source-linked harmonic families, eight dramatic functions and seven genre contexts as a [versioned JSON library](research/scoring-knowledge.json), with a [schema](research/scoring-knowledge.schema.json). Each exact cycle/mapping is labelled as an Awen proposal; source accounts and musical analyses support broader reasoning, not universal chord meanings.
