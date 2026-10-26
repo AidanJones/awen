@@ -53,6 +53,18 @@ The ideas come from composer accounts of radio/film scoring and research on read
 
 A selected recipe is optional `scoreStyle` metadata alongside the six numeric genome traits. Variations retain the first selected parent's recipe while combining numeric preferences; every card identifies its recipe. Recipe identity survives pins, names, export/import and switching books. Old version-1 profiles imply Connected ensemble, and old named-pin keys migrate. The original recipe/seed sequence stays unchanged; new sketches have their own recorded `awen-sketch-1` version.
 
+## Choose chords and dramatic direction
+
+Open **Shape your soundtrack → Explore chords & direction**. Choose a genre context, harmonic intention and tonal centre; leave **Chord family** on suggested alternatives, or choose any of the nine families explicitly. **Build six harmony choices** compares your current direction with source-linked alternatives and the original starting-point harmony. **Chord cycle & research** on each card explains the root movement, change rate, saved version and source context.
+
+Genre/intention choose harmonic material; the selected musical starting point still controls phrasing and instrument colours. The harmonic intention stays fixed after adoption while the story continues to steer texture and activity. **Current passage** supplies a starting suggestion when you build a batch; it does not silently change the harmony at every paragraph.
+
+Preview, name/pin, **Keep favourite**, or **Explore from here** as in the regular gallery. Numeric preference evolution keeps the first selected parent's compiled harmonic direction. Use **Return to starting-point harmony** to remove the override without losing other preferences; **Undo last kept choice** can restore it. While playing, clear/import/undo changes enter at the next four-bar phrase boundary.
+
+Harmony comparisons initially offer a **64-second long harmonic preview**; 16- and 32-second options are also available. Level balancing measures only the selected clip on demand and caches its level values for that duration. Existing ordinary variation previews still start at 16 seconds. Playback uses one shared limited graph and always has mute/stop controls.
+
+Kept directions are stored as an optional versioned `harmony` snapshot alongside the numeric genome: engine/library version, genre, function, family, tonic, chord bank, form and harmonic rhythm. Pins, names, decisions and export/import retain this data. Compatible saved banks replay their stored pitches rather than being resolved again against a newer library. Unsupported engine versions or unrenderable chords fail import with the current profile preserved. Checkpoints carry a harmonic identity, preventing restoration of voicings from another harmonic recipe; legacy authored-score checkpoints remain supported.
+
 ## Personal soundtrack evolution
 
 Open **Shape your soundtrack**, choose Whole score / Foreground / Background and Nearby / Wide, then **Explore six variations**. A gallery opens with the starting favourite, up to three pinned favourites and new candidates. Each new candidate changes melody or background presence alongside another trait; at least one explores further from the parent. Seeds select a composition; the preference genome controls its performance; the sound palette remains a separate setting.
@@ -97,7 +109,7 @@ This replaces only the embedded JSON in `index.html`, following the EPUB spine o
 
 The [film/theatre harmony research](research/scoring-knowledge.md) records nine source-linked harmonic families, eight dramatic functions and seven genre contexts as a [versioned JSON library](research/scoring-knowledge.json), with a [schema](research/scoring-knowledge.schema.json). Each exact cycle/mapping is labelled as an Awen proposal; source accounts and musical analyses support broader reasoning, not universal chord meanings.
 
-The embedded library compiles to the existing four-voice renderer. An explicit experimental `audio.queueHarmonyRecipe(proposeHarmony('frontier', 'suspense'))` applies a selected harmonic candidate at a four-bar phrase boundary; `null` returns to the chosen starting-point recipe. It is a session-only engine API, with normal gallery/profile integration left for a listening-led follow-up. Current saved preferences and default playback stay on their selected authored recipes. Detailed API/validation commands are in the research document. No runtime fetch or build is required.
+The embedded library compiles to the existing four-voice renderer and is available through the chord/direction gallery above. An explicit experimental `audio.queueHarmonyRecipe(proposeHarmony('frontier', 'suspense'))` applies a selected harmonic candidate at a four-bar phrase boundary; `null` returns to the harmony stored in the selected personal profile. That low-level API remains a session-only override; the public gallery instead saves a compiled harmonic snapshot with the personal profile. Authored starting-point harmony stays available as an explicit return choice. Detailed API/validation commands are in the research document. No runtime fetch or build is required.
 
 ## Implementation
 
@@ -131,7 +143,7 @@ node tests/audio.browser.cjs
 
 Alternatively, set `AWEN_BROWSER_CHANNEL=msedge` to use installed Edge in a separate headless test profile. Playwright is a testing dependency only. The suite renders the production graph in native `OfflineAudioContext`, including an 80-second score, both palettes, background controls, muted layers, maximum levels and overloads. Live checks cover uninterrupted musical position through 20 paragraph changes, scene dwell/bar boundaries, explicit/generated/queued seeds, per-book seeds and checkpoints, all playback/mute controls, waveform/reduced motion, restart/jumps, mobile layout and no autoplay. These verify generated samples and behaviour, not the physical speakers or artistic quality.
 
-The current revision passes 36 dependency-free tests. The isolated Playwright suite checks a final sample ceiling of 0.14, exact silence for zero master/all layers muted, audible output at the default level, and all controls described above. Listening quality and sustained real-device operation remain separate acceptance work.
+The current revision passes 41 dependency-free tests. The isolated Playwright suite checks a final sample ceiling of 0.14, exact silence for zero master/all layers muted, audible output at the default level, and all controls described above. Listening quality and sustained real-device operation remain separate acceptance work.
 
 Manual browser smoke checks: initial silence; user-gesture start; navigation while playing; keyboard navigation; chapter jump; per-book restoration; reload with saved progress and audio off; steady ambience; inspector; appearance and pause. Browser playback state was checked in the Codex in-app Chromium browser. Audible quality, long sessions, Safari/iOS, mobile devices and interruptions on real hardware still need listening/device tests.
 
@@ -144,3 +156,5 @@ The [continuous-score review](continuous_score_review.md) records the former cue
 Personalisation browser checks: `node tests/evolution.browser.cjs` (same Playwright setup as the audio checks).
 
 Starting-point proof: `node tests/starting-points.browser.cjs` uses the same isolated Playwright setup. It checks recipe choice/evolution, named-profile compatibility, four 16-second sketches over three matched passages, dialogue rests and native signal bounds.
+
+Integrated harmony direction checks: `node tests/harmony-directions.browser.cjs` verifies the public controls, 64/16-second previews, native output cap, versioned pin/profile round trips, exact checkpoint reload, cross-book persistence, reversible clear and incompatible-import handling.

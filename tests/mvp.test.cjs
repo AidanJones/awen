@@ -8,7 +8,7 @@ const script=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
 const books=JSON.parse(html.match(/<script id="books" type="application\/json">([\s\S]*?)<\/script>/)[1]);
 const ctx=vm.createContext({setInterval:()=>1,clearInterval:()=>{},setTimeout,clearTimeout});
 vm.runInContext(script.split('const $=id=>')[0],ctx);
-const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT,makeGallery,genomeDistance,genomeKey,describeGenome,cleanName,profileStamp,previewAttenuation,PREVIEW_RMS,SCORE_STYLES,starterGenome,makeStartingGallery,SKETCH_VERSION,validateScoringKnowledge,compileHarmonyRecipe,normalHarmonyRecipe})',ctx);
+const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT,makeGallery,genomeDistance,genomeKey,describeGenome,cleanName,profileStamp,previewAttenuation,PREVIEW_RMS,SCORE_STYLES,starterGenome,makeStartingGallery,SKETCH_VERSION,validateScoringKnowledge,compileHarmonyRecipe,normalHarmonyRecipe,normalHarmonyChoice,makeHarmonyGallery,harmonicIdentity,canRestoreScoreSession})',ctx);
 test('complete curated books retain spine order, stable IDs and nonempty paragraphs',()=>{
  assert.deepEqual(books.map(b=>b.chapters.length),[19,27,13]);
  for(const b of books){const ids=new Set();for(const c of b.chapters){assert(c.title);c.paragraphs.forEach((p,i)=>{assert(p.trim());const id=b.id+':'+c.id+':'+i;assert(!ids.has(id));ids.add(id);});}assert(b.license.includes('CC0'));assert(b.colophon);assert(b.url.startsWith('https://standardebooks.org/ebooks/'));}
@@ -215,4 +215,27 @@ test('compiled chord cycles produce deterministic chord-tone melodies with bound
 });
 test('experimental harmony queues at a phrase, clones input and restores the authored recipe',async()=>{
  const a=new api.AudioAdapter(),recipe=api.compileHarmonyRecipe(scoringKnowledge,{genre:'fantasy',scene:'discovery'});await a.start();a.composer.step=1;const graph=a.ctx;a.queueHarmonyRecipe(recipe);recipe.chords[0][0]=99;a.composeBeat(.5);assert.equal(a.harmonyRecipe,null);assert.equal(a.tick,2);a.composer.step=32;a.composeBeat(1);assert.equal(a.harmonyRecipe.genre,'fantasy');assert(a.harmonyRecipe.chords.every(c=>c.every(n=>n<12)));assert.equal(a.tick,33);assert.equal(a.ctx,graph);a.queueHarmonyRecipe(null);a.composer.step=64;a.composeBeat(2);assert.equal(a.harmonyRecipe,null);assert.equal(a.tick,65);await a.dispose();
+});
+
+test('saved harmony is a bounded, versioned snapshot that survives profile and pin round trips',()=>{
+ const h=api.compileHarmonyRecipe(scoringKnowledge,{genre:'noir',scene:'anticipation',familyId:'major-third-colour',tonicPc:5});assert.equal(h.selectionMode,'manual');
+ const g=api.normalGenome({...api.normalGenome(),harmony:h});assert.equal(g.harmony.tonicPc,5);assert.equal(g.harmony.libraryVersion,scoringKnowledge.version);assert.equal(g.harmony.familyId,'major-third-colour');
+ const p=api.normalProfile({version:1,genomeVersion:'awen-genome-1',genome:g,pins:[g],pinNames:{[api.genomeKey(g)]:'Mystery'},history:[]}),restored=api.normalProfile(JSON.parse(JSON.stringify(p)));assert.equal(JSON.stringify(restored),JSON.stringify(p));assert.equal(restored.pinNames[api.genomeKey(restored.genome)],'Mystery');
+ const archived=api.normalGenome({...g,harmony:{...g.harmony,libraryVersion:'9.0.0'}});assert.equal(archived.harmony.libraryVersion,'9.0.0');assert.equal(JSON.stringify(archived.harmony.chords),JSON.stringify(g.harmony.chords));
+ for(const bad of [false,0,{...h,engineVersion:2},{...h,chords:[[99,2,4,7],...h.chords.slice(1)]},{...h,libraryVersion:'broken'},{...h,chords:[[0,1,2,3],...h.chords.slice(1)]}])assert.throws(()=>api.normalGenome({...g,harmony:bad}));
+ for(const c of api.makeGallery([g,api.starterGenome('frontier')],'both','hold-direction'))assert.equal(api.genomeKey({...c.genome,...api.GENOME_DEFAULT}),api.genomeKey({...g,...api.GENOME_DEFAULT}));
+});
+test('harmony gallery supplies six different musical choices and an authored-harmony return',()=>{
+ const base=api.normalGenome(),batch=api.makeHarmonyGallery(scoringKnowledge,base,{genre:'western',scene:'anticipation',tonicPc:2,seed:'proof'});assert.equal(batch.length,6);assert.equal(new Set(batch.map(c=>api.genomeKey(c.genome))).size,6);assert(batch.some(c=>!c.genome.harmony));assert(batch.some(c=>c.genome.harmony?.familyId==='static-suspension'));
+ const manual=api.makeHarmonyGallery(scoringKnowledge,batch[1].genome,{genre:'fantasy',scene:'revelation',familyId:'minor-sixth-intrigue',tonicPc:7});assert(manual.some(c=>c.genome.harmony?.selectionMode==='manual'&&c.genome.harmony.familyId==='minor-sixth-intrigue'&&c.genome.harmony.tonicPc===7));assert(manual.some(c=>c.kind==='authored'&&!c.genome.harmony));
+});
+test('harmonic checkpoint identity prevents incompatible voicing restoration and supports legacy scores',()=>{
+ const base=api.normalGenome(),g=api.normalGenome({...base,harmony:api.compileHarmonyRecipe(scoringKnowledge)}),session={harmonyIdentity:api.harmonicIdentity(g)};assert(api.canRestoreScoreSession(session,g));assert(!api.canRestoreScoreSession(session,base));assert(!api.canRestoreScoreSession({},g));assert(api.canRestoreScoreSession({},base));assert(!api.canRestoreScoreSession(undefined,base));
+});
+test('a saved harmonic preference becomes the live recipe at the next phrase without resetting time',async()=>{
+ const a=new api.AudioAdapter(),g=api.normalGenome({...api.normalGenome(),harmony:api.compileHarmonyRecipe(scoringKnowledge,{genre:'fantasy',scene:'discovery'})});await a.start();a.composer.step=1;a.setGenome(g,true);a.composeBeat(.5);assert.equal(a.genome.harmony,undefined);a.composer.step=32;a.composeBeat(1);assert.equal(a.tick,33);assert.equal(a.genome.harmony.familyId,g.harmony.familyId);assert.equal(a.harmonyRecipe,null);const expected=api.planStep({...a.snapshot(),step:32,slot:-1},{kind:a.intent.kind},g.scoreStyle,g.harmony).state.voicing;assert.equal(JSON.stringify(a.composer.voicing),JSON.stringify(expected));await a.dispose();
+});
+
+test('the chosen tonal centre transposes the motif before chord-tone anchoring',()=>{
+ const pitches=[];for(const tonicPc of [2,5]){const h=api.compileHarmonyRecipe(scoringKnowledge,{genre:'neutral',scene:'conversation',tonicPc});let s=api.makeComposer();for(let step=0;step<3;step++){const r=api.planStep(s,{kind:'caper'},'classic',h);for(const e of r.events)if(e.layer===2)pitches.push(e.midi);s=r.state;}}assert.deepEqual(pitches,[62,65]);
 });

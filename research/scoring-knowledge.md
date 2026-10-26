@@ -65,11 +65,11 @@ const recipe = compileHarmonyRecipe(scoringKnowledge, {
 audio.queueHarmonyRecipe(recipe);
 // Or the convenience lookup in the app:
 audio.queueHarmonyRecipe(proposeHarmony('unseen', 'discovery', 1));
-// Return to the selected authored starting point:
+// Return to the harmony stored in the selected personal profile:
 audio.queueHarmonyRecipe(null);
 ```
 
-While playing, changes enter at a four-bar phrase boundary without resetting musical time. While paused, a selected recipe is ready for the next start. Harmony, harmonic rhythm, form and chord-tone melody anchors are applied; tempo, timbre, lead density, silence and character-motif advice are not silently applied. The compiled object reports these as `applied` and `advisory` data. Normal playback and saved preference genomes do not automatically select these research recipes. This explicit engine API is session-only; experimental harmony is not yet part of profile/checkpoint export or the public gallery UI. Reading positions still save, while authored-score checkpoints are left untouched during a pending/active experimental harmony override.
+While playing, changes enter at a four-bar phrase boundary without resetting musical time. While paused, a selected recipe is ready for the next start. Harmony, harmonic rhythm, form and chord-tone melody anchors are applied; tempo, timbre, lead density, silence and character-motif advice are not silently applied. The compiled object reports these as `applied` and `advisory` data. The public **Explore chords & direction** gallery now offers genre, intention, family and tonal-centre choices, 16/32/64-second previews, compiled preference snapshots and compatible checkpoints. This is explicit listener selection, not automatic per-paragraph harmonic classification. A kept recipe is normal profile state and travels with pins/names; its stored bank and version are retained rather than recomputed on import. Checkpoint identity prevents voicings from another recipe being restored. The low-level `queueHarmonyRecipe` API remains an independent session-only experiment: reading positions save, while normal checkpoints are left untouched during that separate override.
 
 Maintenance, not a required application build:
 
@@ -84,4 +84,4 @@ The JSON schema checks shape. The dependency-free maintenance validator also che
 
 ## Next listening gate
 
-Audition a few alternatives at comparable levels on the same passage and musical starting state. Record personal enjoyment, narrative fit and reading comfort separately. Test transitions and longer repetition, including returning to the original recipe. Source-labelled suggestions should support selection/evolution, not overrule the listener. Add a normal gallery/persistence workflow only after this small harmony experiment is useful. Timed film/play scene annotation, stronger perceptual loudness work, character motifs and non-four-voice writing remain open strands.
+Audition a few alternatives at comparable levels on the same passage and musical starting state. Record personal enjoyment, narrative fit and reading comfort separately. Test transitions and longer repetition, including returning to the original recipe. Source-labelled suggestions should support selection/evolution, not overrule the listener. The explicit gallery/persistence workflow enables these small trials; automatic harmonic classification and broader policy changes remain future work. Timed film/play scene annotation, stronger perceptual loudness work, character motifs and non-four-voice writing remain open strands.
