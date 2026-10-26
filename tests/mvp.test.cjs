@@ -8,9 +8,9 @@ const script=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
 const books=JSON.parse(html.match(/<script id="books" type="application\/json">([\s\S]*?)<\/script>/)[1]);
 const ctx=vm.createContext({setInterval:()=>1,clearInterval:()=>{},setTimeout,clearTimeout});
 vm.runInContext(script.split('const $=id=>')[0],ctx);
-const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT,makeGallery,genomeDistance,genomeKey,describeGenome,cleanName,profileStamp,previewAttenuation,PREVIEW_RMS,SCORE_STYLES,starterGenome,makeStartingGallery,SKETCH_VERSION,validateScoringKnowledge,compileHarmonyRecipe,normalHarmonyRecipe,normalHarmonyChoice,makeHarmonyGallery,harmonicIdentity,canRestoreScoreSession})',ctx);
+const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT,makeGallery,genomeDistance,genomeKey,describeGenome,cleanName,profileStamp,previewAttenuation,PREVIEW_RMS,SCORE_STYLES,starterGenome,makeStartingGallery,SKETCH_VERSION,validateScoringKnowledge,compileHarmonyRecipe,normalHarmonyRecipe,normalHarmonyChoice,makeHarmonyGallery,harmonicIdentity,canRestoreScoreSession,SOUND_PALETTES,soundPalette,paletteInstrument})',ctx);
 test('complete curated books retain spine order, stable IDs and nonempty paragraphs',()=>{
- assert.deepEqual(books.map(b=>b.chapters.length),[19,27,13]);
+ assert.deepEqual(books.map(b=>b.chapters.length),[19,27,13,23]);
  for(const b of books){const ids=new Set();for(const c of b.chapters){assert(c.title);c.paragraphs.forEach((p,i)=>{assert(p.trim());const id=b.id+':'+c.id+':'+i;assert(!ids.has(id));ids.add(id);});}assert(b.license.includes('CC0'));assert(b.colophon);assert(b.url.startsWith('https://standardebooks.org/ebooks/'));}
  assert.equal(books[1].chapters[0].id,'chapter-1-1');assert.equal(books[1].chapters[9].id,'chapter-1-10');assert.equal(books[2].chapters.at(-1).id,'epilogue');
 });
@@ -238,4 +238,11 @@ test('a saved harmonic preference becomes the live recipe at the next phrase wit
 
 test('the chosen tonal centre transposes the motif before chord-tone anchoring',()=>{
  const pitches=[];for(const tonicPc of [2,5]){const h=api.compileHarmonyRecipe(scoringKnowledge,{genre:'neutral',scene:'conversation',tonicPc});let s=api.makeComposer();for(let step=0;step<3;step++){const r=api.planStep(s,{kind:'caper'},'classic',h);for(const e of r.events)if(e.layer===2)pitches.push(e.midi);s=r.state;}}assert.deepEqual(pitches,[62,65]);
+});
+
+test('western edition is complete, attributed and pinned without changing earlier book IDs',()=>{
+ assert.deepEqual(books.map(b=>b.id),['rat','war','time','riders']);const b=books[3];assert.equal(b.author,'Zane Grey');assert.equal(b.genre,'Western');assert.equal(b.chapters.length,23);assert.equal(b.chapters.reduce((n,c)=>n+c.paragraphs.length,0),2276);assert.equal(b.chapters.at(-1).id,'chapter-23');assert.match(b.revision,/source commit [a-f0-9]{40}/);assert.match(b.revision,/SHA256 [a-f0-9]{64}/);assert(b.license.includes('CC0'));
+});
+test('all palettes select known original timbres and preserve the playing graph and cursor',async()=>{
+ const a=new api.AudioAdapter();await a.start();const graph=a.ctx,tick=a.tick;for(const id of Object.keys(api.SOUND_PALETTES)){a.setPalette(id);assert.equal(a.palette,id);assert.equal(a.ctx,graph);assert.equal(a.tick,tick);}assert.equal(api.paletteInstrument('frontier','flute'),'whistle');assert.equal(api.paletteInstrument('frontier','guitar',22),'whistle');assert.equal(api.paletteInstrument('desert','guitar'),'softBrass');assert.equal(api.paletteInstrument('desert','flute'),'softBrass');assert.equal(api.paletteInstrument('noir','flute'),'lowReed');assert.equal(api.paletteInstrument('frontier','tone'),'tone');assert.equal(api.soundPalette('unknown'),'ensemble');await a.dispose();
 });

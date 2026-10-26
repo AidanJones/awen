@@ -5,3 +5,7 @@
 .beads-credential-key
 .beads/proxieddb/
 *.gate.lock*
+
+# Maintenance download cache and Python bytecode
+tools/.source-cache/
+__pycache__/

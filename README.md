@@ -2,7 +2,7 @@
 
 *Every story has a soundtrack.*
 
-A small, local science-fiction reader with an adaptive synthesiser soundtrack. The entire runnable app is **[index.html](index.html)**: inline CSS, JavaScript and three complete reading texts. No React, build, install, CDN, backend, account or API key. Approximately 900 KB, mostly book text; the application code is a few hundred lines.
+A small, local fiction reader with an adaptive synthesiser soundtrack. The entire runnable app is **[index.html](index.html)**: inline CSS, JavaScript and four complete reading texts (science fiction and a western). No React, build, install, CDN, backend, account or API key. Approximately 1.54 MB, mostly book text.
 
 Active work is tracked in **Beads**: run `bd ready` for available tasks. See the [Beads workflow](.beads/README.md) and [roadmap snapshot](TODO.md). Personal music evolution, a wider-choice gallery and richer starting palettes are the priorities.
 
@@ -27,10 +27,10 @@ Visit `http://localhost:8000`. Static hosting can serve the same HTML unchanged.
 - Start/pause the soundtrack, set its volume, or mix bass notes, chords, melody and pulse independently. Zero volume mutes with a short click-free fade.
 - **Check sound** plays a short 440 Hz tone at the selected app volume. **Mute now** or Escape stops music and the check tone. Signal detection distinguishes generated audio from a muted mix; if a signal is detected but you hear nothing, check browser-tab mute, system volume and the selected output device.
 - The waveform above Start/Pause is drawn from the actual limited output, including the check tone. It settles to a flat line on pause or mute, stops drawing while the page is hidden, and stays static when reduced motion is requested. It uses native Canvas and Web Audio with no visualisation library.
-- **Sound palette** offers Warm ensemble (the default: connected woodwind/string-like motifs, soft bass and occasional plucked accents) or Space synth. These are original synthesis approximations, not recordings or realistic orchestral samples. Both share a short synthesised stereo room.
+- **Sound palette** offers Warm ensemble (the default), Space synth, Frontier · guitar & whistle, Desert · strings & brass, Noir · muted reeds, and Chamber · felt & woodwind. Frontier uses guitar-like calls and whistle-like answers; Desert colours the lead with soft brass and strings. These are original synthesis approximations, not recordings or realistic orchestral samples. Palettes share the continuous score and limited audio graph; switching colours does not restart the phrase. Palette choice stays a separate browser setting from the saved preference genome.
 - **Continuous background** adds soft harmony under the foreground, initially at 30%. Chords follow an authored progression and crossfade at stable pitches, without pitch slides. Set it to zero for more space; the Chords mixer also scales it. All layers and effects use the same final limiter.
 - In **Follow the story**, paragraph changes update narrative intent and gently adjust expression without restarting the theme or cutting notes. A scene change must remain stable for a bar and satisfy a minimum three-bar dwell before entering at a bar line. At the fixed 72 BPM this means changes can take several seconds. The Playing label distinguishes the active scene from a pending direction. **Steady ambience** keeps the neutral intent while the same composition continues.
-- **Score seed** shows a seed saved separately for each book (initially `rat-001`, `war-001` and `time-001`). Apply a chosen seed or select **New interpretation**. During playback a new seed waits for the next four-bar phrase boundary; when paused it applies immediately. The active/queued status is shown. Unapplied queued changes are not committed across a reload.
+- **Score seed** shows a seed saved separately for each book (initially `rat-001`, `war-001`, `time-001` and `riders-001`). Apply a chosen seed or select **New interpretation**. During playback a new seed waits for the next four-bar phrase boundary; when paused it applies immediately. The active/queued status is shown. Unapplied queued changes are not committed across a reload.
 - **Follow the story** derives musical targets from local phrase rules. **Steady ambience** uses a fixed neutral target for comparison. Pause for silence.
 - **Behind the soundtrack** shows rule evidence, raw/contextual features, musical targets and the live smoothed state. Rules are artistic heuristics, not validated literary interpretation.
 
@@ -47,7 +47,7 @@ Open **Shape your soundtrack → Compare musical starting points**. Alongside yo
 | Unseen threat | Bowed fragments, darker suspended harmony and slow changes; background and bass carry the spaces |
 | Intimate dialogue | Soft piano-like phrases, restrained accompaniment and complete alternate phrases without foreground melody |
 
-These are procedural synthesis sketches, not realistic instrument samples. Recipes have authored note patterns, harmonic rhythm, chord material, envelopes and background voice balances; changing six preference numbers alone would not create these differences. The existing Warm ensemble/Space synth control remains a separate timbral option. All use the existing 72 BPM clock, continuous scene director, mixer and final limiter.
+These are procedural synthesis sketches, not realistic instrument samples. Recipes have authored note patterns, harmonic rhythm, chord material, envelopes and background voice balances; changing six preference numbers alone would not create these differences. The six-option Sound palette control remains a separate timbral option. For a western, try Spacious frontier with Frontier · guitar & whistle or Desert · strings & brass. Selecting a book preserves your chosen music settings. All use the existing 72 BPM clock, continuous scene director, mixer and final limiter.
 
 The ideas come from composer accounts of radio/film scoring and research on reading with music, documented in [the starting-point research notes](film_and_audio_drama_starting_points.md). They are original compositions informed by broad principles; no score recordings, extracted melodies, trained model or audio dataset is bundled. The four recipes have been checked on the same first three Rat passages, not validated as beneficial to reading.
 
@@ -85,25 +85,26 @@ The current proof checks six different bounded audio signals, reduced RMS spread
 
 ## The shelf and its sources
 
-Reading text comes from these Standard Ebooks source editions, retrieved 25 October 2026:
+Reading text comes from these Standard Ebooks source editions. The three science-fiction editions were retrieved 25 October 2026; the western was retrieved 26 October 2026:
 
 | Book | Included reading text | Source |
 |---|---|---|
 | Harry Harrison, *The Stainless Steel Rat* | 19 chapters, 883 paragraphs | [Edition](https://standardebooks.org/ebooks/harry-harrison/the-stainless-steel-rat) · [Source](https://github.com/standardebooks/harry-harrison_the-stainless-steel-rat) |
 | H. G. Wells, *The War of the Worlds* | 27 chapters, 884 paragraphs | [Edition](https://standardebooks.org/ebooks/h-g-wells/the-war-of-the-worlds) · [Source](https://github.com/standardebooks/h-g-wells_the-war-of-the-worlds) |
 | H. G. Wells, *The Time Machine* | 12 chapters and epilogue, 308 paragraphs | [Edition](https://standardebooks.org/ebooks/h-g-wells/the-time-machine) · [Source](https://github.com/standardebooks/h-g-wells_the-time-machine) |
+| Zane Grey, *Riders of the Purple Sage* | 23 chapters, 2,276 paragraphs | [Edition](https://standardebooks.org/ebooks/zane-grey/riders-of-the-purple-sage) · [Source](https://github.com/standardebooks/zane-grey_riders-of-the-purple-sage/tree/03c724dab009e9e66648c19f5f5e7302e2d3f9f4) |
 
 The [Stainless Steel Rat collection](https://standardebooks.org/collections/stainless-steel-rat) currently lists one downloadable edition; its other entries are marked `not-pd`. They are not bundled here. Standard Ebooks describes the bundled editions as believed public domain **in the United States**, with contributor work dedicated under [CC0](https://creativecommons.org/publicdomain/zero/1.0/). That does not establish public-domain status elsewhere; Harry Harrison's work in particular may remain copyrighted in your country.
 
 Each book retains its source link, exact source licence text, colophon and source ZIP SHA256 in the embedded data, accessible through **Edition notes**. Inline styling, artwork, front matter and note reference markers are omitted; endnotes are retained in Edition notes. Paragraph boundaries follow the source XHTML, including its longer paragraphs. The decorative covers are CSS illustrations, not Standard Ebooks artwork. Awen is independent of Standard Ebooks. The project has not yet selected a licence for its own application code.
 
-This MVP uses a curated embedded shelf, **not live catalogue search or arbitrary URL/EPUB import**. It avoids browser CORS restrictions and runtime network dependencies. To refresh the shelf, download source ZIPs from the three GitHub repositories and run the optional maintenance script:
+This MVP uses a curated embedded shelf, **not live catalogue search or arbitrary URL/EPUB import**. It avoids browser CORS restrictions and runtime network dependencies. To refresh the shelf, download source ZIPs from the four GitHub repositories and run the optional maintenance script:
 
 ```sh
-python tools/refresh_books.py rat.zip wells-war.zip wells-time.zip
+python tools/refresh_books.py rat.zip wells-war.zip wells-time.zip riders.zip
 ```
 
-This replaces only the embedded JSON in `index.html`, following the EPUB spine order and excluding chapter headings from paragraphs. It is not a build step required to use or distribute the app.
+This replaces only the embedded JSON in `index.html`, following the EPUB spine order and excluding chapter headings from paragraphs. To refresh just the western while preserving the other editions, use `python tools/refresh_books.py --add riders riders.zip`. Source revision metadata records the archive hash, retrieval date and commit when present in the ZIP root. It is not a build step required to use or distribute the app.
 
 ## Engine-readable scoring research
 
@@ -133,7 +134,7 @@ The richer ensemble preset is an artistic option, not a claimed cognitive benefi
 node --test tests/mvp.test.cjs
 ```
 
-The dependency-free suite checks the books and feature bounds over all 2,075 paragraphs, analysis, smoothing, audio lifecycle, routing/limiting, specified RNG vectors, reproducible score events, independent streams, phrase continuity, scene dwell, compatible/corrupt checkpoints and per-voice constraints. It simulates ten minutes across eight seeds to check register, voice leading and polyphony.
+The dependency-free suite checks the books and feature bounds over all 4,351 paragraphs, analysis, smoothing, audio lifecycle, routing/limiting, specified RNG vectors, reproducible score events, independent streams, phrase continuity, scene dwell, compatible/corrupt checkpoints and per-voice constraints. It simulates ten minutes across eight seeds to check register, voice leading and polyphony.
 
 For the optional real-browser audio suite, install Playwright in your test environment (`npm install --no-save playwright`, then `npx playwright install chromium`) and run:
 
@@ -143,7 +144,7 @@ node tests/audio.browser.cjs
 
 Alternatively, set `AWEN_BROWSER_CHANNEL=msedge` to use installed Edge in a separate headless test profile. Playwright is a testing dependency only. The suite renders the production graph in native `OfflineAudioContext`, including an 80-second score, both palettes, background controls, muted layers, maximum levels and overloads. Live checks cover uninterrupted musical position through 20 paragraph changes, scene dwell/bar boundaries, explicit/generated/queued seeds, per-book seeds and checkpoints, all playback/mute controls, waveform/reduced motion, restart/jumps, mobile layout and no autoplay. These verify generated samples and behaviour, not the physical speakers or artistic quality.
 
-The current revision passes 41 dependency-free tests. The isolated Playwright suite checks a final sample ceiling of 0.14, exact silence for zero master/all layers muted, audible output at the default level, and all controls described above. Listening quality and sustained real-device operation remain separate acceptance work.
+The current revision passes 43 dependency-free tests. The isolated Playwright suites check a final sample ceiling of 0.14, exact silence for zero master/all layers muted, audible output at the default level, and all controls described above. Listening quality and sustained real-device operation remain separate acceptance work.
 
 Manual browser smoke checks: initial silence; user-gesture start; navigation while playing; keyboard navigation; chapter jump; per-book restoration; reload with saved progress and audio off; steady ambience; inspector; appearance and pause. Browser playback state was checked in the Codex in-app Chromium browser. Audible quality, long sessions, Safari/iOS, mobile devices and interruptions on real hardware still need listening/device tests.
 
@@ -158,3 +159,5 @@ Personalisation browser checks: `node tests/evolution.browser.cjs` (same Playwri
 Starting-point proof: `node tests/starting-points.browser.cjs` uses the same isolated Playwright setup. It checks recipe choice/evolution, named-profile compatibility, four 16-second sketches over three matched passages, dialogue rests and native signal bounds.
 
 Integrated harmony direction checks: `node tests/harmony-directions.browser.cjs` verifies the public controls, 64/16-second previews, native output cap, versioned pin/profile round trips, exact checkpoint reload, cross-book persistence, reversible clear and incompatible-import handling.
+
+Western/palette checks: `node tests/western.browser.cjs` verifies all six palettes in native audio, graph continuity, western chapter/paragraph navigation and persistence, night-mode dropdown text/option/border contrast, keyboard selection, light-mode restoration and mobile layout. `node tests/scoring-knowledge.browser.cjs` checks the compiled harmony library in native audio.

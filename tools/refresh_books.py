@@ -1,11 +1,13 @@
 """Maintenance only: embed Standard Ebooks source ZIPs in index.html. No build needed to run Awen.
 
-Download the three named source repositories from github.com/standardebooks as ZIPs,
-then run: python tools/refresh_books.py rat.zip wells-war.zip wells-time.zip
+Download the named source repositories from github.com/standardebooks as ZIPs.
+Refresh all: python tools/refresh_books.py rat.zip wells-war.zip wells-time.zip riders.zip
+Add/refresh one: python tools/refresh_books.py --add riders riders.zip --retrieved "26 October 2026"
 """
+import argparse
+from datetime import date
 import json
 import re
-import sys
 import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -16,6 +18,7 @@ SHELF = [
     ("rat", "The Stainless Steel Rat", "Harry Harrison", "harry-harrison/the-stainless-steel-rat"),
     ("war", "The War of the Worlds", "H. G. Wells", "h-g-wells/the-war-of-the-worlds"),
     ("time", "The Time Machine", "H. G. Wells", "h-g-wells/the-time-machine"),
+    ("riders", "Riders of the Purple Sage", "Zane Grey", "zane-grey/riders-of-the-purple-sage"),
 ]
 
 
@@ -28,7 +31,7 @@ def text(element):
     return re.sub(r"\s+", " ", "".join(element.itertext())).strip()
 
 
-def extract(path, metadata):
+def extract(path, metadata, retrieved=None):
     book_id, title, author, slug = metadata
     with zipfile.ZipFile(path) as archive:
         opf_path = next(n for n in archive.namelist() if n.endswith("/content.opf"))
@@ -57,22 +60,42 @@ def extract(path, metadata):
                 chapters.append({"id": Path(href).stem, "title": name, "paragraphs": paragraphs})
         license_path = next(n for n in archive.namelist() if n.endswith("/LICENSE.md"))
         assert chapters and all(c["paragraphs"] for c in chapters)
+        commit = re.search(r"-([0-9a-f]{40})/", archive.namelist()[0])
         return {"id": book_id, "title": title, "author": author,
+                "genre": "Western" if book_id == "riders" else "Science fiction",
+                "coverColor": {"rat": "#485b49", "war": "#a4553a", "time": "#334f63", "riders": "#795739"}[book_id],
                 "url": "https://standardebooks.org/ebooks/" + slug,
                 "repository": "https://github.com/standardebooks/" + slug.replace("/", "_"),
-                "revision": "25 October 2026 · source archive SHA256 " + sha256(Path(path).read_bytes()).hexdigest(),
+                "revision": (retrieved or date.today().strftime("%d %B %Y")) + " · source archive SHA256 " + sha256(Path(path).read_bytes()).hexdigest() + (" · source commit " + commit[1] if commit else ""),
                 "license": archive.read(license_path).decode().strip(),
                 "colophon": colophon + endnotes, "chapters": chapters}
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        sys.exit(__doc__)
-    books = [extract(path, meta) for path, meta in zip(sys.argv[1:], SHELF)]
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("archives", nargs="*")
+    parser.add_argument("--add", choices=[b[0] for b in SHELF], help="Add/refresh a single edition without changing the others")
+    parser.add_argument("--retrieved", help="Human-readable source retrieval date")
+    args = parser.parse_args()
     page = Path(__file__).resolve().parents[1] / "index.html"
+    html = page.read_text(encoding="utf-8")
+    if args.add:
+        if len(args.archives) != 1:
+            parser.error("--add requires exactly one source archive")
+        books = json.loads(re.search(r'<script id="books" type="application/json">([\s\S]*?)</script>', html)[1])
+        added = extract(args.archives[0], next(b for b in SHELF if b[0] == args.add), args.retrieved)
+        index = next((i for i, b in enumerate(books) if b["id"] == args.add), len(books))
+        if index == len(books):
+            books.append(added)
+        else:
+            books[index] = added
+    else:
+        if len(args.archives) != len(SHELF):
+            parser.error(f"provide all {len(SHELF)} archives or use --add")
+        books = [extract(path, meta, args.retrieved) for path, meta in zip(args.archives, SHELF)]
     data = json.dumps(books, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
     start, end = "<!-- BOOK_DATA_START -->", "<!-- BOOK_DATA_END -->"
-    before, rest = page.read_text(encoding="utf-8").split(start)
+    before, rest = html.split(start)
     _, after = rest.split(end)
     page.write_text(before + start + '\n<script id="books" type="application/json">' + data + "</script>\n" + end + after, encoding="utf-8")
     for b in books:
