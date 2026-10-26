@@ -8,7 +8,7 @@ const script=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
 const books=JSON.parse(html.match(/<script id="books" type="application\/json">([\s\S]*?)<\/script>/)[1]);
 const ctx=vm.createContext({setInterval:()=>1,clearInterval:()=>{},setTimeout,clearTimeout});
 vm.runInContext(script.split('const $=id=>')[0],ctx);
-const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT})',ctx);
+const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT,makeGallery,genomeDistance,genomeKey,describeGenome})',ctx);
 test('complete curated books retain spine order, stable IDs and nonempty paragraphs',()=>{
  assert.deepEqual(books.map(b=>b.chapters.length),[19,27,13]);
  for(const b of books){const ids=new Set();for(const c of b.chapters){assert(c.title);c.paragraphs.forEach((p,i)=>{assert(p.trim());const id=b.id+':'+c.id+':'+i;assert(!ids.has(id));ids.add(id);});}assert(b.license.includes('CC0'));assert(b.colophon);assert(b.url.startsWith('https://standardebooks.org/ebooks/'));}
@@ -147,4 +147,24 @@ test('personal genomes mutate deterministically within scope and validate import
 });
 test('personal changes queue until a phrase and every evolved voice uses the same limiter',async()=>{
  const a=new api.AudioAdapter();await a.start();const original=JSON.stringify(a.genome);a.composer.step=1;a.setGenome({...api.normalGenome(),warmth:1},true);a.composeBeat(.2);assert.equal(JSON.stringify(a.genome),original);a.composer.step=32;a.composeBeat(.3);assert.equal(a.genome.warmth,1);assert.equal(a.pendingGenome,null);await a.dispose();
+});
+
+test('six-candidate galleries preserve parents/pins, reproduce and vary only the selected scope',()=>{
+ for(const scope of ['both','foreground','background'])for(const strength of ['nearby','wide'])for(let n=0;n<80;n++){
+  const base=api.normalGenome(Object.fromEntries(Object.keys(api.GENOME_DEFAULT).map((k,i)=>[k,n%3===0?0:n%3===1?1:(i+1)/7]))),other=api.normalGenome(),pins=[api.mutateGenome(base,scope,'pin'+n)];
+  const gallery=api.makeGallery([base,other],scope,'batch'+n,pins,strength);
+  assert.equal(gallery.length,6);assert.equal(JSON.stringify(gallery),JSON.stringify(api.makeGallery([base,other],scope,'batch'+n,pins,strength)));
+  assert.equal(api.genomeKey(gallery[0].genome),api.genomeKey(base));assert(gallery.some(c=>api.genomeKey(c.genome)===api.genomeKey(pins[0])));
+  assert.equal(new Set(gallery.map(c=>api.genomeKey(c.genome))).size,6);
+  for(const c of gallery){assert(Object.values(c.genome).every(v=>Number.isFinite(v)&&v>=0&&v<=1));if(c.kind==='variation'||c.kind==='explore'){
+   for(const other of gallery.filter(x=>x!==c))assert(api.genomeDistance(c.genome,other.genome)>=.12);
+   if(scope==='foreground')for(const k of ['warmth','space','bedPresence','bedMotion'])assert.equal(c.genome[k],base[k]);
+   if(scope==='background')for(const k of ['activity','softness'])assert.equal(c.genome[k],base[k]);
+  }}assert(api.genomeDistance(base,gallery[5].genome)>=.32);
+ }
+});
+test('gallery profile migration preserves legacy choices and bounded favourites and generation data',()=>{
+ const g=api.normalGenome(),legacy={version:1,genomeVersion:'awen-genome-1',genome:g,history:[{choice:'B',before:g,after:g}]};assert.equal(api.normalProfile(legacy).history[0].choice,'B');assert.equal(api.normalProfile(legacy).pins.length,0);
+ const profile=api.normalProfile({...legacy,pins:Array(12).fill(g),history:[{choice:'gallery',before:g,after:g,candidates:Array(10).fill(g),parents:[g],selected:2,strength:'wide'}]});assert.equal(profile.pins.length,3);assert.equal(profile.history[0].candidates.length,6);assert.equal(profile.history[0].selected,2);assert.equal(profile.history[0].parents.length,1);assert.equal(profile.history[0].strength,'wide');assert.equal(JSON.stringify(api.normalProfile(JSON.parse(JSON.stringify(profile)))),JSON.stringify(profile));
+ assert.equal(api.describeGenome({...g,warmth:1},g),'warmer');assert.equal(api.describeGenome(g,g),'Same musical settings');
 });
