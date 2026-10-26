@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "backend": "transformers-clap-cpu-1",
+  "modelId": "laion/larger_clap_general",
+  "revision": "ada0c23a36c4e8582805bb38fec3905903f18b41",
+  "modelCard": "https://huggingface.co/laion/larger_clap_general",
+  "license": "apache-2.0",
+  "weights": "pytorch_model.bin",
+  "weightsSha256": "314eb00cce6ad68d25237b8446b659ccdb136ed4672c1bca470f142f72455026",
+  "weightsBytes": 776444665,
+  "dimension": 512,
+  "textTowerSanity": {
+    "texts": ["The sound of a dog barking.", "A piano playing a soft melody.", "A man speaking loudly."],
+    "rejectIfMinimumPairwiseCosineAbove": 0.995,
+    "purpose": "Reject extreme representation collapse, not establish semantic accuracy. The music-only checkpoint failed this independent API check."
+  },
+  "preprocessing": {
+    "sourceSampleRate": 24000,
+    "targetSampleRate": 48000,
+    "seconds": 10,
+    "pcm": "mono signed 16-bit little-endian divided by 32768",
+    "resample": "scipy.signal.resample_poly up=2 down=1 window=(kaiser,5.0) padtype=constant",
+    "audioPadding": "repeatpad",
+    "audioTruncation": "rand_trunc; exact ten-second input prevents random cropping",
+    "textMaxTokens": 77,
+    "textTruncation": "reject; no silent truncation",
+    "normalization": "L2 float32 outputs; cosine dot product",
+    "device": "cpu",
+    "dtype": "float32",
+    "threads": 2,
+    "seed": 0
+  }
+}

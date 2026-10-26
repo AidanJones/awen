@@ -190,11 +190,14 @@ See [score-lab design and commands](research/score-lab.md), [audio-judge rubric]
 
 ### Audio–text embeddings — `awen-3fr.6.2` (open)
 
+- [x] Implement the first CLAP slice (`awen-3fr.6.2.1`): optional pinned CPU backend, ten-second native audio windows, independently drafted briefs, unsuitable/shuffled/paraphrase/silence controls, content-addressed feature cache, unique logs and resumable feature jobs. See [measured results](research/clap-probe.md).
+- [x] Reject extreme text-encoder collapse. The initial music-only checkpoint failed an independent API sanity check; the pinned general/music/speech replacement passed it. The four-window result is not a reliable evolution reward (2/4 intended scene preferences, two wording reversals and two silence wins), so no preset is adopted.
+- [x] Verify a real 14-feature run paused after two features, resumed without recomputation, and a fresh experiment reused all vectors with zero new inference/model loading. Keep model weights and optional dependencies out of the reader/repo.
 - [ ] Compare pretrained LAION CLAP, music-specific MuQ-MuLan and CLaMP 3 on a tiny scene-brief/audio set before training a new joint encoder. Check actual checkpoint licences, revisions, preprocessing and hardware requirements.
 - [ ] Keep embedding association distinct from narrative fit, musical coherence, personal taste and reading comfort. Use independent briefs and negative/shuffled pairs, not the current classifier's labels as ground truth.
 - [ ] Cache by audio/text/checkpoint/preprocessing hashes; measure timed windows and hold out whole works/genres. Only use embeddings for shortlisting or a small ranking layer after listener agreement is useful. An audio-capable LLM can judge finalists during development; neither becomes a required runtime dependency.
 
-See [audio–text and script/cue-sheet research](research/audio-text-evaluation.md). These are research backlog items, with no model downloads, corpus building or training performed yet.
+See [audio–text and script/cue-sheet research](research/audio-text-evaluation.md). The first CLAP checkpoint experiment is complete; cross-model comparisons and reference-corpus work remain backlog items. No reference corpus or model training has been performed.
 
 ### Related open strands
 

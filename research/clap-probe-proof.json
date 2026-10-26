@@ -1,0 +1,229 @@
+{
+  "experimentId": "5e453b23d7264ab2b3a4221c584658e8",
+  "identity": {
+    "backendSha256": "3499d3927518415fad9a330a343c2cda17d724c5fc65e540263d2d96ec1e8433",
+    "packages": {
+      "huggingface-hub": "0.36.2",
+      "numpy": "2.3.5",
+      "safetensors": "0.8.0",
+      "scipy": "1.16.3",
+      "tokenizers": "0.22.2",
+      "torch": "2.8.0+cpu",
+      "transformers": "4.57.1"
+    },
+    "spec": {
+      "backend": "transformers-clap-cpu-1",
+      "dimension": 512,
+      "license": "apache-2.0",
+      "modelCard": "https://huggingface.co/laion/larger_clap_general",
+      "modelId": "laion/larger_clap_general",
+      "preprocessing": {
+        "audioPadding": "repeatpad",
+        "audioTruncation": "rand_trunc; exact ten-second input prevents random cropping",
+        "device": "cpu",
+        "dtype": "float32",
+        "normalization": "L2 float32 outputs; cosine dot product",
+        "pcm": "mono signed 16-bit little-endian divided by 32768",
+        "resample": "scipy.signal.resample_poly up=2 down=1 window=(kaiser,5.0) padtype=constant",
+        "seconds": 10,
+        "seed": 0,
+        "sourceSampleRate": 24000,
+        "targetSampleRate": 48000,
+        "textMaxTokens": 77,
+        "textTruncation": "reject; no silent truncation",
+        "threads": 2
+      },
+      "revision": "ada0c23a36c4e8582805bb38fec3905903f18b41",
+      "textTowerSanity": {
+        "purpose": "Reject extreme representation collapse, not establish semantic accuracy. The music-only checkpoint failed this independent API check.",
+        "rejectIfMinimumPairwiseCosineAbove": 0.995,
+        "texts": [
+          "The sound of a dog barking.",
+          "A piano playing a soft melody.",
+          "A man speaking loudly."
+        ]
+      },
+      "version": 1,
+      "weights": "pytorch_model.bin",
+      "weightsBytes": 776444665,
+      "weightsSha256": "314eb00cce6ad68d25237b8446b659ccdb136ed4672c1bca470f142f72455026"
+    }
+  },
+  "limitations": [
+    "Two books and two render candidates are a smoke test, not held-out validation.",
+    "No human taste, reading comfort or comprehension labels.",
+    "Similarity is not a calibrated score-selection reward.",
+    "Same-book windows and alternate renderings are not independent observations.",
+    "No statistical significance or calibrated reward is inferred from this smoke test."
+  ],
+  "musicalWinner": null,
+  "qualityOrReadingBenefitEstablished": false,
+  "rows": [
+    {
+      "cacheKey": "c04d64b8cec2d9556178b25f576d435e497de5f2360cc17d344875cb4976980e",
+      "candidate": "c-a421dd7fe48e",
+      "endSeconds": 40.120000000000005,
+      "id": "c-a421dd7fe48e/rat-escape",
+      "margin": 0.08335929794207224,
+      "matched": 0.15921158123140094,
+      "matchedAboveUnsuitable": true,
+      "paragraphId": "rat:chapter-1:2",
+      "paraphraseMargin": -0.026420304555887925,
+      "probe": "rat-escape",
+      "scores": {
+        "rat-escape/brief": 0.15921158123140094,
+        "rat-escape/paraphrase": 0.20492709280621785,
+        "riders-landscape/brief": 0.0758522832893287,
+        "riders-landscape/paraphrase": 0.23134739736210577,
+        "unsuitable/metal-vocals": -0.1242722274451431,
+        "unsuitable/news-traffic": 0.06600534320930981
+      },
+      "shuffled": 0.0758522832893287,
+      "sourceWavSha256": "55a574438cb66b42842001c3d56ad0fd2d0d693d3d901dd05144f24c5f192148",
+      "startSeconds": 30.12,
+      "wordingSignChanged": true
+    },
+    {
+      "cacheKey": "751442a9baac0ba14baf235ca16079767755bf6d11cef91702d7b9f890dca2b4",
+      "candidate": "c-a421dd7fe48e",
+      "endSeconds": 12.120000000000001,
+      "id": "c-a421dd7fe48e/riders-landscape",
+      "margin": -0.022242090825517855,
+      "matched": 0.07009279459724008,
+      "matchedAboveUnsuitable": true,
+      "paragraphId": "riders:chapter-1:0",
+      "paraphraseMargin": 0.10171604133403297,
+      "probe": "riders-landscape",
+      "scores": {
+        "rat-escape/brief": 0.09233488542275793,
+        "rat-escape/paraphrase": 0.11786309628026434,
+        "riders-landscape/brief": 0.07009279459724008,
+        "riders-landscape/paraphrase": 0.21957913761429732,
+        "unsuitable/metal-vocals": -0.14071959123140643,
+        "unsuitable/news-traffic": 0.05447958322953287
+      },
+      "shuffled": 0.09233488542275793,
+      "sourceWavSha256": "417023e4655ff3b33fe372037a3fc81db23be342b2d6874d7bbd2668de17d9b3",
+      "startSeconds": 2.12,
+      "wordingSignChanged": true
+    },
+    {
+      "cacheKey": "3f35acd8969a8c738493720665c6e785d57e737e191f95c023b52847bdec81ea",
+      "candidate": "c-0bfff69d1f71",
+      "endSeconds": 40.120000000000005,
+      "id": "c-0bfff69d1f71/rat-escape",
+      "margin": -0.03474600432241981,
+      "matched": 0.10890667950170618,
+      "matchedAboveUnsuitable": true,
+      "paragraphId": "rat:chapter-1:2",
+      "paraphraseMargin": -0.18020863812012675,
+      "probe": "rat-escape",
+      "scores": {
+        "rat-escape/brief": 0.10890667950170618,
+        "rat-escape/paraphrase": 0.0994121886853758,
+        "riders-landscape/brief": 0.143652683824126,
+        "riders-landscape/paraphrase": 0.27962082680550254,
+        "unsuitable/metal-vocals": -0.13358068094952139,
+        "unsuitable/news-traffic": 0.033050021837176
+      },
+      "shuffled": 0.143652683824126,
+      "sourceWavSha256": "2093fc9282ed223af8425e0a49848031122d25ce9a581fbf833269495f7c0236",
+      "startSeconds": 30.12,
+      "wordingSignChanged": false
+    },
+    {
+      "cacheKey": "161c91a44390ee5ebf7f47d4cda22cc87442cd90ab037ca227e3be33dfce0f36",
+      "candidate": "c-0bfff69d1f71",
+      "endSeconds": 12.120000000000001,
+      "id": "c-0bfff69d1f71/riders-landscape",
+      "margin": 0.05014843617179168,
+      "matched": 0.1491579745062415,
+      "matchedAboveUnsuitable": true,
+      "paragraphId": "riders:chapter-1:0",
+      "paraphraseMargin": 0.1813380297314987,
+      "probe": "riders-landscape",
+      "scores": {
+        "rat-escape/brief": 0.09900953833444981,
+        "rat-escape/paraphrase": 0.08944264166424705,
+        "riders-landscape/brief": 0.1491579745062415,
+        "riders-landscape/paraphrase": 0.27078067139574574,
+        "unsuitable/metal-vocals": -0.13328305666680632,
+        "unsuitable/news-traffic": 0.020251752640243325
+      },
+      "shuffled": 0.09900953833444981,
+      "sourceWavSha256": "3a4a05ce8a78ab81ef5ec62905612a86aae1628c135d3f987f048208967f0074",
+      "startSeconds": 2.12,
+      "wordingSignChanged": false
+    }
+  ],
+  "silenceBeatsMatchedMusic": [
+    "c-a421dd7fe48e/riders-landscape",
+    "c-0bfff69d1f71/rat-escape"
+  ],
+  "silenceScores": {
+    "rat-escape/brief": 0.157460624586128,
+    "rat-escape/paraphrase": 0.13914357809884204,
+    "riders-landscape/brief": 0.11632913016071228,
+    "riders-landscape/paraphrase": 0.16620622327518295,
+    "unsuitable/metal-vocals": 0.13145890804527954,
+    "unsuitable/news-traffic": 0.10540634637492909
+  },
+  "status": "diagnostic-only",
+  "suiteId": "awen-clap-association-smoke-1",
+  "summary": {
+    "audioExamples": 4,
+    "constantScoreMatrix": false,
+    "matchedAboveUnsuitable": 4,
+    "matchedPreferred": 2,
+    "meanMatchedMinusShuffled": 0.019129909741481564,
+    "wordingSignChanges": 2
+  },
+  "textTowerSanity": {
+    "meaning": "Extreme-collapse check only; not semantic validation.",
+    "pairwiseCosines": [
+      0.18757137954260267,
+      0.31553199054321585,
+      0.13684393181566246
+    ],
+    "rejectThreshold": 0.995,
+    "usable": true
+  },
+  "trainingPerformed": false,
+  "version": "awen-embedding-probe-1",
+  "proof": {
+    "date": "2026-10-26",
+    "sources": {
+      "research/clap-probe-model.json": "86ecaef3ce232a5223a13ea5960ec9782f7d392c7d38536b1d02a0f2a0ea3179",
+      "research/clap-probe-suite.json": "5f25e335a3b5f73d0de29afbc97b3456d7c01e336ad60003ebb3bb19d8203446",
+      "tools/clap_backend.py": "3499d3927518415fad9a330a343c2cda17d724c5fc65e540263d2d96ec1e8433",
+      "tools/score_embeddings.py": "b689877a34ca8da6682c884ac67355414785bbb36f03e5201ea30d5e6db00129",
+      "tools/score_lab.py": "464015e05c3758475920567e121cbdc4defbf0c01d7546837aaf58ac14be89f6"
+    },
+    "manifestSha256": "d1d453e7844f7f0ee61788b5e1a997f5fe636632a4f9833aa1608883b4d3cfae",
+    "sourceRunSha256": "1a363518c5501ecbd8ac75a402f57e1a8fba37a2e4b5ed1297fa72d7cb9bfa4b",
+    "suiteSha256": "5f25e335a3b5f73d0de29afbc97b3456d7c01e336ad60003ebb3bb19d8203446",
+    "computedFeatures": 14,
+    "featureBreakdown": {
+      "textTowerSanity": 3,
+      "briefsAndParaphrasesAndNegatives": 6,
+      "realAudioWindows": 4,
+      "silence": 1
+    },
+    "invocationLogs": [
+      "20261026T235259.376700Z-637580ca2a474d30a60e57534a6897f6.jsonl",
+      "20261026T235310.925741Z-d7571d0e026c4fba83f844693588f4ff.jsonl",
+      "20261026T235327.440113Z-785e0478d10448e9b788ff9dff60741d.jsonl"
+    ],
+    "pausedAfterFeatures": 2,
+    "resumedFirstJobsUnchanged": true,
+    "allJobAttemptCountsOne": true,
+    "cacheOnlyRepeatNewInference": 0,
+    "freshExperimentCacheHits": 14,
+    "freshExperimentNewInference": 0,
+    "freshExperimentModelLoaded": false,
+    "newAudioRendered": 0,
+    "llmCalls": 0,
+    "runtimeChanged": false,
+    "rejectedCheckpointEvidence": "clap-probe-rejected-checkpoint.json"
+  }
+}

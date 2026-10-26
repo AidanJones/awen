@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "id": "awen-clap-association-smoke-1",
+  "annotation": "Developer-authored before scoring, based on source passages rather than the engine's scene labels. These are proposed accompaniment briefs, not independent human ground truth or music captions verified by listening.",
+  "probes": [
+    {
+      "id": "rat-escape",
+      "caseId": "rat-opening",
+      "paragraphId": "rat:chapter-1:2",
+      "startSeconds": 30.12,
+      "brief": "Restrained instrumental music with sly, urgent movement and a playful sense of danger. A quiet accompaniment for an ingenious escape, without singing or speech.",
+      "paraphrase": "Quiet instrumental accompaniment for a cunning escape: playful tension and a little rhythmic momentum, leaving room for the story. No vocals."
+    },
+    {
+      "id": "riders-landscape",
+      "caseId": "riders-opening",
+      "paragraphId": "riders:chapter-1:0",
+      "startSeconds": 2.12,
+      "brief": "Spacious, restrained instrumental music with sparse melodic phrases and a pensive, open landscape mood. A quiet accompaniment for a reflective western scene, without singing or speech.",
+      "paraphrase": "Quiet instrumental accompaniment for a wide western landscape: unhurried, thoughtful melody with space between phrases. No vocals."
+    }
+  ],
+  "unsuitable": [
+    {"id":"metal-vocals", "text":"Loud heavy metal music with screamed lyrics, distorted electric guitars and aggressive drums."},
+    {"id":"news-traffic", "text":"A spoken news bulletin with street traffic and loud car horns in the background."}
+  ],
+  "shuffle": "Swap the two primary briefs; report the same swap for paraphrases. No permutation search.",
+  "controls": ["silence", "same cached audio identity", "unsuitable descriptions", "brief paraphrases"],
+  "limitations": ["Two books and two render candidates are a smoke test, not held-out validation.", "No human taste, reading comfort or comprehension labels.", "Similarity is not a calibrated score-selection reward."]
+}

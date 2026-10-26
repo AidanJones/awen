@@ -1,6 +1,6 @@
 # Audio–text embeddings and reference material
 
-26 October 2026. Backlog research supporting the development evaluator, not an installed model or a new runtime dependency. The current implementation task remains the resumable Python/native-audio bridge.
+26 October 2026. Research supporting the development evaluator. The [small CLAP probe](clap-probe.md) is now implemented and measured; MuQ-MuLan, CLaMP 3 and reference-corpus comparisons remain backlog work. None adds a runtime dependency to the reader.
 
 ## Existing CLIP-like audio models
 
@@ -10,13 +10,15 @@
 | [MuQ-MuLan](https://github.com/tencent-ailab/MuQ) | Music/text joint embeddings; distinct from the audio-only MuQ encoder | Compare music-specific descriptions against the general audio model |
 | [CLaMP 3](https://github.com/sanderwood/clamp3) | Shared music retrieval representations across text, audio and symbolic/visual music modalities | Later compare symbolic score plans and actual audio against the same brief |
 
-The official MuQ repository specifies 24 kHz audio, approximately 700M parameters for MuQ-MuLan, MIT code and CC-BY-NC 4.0 model weights. Its input rate matches the lab WAVs, but that does not establish alignment quality. Check each chosen checkpoint's actual revision, licence, preprocessing, truncation/windowing and hardware needs before installation. No weights have been downloaded or benchmarked here, and these models are development candidates rather than browser/device requirements.
+The official MuQ repository specifies 24 kHz audio, approximately 700M parameters for MuQ-MuLan, MIT code and CC-BY-NC 4.0 model weights. Its input rate matches the lab WAVs, but that does not establish alignment quality. Check each chosen checkpoint's actual revision, licence, preprocessing, truncation/windowing and hardware needs before installation. MuQ/CLaMP weights have not been downloaded or benchmarked here. CLAP checkpoints were downloaded for the separate local probe; all remain development tools rather than browser/device requirements.
 
 A joint embedding makes cosine similarity possible; it does not make a play paragraph a music caption. Retrieval of “tense strings” is different from deciding whether a quiet suspended accompaniment supports an ironic conversation. Literal mention of gunshots or a train could reward sound effects rather than useful music. Do not turn similarity into a universal musical-quality score or manufacture LLM-style coherence/comfort votes from it.
 
 Start with a few independently authored dramatic-function briefs, positives and plausible counterexamples. Compare matched and shuffled pairs; include ambiguous text and silence/no-music examples. Extract time-aligned windows around changes instead of averaging away the entire scene. Cache features by exact audio bytes, text, checkpoint and preprocessing. Check agreement with separate listener fit/taste/comfort labels before using a score to select candidates. Whole-work/book/genre holdouts matter more than randomly splitting overlapping clips.
 
 If this works, the development loop could use cheap embedding diagnostics to shortlist candidates and an audio-capable LLM for richer comparisons of finalists. A small trained ranking layer may eventually be enough; training a new joint encoder from scratch is not the first experiment. Keep both mechanisms outside the finished local reader. Track this comparison as **`awen-3fr.6.2`**.
+
+The first CLAP slice (`awen-3fr.6.2.1`) found a collapsed text tower in the music-only checkpoint, added a rejection guard and measured a pinned general/music/speech replacement on four existing windows. Intended scene briefs won only 2/4 versus swapped briefs, paraphrasing changed the sign twice, and silence outscored two intended pairings. See [the full results and limitations](clap-probe.md). This does not establish a usable optimisation reward; the broader comparison and listener/held-out calibration stay open.
 
 ## Do scripts describe the background score?
 

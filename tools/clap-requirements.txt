@@ -1,0 +1,5 @@
+# Optional development environment only. Install CPU torch using its CPU wheel index first.
+torch==2.8.0
+transformers==4.57.1
+numpy==2.3.5
+scipy==1.16.3

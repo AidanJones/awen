@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-26",
+  "status": "rejected-during-api-validation",
+  "modelId": "laion/larger_clap_music",
+  "revision": "a0b4534a14f58e20944452dff00a22a06ce629d1",
+  "weightsSha256": "5c289311f4a030d768af7ffbfdecd01b008aa64824211899a4e59f4f9d154fd1",
+  "stack": {
+    "huggingface-hub": "0.36.2",
+    "numpy": "2.3.5",
+    "safetensors": "0.8.0",
+    "scipy": "1.16.3",
+    "tokenizers": "0.22.2",
+    "torch": "2.8.0+cpu",
+    "transformers": "4.57.1"
+  },
+  "sanityTexts": [
+    "The sound of a dog barking.",
+    "A piano playing a soft melody.",
+    "A man speaking loudly."
+  ],
+  "pairwiseCosineMatrix": [
+    [
+      1.0,
+      0.9996591806411743,
+      0.9992961883544922
+    ],
+    [
+      0.9996591806411743,
+      1.0,
+      0.9994791746139526
+    ],
+    [
+      0.9992961883544922,
+      0.9994791746139526,
+      1.0
+    ]
+  ],
+  "reason": "Unrelated captions collapse to almost identical directions. Do not use its scene scores as semantic evidence. Observed with the published get_text_features API, both dynamic and fixed padding, and default/eager attention.",
+  "externalCorroboration": "https://github.com/embeddings-benchmark/mteb/issues/5069",
+  "replacement": {
+    "modelId": "laion/larger_clap_general",
+    "revision": "ada0c23a36c4e8582805bb38fec3905903f18b41"
+  },
+  "noParametersTrained": true
+}
