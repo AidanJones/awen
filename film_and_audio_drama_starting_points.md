@@ -1,6 +1,6 @@
 # Film and audio-drama starting points for Awen
 
-Research notes, 25 October 2026. These are candidate design directions, not implemented presets or findings from a listening experiment. Sources below were searched/read as web text; no film, soundtrack or radio episode was auditioned or automatically analysed in this pass. Some repository downloads were inaccessible; their catalogue records are identified accordingly.
+Research notes, 25 October 2026; implementation update, 26 October 2026. Four original starting-point recipes are now available in the app. They remain artistic design hypotheses, not findings from a listening experiment. Sources below were searched/read as web text; no film, soundtrack or radio episode was auditioned or automatically analysed in this pass. Some repository downloads were inaccessible; their catalogue records are identified accordingly.
 
 ## Why this is useful
 
@@ -32,7 +32,7 @@ The [Silent Film Scores and Arrangements collection](https://www.loc.gov/collect
 
 ## Proposed original starting points
 
-These values/ranges are design hypotheses, not measured properties of the reference scores. The current renderer has no convincing guitar/harmonica/brass timbres; changing six preference values alone would not deliver these palettes.
+These values/ranges are design hypotheses, not measured properties of the reference scores. The original renderer lacked recipe-specific timbres. It now adds simple guitar-, reed-, piano- and rounded-bass-like synthesis colours, without claiming realistic instruments. Recipe-specific patterns, harmonic rhythm and background balances complement the six preference traits.
 
 | Starting point | Musical identity | Background behaviour | Foreground behaviour |
 |---|---|---|---|
@@ -48,7 +48,19 @@ Each starting point needs structural controls beyond the current genome: rest pr
 1. Choose around 12–20 short excerpts across dialogue, landscape/reflection, anticipation, action and aftermath. Include places where music is absent and moments either side of a cue transition. Select sources we can actually access; do not assume a repository record includes playable audio.
 2. Manually annotate scene function, speech density, music entry/exit, lead presence, register, approximate note-onset density, pulse/subdivision, harmonic change rate, motif recurrence and transition shape. Use exact timecodes only after inspecting the specific edition. Distinguish soundtrack music from environmental sound.
 3. If audio is available for local analysis, estimate onset density/tempo as supporting measurements and manually check them. Mixed dialogue/effects can contaminate music measurements; automatic stem separation is optional and its artifacts should not become reference truth.
-4. Implement two or three original sketches that preserve these broad behaviours. Use the same Awen passage, seed and comparison duration. Compare different starting points first, then evolve a preferred one with the existing A/B profile interface.
+4. Implement two or three original sketches that preserve these broad behaviours. Use the same Awen passage, seed and comparison duration. Compare different starting points first, then evolve a preferred one with the six-choice profile gallery.
 5. Ask separately whether a sketch fits the scene, is pleasant, and makes reading harder. Preference alone could select an engaging piece that competes with the text. Keep cancellation and undo cheap; avoid requesting feedback on every paragraph.
 
-Recommended first experiment: contrast spacious frontier, restrained caper and intimate dialogue on the same three Rat passages. This is an implementation proposal, not a change already made. No large model or training pipeline is necessary: authored seeds/palettes and a few local scoring rules provide starting points, with user selection guiding subsequent mutations.
+Recommended first experiment: contrast spacious frontier, restrained caper and intimate dialogue on the same three Rat passages. These prototype recipes are now implemented; real-scene listening/annotation and reader evaluation remain open. No large model or training pipeline is necessary: authored seeds/palettes and a few local scoring rules provide starting points, with user selection guiding subsequent mutations.
+
+## Implemented small experiment — 26 October 2026
+
+The written-source review was refreshed using the original [Alan Williams interview](https://scifibulletin.com/books/audiobooks/dangerous-visions/dangerous-visions-interview-the-kraken-wakes-alan-williams/), [Morricone interview](https://www.bfi.org.uk/sight-and-sound/interviews/if-you-want-call-yourself-composer-you-follow-every-step-instrumentation-ennio-morricone-interviewed-2006), and [Souza/Barbosa study](https://doi.org/10.5334/joc.273). Williams describes contrasts between intimate characters and large-scale threat, and reuse of a theme across orchestral/jazz treatments. Morricone discusses deriving musical direction from scripts and choosing instrumental strands. The reading study supports caution about lyrics; it does not validate these instrumental recipes. These accounts motivated experiments in spacing, identity and orchestration, not a claim to have reproduced their scoring systems.
+
+All four new recipes use original short motifs authored for Awen. Frontier uses two widely spaced answers and open chord colours; caper uses five reed-like figures and occasional soft accents; unseen threat uses bowed fragments over slower harmony; dialogue leaves alternate four-bar phrases without a lead. The continuously available background follows the same harmony, with recipe-specific voice balances/swells. All retain the 72 BPM clock, minimum scene dwell, seeded planning and shared final limiter. The existing classic recipe is preserved.
+
+The recipe ID is kept separately from numeric preference traits inside the serialised genome. Mixed-parent exploration inherits the first selected recipe, rather than randomly mixing incompatible harmonic systems. A named pin includes recipe identity; older profiles migrate to the classic recipe. Ordinary paragraph navigation never selects a new genre automatically.
+
+A small native Web Audio check rendered each new recipe on the same first three Rat passages (caper/dialogue/chase), at seed `rat-001`, 35% app volume and 30% background. All 12 clips produced finite signal; RMS was approximately 0.019–0.031 and peak approximately 0.061–0.086, below the 0.14 cap. A later dialogue phrase retained background signal during its lead rest. These are signal/behaviour checks, not evidence of pleasantness or reduced distraction. Audio is generated on demand; no reference recordings or rendered corpus is retained.
+
+Remaining gate: use the app to compare the starting points on a few real reading passages, pin a direction, evolve it for a round or two, and judge comfort over several minutes. No production has yet been listened through or annotated by this agent, and the unavailable score/chapter materials above have not been silently treated as read. Keep the larger reference-study task open until actual scene analysis is done.

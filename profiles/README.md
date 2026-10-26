@@ -7,3 +7,5 @@ Browsers without file-picker writes download a JSON copy instead; move it here. 
 Pinned favourites can now be named in the gallery. Names, the current genome and up to 80 kept decisions are exported together; older version-1 profiles still import with empty optional names/metadata. The latest five choices are summarised in the UI.
 
 The browser shows whether your current choices match the last successful file write or import. This checkpoint is local browser metadata and is not embedded in the portable profile. Cancelled/failed writes leave it unchanged, and it cannot detect later edits/deletion of a disk file. Downloads are requests, not verified repo saves. Use **Download JSON copy** if the file picker is unavailable or fails.
+
+Original musical starting points use an optional `scoreStyle` field alongside the six numeric traits. A pin/name includes this identity. Older files without the field default to Connected ensemble and old name keys migrate; save the updated profile file after importing it.

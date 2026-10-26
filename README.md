@@ -36,6 +36,23 @@ Visit `http://localhost:8000`. Static hosting can serve the same HTML unchanged.
 
 Progress, appearance, audio preferences, per-book seeds and score checkpoints stay in `localStorage` under `awen.reader.v1`. Musical state is saved on navigation, pause and periodically while playing. Compatible checkpoints restore the next score-grid position, scene, voicing and motif position; a reload still requires a new user gesture for sound. Incompatible composer/content revisions start a fresh interpretation with the saved seed. Blocked/full storage is reported; reading and audio continue for the session.
 
+## Original musical starting points
+
+Open **Shape your soundtrack → Compare musical starting points**. Alongside your current favourite, the gallery offers four original recipes and the existing Connected ensemble. Duplicate entries are skipped; spare slots show a saved favourite or a small variation. This comparison need not replace your current music: preview, pin or **Explore from here**, and only **Keep favourite** adopts it.
+
+| Starting point | Musical behaviour |
+|---|---|
+| Spacious frontier | Open suspended harmony, guitar-like answers separated by long spaces, four-bar harmonic changes and a gently swelling background |
+| Light caper | Reed-like phrases, rounded bass, soft accents and more rhythmic activity in sustained action |
+| Unseen threat | Bowed fragments, darker suspended harmony and slow changes; background and bass carry the spaces |
+| Intimate dialogue | Soft piano-like phrases, restrained accompaniment and complete alternate phrases without foreground melody |
+
+These are procedural synthesis sketches, not realistic instrument samples. Recipes have authored note patterns, harmonic rhythm, chord material, envelopes and background voice balances; changing six preference numbers alone would not create these differences. The existing Warm ensemble/Space synth control remains a separate timbral option. All use the existing 72 BPM clock, continuous scene director, mixer and final limiter.
+
+The ideas come from composer accounts of radio/film scoring and research on reading with music, documented in [the starting-point research notes](film_and_audio_drama_starting_points.md). They are original compositions informed by broad principles; no score recordings, extracted melodies, trained model or audio dataset is bundled. The four recipes have been checked on the same first three Rat passages, not validated as beneficial to reading.
+
+A selected recipe is optional `scoreStyle` metadata alongside the six numeric genome traits. Variations retain the first selected parent's recipe while combining numeric preferences; every card identifies its recipe. Recipe identity survives pins, names, export/import and switching books. Old version-1 profiles imply Connected ensemble, and old named-pin keys migrate. The original recipe/seed sequence stays unchanged; new sketches have their own recorded `awen-sketch-1` version.
+
 ## Personal soundtrack evolution
 
 Open **Shape your soundtrack**, choose Whole score / Foreground / Background and Nearby / Wide, then **Explore six variations**. A gallery opens with the starting favourite, up to three pinned favourites and new candidates. Each new candidate changes melody or background presence alongside another trait; at least one explores further from the parent. Seeds select a composition; the preference genome controls its performance; the sound palette remains a separate setting.
@@ -46,7 +63,7 @@ Open **Shape your soundtrack**, choose Whole score / Foreground / Background and
 
 Keeping, cancelling, Escape or navigating restores the original musical cursor and pauses; press Start to resume reading. **Undo last kept choice** restores the previous adopted genome. A change made during ordinary playback (undo/import) waits for a four-bar phrase boundary. Ordinary reading is never interrupted by requests to rate music.
 
-The genome controls melody presence, attack softness, filtering warmth, room, background presence and slow background movement. Tonal rules, tempo, harmony, voice limits and the final output limiter stay fixed. Selection and small mutations need no trained preference model, LLM, dataset or external service. The six candidates are computed on demand as tiny parameter objects; ordinary use does not pre-render an audio library.
+Six numeric genome traits control melody presence, attack softness, filtering warmth, room, background presence and slow background movement. Within a recipe, tonal rules, tempo, harmony, voice limits and the final output limiter stay fixed. Selection and small mutations need no trained preference model, LLM, dataset or external service. The six candidates are computed on demand as tiny parameter objects; ordinary use does not pre-render an audio library.
 
 The browser stores the active genome, three pins and the latest 80 kept decisions. Accepted gallery decisions include all six candidates, selected winner, parents, mutation settings, book/content/composer versions, paragraph, seed, musical snapshot, target and mix settings. Skipped batches are not treated as dislike labels or retained as a dataset. Existing A/B profile files still import, and saved pins/gallery decisions survive an export/import round trip. Full archived comparison replay, persistent exploration archives and perceptual loudness evaluation remain later work. Profile version 1 accepts older files without names or balancing metadata; absent optional fields receive defaults. Decision history remains capped at 80 and temporary batch undo at eight; the last five decisions shown in the UI are a view, not a separate dataset.
 
@@ -108,7 +125,7 @@ node tests/audio.browser.cjs
 
 Alternatively, set `AWEN_BROWSER_CHANNEL=msedge` to use installed Edge in a separate headless test profile. Playwright is a testing dependency only. The suite renders the production graph in native `OfflineAudioContext`, including an 80-second score, both palettes, background controls, muted layers, maximum levels and overloads. Live checks cover uninterrupted musical position through 20 paragraph changes, scene dwell/bar boundaries, explicit/generated/queued seeds, per-book seeds and checkpoints, all playback/mute controls, waveform/reduced motion, restart/jumps, mobile layout and no autoplay. These verify generated samples and behaviour, not the physical speakers or artistic quality.
 
-The current revision passes 30 dependency-free tests. The isolated Playwright suite checks a final sample ceiling of 0.14, exact silence for zero master/all layers muted, audible output at the default level, and all controls described above. Listening quality and sustained real-device operation remain separate acceptance work.
+The current revision passes 32 dependency-free tests. The isolated Playwright suite checks a final sample ceiling of 0.14, exact silence for zero master/all layers muted, audible output at the default level, and all controls described above. Listening quality and sustained real-device operation remain separate acceptance work.
 
 Manual browser smoke checks: initial silence; user-gesture start; navigation while playing; keyboard navigation; chapter jump; per-book restoration; reload with saved progress and audio off; steady ambience; inspector; appearance and pause. Browser playback state was checked in the Codex in-app Chromium browser. Audible quality, long sessions, Safari/iOS, mobile devices and interruptions on real hardware still need listening/device tests.
 
@@ -119,3 +136,5 @@ The [original implementation specification](adaptive_reading_soundtrack_spec.md)
 The [continuous-score review](continuous_score_review.md) records the former cue-like implementation and the design behind this revision. Persistent structure, seeds and basic transition rules are now implemented; Strudel integration and listening evaluation remain future work. The [SSX Tricky research note](ssx_tricky_audio_research.md) documents first-hand accounts and public parser/reverse-engineering code, with limits on what is known about EA's original runtime.
 
 Personalisation browser checks: `node tests/evolution.browser.cjs` (same Playwright setup as the audio checks).
+
+Starting-point proof: `node tests/starting-points.browser.cjs` uses the same isolated Playwright setup. It checks recipe choice/evolution, named-profile compatibility, four 16-second sketches over three matched passages, dialogue rests and native signal bounds.

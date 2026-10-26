@@ -8,7 +8,7 @@ const script=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
 const books=JSON.parse(html.match(/<script id="books" type="application\/json">([\s\S]*?)<\/script>/)[1]);
 const ctx=vm.createContext({setInterval:()=>1,clearInterval:()=>{},setTimeout,clearTimeout});
 vm.runInContext(script.split('const $=id=>')[0],ctx);
-const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT,makeGallery,genomeDistance,genomeKey,describeGenome,cleanName,profileStamp,previewAttenuation,PREVIEW_RMS})',ctx);
+const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT,makeGallery,genomeDistance,genomeKey,describeGenome,cleanName,profileStamp,previewAttenuation,PREVIEW_RMS,SCORE_STYLES,starterGenome,makeStartingGallery,SKETCH_VERSION})',ctx);
 test('complete curated books retain spine order, stable IDs and nonempty paragraphs',()=>{
  assert.deepEqual(books.map(b=>b.chapters.length),[19,27,13]);
  for(const b of books){const ids=new Set();for(const c of b.chapters){assert(c.title);c.paragraphs.forEach((p,i)=>{assert(p.trim());const id=b.id+':'+c.id+':'+i;assert(!ids.has(id));ids.add(id);});}assert(b.license.includes('CC0'));assert(b.colophon);assert(b.url.startsWith('https://standardebooks.org/ebooks/'));}
@@ -141,7 +141,7 @@ test('single-file runtime has no external scripts, styles, fetch or eval',()=>{
 });
 
 test('personal genomes mutate deterministically within scope and validate imported profiles',()=>{
- const g=api.normalGenome();for(const scope of ['both','foreground','background'])for(let i=0;i<100;i++){const a=api.mutateGenome(g,scope,String(i));assert.equal(JSON.stringify(a),JSON.stringify(api.mutateGenome(g,scope,String(i))));assert(Object.values(a).every(v=>v>=0&&v<=1));assert.notEqual(JSON.stringify(a),JSON.stringify(g));if(scope==='foreground')for(const k of ['warmth','space','bedPresence','bedMotion'])assert.equal(a[k],g[k]);if(scope==='background')for(const k of ['activity','softness'])assert.equal(a[k],g[k]);}
+ const g=api.normalGenome();for(const scope of ['both','foreground','background'])for(let i=0;i<100;i++){const a=api.mutateGenome(g,scope,String(i));assert.equal(JSON.stringify(a),JSON.stringify(api.mutateGenome(g,scope,String(i))));assert(Object.keys(api.GENOME_DEFAULT).every(k=>a[k]>=0&&a[k]<=1));assert.notEqual(JSON.stringify(a),JSON.stringify(g));if(scope==='foreground')for(const k of ['warmth','space','bedPresence','bedMotion'])assert.equal(a[k],g[k]);if(scope==='background')for(const k of ['activity','softness'])assert.equal(a[k],g[k]);}
  assert.throws(()=>api.normalProfile({version:1,genome:{}}));assert.throws(()=>api.normalProfile({version:1,genomeVersion:'awen-genome-1',genome:{...g,warmth:Infinity}}));
  const p=api.normalProfile({version:1,genomeVersion:'awen-genome-1',genome:g,history:[]});assert.equal(p.history.length,0);
 });
@@ -156,7 +156,7 @@ test('six-candidate galleries preserve parents/pins, reproduce and vary only the
   assert.equal(gallery.length,6);assert.equal(JSON.stringify(gallery),JSON.stringify(api.makeGallery([base,other],scope,'batch'+n,pins,strength)));
   assert.equal(api.genomeKey(gallery[0].genome),api.genomeKey(base));assert(gallery.some(c=>api.genomeKey(c.genome)===api.genomeKey(pins[0])));
   assert.equal(new Set(gallery.map(c=>api.genomeKey(c.genome))).size,6);
-  for(const c of gallery){assert(Object.values(c.genome).every(v=>Number.isFinite(v)&&v>=0&&v<=1));if(c.kind==='variation'||c.kind==='explore'){
+  for(const c of gallery){assert(Object.keys(api.GENOME_DEFAULT).every(k=>Number.isFinite(c.genome[k])&&c.genome[k]>=0&&c.genome[k]<=1));if(c.kind==='variation'||c.kind==='explore'){
    for(const other of gallery.filter(x=>x!==c))assert(api.genomeDistance(c.genome,other.genome)>=.12);
    if(scope==='foreground')for(const k of ['warmth','space','bedPresence','bedMotion'])assert.equal(c.genome[k],base[k]);
    if(scope==='background')for(const k of ['activity','softness'])assert.equal(c.genome[k],base[k]);
@@ -176,4 +176,20 @@ test('preview balancing attenuates only and cannot bypass the master bound',asyn
 test('named favourites and profile fingerprints migrate and detect actual snapshot changes',()=>{
  const g=api.normalGenome(),key=api.genomeKey(g),p=api.normalProfile({version:1,genomeVersion:'awen-genome-1',genome:g,pins:[g],pinNames:{[key]:'  Quiet\u0000 frontier  ',unknown:'discard'},history:[]});assert.equal(p.pinNames[key],'Quiet frontier');assert.equal(Object.keys(p.pinNames).length,1);assert.equal(api.cleanName('x'.repeat(100)).length,40);
  const stamp=api.profileStamp(p);assert.equal(api.profileStamp(JSON.parse(JSON.stringify(p))),stamp);p.pinNames[key]='New name';assert.notEqual(api.profileStamp(p),stamp);p.pinNames[key]='Quiet frontier';assert.equal(api.profileStamp(p),stamp);p.genome.warmth=.9;assert.notEqual(api.profileStamp(p),stamp);
+});
+
+test('authored starting points change musical structure and preserve deterministic bounded planning',()=>{
+ const logs={},counts={};for(const style of Object.keys(api.SCORE_STYLES)){
+  let a=api.makeComposer(),b=api.makeComposer(),notes=[],harmonies=[];
+  for(let step=0;step<192;step++){const x=api.planStep(a,{kind:'caper'},style),y=api.planStep(b,{kind:'caper'},style);assert.equal(JSON.stringify(x),JSON.stringify(y));a=x.state;b=y.state;notes.push(...x.events.map(e=>({...e,step})));if(x.harmony)harmonies.push(step);}
+  assert(notes.every(e=>e.midi>=48&&e.midi<=81&&e.level>0&&e.level<=.4&&e.duration>0&&e.duration<=3));logs[style]=JSON.stringify(notes);counts[style]=notes.filter(e=>e.layer===2).length;assert.equal(harmonies[1],api.SCORE_STYLES[style].bars*8);
+ }
+ assert.equal(new Set(Object.values(logs)).size,5);assert(counts.frontier<counts.classic);assert(counts.dialogue<counts.classic);assert(counts.caper>counts.frontier);
+ let s=api.makeComposer();for(let i=0;i<64;i++){const r=api.planStep(s,{kind:'dialogue'},'dialogue');if(i>=32)assert(r.events.every(e=>e.layer!==2),'dialogue recipe must leave a complete answer phrase open');s=r.state;}
+});
+test('starting-point gallery includes recipes and evolution retains the selected parent identity',()=>{
+ const current=api.normalGenome(),gallery=api.makeStartingGallery(current,'small-proof');assert.equal(gallery.length,6);assert.equal(new Set(gallery.map(c=>api.genomeKey(c.genome))).size,6);for(const id of ['frontier','caper','unseen','dialogue'])assert(gallery.some(c=>c.genome.scoreStyle===id));
+ const frontier=api.starterGenome('frontier');for(const c of api.makeGallery([frontier,api.starterGenome('caper')],'both','evolve'))assert.equal(c.genome.scoreStyle,'frontier');assert.equal(api.normalGenome({scoreStyle:'invalid'}).scoreStyle,'classic');
+ const legacy=Object.fromEntries(Object.keys(api.GENOME_DEFAULT).map(k=>[k,current[k]])),oldKey=JSON.stringify(legacy),p=api.normalProfile({version:1,genomeVersion:'awen-genome-1',genome:legacy,pins:[legacy],pinNames:{[oldKey]:'Old favourite'},history:[]});assert.equal(p.genome.scoreStyle,'classic');assert.equal(p.pinNames[api.genomeKey(p.pins[0])],'Old favourite');
+ const styled=api.normalProfile({...p,genome:frontier,pins:[frontier],pinNames:{[api.genomeKey(frontier)]:'Frontier'}});assert.equal(api.normalProfile(JSON.parse(JSON.stringify(styled))).genome.scoreStyle,'frontier');
 });
