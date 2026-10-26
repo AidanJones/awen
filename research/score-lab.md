@@ -2,6 +2,8 @@
 
 26 October 2026. The user wants LLMs available during development, with a finished reader that runs without an LLM in a browser or on a device. The optional tools here are a development experiment; `index.html` has no new imports, network requests or model dependency.
 
+Development orchestration and ML/LLM integrations may use Python where its existing libraries help. The current prototype is JavaScript so it can exercise the actual browser synthesiser; an optional Python bridge can consume its JSON/WAV manifests rather than duplicate the audio engine. This integration evaluation is tracked as `awen-3fr.6.1` and in [the roadmap](../TODO.md).
+
 ## What to optimise
 
 There is no validated single score for “good music for this paragraph.” Literal text–audio similarity can favour busy sound painting, while quiet accompaniment may fit a dramatic function without depicting its nouns. Musical enjoyment, narrative fit and ease of reading are different outcomes. Keep a vector of evidence:

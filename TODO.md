@@ -1,31 +1,34 @@
 # Awen: open work and exploration
 
-Updated 25 October 2026.
+Updated 26 October 2026.
 
-**Tracking update:** this roadmap has been migrated into Beads. Run `bd ready` / `bd list` for current status; the checkboxes below are the migration snapshot. See [.beads/README.md](.beads/README.md) for the workflow and epic index.
+**Tracking:** Beads is authoritative for current status; run `bd ready` / `bd list`. This roadmap records the work and research strands, including the latest development-loop direction in section 8. Some older items combine shipped features with remaining evaluation; consult their Beads issue before starting work. See [.beads/README.md](.beads/README.md) for the workflow and epic index.
 
- This is the consolidated backlog, not a commitment to implement every research idea. The immediate direction is pleasant, continuous music that a listener can shape without an LLM. Keep the single-file HTML app, inline JavaScript/CSS, no React/build step and minimal dependencies wherever practical.
+This is the consolidated backlog, not a commitment to implement every research idea. The immediate direction is pleasant, continuous music that a listener can shape. **LLMs are welcome during development; the finished browser/device score must run without an LLM.** Python may support development-time ML, analysis and provider integration. Keep the runnable app self-contained in single-file HTML with inline JavaScript/CSS, no React/build step and minimal dependencies wherever practical.
 
 ## Already available
 
-- [x] Three complete curated books, including The Stainless Steel Rat; paragraph/chapter navigation, restart and paragraph jump.
+- [x] Four complete curated books, including The Stainless Steel Rat and the western Riders of the Purple Sage; paragraph/chapter navigation, restart and paragraph jump.
 - [x] Continuous native Web Audio composer, recurring themes, connected harmony, seeded planning, per-book checkpoints and scene dwell/bar transitions.
 - [x] Adjustable background and layers, palettes, waveform, explicit start/pause, emergency mute and shared output limiter.
-- [x] Local A/B preference evolution with foreground/background scopes, six bounded traits, keep/cancel/undo and a capped decision history.
+- [x] Six-candidate preference gallery with foreground/background scopes, nearby/wide exploration, multiple parents, pins/names, keep/cancel/undo and a capped decision history.
+- [x] Original musical starting points, six sound palettes including western guitar/whistle and strings/brass, and a source-linked harmonic-direction gallery with saved choices.
+- [x] Readable themed dropdowns in night mode.
 - [x] Browser profile persistence plus explicit JSON save/import; neutral repo starter in `profiles/personal.json`. Browser choices do not automatically update that file.
 - [x] Initial reading/music, continuous-score, SSX Tricky and film/audio-drama research notes. Written-source review is complete for this pass; scene listening and score analysis remain open.
+- [x] Development-only score-lab prototype (`awen-88h`): bounded seeded search, real native audio rendering, objective gates, blinded audio-judge exchange, optional adapter loop and held-out reporting. Eight clips passed engineering checks; no LLM judgements or musical winner yet.
 
 ## 1. Personal evolution: highest priority
 
 ### EVO-01 — A gallery with a wider choice
 
-- [ ] Replace or supplement the two-option comparison with an initial gallery of **six candidates**, including the current favourite. Six is a starting design choice to test, not a research result.
-- [ ] Use clearly labelled cards with Play/Stop, Keep favourite, Pin and Explore from here. Play only one candidate at a time through the existing limited output graph.
-- [ ] Offer a few optional plain descriptions such as warmer, more space or more movement. Generate descriptions from actual parameter differences; do not imply the system heard or understood the music.
-- [ ] Allow one favourite or several selected parents; offer None of these and New batch without forcing a ranking of every candidate.
-- [ ] Preserve pinned favourites between rounds. Let the listener replay the parent and undo a generation.
-- [ ] Keep previewing optional and separate from ordinary reading. Restore the reading position and original score cursor when leaving the gallery.
-- [ ] Test keyboard access, touch layout, accessible playing/selected states and the time burden of listening to six options.
+- [x] Replace or supplement the two-option comparison with an initial gallery of **six candidates**, including the current favourite. Six is a starting design choice to test, not a research result.
+- [x] Use clearly labelled cards with Play/Stop, Keep favourite, Pin and Explore from here. Play only one candidate at a time through the existing limited output graph.
+- [x] Offer a few optional plain descriptions such as warmer, more space or more movement. Generate descriptions from actual parameter differences; do not imply the system heard or understood the music.
+- [x] Allow one favourite or several selected parents; offer None of these and New batch without forcing a ranking of every candidate.
+- [x] Preserve pinned favourites between rounds. Let the listener replay the parent and undo a generation.
+- [x] Keep previewing optional and separate from ordinary reading. Restore the reading position and original score cursor when leaving the gallery.
+- [x] Automated keyboard, touch-layout and playing/selected-state checks; the time burden and actual listening usability remain part of reader evaluation.
 
 Acceptance: a listener can hear a meaningfully wider range, choose one or more promising directions and generate a new round without losing favourites or their reading place.
 
@@ -69,10 +72,10 @@ Acceptance: different genomes produce clearly different musical behaviours, whil
 
 ### MUSIC-01 — Original starting palettes
 
-- [ ] Prototype spacious frontier/western, restrained caper/intrigue, retro science fiction/unseen threat and intimate dialogue.
-- [ ] Give each its own authored musical identity, phrase behaviour and suitable timbres. Six preference values alone do not create a new genre.
-- [ ] Compare three sketches on the same Rat passages before expanding the library.
-- [ ] Let the listener choose or evolve from multiple starting palettes; keep this separate from a book's narrative interpretation.
+- [x] Prototype spacious frontier/western, restrained caper/intrigue, retro science fiction/unseen threat and intimate dialogue.
+- [x] Give each its own authored musical identity, phrase behaviour and suitable timbres. Six preference values alone do not create a new genre.
+- [x] Native rendering checks of four sketches on the same three Rat passages; listener comparison remains open.
+- [x] Let the listener choose or evolve from multiple starting palettes; keep this separate from a book's narrative interpretation.
 
 ### MUSIC-02 — Film and audio-drama reference study
 
@@ -94,6 +97,7 @@ See [film and audio-drama notes](film_and_audio_drama_starting_points.md) for so
 - [ ] Test deliberate thinning, rests and recovery after action; continuous scoring need not mean constant notes.
 - [ ] Compare greater subdivision/activity with gentle tempo changes. Current tempo is fixed at 72 BPM, including chase scenes; tempo variation is optional and lower priority.
 - [ ] If tempo varies, change the musical clock coherently at suitable boundaries and test continuity, replay and intensity. Avoid letting every paragraph alter tempo.
+- [ ] Make chapter boundaries explicit in automatic score direction (`awen-7x1.3.2`): allow gradual expression/activity changes within a chapter, reserving larger automatic changes in palette, tonal regime, seed or motif identity for suitable musical boundaries after a chapter change. Keep explicit user choices, restart and seeking separate. A new runtime director is not implemented yet.
 
 ## 3. Profiles and repo storage
 
@@ -118,7 +122,7 @@ See [film and audio-drama notes](film_and_audio_drama_starting_points.md) for so
 - [ ] Separate the emotional language of dialogue from the scene's broader intent; improve context beyond just the last visited paragraph where useful.
 - [ ] Test local word/character n-gram linear classifiers only if they improve held-out book/chapter performance over rules.
 - [ ] Keep annotation labels, model/rule output and listener taste separate; retain explanations in the inspector.
-- [ ] Optional LLM feedback remains a parked research strand: offline bounded proposals or textual checks, no required cloud calls, and no claim that a text-only critic hears musical quality. Local listener-driven evolution takes priority.
+- [ ] Evaluate offline LLM feedback during development (`awen-xfp.6`), including bounded proposals and actual audio-capable judging through score-lab. A text-only critic cannot establish heard musical quality. Preserve local listener-driven evolution and a finished runtime with no model calls; see section 8 for the concrete evaluation backlog.
 
 ## 5. Audio engine and interactive-score research
 
@@ -151,11 +155,49 @@ See [reading/music evidence](background_music_notes.md). Automated tests establi
 
 See [original specification](adaptive_reading_soundtrack_spec.md) and [paper draft](paper.md) for the broader design history. React and mandatory Strudel passages there are superseded by the current implementation and user preferences.
 
+## 8. Development search, ML tools and audio judging
+
+See [score-lab design and commands](research/score-lab.md), [audio-judge rubric](research/score-lab-judge.md) and [measured engineering proof](research/score-lab-proof.json). This is bounded development search, not evidence that an AutoML model has learned musical quality.
+
+### Implemented foundation — `awen-88h` (closed)
+
+- [x] Small reproducible batches through the production browser synthesiser, with fixed passages, seeds, timing, volume and mix; no reference-audio corpus or large processing run.
+- [x] Versioned JSON/WAV manifests, source/audio hashes, per-clip event/state traces and approximate RMS balancing by attenuation only.
+- [x] Experimental rejection gates for invalid/over-level/silent audio, inside-chapter resets or regime jumps, excessive expression slew, constant symbolic patterns and excessive onset density. These do not establish pleasantness or reading benefit.
+- [x] Separate judge dimensions for narrative fit, musical coherence and likely intrusiveness, with ties/abstention, timestamped audio evidence, both pair orders and identical/missing-audio controls.
+- [x] Optional local adapter hook and bounded multi-round search (at most four candidates/three rounds), stopping without supported improvement. Output is a reviewable preset proposal; app defaults and personal profiles are never automatically changed.
+- [x] Separate held-out book report; current proof has eight native clips, 51 unit tests and audio/profile Playwright checks, with zero LLM calls and no selected musical winner.
+
+### Judge, metrics and promotion — `awen-3fr.6` (open)
+
+- [ ] Connect an actual audio-capable provider adapter with pinned model/deployment, prompt/settings provenance, duration checks, bounded retries and an explicit cost ceiling. Attach the real WAV bytes; do not substitute a score description, MIDI labels or speech transcription.
+- [ ] Calibrate against a few listener judgements before scaling. Keep **I enjoy this**, **it fits this passage** and **it helps me read** separate. Model-estimated unobtrusiveness is not measured comfort or comprehension.
+- [ ] Validate the judge itself: swapped order, identical audio, absent audio, replaced audio, changed question wording, uncertainty and disagreement. Hashes and listening attestations alone do not prove audio perception.
+- [ ] Audit reward hacking and loudness bias. Do not maximise volume, text–music embedding similarity, entropy or novelty as a single musical-quality metric. If using CLAP/other embeddings, first test their relationship to this accompaniment task and listener choices.
+- [ ] Calibrate continuity/variation limits: preserve identity and some recurrence while avoiding an unchanging drone, relentless novelty, plonks and fatigue. Larger automatic changes belong at chapter boundaries; smooth within-chapter development remains desirable.
+- [ ] Expand only after the small gate is useful: additional scene functions, ambiguous dialogue, fresh seeds, unseen chapters/books, slower/faster reading and longer sessions. Keep labels independent of the current classifier. The current few opening passages are not a representative benchmark.
+- [ ] Compare against the shipped baseline and retain failures/abstentions. Use held-out cases once for acceptance; retire them from holdout status if their results guide tuning. Require no meaningful regressions across the separate objectives rather than hiding them in one average.
+- [ ] Promote accepted development results only as small versioned rules, parameters, musical recipes or an appropriate tiny local model, with listener acceptance and runtime regression checks. Do not bundle a development LLM, provider credentials or Python/server requirement into the reader.
+
+### Python integration — `awen-3fr.6.1` (open)
+
+- [ ] Evaluate Python for development orchestration, existing ML/audio-analysis libraries and LLM integrations wherever it simplifies the work; development tooling does not have to be JavaScript.
+- [ ] Start with a small Python bridge consuming score-lab's versioned JSON/WAV manifests and invoking the native renderer. Judge the audio users will actually hear; avoid maintaining an independently behaving Python synthesiser.
+- [ ] Preserve hashes, seeds, candidate/parent lineage, judge controls, split boundaries, cost limits and replay across the Python/JavaScript boundary. Compare integration and dependency burden before adding a larger pipeline.
+
+### Related open strands
+
+- [ ] Richer musical traits and meaningful bounds — `awen-3fr.3` / EVO-03.
+- [ ] Reliable replay of archived comparisons and complete generation lineage — `awen-3fr.5` / EVO-05.
+- [ ] Explicit chapter-aware runtime direction and varied traversal fixtures — `awen-7x1.3.2` / MUSIC-03.
+- [ ] Sparse feedback UI separating taste, fit and reading comfort — `awen-3fr.4` / EVO-04.
+- [ ] Real listener/device and longer-session acceptance — `awen-r42` / section 6.
+
 ## Suggested next slice
 
-1. Build the six-card gallery with one active preview, favourites, None of these, undo and nearby/wide variation.
-2. Extend profile data to preserve candidates and selected parents, plus explicit repo-file save status.
-3. Add three original starting sketches and compare them on a few fixed passages.
-4. Use a few real reading sessions to decide which extra musical traits and narrative controls are actually worthwhile.
+1. Evaluate a small Python/provider bridge around the existing native renders and strict judge exchange.
+2. Calibrate the judge and metric thresholds on a few matched comparisons, with listener judgements kept separate.
+3. Add chapter context and continuity fixtures before changing automatic runtime direction.
+4. Explore richer musical traits and archived replay; widen search only after held-out checks and a few real reading sessions support the direction.
 
-The gallery and further musical sketches are backlog items; this update documents them and does not implement them.
+Engineering and development experiments can proceed independently; personal taste, reading comfort, fatigue and actual-device listening require listener evidence. Keep those gates explicit rather than inventing labels on the listener's behalf.
