@@ -8,7 +8,7 @@ const script=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
 const books=JSON.parse(html.match(/<script id="books" type="application\/json">([\s\S]*?)<\/script>/)[1]);
 const ctx=vm.createContext({setInterval:()=>1,clearInterval:()=>{},setTimeout,clearTimeout});
 vm.runInContext(script.split('const $=id=>')[0],ctx);
-const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT,makeGallery,genomeDistance,genomeKey,describeGenome,cleanName,profileStamp,previewAttenuation,PREVIEW_RMS,SCORE_STYLES,starterGenome,makeStartingGallery,SKETCH_VERSION})',ctx);
+const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT,makeGallery,genomeDistance,genomeKey,describeGenome,cleanName,profileStamp,previewAttenuation,PREVIEW_RMS,SCORE_STYLES,starterGenome,makeStartingGallery,SKETCH_VERSION,validateScoringKnowledge,compileHarmonyRecipe,normalHarmonyRecipe})',ctx);
 test('complete curated books retain spine order, stable IDs and nonempty paragraphs',()=>{
  assert.deepEqual(books.map(b=>b.chapters.length),[19,27,13]);
  for(const b of books){const ids=new Set();for(const c of b.chapters){assert(c.title);c.paragraphs.forEach((p,i)=>{assert(p.trim());const id=b.id+':'+c.id+':'+i;assert(!ids.has(id));ids.add(id);});}assert(b.license.includes('CC0'));assert(b.colophon);assert(b.url.startsWith('https://standardebooks.org/ebooks/'));}
@@ -192,4 +192,27 @@ test('starting-point gallery includes recipes and evolution retains the selected
  const frontier=api.starterGenome('frontier');for(const c of api.makeGallery([frontier,api.starterGenome('caper')],'both','evolve'))assert.equal(c.genome.scoreStyle,'frontier');assert.equal(api.normalGenome({scoreStyle:'invalid'}).scoreStyle,'classic');
  const legacy=Object.fromEntries(Object.keys(api.GENOME_DEFAULT).map(k=>[k,current[k]])),oldKey=JSON.stringify(legacy),p=api.normalProfile({version:1,genomeVersion:'awen-genome-1',genome:legacy,pins:[legacy],pinNames:{[oldKey]:'Old favourite'},history:[]});assert.equal(p.genome.scoreStyle,'classic');assert.equal(p.pinNames[api.genomeKey(p.pins[0])],'Old favourite');
  const styled=api.normalProfile({...p,genome:frontier,pins:[frontier],pinNames:{[api.genomeKey(frontier)]:'Frontier'}});assert.equal(api.normalProfile(JSON.parse(JSON.stringify(styled))).genome.scoreStyle,'frontier');
+});
+
+const scoringKnowledge=JSON.parse(fs.readFileSync(require('node:path').join(__dirname,'../research/scoring-knowledge.json'),'utf8'));
+test('versioned scoring library is embedded exactly, source-linked and structurally valid',()=>{
+ assert.equal(JSON.stringify(JSON.parse(html.match(/<script id="scoring-knowledge" type="application\/json">([\s\S]*?)<\/script>/)[1])),JSON.stringify(scoringKnowledge));assert.equal(api.validateScoringKnowledge(scoringKnowledge),scoringKnowledge);
+ const broken=JSON.parse(JSON.stringify(scoringKnowledge));broken.harmonicFamilies[0].sourceIds=['invented'];assert.throws(()=>api.validateScoringKnowledge(broken));broken.harmonicFamilies[0].sourceIds=['giacchino-2020'];broken.harmonicFamilies[0].chords[0].intervals=[0,0,7,9];assert.throws(()=>api.validateScoringKnowledge(broken));
+});
+test('genre and scene alternatives compile in every tonic to the four-voice engine',()=>{
+ for(const genre of Object.keys(scoringKnowledge.genres))for(const scene of Object.keys(scoringKnowledge.sceneFunctions))for(let variant=0;variant<2;variant++)for(let tonicPc=0;tonicPc<12;tonicPc++){
+  const recipe=api.compileHarmonyRecipe(scoringKnowledge,{genre,scene,variant,tonicPc});assert.equal(recipe.libraryVersion,scoringKnowledge.version);assert.equal(recipe.evidenceStatus,'awen-proposal');assert.equal(recipe.chords.length,4);assert(recipe.chords.every(c=>new Set(c).size===4&&c.every(n=>n>=0&&n<12)));assert(recipe.sourceIds.length);assert(recipe.advisory.function);
+ }
+ const western=api.compileHarmonyRecipe(scoringKnowledge,{genre:'frontier',scene:'suspense'}),science=api.compileHarmonyRecipe(scoringKnowledge,{genre:'unseen',scene:'suspense'});assert.notEqual(western.familyId,science.familyId);assert.equal(western.sceneFunction,science.sceneFunction);assert.equal(western.genre,'western');
+ assert.throws(()=>api.compileHarmonyRecipe(scoringKnowledge,{genre:'unknown'}));assert.throws(()=>api.compileHarmonyRecipe(scoringKnowledge,{tonicPc:12}));assert.throws(()=>api.normalHarmonyRecipe({...western,bars:.01}));
+});
+test('compiled chord cycles produce deterministic chord-tone melodies with bounded notes',()=>{
+ for(const genre of Object.keys(scoringKnowledge.genres))for(const scene of ['suspense','chase','discovery']){
+  const recipe=api.compileHarmonyRecipe(scoringKnowledge,{genre,scene}),intent={kind:scene},first=[];let a=api.makeComposer(),b=api.makeComposer();
+  for(let i=0;i<160;i++){const x=api.planStep(a,intent,'classic',recipe),y=api.planStep(b,intent,'classic',recipe);assert.equal(JSON.stringify(x),JSON.stringify(y));const chord=recipe.chords[recipe.form[Math.floor(i/8/recipe.bars)%recipe.form.length]];for(const e of x.events){assert(e.midi>=48&&e.midi<=81&&e.duration>0&&e.duration<=3);if(e.layer===2)assert(chord.includes(e.midi%12));}first.push(x.events);a=x.state;b=y.state;}
+  assert(first.flat().length);
+ }
+});
+test('experimental harmony queues at a phrase, clones input and restores the authored recipe',async()=>{
+ const a=new api.AudioAdapter(),recipe=api.compileHarmonyRecipe(scoringKnowledge,{genre:'fantasy',scene:'discovery'});await a.start();a.composer.step=1;const graph=a.ctx;a.queueHarmonyRecipe(recipe);recipe.chords[0][0]=99;a.composeBeat(.5);assert.equal(a.harmonyRecipe,null);assert.equal(a.tick,2);a.composer.step=32;a.composeBeat(1);assert.equal(a.harmonyRecipe.genre,'fantasy');assert(a.harmonyRecipe.chords.every(c=>c.every(n=>n<12)));assert.equal(a.tick,33);assert.equal(a.ctx,graph);a.queueHarmonyRecipe(null);a.composer.step=64;a.composeBeat(2);assert.equal(a.harmonyRecipe,null);assert.equal(a.tick,65);await a.dispose();
 });

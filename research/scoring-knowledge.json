@@ -1,0 +1,1167 @@
+{
+  "schemaVersion": 1,
+  "id": "awen-scoring-knowledge",
+  "version": "0.1.0",
+  "reviewed": "2026-10-26",
+  "status": "experimental-design-library",
+  "sources": [
+    {
+      "id": "lehman-2013",
+      "title": "Transformational Analysis and the Representation of Genius in Film Music",
+      "url": "https://franklehman.com/wp-content/uploads/2020/02/MTS-Article.pdf",
+      "kind": "original-analysis",
+      "reviewed": "Abstract and opening discussion, pp. 1-2",
+      "summary": "Analyses context-sensitive triadic chromaticism and warns against interpreting pitch relations apart from editing, spotting and narrative."
+    },
+    {
+      "id": "lee-2025",
+      "title": "The Semantic Evolution of Chromatic Mediants",
+      "url": "https://www.mtosmt.org/issues/mto.25.31.2/mto.25.31.2.lee_jason.html",
+      "kind": "original-analysis",
+      "reviewed": "Abstract and introduction [0.1]-[0.3]",
+      "summary": "Treats mediant associations as historically conventional; its film example shows magical harmony supporting comic mockery."
+    },
+    {
+      "id": "lehman-2018-excerpt",
+      "title": "Hollywood Harmony, chapter 3 excerpt",
+      "url": "https://music.arts.uci.edu/abauer/3.1/notes/Frank_Lehman_Hollywood_Harmony_Chapter_3_%282018%29.pdf",
+      "kind": "original-analysis",
+      "reviewed": "Indexed excerpt: Tritonal Transposition; full book not reviewed",
+      "summary": "Discusses cinematic uses of same-mode triads with roots a tritone apart, with distinctions between uncanny threat and cosmic spectacle."
+    },
+    {
+      "id": "giacchino-2020",
+      "title": "Song of the West: Scoring Let Him Go",
+      "url": "https://www.focusfeatures.com/article/interview_let-him-go-composer_michael_giacchino",
+      "kind": "composer-account",
+      "reviewed": "Q&A: genre, internal character experience, instrumentation",
+      "summary": "A western also calls for thriller and family-drama treatments; sparse forces and character needs shape the score."
+    },
+    {
+      "id": "houston-theatre",
+      "title": "Interview with Chris Houston",
+      "url": "https://www.marintheatre.org/press-release-details/239/interview-with-sound-designer-composer-and-musical-director-chris-houston-web-exclusive",
+      "kind": "composer-account",
+      "reviewed": "Questions on composition, script spotting and underscoring",
+      "summary": "Describes reducing melody around theatrical speech and adapting music to script, period and production; this is one practitioner account."
+    },
+    {
+      "id": "sutton-curious",
+      "title": "The Curious Incident of the Dog in the Night-time",
+      "url": "https://www.adriansutton.com/works/AS0016/",
+      "kind": "composer-account",
+      "reviewed": "Composer work note",
+      "summary": "Derives musical material and electronic timbre from the protagonist and production concept rather than a generic dramatic label."
+    },
+    {
+      "id": "berklee-genres",
+      "title": "Music Composition for Film and TV 1",
+      "url": "https://online.berklee.edu/courses/music-composition-for-film-and-tv",
+      "kind": "teaching-outline",
+      "reviewed": "Public course description; lessons not accessed",
+      "summary": "Organises genre study across melody, harmony, rhythm, tempo and orchestration, rather than a single chord dictionary."
+    },
+    {
+      "id": "williams-kraken",
+      "title": "Interview: The Kraken Wakes: Alan Williams",
+      "url": "https://scifibulletin.com/books/audiobooks/dangerous-visions/dangerous-visions-interview-the-kraken-wakes-alan-williams/",
+      "kind": "composer-account",
+      "reviewed": "Sections on thematic treatment, scale and dialogue balance",
+      "summary": "Discusses intimate and large-scale layers, recurring material and the practical balance of orchestra with radio drama."
+    },
+    {
+      "id": "morricone-2006",
+      "title": "Ennio Morricone interviewed in 2006",
+      "url": "https://www.bfi.org.uk/sight-and-sound/interviews/if-you-want-call-yourself-composer-you-follow-every-step-instrumentation-ennio-morricone-interviewed-2006",
+      "kind": "composer-account",
+      "reviewed": "Script, orchestration and sound-design questions",
+      "summary": "Describes script-led musical direction and instrumental strands, distinguishing his music work from other sound design."
+    }
+  ],
+  "principles": [
+    {
+      "id": "context-first",
+      "classification": "documented-practice",
+      "sourceIds": [
+        "giacchino-2020",
+        "sutton-curious"
+      ],
+      "summary": "Scene and character viewpoint can cross genre conventions."
+    },
+    {
+      "id": "multiple-cues",
+      "classification": "teaching-outline",
+      "sourceIds": [
+        "berklee-genres"
+      ],
+      "summary": "Harmony interacts with rhythm, melody and orchestration."
+    },
+    {
+      "id": "space-for-text",
+      "classification": "practitioner-account",
+      "sourceIds": [
+        "houston-theatre"
+      ],
+      "summary": "Speech can occupy the melodic role; quieter scoring and rests are options."
+    },
+    {
+      "id": "association-not-law",
+      "classification": "analytical-interpretation",
+      "sourceIds": [
+        "lehman-2013",
+        "lee-2025"
+      ],
+      "summary": "Harmonic associations depend on convention and narrative context."
+    },
+    {
+      "id": "four-voice-adaptation",
+      "classification": "awen-proposal",
+      "sourceIds": [
+        "lehman-2013"
+      ],
+      "summary": "Original four-note cycles adapt general harmonic concepts to the current renderer; added tones and exact mappings are not sourced transcriptions."
+    }
+  ],
+  "units": {
+    "root": "semitones relative to caller tonic, modulo 12",
+    "intervals": "four distinct pitch classes above each chord root; 0 included",
+    "form": "indices into the four-chord bank",
+    "harmonicBars": "bars between chord changes; existing 72 BPM clock"
+  },
+  "constraints": {
+    "voices": 4,
+    "midiMin": 55,
+    "midiMax": 79,
+    "minVoiceGap": 3,
+    "transition": "four-bar-phrase",
+    "automaticSceneSelection": false,
+    "exactProgressionsAreOriginal": true,
+    "readingBenefitEstablished": false
+  },
+  "sceneAliases": {
+    "caper": "intrigue",
+    "dialogue": "conversation",
+    "chase": "pursuit",
+    "suspense": "anticipation",
+    "discovery": "revelation",
+    "reflective": "reflection"
+  },
+  "genreAliases": {
+    "frontier": "western",
+    "unseen": "science-fiction",
+    "dialogue": "chamber-drama",
+    "classic": "neutral"
+  },
+  "sceneFunctions": {
+    "conversation": {
+      "label": "Conversation and exposition",
+      "function": "Support words without insisting on an emotional verdict.",
+      "allowSilence": true,
+      "foregroundNotesPerPhraseHint": 2,
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "houston-theatre",
+        "giacchino-2020"
+      ]
+    },
+    "intrigue": {
+      "label": "Intrigue and manoeuvring",
+      "function": "Suggest intention or uncertainty; preserve room for irony.",
+      "allowSilence": true,
+      "foregroundNotesPerPhraseHint": 4,
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "houston-theatre",
+        "giacchino-2020"
+      ]
+    },
+    "anticipation": {
+      "label": "Anticipation and threat",
+      "function": "Hold an unresolved question, which may be quiet rather than frantic.",
+      "allowSilence": true,
+      "foregroundNotesPerPhraseHint": 3,
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "houston-theatre",
+        "giacchino-2020"
+      ]
+    },
+    "pursuit": {
+      "label": "Pursuit and immediate action",
+      "function": "Sustain direction and pulse while keeping musical phrases intact.",
+      "allowSilence": false,
+      "foregroundNotesPerPhraseHint": 6,
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "houston-theatre",
+        "giacchino-2020"
+      ]
+    },
+    "revelation": {
+      "label": "Discovery and revelation",
+      "function": "Offer a change of perspective without assuming every reveal is positive.",
+      "allowSilence": true,
+      "foregroundNotesPerPhraseHint": 4,
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "houston-theatre",
+        "giacchino-2020"
+      ]
+    },
+    "reflection": {
+      "label": "Reflection and landscape",
+      "function": "Maintain identity with low pressure to resolve or change.",
+      "allowSilence": true,
+      "foregroundNotesPerPhraseHint": 3,
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "houston-theatre",
+        "giacchino-2020"
+      ]
+    },
+    "aftermath": {
+      "label": "Aftermath",
+      "function": "Leave room for consequences; relief, grief and uncertainty differ.",
+      "allowSilence": true,
+      "foregroundNotesPerPhraseHint": 2,
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "houston-theatre",
+        "giacchino-2020"
+      ]
+    },
+    "tenderness": {
+      "label": "Tenderness and connection",
+      "function": "Permit warmth without making a universal major/happy claim.",
+      "allowSilence": true,
+      "foregroundNotesPerPhraseHint": 3,
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "houston-theatre",
+        "giacchino-2020"
+      ]
+    }
+  },
+  "genres": {
+    "western": {
+      "label": "Western / frontier",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "berklee-genres",
+        "giacchino-2020"
+      ],
+      "sceneChoices": {
+        "conversation": [
+          "open-modal",
+          "warm-added-notes"
+        ],
+        "intrigue": [
+          "open-modal",
+          "minor-sixth-intrigue"
+        ],
+        "anticipation": [
+          "static-suspension",
+          "open-modal"
+        ],
+        "pursuit": [
+          "minor-drive",
+          "open-modal"
+        ],
+        "revelation": [
+          "open-modal",
+          "major-third-colour"
+        ],
+        "reflection": [
+          "open-modal",
+          "warm-added-notes"
+        ],
+        "aftermath": [
+          "warm-added-notes",
+          "gentle-release"
+        ],
+        "tenderness": [
+          "warm-added-notes",
+          "open-modal"
+        ]
+      },
+      "caveat": "Editorial starting points, not a taxonomy learned from a film corpus; context and listener choice may override them."
+    },
+    "caper": {
+      "label": "Light caper",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "berklee-genres",
+        "giacchino-2020"
+      ],
+      "sceneChoices": {
+        "conversation": [
+          "warm-added-notes",
+          "minor-sixth-intrigue"
+        ],
+        "intrigue": [
+          "minor-sixth-intrigue",
+          "open-modal"
+        ],
+        "anticipation": [
+          "static-suspension",
+          "minor-sixth-intrigue"
+        ],
+        "pursuit": [
+          "minor-drive",
+          "minor-sixth-intrigue"
+        ],
+        "revelation": [
+          "major-third-colour",
+          "minor-sixth-intrigue"
+        ],
+        "reflection": [
+          "warm-added-notes",
+          "open-modal"
+        ],
+        "aftermath": [
+          "warm-added-notes",
+          "gentle-release"
+        ],
+        "tenderness": [
+          "warm-added-notes",
+          "minor-sixth-intrigue"
+        ]
+      },
+      "caveat": "Editorial starting points, not a taxonomy learned from a film corpus; context and listener choice may override them."
+    },
+    "noir": {
+      "label": "Noir / crime experiment",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "berklee-genres",
+        "giacchino-2020"
+      ],
+      "sceneChoices": {
+        "conversation": [
+          "warm-added-notes",
+          "minor-sixth-intrigue"
+        ],
+        "intrigue": [
+          "minor-sixth-intrigue",
+          "static-suspension"
+        ],
+        "anticipation": [
+          "static-suspension",
+          "chromatic-neighbour"
+        ],
+        "pursuit": [
+          "minor-drive",
+          "minor-sixth-intrigue"
+        ],
+        "revelation": [
+          "chromatic-neighbour",
+          "major-third-colour"
+        ],
+        "reflection": [
+          "minor-sixth-intrigue",
+          "warm-added-notes"
+        ],
+        "aftermath": [
+          "static-suspension",
+          "warm-added-notes"
+        ],
+        "tenderness": [
+          "warm-added-notes",
+          "minor-sixth-intrigue"
+        ]
+      },
+      "caveat": "Editorial starting points, not a taxonomy learned from a film corpus; context and listener choice may override them."
+    },
+    "science-fiction": {
+      "label": "Science fiction",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "berklee-genres",
+        "giacchino-2020"
+      ],
+      "sceneChoices": {
+        "conversation": [
+          "warm-added-notes",
+          "static-suspension"
+        ],
+        "intrigue": [
+          "static-suspension",
+          "chromatic-neighbour"
+        ],
+        "anticipation": [
+          "chromatic-neighbour",
+          "static-suspension"
+        ],
+        "pursuit": [
+          "minor-drive",
+          "chromatic-neighbour"
+        ],
+        "revelation": [
+          "tritone-distance",
+          "major-third-colour"
+        ],
+        "reflection": [
+          "open-modal",
+          "static-suspension"
+        ],
+        "aftermath": [
+          "static-suspension",
+          "gentle-release"
+        ],
+        "tenderness": [
+          "warm-added-notes",
+          "open-modal"
+        ]
+      },
+      "caveat": "Editorial starting points, not a taxonomy learned from a film corpus; context and listener choice may override them."
+    },
+    "fantasy": {
+      "label": "Fantasy / wonder",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "berklee-genres",
+        "giacchino-2020"
+      ],
+      "sceneChoices": {
+        "conversation": [
+          "warm-added-notes",
+          "open-modal"
+        ],
+        "intrigue": [
+          "minor-sixth-intrigue",
+          "major-third-colour"
+        ],
+        "anticipation": [
+          "static-suspension",
+          "chromatic-neighbour"
+        ],
+        "pursuit": [
+          "minor-drive",
+          "open-modal"
+        ],
+        "revelation": [
+          "major-third-colour",
+          "tritone-distance"
+        ],
+        "reflection": [
+          "open-modal",
+          "warm-added-notes"
+        ],
+        "aftermath": [
+          "warm-added-notes",
+          "gentle-release"
+        ],
+        "tenderness": [
+          "warm-added-notes",
+          "major-third-colour"
+        ]
+      },
+      "caveat": "Editorial starting points, not a taxonomy learned from a film corpus; context and listener choice may override them."
+    },
+    "chamber-drama": {
+      "label": "Intimate stage or radio drama",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "houston-theatre",
+        "sutton-curious"
+      ],
+      "sceneChoices": {
+        "conversation": [
+          "warm-added-notes",
+          "open-modal"
+        ],
+        "intrigue": [
+          "minor-sixth-intrigue",
+          "warm-added-notes"
+        ],
+        "anticipation": [
+          "static-suspension",
+          "warm-added-notes"
+        ],
+        "pursuit": [
+          "minor-drive",
+          "static-suspension"
+        ],
+        "revelation": [
+          "warm-added-notes",
+          "major-third-colour"
+        ],
+        "reflection": [
+          "warm-added-notes",
+          "open-modal"
+        ],
+        "aftermath": [
+          "warm-added-notes",
+          "static-suspension"
+        ],
+        "tenderness": [
+          "warm-added-notes",
+          "gentle-release"
+        ]
+      },
+      "caveat": "Editorial starting points, not a taxonomy learned from a film corpus; context and listener choice may override them."
+    },
+    "neutral": {
+      "label": "Unspecified dramatic context",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "berklee-genres",
+        "giacchino-2020"
+      ],
+      "sceneChoices": {
+        "conversation": [
+          "warm-added-notes",
+          "open-modal"
+        ],
+        "intrigue": [
+          "minor-sixth-intrigue",
+          "warm-added-notes"
+        ],
+        "anticipation": [
+          "static-suspension",
+          "open-modal"
+        ],
+        "pursuit": [
+          "minor-drive",
+          "static-suspension"
+        ],
+        "revelation": [
+          "major-third-colour",
+          "open-modal"
+        ],
+        "reflection": [
+          "warm-added-notes",
+          "open-modal"
+        ],
+        "aftermath": [
+          "warm-added-notes",
+          "static-suspension"
+        ],
+        "tenderness": [
+          "warm-added-notes",
+          "gentle-release"
+        ]
+      },
+      "caveat": "Editorial starting points, not a taxonomy learned from a film corpus; context and listener choice may override them."
+    }
+  },
+  "harmonicFamilies": [
+    {
+      "id": "open-modal",
+      "label": "Open modal space",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "giacchino-2020",
+        "morricone-2006"
+      ],
+      "sourceScope": "Sources motivate broad technique/context only; this exact cycle and its genre/scene assignments are original Awen proposals.",
+      "chords": [
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            2,
+            7,
+            9
+          ],
+          "quality": "sus2-add6"
+        },
+        {
+          "root": 5,
+          "intervals": [
+            0,
+            2,
+            7,
+            9
+          ],
+          "quality": "sus2-add6"
+        },
+        {
+          "root": 10,
+          "intervals": [
+            0,
+            4,
+            7,
+            2
+          ],
+          "quality": "major-add9"
+        },
+        {
+          "root": 7,
+          "intervals": [
+            0,
+            2,
+            7,
+            10
+          ],
+          "quality": "7sus2"
+        }
+      ],
+      "form": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        3,
+        0
+      ],
+      "harmonicBars": 4,
+      "rationale": "Open colour with little cadential pressure; one option for landscape or reserved anticipation.",
+      "performanceAdvice": [
+        "Leave long foreground gaps.",
+        "Keep common tones and a modest bass register."
+      ]
+    },
+    {
+      "id": "warm-added-notes",
+      "label": "Warm added-note continuity",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "houston-theatre",
+        "williams-kraken"
+      ],
+      "sourceScope": "Sources motivate broad technique/context only; this exact cycle and its genre/scene assignments are original Awen proposals.",
+      "chords": [
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            3,
+            7,
+            2
+          ],
+          "quality": "minor-add9"
+        },
+        {
+          "root": 10,
+          "intervals": [
+            0,
+            4,
+            7,
+            2
+          ],
+          "quality": "major-add9"
+        },
+        {
+          "root": 5,
+          "intervals": [
+            0,
+            4,
+            7,
+            9
+          ],
+          "quality": "major6"
+        },
+        {
+          "root": 7,
+          "intervals": [
+            0,
+            3,
+            7,
+            10
+          ],
+          "quality": "minor7"
+        }
+      ],
+      "form": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        3,
+        0
+      ],
+      "harmonicBars": 4,
+      "rationale": "A gentle tonal neighbourhood that can support conversation or reflection without demanding a dramatic turn.",
+      "performanceAdvice": [
+        "Reduce melodic competition with text.",
+        "Allow a phrase with no lead."
+      ]
+    },
+    {
+      "id": "minor-sixth-intrigue",
+      "label": "Minor-sixth intrigue",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "berklee-genres",
+        "williams-kraken"
+      ],
+      "sourceScope": "Sources motivate broad technique/context only; this exact cycle and its genre/scene assignments are original Awen proposals.",
+      "chords": [
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            3,
+            7,
+            9
+          ],
+          "quality": "minor6"
+        },
+        {
+          "root": 5,
+          "intervals": [
+            0,
+            3,
+            7,
+            9
+          ],
+          "quality": "minor6"
+        },
+        {
+          "root": 10,
+          "intervals": [
+            0,
+            4,
+            7,
+            9
+          ],
+          "quality": "major6"
+        },
+        {
+          "root": 7,
+          "intervals": [
+            0,
+            3,
+            7,
+            10
+          ],
+          "quality": "minor7"
+        }
+      ],
+      "form": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        3,
+        0
+      ],
+      "harmonicBars": 2,
+      "rationale": "An exploratory jazz-colour alternative for intrigue; no claim that minor-sixth chords define noir.",
+      "performanceAdvice": [
+        "Use restrained reed or muted-pluck colour.",
+        "Do not turn every suspicious word into an accent."
+      ]
+    },
+    {
+      "id": "static-suspension",
+      "label": "Held-root suspension",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "lehman-2013",
+        "houston-theatre"
+      ],
+      "sourceScope": "Sources motivate broad technique/context only; this exact cycle and its genre/scene assignments are original Awen proposals.",
+      "chords": [
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            2,
+            7,
+            10
+          ],
+          "quality": "7sus2"
+        },
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            3,
+            7,
+            10
+          ],
+          "quality": "minor7"
+        },
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            5,
+            7,
+            10
+          ],
+          "quality": "7sus4"
+        },
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            3,
+            7,
+            2
+          ],
+          "quality": "minor-add9"
+        }
+      ],
+      "form": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        3,
+        0
+      ],
+      "harmonicBars": 4,
+      "rationale": "Stable bass with changing upper colour; avoids equating suspense with constant fast chord changes.",
+      "performanceAdvice": [
+        "Sustain restraint rather than volume.",
+        "Let the scene remain unresolved."
+      ]
+    },
+    {
+      "id": "chromatic-neighbour",
+      "label": "Chromatic neighbour tension",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "lehman-2013"
+      ],
+      "sourceScope": "Sources motivate broad technique/context only; this exact cycle and its genre/scene assignments are original Awen proposals.",
+      "chords": [
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            3,
+            7,
+            2
+          ],
+          "quality": "minor-add9"
+        },
+        {
+          "root": 1,
+          "intervals": [
+            0,
+            3,
+            7,
+            2
+          ],
+          "quality": "minor-add9"
+        },
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            3,
+            7,
+            2
+          ],
+          "quality": "minor-add9"
+        },
+        {
+          "root": 11,
+          "intervals": [
+            0,
+            3,
+            6,
+            9
+          ],
+          "quality": "dim7"
+        }
+      ],
+      "form": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        3,
+        0
+      ],
+      "harmonicBars": 4,
+      "rationale": "A chromatic alternative for instability; exact movement is a design hypothesis.",
+      "performanceAdvice": [
+        "Use sparingly and at phrase boundaries.",
+        "Keep volume and foreground density restrained."
+      ]
+    },
+    {
+      "id": "major-third-colour",
+      "label": "Major-third colour",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "lee-2025",
+        "lehman-2013"
+      ],
+      "sourceScope": "Sources motivate broad technique/context only; this exact cycle and its genre/scene assignments are original Awen proposals.",
+      "chords": [
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            4,
+            7,
+            2
+          ],
+          "quality": "major-add9"
+        },
+        {
+          "root": 8,
+          "intervals": [
+            0,
+            4,
+            7,
+            2
+          ],
+          "quality": "major-add9"
+        },
+        {
+          "root": 4,
+          "intervals": [
+            0,
+            4,
+            7,
+            2
+          ],
+          "quality": "major-add9"
+        },
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            4,
+            7,
+            2
+          ],
+          "quality": "major-add9"
+        }
+      ],
+      "form": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        3,
+        0
+      ],
+      "harmonicBars": 4,
+      "rationale": "Descending major-third root relations invite testing across wonder and ironic revelation; added ninths adapt triads to four voices.",
+      "performanceAdvice": [
+        "Preserve a recognisable motif.",
+        "The same relationship may support sincerity or mockery."
+      ]
+    },
+    {
+      "id": "tritone-distance",
+      "label": "Tritone-distance contrast",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "lehman-2018-excerpt"
+      ],
+      "sourceScope": "Sources motivate broad technique/context only; this exact cycle and its genre/scene assignments are original Awen proposals.",
+      "chords": [
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            4,
+            7,
+            2
+          ],
+          "quality": "major-add9"
+        },
+        {
+          "root": 6,
+          "intervals": [
+            0,
+            4,
+            7,
+            2
+          ],
+          "quality": "major-add9"
+        },
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            2,
+            7,
+            9
+          ],
+          "quality": "sus2-add6"
+        },
+        {
+          "root": 6,
+          "intervals": [
+            0,
+            4,
+            7,
+            2
+          ],
+          "quality": "major-add9"
+        }
+      ],
+      "form": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        3,
+        0
+      ],
+      "harmonicBars": 4,
+      "rationale": "Distant tonal areas offer a contrasting science-fiction/fantasy candidate; neither chords nor genre determine audience response.",
+      "performanceAdvice": [
+        "Prefer smooth inner voices to large exposed leaps.",
+        "Do not apply merely because space is mentioned."
+      ]
+    },
+    {
+      "id": "minor-drive",
+      "label": "Minor driving cycle",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "berklee-genres",
+        "lehman-2013"
+      ],
+      "sourceScope": "Sources motivate broad technique/context only; this exact cycle and its genre/scene assignments are original Awen proposals.",
+      "chords": [
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            3,
+            7,
+            10
+          ],
+          "quality": "minor7"
+        },
+        {
+          "root": 10,
+          "intervals": [
+            0,
+            4,
+            7,
+            2
+          ],
+          "quality": "major-add9"
+        },
+        {
+          "root": 5,
+          "intervals": [
+            0,
+            3,
+            7,
+            10
+          ],
+          "quality": "minor7"
+        },
+        {
+          "root": 7,
+          "intervals": [
+            0,
+            4,
+            7,
+            10
+          ],
+          "quality": "dominant7"
+        }
+      ],
+      "form": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        3,
+        0
+      ],
+      "harmonicBars": 2,
+      "rationale": "A bounded action alternative; movement can come from rhythm rather than a tempo jump.",
+      "performanceAdvice": [
+        "Keep the existing clock.",
+        "Use subdivision and articulation before raising density."
+      ]
+    },
+    {
+      "id": "gentle-release",
+      "label": "Gentle release",
+      "evidenceStatus": "awen-proposal",
+      "sourceIds": [
+        "giacchino-2020",
+        "houston-theatre"
+      ],
+      "sourceScope": "Sources motivate broad technique/context only; this exact cycle and its genre/scene assignments are original Awen proposals.",
+      "chords": [
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            3,
+            7,
+            2
+          ],
+          "quality": "minor-add9"
+        },
+        {
+          "root": 5,
+          "intervals": [
+            0,
+            4,
+            7,
+            9
+          ],
+          "quality": "major6"
+        },
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            4,
+            7,
+            9
+          ],
+          "quality": "major6"
+        },
+        {
+          "root": 0,
+          "intervals": [
+            0,
+            4,
+            7,
+            2
+          ],
+          "quality": "major-add9"
+        }
+      ],
+      "form": [
+        0,
+        1,
+        2,
+        3,
+        0,
+        1,
+        3,
+        0
+      ],
+      "harmonicBars": 4,
+      "rationale": "A possible softening after strain; not a rule that aftermath or grief must brighten.",
+      "performanceAdvice": [
+        "Offer a minor/suspended alternative.",
+        "Allow silence or a much thinner arrangement."
+      ]
+    }
+  ],
+  "limitations": [
+    "No film or play audio corpus was built or statistically analysed.",
+    "No scene-level listening annotation or optimal chord-to-emotion mapping is claimed.",
+    "Four-voice constraints require added tones; the complete engine rendering must be auditioned.",
+    "Silence, density, instrumentation and motif guidance remain advisory in this harmony adapter.",
+    "Chromatic recipes use chord-tone melody anchors; compare narrative fit and comfort separately."
+  ]
+}

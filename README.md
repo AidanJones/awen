@@ -2,7 +2,7 @@
 
 *Every story has a soundtrack.*
 
-A small, local science-fiction reader with an adaptive synthesiser soundtrack. The entire runnable app is **[index.html](index.html)**: inline CSS, JavaScript and three complete reading texts. No React, build, install, CDN, backend, account or API key. Approximately 850 KB, mostly book text; the application code is a few hundred lines.
+A small, local science-fiction reader with an adaptive synthesiser soundtrack. The entire runnable app is **[index.html](index.html)**: inline CSS, JavaScript and three complete reading texts. No React, build, install, CDN, backend, account or API key. Approximately 900 KB, mostly book text; the application code is a few hundred lines.
 
 Active work is tracked in **Beads**: run `bd ready` for available tasks. See the [Beads workflow](.beads/README.md) and [roadmap snapshot](TODO.md). Personal music evolution, a wider-choice gallery and richer starting palettes are the priorities.
 
@@ -93,6 +93,12 @@ python tools/refresh_books.py rat.zip wells-war.zip wells-time.zip
 
 This replaces only the embedded JSON in `index.html`, following the EPUB spine order and excluding chapter headings from paragraphs. It is not a build step required to use or distribute the app.
 
+## Engine-readable scoring research
+
+The [film/theatre harmony research](research/scoring-knowledge.md) records nine source-linked harmonic families, eight dramatic functions and seven genre contexts as a [versioned JSON library](research/scoring-knowledge.json), with a [schema](research/scoring-knowledge.schema.json). Each exact cycle/mapping is labelled as an Awen proposal; source accounts and musical analyses support broader reasoning, not universal chord meanings.
+
+The embedded library compiles to the existing four-voice renderer. An explicit experimental `audio.queueHarmonyRecipe(proposeHarmony('frontier', 'suspense'))` applies a selected harmonic candidate at a four-bar phrase boundary; `null` returns to the chosen starting-point recipe. It is a session-only engine API, with normal gallery/profile integration left for a listening-led follow-up. Current saved preferences and default playback stay on their selected authored recipes. Detailed API/validation commands are in the research document. No runtime fetch or build is required.
+
 ## Implementation
 
 The inline script keeps narrative analysis, context aggregation, score mapping, smoothing, the audio adapter and UI functions separate. Versioned lexical rules include phrases, limited negation/intensifiers, capped repetition and punctuation. Context uses the current paragraph and the **last visited** paragraph, with no analysis of unseen neighbours or unchosen chapter content. Opening a different book clears transient context.
@@ -125,7 +131,7 @@ node tests/audio.browser.cjs
 
 Alternatively, set `AWEN_BROWSER_CHANNEL=msedge` to use installed Edge in a separate headless test profile. Playwright is a testing dependency only. The suite renders the production graph in native `OfflineAudioContext`, including an 80-second score, both palettes, background controls, muted layers, maximum levels and overloads. Live checks cover uninterrupted musical position through 20 paragraph changes, scene dwell/bar boundaries, explicit/generated/queued seeds, per-book seeds and checkpoints, all playback/mute controls, waveform/reduced motion, restart/jumps, mobile layout and no autoplay. These verify generated samples and behaviour, not the physical speakers or artistic quality.
 
-The current revision passes 32 dependency-free tests. The isolated Playwright suite checks a final sample ceiling of 0.14, exact silence for zero master/all layers muted, audible output at the default level, and all controls described above. Listening quality and sustained real-device operation remain separate acceptance work.
+The current revision passes 36 dependency-free tests. The isolated Playwright suite checks a final sample ceiling of 0.14, exact silence for zero master/all layers muted, audible output at the default level, and all controls described above. Listening quality and sustained real-device operation remain separate acceptance work.
 
 Manual browser smoke checks: initial silence; user-gesture start; navigation while playing; keyboard navigation; chapter jump; per-book restoration; reload with saved progress and audio off; steady ambience; inspector; appearance and pause. Browser playback state was checked in the Codex in-app Chromium browser. Audible quality, long sessions, Safari/iOS, mobile devices and interruptions on real hardware still need listening/device tests.
 
