@@ -2,7 +2,7 @@
 
 26 October 2026. The user wants LLMs available during development, with a finished reader that runs without an LLM in a browser or on a device. The optional tools here are a development experiment; `index.html` has no new imports, network requests or model dependency.
 
-Development orchestration and ML/LLM integrations may use Python where its existing libraries help. The current prototype is JavaScript so it can exercise the actual browser synthesiser; an optional Python bridge can consume its JSON/WAV manifests rather than duplicate the audio engine. This integration evaluation is tracked as `awen-3fr.6.1` and in [the roadmap](../TODO.md).
+Development orchestration and ML/LLM integrations may use Python where its existing libraries help. The [resumable Python bridge](score-lab-python.md) now consumes shared JSON/WAV data and calls the production native renderer, preserving the actual browser synthesiser. New experiments should use that entry point for unique logs, checkpoints and crash recovery. The original JavaScript-only CLI below remains a single-shot interface. This integration is tracked as `awen-3fr.6.1` and in [the roadmap](../TODO.md).
 
 ## What to optimise
 
@@ -78,3 +78,5 @@ The recorded engineering proof rendered four candidates on both development case
 ## Next autonomous work and the human gate
 
 Beads tracks the remaining strands: richer musical traits (`awen-3fr.3`), fair replay (`awen-3fr.5`), continuity/development (`awen-7x1.3`) and calibration of this judge (`awen-3fr.6`). Additional engineering fixtures, archived replay, failed-control probes and versioned rule proposals can be developed without listener input. Actual personal taste, reading comfort and fatigue require the listener; a model cannot supply those labels for them. Keep that gate small before generating a large corpus.
+
+The [audio–text embedding and reference-source note](audio-text-evaluation.md) records CLAP, MuQ-MuLan and CLaMP 3 as candidates for a later small diagnostic, plus radio-script and silent-film cue-sheet examples. These ideas are backlog items (`awen-3fr.6.2`, `awen-7x1.2.2`); no embedding model, corpus or training run is bundled.

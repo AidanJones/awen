@@ -86,6 +86,7 @@ Acceptance: different genomes produce clearly different musical behaviours, whil
 - [ ] Study the scene mix as well as standalone score tracks; distinguish music from environmental sound.
 - [ ] Translate broad principles into original material and adjustable rules. Film timing must be adapted to self-paced reading.
 - [ ] Explore historical cue sheets as explicit scene-to-music references; inspect individual items before any reuse.
+- [ ] Pilot a few aligned radio/film scripts, silent-film cue sheets and exact recordings before considering training (`awen-7x1.2.2`). Record actual music cues, timing, edition/rights provenance, dialogue/effects contamination and missing/uncertain labels. Unaligned orchestral recordings or script text alone do not supply narrative-scoring supervision; see [reference-source research](research/audio-text-evaluation.md).
 
 See [film and audio-drama notes](film_and_audio_drama_starting_points.md) for sources, access limits and proposed starting behaviours.
 
@@ -179,11 +180,21 @@ See [score-lab design and commands](research/score-lab.md), [audio-judge rubric]
 - [ ] Compare against the shipped baseline and retain failures/abstentions. Use held-out cases once for acceptance; retire them from holdout status if their results guide tuning. Require no meaningful regressions across the separate objectives rather than hiding them in one average.
 - [ ] Promote accepted development results only as small versioned rules, parameters, musical recipes or an appropriate tiny local model, with listener acceptance and runtime regression checks. Do not bundle a development LLM, provider credentials or Python/server requirement into the reader.
 
-### Python integration — `awen-3fr.6.1` (open)
+### Python integration — `awen-3fr.6.1` (implemented; provider calibration remains open)
 
-- [ ] Evaluate Python for development orchestration, existing ML/audio-analysis libraries and LLM integrations wherever it simplifies the work; development tooling does not have to be JavaScript.
-- [ ] Start with a small Python bridge consuming score-lab's versioned JSON/WAV manifests and invoking the native renderer. Judge the audio users will actually hear; avoid maintaining an independently behaving Python synthesiser.
-- [ ] Preserve hashes, seeds, candidate/parent lineage, judge controls, split boundaries, cost limits and replay across the Python/JavaScript boundary. Compare integration and dependency burden before adding a larger pipeline.
+- [x] Implement a standard-library Python orchestration bridge with the shared native renderer/metrics and a Python audio-provider adapter contract. See [commands and recovery](research/score-lab-python.md); the finished reader remains self-contained and LLM-free.
+- [x] Create unique experiment directories and fresh invocation/attempt logs, atomic checkpoints, an OS writer lock, verified per-clip/provider-response caches and new attempts for failed local work.
+- [x] Resume interrupted work without rerendering completed clips or silently repeating ambiguous provider calls. Preserve raw responses and hashes; support response reconciliation, explicit retries, persistent request budgets and strict source/model identity checks. Exercise real process-death recovery separately from the native audio smoke test.
+- [x] Preserve seeds, bounded candidates/parent lineage, judge controls and shared proposal/held-out formats across Python/JavaScript. Verify JSON key-order interoperability rather than maintaining a second synthesiser.
+- [ ] Connect/calibrate a real provider and evaluate optional ML dependencies under the parent `awen-3fr.6`; the bridge itself does not download models or invent judge results.
+
+### Audio–text embeddings — `awen-3fr.6.2` (open)
+
+- [ ] Compare pretrained LAION CLAP, music-specific MuQ-MuLan and CLaMP 3 on a tiny scene-brief/audio set before training a new joint encoder. Check actual checkpoint licences, revisions, preprocessing and hardware requirements.
+- [ ] Keep embedding association distinct from narrative fit, musical coherence, personal taste and reading comfort. Use independent briefs and negative/shuffled pairs, not the current classifier's labels as ground truth.
+- [ ] Cache by audio/text/checkpoint/preprocessing hashes; measure timed windows and hold out whole works/genres. Only use embeddings for shortlisting or a small ranking layer after listener agreement is useful. An audio-capable LLM can judge finalists during development; neither becomes a required runtime dependency.
+
+See [audio–text and script/cue-sheet research](research/audio-text-evaluation.md). These are research backlog items, with no model downloads, corpus building or training performed yet.
 
 ### Related open strands
 
@@ -195,7 +206,7 @@ See [score-lab design and commands](research/score-lab.md), [audio-judge rubric]
 
 ## Suggested next slice
 
-1. Evaluate a small Python/provider bridge around the existing native renders and strict judge exchange.
+1. Use the resumable Python bridge to connect and calibrate a real provider against the strict judge exchange.
 2. Calibrate the judge and metric thresholds on a few matched comparisons, with listener judgements kept separate.
 3. Add chapter context and continuity fixtures before changing automatic runtime direction.
 4. Explore richer musical traits and archived replay; widen search only after held-out checks and a few real reading sessions support the direction.

@@ -57,8 +57,8 @@ async function main(argv){
   }
  }finally{await browser.close();}
 }
-function validateCandidate(c,api){if(!c||!Object.hasOwn(api.SOUND_PALETTES,c.palette)||JSON.stringify(api.normalGenome(c.genome))!==JSON.stringify(c.genome))throw Error('Invalid proposal candidate');}
+function validateCandidate(c,api){const canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(k=>[k,canonical(value[k])])):value;if(!c||!Object.hasOwn(api.SOUND_PALETTES,c.palette)||JSON.stringify(canonical(api.normalGenome(c.genome)))!==JSON.stringify(canonical(c.genome)))throw Error('Invalid proposal candidate');}
 function verifyClips(dir,run){for(const c of run.candidates)for(const clip of c.clips){if(path.basename(clip.file)!==clip.file||digest(fs.readFileSync(path.join(dir,clip.file)))!==clip.sha256)throw Error('Audio hash mismatch');}}
 function writeProposal(dir,run,decision){if(decision.status==='development-proposal')writeJson(path.join(dir,'proposal.json'),{version:VERSION,status:decision.status,runId:run.id,judge:{model:decision.model,modelVersion:decision.modelVersion},candidate:run.candidates.find(c=>c.id===decision.selected),deploymentApproved:false,requires:['unseen book/chapter evaluation','reader listening/calibration','runtime regression tests']});}
 if(require.main===module)main(process.argv.slice(2)).catch(e=>{console.error(e.message);process.exitCode=1;});
-module.exports={loadRuntime,candidates,resolveCases,renderCase,publicPacket,verifyClips,writeProposal};
+module.exports={loadRuntime,candidates,resolveCases,renderCase,publicPacket,verifyClips,writeProposal,validateCandidate};

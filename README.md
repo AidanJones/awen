@@ -108,6 +108,8 @@ This replaces only the embedded JSON in `index.html`, following the EPUB spine o
 
 ## Development-only score experiments
 
+For resumable experiments, use the [Python development bridge](research/score-lab-python.md): `python tools/score_lab.py start --budget 2`. It creates a unique experiment directory, invocation/attempt logs and checkpoints; `python tools/score_lab.py resume <experiment-directory>` verifies and reuses completed work. Ambiguous provider submissions require reconciliation or an explicit retry, so a crash cannot silently trigger another paid request. Python orchestrates the existing native renderer; the finished reader has no Python or LLM dependency.
+
 The optional [score lab](research/score-lab.md) renders small, seeded batches through the production synthesiser, rejects signal/continuity/variation failures, and prepares blinded WAV comparisons for an audio-capable LLM during development. Fit, musical coherence and estimated intrusiveness stay separate. Swapped pairs, identical audio and missing-audio controls guard the judge exchange; no result is called better music without actual judgement. A bounded adapter-driven loop can propose a preset, with held-out book and listener checks before adoption. The initial proof rendered eight clips; it has no LLM ratings or musical winner.
 
 LLMs are development tools only. The finished reader keeps local deterministic rules/synthesis, with no model calls, build step or additional runtime dependency. The lab does not change app defaults or personal profiles. Run `node --test tests/score-lab.test.cjs` for its failure controls and see the research note for rendering and judge-adapter commands.

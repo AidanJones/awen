@@ -1,7 +1,7 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const {VERSION,signalMetrics,traceMetrics,assess,pcmWav,judgePacket,evaluateJudgments}=require('../tools/score-lab-metrics.cjs');
-const {loadRuntime,candidates,resolveCases,publicPacket}=require('../tools/score-lab.cjs');
+const {loadRuntime,candidates,resolveCases,publicPacket,validateCandidate}=require('../tools/score-lab.cjs');
 const goodSignal={finite:true,peak:.08,rms:.018},goodStructure={resets:0,regimeBreaks:0,maxStateStep:.05,phrasePatterns:3,onsetsPerSecond:.5};
 test('hard gates reject silence, nonfinite/overlevel audio, monotony and excessive activity',()=>{
  assert(assess(goodSignal,goodStructure).eligible);
@@ -18,6 +18,9 @@ test('signal measurement and WAV encoding preserve bounds, attenuation and finit
  const s=Float32Array.from({length:24000},(_,i)=>Math.sin(i)*.1),m=signalMetrics(s,24000);assert(m.finite&&m.peak<=.100001&&m.rms>.05);const a=pcmWav(s,24000),b=pcmWav(s,24000,.5);assert.equal(a.toString('ascii',0,4),'RIFF');assert.equal(a.readUInt32LE(24),24000);assert.equal(a.length,48044);assert(Math.abs(b.readInt16LE(100))<=Math.abs(a.readInt16LE(100)));assert.throws(()=>pcmWav(s,24000,2));assert.throws(()=>pcmWav([NaN],24000));
 });
 const runtime=loadRuntime(),fixtures=require('../research/score-lab-fixtures.json');
+test('Python-sorted proposal keys remain compatible with the existing holdout CLI',()=>{
+ const source=candidates(runtime.api,null,'python',0,2)[1],sorted={...source,genome:Object.fromEntries(Object.entries(source.genome).sort(([a],[b])=>a.localeCompare(b)))};assert.doesNotThrow(()=>validateCandidate(sorted,runtime.api));assert.throws(()=>validateCandidate({...sorted,genome:{...sorted.genome,activity:100}},runtime.api));assert.throws(()=>validateCandidate({...sorted,genome:{...sorted.genome,unexpected:1}},runtime.api));
+});
 test('seeded candidates are reproducible bounded configs, with separate book holdout and valid passages',()=>{
  const a=candidates(runtime.api,null,'same',0,4),b=candidates(runtime.api,null,'same',0,4);assert.deepEqual(a,b);assert.equal(new Set(a.map(c=>c.id)).size,4);assert.notDeepEqual(a,candidates(runtime.api,null,'other',0,4));
  for(const c of a)assert(Object.hasOwn(runtime.api.SOUND_PALETTES,c.palette));const dev=resolveCases(fixtures,runtime.books,'development'),hold=resolveCases(fixtures,runtime.books,'holdout');assert(dev.length===2&&hold.length===1);assert(!dev.some(d=>hold.some(h=>h.book===d.book)));for(const c of [...dev,...hold]){assert(c.timeline.every(t=>t.text&&t.paragraphId));assert.equal(c.timeline[2].chapterId,c.timeline[0].chapterId);assert.notEqual(c.timeline[3].chapterId,c.timeline[0].chapterId);}
