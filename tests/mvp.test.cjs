@@ -8,7 +8,7 @@ const script=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
 const books=JSON.parse(html.match(/<script id="books" type="application\/json">([\s\S]*?)<\/script>/)[1]);
 const ctx=vm.createContext({setInterval:()=>1,clearInterval:()=>{},setTimeout,clearTimeout});
 vm.runInContext(script.split('const $=id=>')[0],ctx);
-const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT,makeGallery,genomeDistance,genomeKey,describeGenome})',ctx);
+const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT,makeGallery,genomeDistance,genomeKey,describeGenome,cleanName,profileStamp,previewAttenuation,PREVIEW_RMS})',ctx);
 test('complete curated books retain spine order, stable IDs and nonempty paragraphs',()=>{
  assert.deepEqual(books.map(b=>b.chapters.length),[19,27,13]);
  for(const b of books){const ids=new Set();for(const c of b.chapters){assert(c.title);c.paragraphs.forEach((p,i)=>{assert(p.trim());const id=b.id+':'+c.id+':'+i;assert(!ids.has(id));ids.add(id);});}assert(b.license.includes('CC0'));assert(b.colophon);assert(b.url.startsWith('https://standardebooks.org/ebooks/'));}
@@ -167,4 +167,13 @@ test('gallery profile migration preserves legacy choices and bounded favourites 
  const g=api.normalGenome(),legacy={version:1,genomeVersion:'awen-genome-1',genome:g,history:[{choice:'B',before:g,after:g}]};assert.equal(api.normalProfile(legacy).history[0].choice,'B');assert.equal(api.normalProfile(legacy).pins.length,0);
  const profile=api.normalProfile({...legacy,pins:Array(12).fill(g),history:[{choice:'gallery',before:g,after:g,candidates:Array(10).fill(g),parents:[g],selected:2,strength:'wide'}]});assert.equal(profile.pins.length,3);assert.equal(profile.history[0].candidates.length,6);assert.equal(profile.history[0].selected,2);assert.equal(profile.history[0].parents.length,1);assert.equal(profile.history[0].strength,'wide');assert.equal(JSON.stringify(api.normalProfile(JSON.parse(JSON.stringify(profile)))),JSON.stringify(profile));
  assert.equal(api.describeGenome({...g,warmth:1},g),'warmer');assert.equal(api.describeGenome(g,g),'Same musical settings');
+});
+
+test('preview balancing attenuates only and cannot bypass the master bound',async()=>{
+ assert.equal(api.previewAttenuation(0),1);assert.equal(api.previewAttenuation(.001),1);assert.equal(api.previewAttenuation(NaN),1);assert.equal(api.previewAttenuation(api.PREVIEW_RMS*2),.5);
+ const a=new api.AudioAdapter();await a.start();a.setMasterVolume(1);a.setPreviewGain(.25);assert.equal(a.master.gain.value,api.MASTER_GAIN*.25);a.setPreviewGain(20);assert.equal(a.master.gain.value,api.MASTER_GAIN);a.setPreviewGain(-5);assert.equal(a.master.gain.value,0);await a.dispose();
+});
+test('named favourites and profile fingerprints migrate and detect actual snapshot changes',()=>{
+ const g=api.normalGenome(),key=api.genomeKey(g),p=api.normalProfile({version:1,genomeVersion:'awen-genome-1',genome:g,pins:[g],pinNames:{[key]:'  Quiet\u0000 frontier  ',unknown:'discard'},history:[]});assert.equal(p.pinNames[key],'Quiet frontier');assert.equal(Object.keys(p.pinNames).length,1);assert.equal(api.cleanName('x'.repeat(100)).length,40);
+ const stamp=api.profileStamp(p);assert.equal(api.profileStamp(JSON.parse(JSON.stringify(p))),stamp);p.pinNames[key]='New name';assert.notEqual(api.profileStamp(p),stamp);p.pinNames[key]='Quiet frontier';assert.equal(api.profileStamp(p),stamp);p.genome.warmth=.9;assert.notEqual(api.profileStamp(p),stamp);
 });
