@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "id": "rat-safe-drop-grid-1",
+  "sceneIndex": 0,
+  "searchSeed": "awen-explore-1",
+  "checkSeed": "rat-clap-check-20261027",
+  "seconds": 32,
+  "windows": [2, 18],
+  "generations": 2,
+  "childrenPerGeneration": 6,
+  "parents": 2,
+  "captions": {
+    "target-1": "Instrumental background music for a quick, comic escape: suspenseful anticipation, a sudden heavy impact and nimble, playful motion, leaving space for narration.",
+    "target-2": "A lively instrumental underscore for a mischievous escape sequence, with rhythmic movement, tension and humorous surprise. No speech or vocals.",
+    "check-1": "Music for a sly fugitive springing a trap and escaping, balancing danger with deadpan humour and a sense of forward momentum.",
+    "check-2": "A cinematic accompaniment to sudden slapstick action: a surprising crash, a resourceful criminal and an indignant pursuer. Instrumental music behind a narrator.",
+    "contrast": "Quiet, unhurried instrumental background music for a reflective landscape passage, with stillness and a spacious, contemplative mood.",
+    "unsuitable": "Loud heavy metal music with screamed vocals and distorted guitars."
+  },
+  "objective": "Mean cosine over target-1/target-2 and both fixed ten-second windows, among native-gate-eligible candidates only. Retain all ancestors; deterministic ID breaks exact ties.",
+  "limitations": [
+    "Developer-authored descriptions are not independently validated narrative-fit labels.",
+    "One scene, correlated windows and a fresh seed do not establish generalisation to other passages or books.",
+    "Held-out wording and seed are checked only after the bounded search; failures do not trigger extra tuning.",
+    "Higher CLAP cosine is not established musical quality, reading comfort or personal preference.",
+    "No runtime profile or default changes automatically."
+  ]
+}

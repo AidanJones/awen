@@ -1,0 +1,574 @@
+{
+  "version": 1,
+  "status": "exploratory-improvement-not-validated-reward",
+  "experimentId": "b1d8109bbe364f1c915780e81e471389",
+  "experimentDirectory": ".score-lab\\grid-clap\\20261027T185612.586761Z-e3e0ef0d5bf340ca8513ad805fa4206c",
+  "reportSha256": "6c7b60e04159febe39d00f46103496965dece02cc5f58e07164566290687b22b",
+  "composer": "awen-score-3",
+  "engineSha256": "77e4aea7194d68ae9f0eb48c2ccac0487ddf137fbcf6d71228473a5affbbcdbf",
+  "sources": {
+    "index.html": "af408857074561772db3da6a1bdbe3a66b85bcb44b8db6c3f31c9600667eaeb9",
+    "research/calibration-scenes.json": "c8afdb61fa6a92edad82167a2db89ef02b49805693332fb09b3f94750dde1fa9",
+    "research/grid-clap-suite.json": "f99e8c6b6765abf6e9d6aaa508fc82da9e8ad88dbe2a620fa9355a9ca268ba68",
+    "research/scoring-knowledge.json": "fd337bea976717bdada70ff3feff429db1e493e1147090154ae44c59373b8589",
+    "tools/clap_backend.py": "3499d3927518415fad9a330a343c2cda17d724c5fc65e540263d2d96ec1e8433",
+    "tools/exploration-review.html": "5635dc56e73b010f8e2b2169c74931ea65019a5ad54d1c88d3e6dc6aadf036c0",
+    "tools/exploration_page.py": "2efc2704ef2d105bda6b4407b1fa056803946733e6779d5d4979f7abb0aedc90",
+    "tools/grid-clap-worker.cjs": "0ed89c4ae0244ff3192658b4f133ba5f2aefca03401449127005df120a919929",
+    "tools/grid_clap.py": "c2a704e5cdf3ac61d24230d546a3d066a055d5a23dc23517a283b0b341fa4fbd",
+    "tools/score-lab-metrics.cjs": "4cebcea37cb1dbd827f8bc7ab6118b9feed05af92101a76da4246ad1e4ef7dd9",
+    "tools/score_embeddings.py": "b689877a34ca8da6682c884ac67355414785bbb36f03e5201ea30d5e6db00129",
+    "tools/score_lab.py": "c83453aab83c02a34d7bffdab02e48e991b207ecec51f8e07917e60fc0531926"
+  },
+  "model": {
+    "modelId": "laion/larger_clap_general",
+    "revision": "ada0c23a36c4e8582805bb38fec3905903f18b41",
+    "weightsSha256": "314eb00cce6ad68d25237b8446b659ccdb136ed4672c1bca470f142f72455026"
+  },
+  "packages": {
+    "huggingface-hub": "0.36.2",
+    "numpy": "2.3.5",
+    "safetensors": "0.8.0",
+    "scipy": "1.16.3",
+    "tokenizers": "0.22.2",
+    "torch": "2.8.0+cpu",
+    "transformers": "4.57.1"
+  },
+  "objective": "Mean cosine over target-1/target-2 and both fixed ten-second windows, among native-gate-eligible candidates only. Retain all ancestors; deterministic ID breaks exact ties.",
+  "scene": "The Stainless Steel Rat, chapter I, paragraph 3 (safe-drop), with preceding context",
+  "searchSeed": "awen-explore-1",
+  "rankings": [
+    {
+      "id": "warm",
+      "name": "Warm ensemble",
+      "objective": 0.18574714989556262,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.18099290366940665,
+          "target-2": 0.18973614695503263
+        },
+        {
+          "target-1": 0.1713920149261655,
+          "target-2": 0.20086753403164573
+        }
+      ]
+    },
+    {
+      "id": "frontier",
+      "name": "Open frontier",
+      "objective": 0.17012606325263163,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.13250457731219498,
+          "target-2": 0.15156510614744292
+        },
+        {
+          "target-1": 0.1763010340153109,
+          "target-2": 0.22013353553557768
+        }
+      ]
+    },
+    {
+      "id": "desert",
+      "name": "Desert horizon",
+      "objective": 0.21312164335478295,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.1803712832193352,
+          "target-2": 0.23195580556006465
+        },
+        {
+          "target-1": 0.1941603034677934,
+          "target-2": 0.2459991811719385
+        }
+      ]
+    },
+    {
+      "id": "chamber",
+      "name": "Intimate chamber",
+      "objective": 0.12505737696897562,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.03594715413218884,
+          "target-2": 0.15660759483974263
+        },
+        {
+          "target-1": 0.10730708942927661,
+          "target-2": 0.20036766947469445
+        }
+      ]
+    },
+    {
+      "id": "clockwork",
+      "name": "Clockwork caper",
+      "objective": 0.2001205969796531,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.12345632262527391,
+          "target-2": 0.2662240345055209
+        },
+        {
+          "target-1": 0.14793541447137273,
+          "target-2": 0.26286661631644487
+        }
+      ]
+    },
+    {
+      "id": "space",
+      "name": "Suspended space",
+      "objective": 0.07554155600392425,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.0011981245481355648,
+          "target-2": 0.08345193665459939
+        },
+        {
+          "target-1": 0.07461070716192932,
+          "target-2": 0.14290545565103271
+        }
+      ]
+    },
+    {
+      "id": "pursuit",
+      "name": "Driving strings",
+      "objective": 0.2304224990360153,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.1660531159571296,
+          "target-2": 0.2756730778303133
+        },
+        {
+          "target-1": 0.19083428177058923,
+          "target-2": 0.2891295205860291
+        }
+      ]
+    },
+    {
+      "id": "bed",
+      "name": "Background led",
+      "objective": 0.06587586410658829,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.0032126040414244303,
+          "target-2": 0.059147261818443056
+        },
+        {
+          "target-1": 0.060151587303424424,
+          "target-2": 0.14099200326306122
+        }
+      ]
+    },
+    {
+      "id": "noir",
+      "name": "Noir caper",
+      "objective": 0.20678382315097937,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.1710629783623883,
+          "target-2": 0.23288679949396063
+        },
+        {
+          "target-1": 0.18278874806593348,
+          "target-2": 0.2403967666816351
+        }
+      ]
+    },
+    {
+      "id": "g1-0-7y0dk1",
+      "name": "Driving strings Â· G1.1",
+      "objective": 0.2320217251510079,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.17350865962239745,
+          "target-2": 0.2768546552343555
+        },
+        {
+          "target-1": 0.19105885985150312,
+          "target-2": 0.28666472589577563
+        }
+      ]
+    },
+    {
+      "id": "g1-1-izk7hk",
+      "name": "Desert horizon Â· G1.2",
+      "objective": 0.20632479707089912,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.17338838442690943,
+          "target-2": 0.222071204366769
+        },
+        {
+          "target-1": 0.18847008686855093,
+          "target-2": 0.2413695126213671
+        }
+      ]
+    },
+    {
+      "id": "g1-2-cb526y",
+      "name": "Driving strings Â· G1.3",
+      "objective": 0.23574311412596388,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.17465972994046589,
+          "target-2": 0.2803886107397946
+        },
+        {
+          "target-1": 0.195974528796409,
+          "target-2": 0.2919495870271861
+        }
+      ]
+    },
+    {
+      "id": "g1-3-1o7pqjf",
+      "name": "Desert horizon Â· G1.4",
+      "objective": 0.2142879443196547,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.18443816490543183,
+          "target-2": 0.22998282485511395
+        },
+        {
+          "target-1": 0.19878966095771083,
+          "target-2": 0.24394112656036215
+        }
+      ]
+    },
+    {
+      "id": "g1-4-uxl0jn",
+      "name": "Driving strings Â· G1.5",
+      "objective": 0.22640944162254967,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.16501532590446003,
+          "target-2": 0.2718229932750124
+        },
+        {
+          "target-1": 0.18596650392075711,
+          "target-2": 0.28283294338996917
+        }
+      ]
+    },
+    {
+      "id": "g1-5-10k1f1p",
+      "name": "Desert horizon Â· G1.6",
+      "objective": 0.21040286748064688,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.18158829117301875,
+          "target-2": 0.2306384164315936
+        },
+        {
+          "target-1": 0.1889047039845746,
+          "target-2": 0.24048005833340055
+        }
+      ]
+    },
+    {
+      "id": "g2-0-1fhld8s",
+      "name": "Driving strings Â· G1.3 Â· G2.1",
+      "objective": 0.2279270117882689,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.15981105809466498,
+          "target-2": 0.269978635229878
+        },
+        {
+          "target-1": 0.19293801548202447,
+          "target-2": 0.28898033834650816
+        }
+      ]
+    },
+    {
+      "id": "g2-1-1c18num",
+      "name": "Driving strings Â· G1.1 Â· G2.2",
+      "objective": 0.23184498187143343,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.17146388253526335,
+          "target-2": 0.2735898104178698
+        },
+        {
+          "target-1": 0.19483220240830512,
+          "target-2": 0.2874940321242955
+        }
+      ]
+    },
+    {
+      "id": "g2-2-8kqe3d",
+      "name": "Driving strings Â· G1.3 Â· G2.3",
+      "objective": 0.23939876674013916,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.1785942318433526,
+          "target-2": 0.281341070532275
+        },
+        {
+          "target-1": 0.20138582498050228,
+          "target-2": 0.2962739396044267
+        }
+      ]
+    },
+    {
+      "id": "g2-3-1atrdoz",
+      "name": "Driving strings Â· G1.1 Â· G2.4",
+      "objective": 0.2288629399300012,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.1679798802402035,
+          "target-2": 0.26899122422837896
+        },
+        {
+          "target-1": 0.1921476035017385,
+          "target-2": 0.2863330517496838
+        }
+      ]
+    },
+    {
+      "id": "g2-4-1cjyrl1",
+      "name": "Driving strings Â· G1.3 Â· G2.5",
+      "objective": 0.23320467825191413,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.17338689641441032,
+          "target-2": 0.27911205777258746
+        },
+        {
+          "target-1": 0.19159267570163852,
+          "target-2": 0.28872708311902023
+        }
+      ]
+    },
+    {
+      "id": "g2-5-1coq8qk",
+      "name": "Driving strings Â· G1.1 Â· G2.6",
+      "objective": 0.23111262630025842,
+      "eligible": true,
+      "scores": [
+        {
+          "target-1": 0.16888144207322262,
+          "target-2": 0.2719505949548815
+        },
+        {
+          "target-1": 0.1950861231353989,
+          "target-2": 0.2885323450375307
+        }
+      ]
+    }
+  ],
+  "warmObjective": 0.18574714989556262,
+  "bestOriginalObjective": 0.2304224990360153,
+  "roundBest": [
+    {
+      "generation": 1,
+      "id": "g1-2-cb526y",
+      "objective": 0.23574311412596388
+    },
+    {
+      "generation": 2,
+      "id": "g2-2-8kqe3d",
+      "objective": 0.23939876674013916
+    }
+  ],
+  "winnerCard": {
+    "description": "less melody Â· firmer attacks",
+    "genome": {
+      "activity": 0.40665517603047185,
+      "bedMotion": 0.24361806066008287,
+      "bedPresence": 0.3,
+      "harmony": {
+        "bars": 2,
+        "chords": [
+          [
+            2,
+            5,
+            9,
+            0
+          ],
+          [
+            0,
+            4,
+            7,
+            2
+          ],
+          [
+            7,
+            10,
+            2,
+            5
+          ],
+          [
+            9,
+            1,
+            4,
+            7
+          ]
+        ],
+        "engineVersion": 1,
+        "familyId": "minor-drive",
+        "form": [
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          3,
+          0
+        ],
+        "genre": "neutral",
+        "id": "neutral.reflection.minor-drive",
+        "label": "Minor driving cycle",
+        "libraryVersion": "0.1.0",
+        "sceneFunction": "reflection",
+        "selectionMode": "manual",
+        "sourceIds": [
+          "berklee-genres",
+          "lehman-2013",
+          "giacchino-2020"
+        ],
+        "tonicPc": 2
+      },
+      "scoreStyle": "pursuit",
+      "softness": 0,
+      "space": 0.25,
+      "warmth": 0.35
+    },
+    "id": "g2-2-8kqe3d",
+    "name": "Driving strings Â· G1.3 Â· G2.3",
+    "palette": "ensemble",
+    "parentId": "g1-2-cb526y"
+  },
+  "winnerObjective": 0.23939876674013916,
+  "validation": [
+    {
+      "seed": "awen-explore-1",
+      "originalGridTargetMean": 0.2304224990360153,
+      "evolvedTargetMean": 0.23939876674013916,
+      "targetGain": 0.008976267704123853,
+      "originalGridUnusedMean": 0.16149521748360685,
+      "evolvedUnusedMean": 0.16883946343479714,
+      "unusedMeanGain": 0.0073442459511902924,
+      "unusedWindowCaptionGains": [
+        0.00411844681553078,
+        0.015757032492639045,
+        -0.0010312099668823016,
+        0.010532714463473675
+      ],
+      "positiveUnusedChecks": 3,
+      "totalUnusedChecks": 4,
+      "perCaptionMeanGains": {
+        "target-1": 0.01154632954806803,
+        "target-2": 0.006406205860179648,
+        "check-1": 0.001543618424324239,
+        "check-2": 0.013144873478056346
+      },
+      "originalSpecificityMargin": 0.00904901919452189,
+      "evolvedSpecificityMargin": 0.008002123454767196
+    },
+    {
+      "seed": "rat-clap-check-20261027",
+      "originalGridTargetMean": 0.2201118235150945,
+      "evolvedTargetMean": 0.2287503704392726,
+      "targetGain": 0.008638546924178092,
+      "originalGridUnusedMean": 0.15017803054241216,
+      "evolvedUnusedMean": 0.15332802330753362,
+      "unusedMeanGain": 0.0031499927651214565,
+      "unusedWindowCaptionGains": [
+        0.004354962007950186,
+        0.023524950260862557,
+        -0.009076090355241262,
+        -0.006203850853085585
+      ],
+      "positiveUnusedChecks": 2,
+      "totalUnusedChecks": 4,
+      "perCaptionMeanGains": {
+        "target-1": 0.010237918794358591,
+        "target-2": 0.007039175053997537,
+        "check-1": -0.002360564173645524,
+        "check-2": 0.008660549703888493
+      },
+      "originalSpecificityMargin": 0.010588903198113592,
+      "evolvedSpecificityMargin": 0.010515405579960613
+    }
+  ],
+  "controls": {
+    "silenceScores": {
+      "check-1": 0.19458888258625454,
+      "check-2": 0.21616345270246112,
+      "contrast": 0.16947815086794715,
+      "target-1": 0.23438352325820547,
+      "target-2": 0.17848257488808664,
+      "unsuitable": 0.14611302691530592
+    },
+    "silenceUnusedMean": 0.20537616764435784,
+    "halfAmplitudeTargetMean": 0.23743615574562804,
+    "halfAmplitudeChange": -0.001962610994511116
+  },
+  "nativeGatesPassed": 21,
+  "searchCandidates": 21,
+  "nativeRenderJobs": 24,
+  "computedFeatures": 56,
+  "sharedCacheHits": 4,
+  "maxAttemptsPerJob": 1,
+  "maxRenderedPeak": 0.08769209682941437,
+  "humanLabels": 0,
+  "runtimeModified": false,
+  "deploymentApproved": false,
+  "limitations": [
+    "Developer-authored descriptions are not independently validated narrative-fit labels.",
+    "One scene, correlated windows and a fresh seed do not establish generalisation to other passages or books.",
+    "Held-out wording and seed are checked only after the bounded search; failures do not trigger extra tuning.",
+    "Higher CLAP cosine is not established musical quality, reading comfort or personal preference.",
+    "No runtime profile or default changes automatically.",
+    "Unused wording disagrees on individual comparisons.",
+    "Silence outranks music for the slapstick check caption.",
+    "Action-versus-reflective specificity margin did not improve.",
+    "Mean cosine gains are not confidence estimates or listener preference."
+  ],
+  "recoveryInvocations": [
+    {
+      "log": "20261027T185612.704484Z-994e2ce30ed64acfa5142d27d1878fff.jsonl",
+      "computedFeatures": 6,
+      "renderAttempts": 2,
+      "paused": true
+    },
+    {
+      "log": "20261027T185746.071753Z-a4c7b82bdeab46b0ae1adc57dd6e0eb7.jsonl",
+      "computedFeatures": 0,
+      "renderAttempts": 0,
+      "paused": true
+    },
+    {
+      "log": "20261027T185746.998376Z-3a0b3a77e0f0486995293a2d557a2f2f.jsonl",
+      "computedFeatures": 50,
+      "renderAttempts": 22,
+      "paused": false
+    },
+    {
+      "log": "20261027T190431.392988Z-fe14bcad556f43a0b39d0a594b6a1b9d.jsonl",
+      "computedFeatures": 0,
+      "renderAttempts": 0,
+      "paused": false
+    }
+  ]
+}

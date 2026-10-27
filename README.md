@@ -155,6 +155,11 @@ keep up to three parents, generate variations, back up rounds, or download a
 reader-compatible profile. See [nine-direction exploration](research/nine-direction-exploration.md)
 for playback, storage, palette-import details and isolated Playwright checks.
 
+For development-only CLAP-guided search of that exact grid, see the
+[bounded evolution pilot](research/grid-clap-evolution.md). It uses the optional
+local ML environment, resumable native renders and pinned embedding cache;
+it does not add a model to the reader or change personal preferences automatically.
+
 ```sh
 node --test tests/mvp.test.cjs
 ```
