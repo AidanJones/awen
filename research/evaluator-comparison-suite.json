@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "id": "rat-evaluator-rescoring-1",
+  "scope": "Exploratory post-hoc reranking of a CLAP-selected candidate pool, not a preregistered model or optimizer comparison.",
+  "checkSeed": "rat-evaluator-check-2-20261027",
+  "checkCaptions": {
+    "new-1": "An accompaniment to a fast, mischievous getaway in a comic adventure: alert, rhythmically purposeful and restrained enough for reading.",
+    "new-2": "Instrumental music supporting danger and deadpan humour as a fugitive springs a trap, then keeps moving. Clear motion without an overwhelming foreground."
+  },
+  "methods": ["single-1", "single-2", "ensemble", "contrastive", "incumbent", "warm"],
+  "contrastWeight": 1,
+  "selection": "Rank all 21 existing gate-eligible candidates using original seed only. Contrastive = target ensemble minus reflective caption. Fixed baselines: original pursuit and warm. No new mutations or selection using check results.",
+  "limitations": [
+    "All semantic methods share the same CLAP encoder; no alternative-model inference is claimed.",
+    "Candidates were generated using the previous ensemble objective, which favours that method.",
+    "New seed and wording are development checks, not independent passage or human-label validation.",
+    "No listener ground truth is available; ranking agreement cannot establish quality."
+  ]
+}

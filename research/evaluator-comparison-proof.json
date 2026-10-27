@@ -1,0 +1,262 @@
+{
+  "version": 1,
+  "status": "post-hoc-diagnostics-only",
+  "experimentId": "0f582d8f0e1d4f6a96370582862c91d6",
+  "experimentDirectory": ".score-lab\\evaluator-comparison\\20261027T211526.117415Z-8f2a03146dd847b7bd3b54d75ba38e71",
+  "reportSha256": "f7e38f42f1cdfa8dc45d0dbb4f3cf05fbbea8980dac8877e5cae182c0bf27617",
+  "sourceReportSha256": "6c7b60e04159febe39d00f46103496965dece02cc5f58e07164566290687b22b",
+  "engineSha256": "77e4aea7194d68ae9f0eb48c2ccac0487ddf137fbcf6d71228473a5affbbcdbf",
+  "comparisonSources": {
+    "research/evaluator-comparison-suite.json": "cdcddeb2b8baf2e4e2d0a58dc3976a4e2e5163b30014adc977b02cd55aa84df1",
+    "tools/compare_evaluators.py": "beeccc35a5069c28580e927d2c41e23ac0f0d1ded470cbd8f2bb5f70f849ae5d"
+  },
+  "model": {
+    "backendSha256": "3499d3927518415fad9a330a343c2cda17d724c5fc65e540263d2d96ec1e8433",
+    "packages": {
+      "huggingface-hub": "0.36.2",
+      "numpy": "2.3.5",
+      "safetensors": "0.8.0",
+      "scipy": "1.16.3",
+      "tokenizers": "0.22.2",
+      "torch": "2.8.0+cpu",
+      "transformers": "4.57.1"
+    },
+    "spec": {
+      "backend": "transformers-clap-cpu-1",
+      "dimension": 512,
+      "license": "apache-2.0",
+      "modelCard": "https://huggingface.co/laion/larger_clap_general",
+      "modelId": "laion/larger_clap_general",
+      "preprocessing": {
+        "audioPadding": "repeatpad",
+        "audioTruncation": "rand_trunc; exact ten-second input prevents random cropping",
+        "device": "cpu",
+        "dtype": "float32",
+        "normalization": "L2 float32 outputs; cosine dot product",
+        "pcm": "mono signed 16-bit little-endian divided by 32768",
+        "resample": "scipy.signal.resample_poly up=2 down=1 window=(kaiser,5.0) padtype=constant",
+        "seconds": 10,
+        "seed": 0,
+        "sourceSampleRate": 24000,
+        "targetSampleRate": 48000,
+        "textMaxTokens": 77,
+        "textTruncation": "reject; no silent truncation",
+        "threads": 2
+      },
+      "revision": "ada0c23a36c4e8582805bb38fec3905903f18b41",
+      "textTowerSanity": {
+        "purpose": "Reject extreme representation collapse, not establish semantic accuracy. The music-only checkpoint failed this independent API check.",
+        "rejectIfMinimumPairwiseCosineAbove": 0.995,
+        "texts": [
+          "The sound of a dog barking.",
+          "A piano playing a soft melody.",
+          "A man speaking loudly."
+        ]
+      },
+      "version": 1,
+      "weights": "pytorch_model.bin",
+      "weightsBytes": 776444665,
+      "weightsSha256": "314eb00cce6ad68d25237b8446b659ccdb136ed4672c1bca470f142f72455026"
+    }
+  },
+  "methods": [
+    {
+      "actionSpecificity": -0.05511242463004387,
+      "eligible": true,
+      "method": "single-1",
+      "name": "Desert horizon · G1.4",
+      "newDescriptionMean": 0.20613439065468428,
+      "newDescriptionWindows": [
+        {
+          "new-1": 0.18802391154033674,
+          "new-2": 0.2195058976818136
+        },
+        {
+          "new-1": 0.18730631732912578,
+          "new-2": 0.22970143606746096
+        }
+      ],
+      "selectedId": "g1-3-1o7pqjf",
+      "selectionScore": 0.19161391293157132
+    },
+    {
+      "actionSpecificity": 0.00967073207159963,
+      "eligible": true,
+      "method": "single-2",
+      "name": "Driving strings · G1.3 · G2.3",
+      "newDescriptionMean": 0.1958946077014515,
+      "newDescriptionWindows": [
+        {
+          "new-1": 0.21393813520187516,
+          "new-2": 0.18928253069327367
+        },
+        {
+          "new-1": 0.21424376649682988,
+          "new-2": 0.16611399841382737
+        }
+      ],
+      "selectedId": "g2-2-8kqe3d",
+      "selectionScore": 0.28880750506835084
+    },
+    {
+      "actionSpecificity": 0.00967073207159963,
+      "eligible": true,
+      "method": "ensemble",
+      "name": "Driving strings · G1.3 · G2.3",
+      "newDescriptionMean": 0.1958946077014515,
+      "newDescriptionWindows": [
+        {
+          "new-1": 0.21393813520187516,
+          "new-2": 0.18928253069327367
+        },
+        {
+          "new-1": 0.21424376649682988,
+          "new-2": 0.16611399841382737
+        }
+      ],
+      "selectedId": "g2-2-8kqe3d",
+      "selectionScore": 0.23939876674013916
+    },
+    {
+      "actionSpecificity": 0.01234306329756038,
+      "eligible": true,
+      "method": "contrastive",
+      "name": "Driving strings · G1.3",
+      "newDescriptionMean": 0.2005515392833856,
+      "newDescriptionWindows": [
+        {
+          "new-1": 0.22261188426257542,
+          "new-2": 0.19788655771014352
+        },
+        {
+          "new-1": 0.21413070031793233,
+          "new-2": 0.1675770148428911
+        }
+      ],
+      "selectedId": "g1-2-cb526y",
+      "selectionScore": 0.013397395716938432
+    },
+    {
+      "actionSpecificity": 0.011575660707390856,
+      "eligible": true,
+      "method": "incumbent",
+      "name": "Driving strings",
+      "newDescriptionMean": 0.19751281811426294,
+      "newDescriptionWindows": [
+        {
+          "new-1": 0.2186035990782738,
+          "new-2": 0.18906335863543008
+        },
+        {
+          "new-1": 0.21464312868414404,
+          "new-2": 0.1677411860592038
+        }
+      ],
+      "selectedId": "pursuit",
+      "selectionScore": null
+    },
+    {
+      "actionSpecificity": -0.07058242927328282,
+      "eligible": true,
+      "method": "warm",
+      "name": "Warm ensemble",
+      "newDescriptionMean": 0.16011936560855716,
+      "newDescriptionWindows": [
+        {
+          "new-1": 0.13605010477840573,
+          "new-2": 0.17069228270434447
+        },
+        {
+          "new-1": 0.1643302204998108,
+          "new-2": 0.16940485445166767
+        }
+      ],
+      "selectedId": "warm",
+      "selectionScore": null
+    }
+  ],
+  "rankingAgreement": [
+    {
+      "a": "single-1",
+      "b": "single-2",
+      "concordantFraction": 0.7571428571428571,
+      "pairs": 210
+    },
+    {
+      "a": "single-1",
+      "b": "ensemble",
+      "concordantFraction": 0.8095238095238095,
+      "pairs": 210
+    },
+    {
+      "a": "single-1",
+      "b": "contrastive",
+      "concordantFraction": 0.7,
+      "pairs": 210
+    },
+    {
+      "a": "single-2",
+      "b": "ensemble",
+      "concordantFraction": 0.9476190476190476,
+      "pairs": 210
+    },
+    {
+      "a": "single-2",
+      "b": "contrastive",
+      "concordantFraction": 0.9238095238095239,
+      "pairs": 210
+    },
+    {
+      "a": "ensemble",
+      "b": "contrastive",
+      "concordantFraction": 0.8904761904761904,
+      "pairs": 210
+    }
+  ],
+  "silenceScores": {
+    "contrast": 0.16947815086794715,
+    "new-1": 0.16581861885165938,
+    "new-2": 0.22481865846374902,
+    "target-1": 0.23438352325820547,
+    "target-2": 0.17848257488808664
+  },
+  "newSeed": "rat-evaluator-check-2-20261027",
+  "newCaptions": {
+    "new-1": "An accompaniment to a fast, mischievous getaway in a comic adventure: alert, rhythmically purposeful and restrained enough for reading.",
+    "new-2": "Instrumental music supporting danger and deadpan humour as a fugitive springs a trap, then keeps moving. Clear motion without an overwhelming foreground."
+  },
+  "selectionPool": 21,
+  "nativeRenders": 5,
+  "newFeatures": 12,
+  "sharedFeatureCacheHits": 46,
+  "maxJobAttempts": 1,
+  "alternativeModelsRun": [],
+  "humanLabels": 0,
+  "deploymentApproved": false,
+  "limitations": [
+    "All semantic methods share the same CLAP encoder; no alternative-model inference is claimed.",
+    "Candidates were generated using the previous ensemble objective, which favours that method.",
+    "New seed and wording are development checks, not independent passage or human-label validation.",
+    "No listener ground truth is available; ranking agreement cannot establish quality."
+  ],
+  "recoveryInvocations": [
+    {
+      "log": "20261027T211526.847065Z-d1235438af4144ee9702881da3ce9c2a.jsonl",
+      "featuresComputed": 4,
+      "renderAttempts": 1,
+      "paused": true
+    },
+    {
+      "log": "20261027T212012.889478Z-50d065157c484aa088d907f39b28fcdf.jsonl",
+      "featuresComputed": 8,
+      "renderAttempts": 4,
+      "paused": false
+    },
+    {
+      "log": "20261027T212507.995029Z-79ef574456f24edab6d17793890ecac3.jsonl",
+      "featuresComputed": 0,
+      "renderAttempts": 0,
+      "paused": false
+    }
+  ]
+}

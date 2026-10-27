@@ -1,0 +1,39 @@
+\paragraph{Completed screening result.} Six methods produced five distinct selections. Only five new native clips were rendered; the original 21 clips and their features were reused. Two new descriptions and a third seed were fixed before the follow-on scoring. All selected clips passed the native gates. No new model was installed or evaluated.
+
+\begin{table}[ht]
+
+\centering\small
+
+\caption{Post-hoc fixed-pool comparison on a third seed. New-description means use two new captions and two windows. Specificity uses the original target captions minus the reflective caption. These are CLAP diagnostics, not listener scores.}
+
+\begin{tabular}{p{3.8cm}lrr}
+
+\toprule
+
+Method & Selection & New mean & Specificity\\
+
+\midrule
+
+Single description 1 & Desert G1.4 & 0.206134 & -0.055112 \\
+
+Single description 2 & Strings G2.3 & 0.195895 & +0.009671 \\
+
+Two-description mean & Strings G2.3 & 0.195895 & +0.009671 \\
+
+Contrastive score & Strings G1.3 & 0.200552 & +0.012343 \\
+
+Unchanged Driving strings & Original strings & 0.197513 & +0.011576 \\
+
+Warm ensemble & Original warm & 0.160119 & -0.070582 \\
+
+\bottomrule
+
+\end{tabular}
+
+\label{tab:comparison}
+
+\end{table}
+
+The ensemble selection scored slightly below unchanged Driving strings on the new descriptions (0.195895 versus 0.197513). The contrastive selection improved that mean to 0.200552 and had a specificity margin of 0.012343. However, the single-description-1 desert selection had the highest new mean, 0.206134, while its original-target specificity was negative. The two single-caption rankings agreed on only 75.7\% of the 210 candidate pairs. These disagreements caution against identifying any one score with narrative appropriateness.
+
+Silence scored 0.224819 on the second new description and had a two-new-description mean of 0.195319, above the warm baseline and close to several musical selections. The follow-on therefore retains the original construct-validity concern. It does not establish that contrastive scoring solves it. The candidate pool is correlated and previously selected, so no significance test or causal method ranking is reported.

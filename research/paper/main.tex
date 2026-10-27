@@ -1,0 +1,178 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{lmodern,amsmath,amssymb,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\title{Evaluating and Personalising Continuous Procedural Scores for Literary Reading\\[5pt]\large A Reproducible Pilot and Research Protocol}
+\author{Awen Project\\\small Working paper v0.1 --- not peer reviewed}
+\date{27 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+An accompaniment to literary reading should support narrative function, remain musically continuous, and respect an individual listener's preferences without competing with reading. These requirements differ from matching an audio recording to a descriptive caption. We formalise the problem as constrained, multi-objective preference learning over a small procedural composition engine. Expensive evaluators are restricted to development; the deployed reader uses local deterministic synthesis and bounded parameters. We report a single-scene CLAP-guided pilot with nine authored starting directions and twelve evolved variants. Mean target-description cosine increased from 0.230422 for the best original direction to 0.239399 after evolution, with a positive mean gain on a new seed. However, unused wording produced individual ranking reversals, silence exceeded musical candidates for a check description, and action-versus-reflective specificity did not improve. A follow-on comparison of scoring formulations produced different selections, and the original evolved winner no longer exceeded the unchanged string baseline on new-description mean. We specify subsequent music-encoder, audio-language-judge, and human-preference experiments. There are no collected human study labels and no demonstrated improvement in reading, enjoyment, or literary fit. The contribution is a reproducible diagnostic system and a staged validation protocol, rather than a validated reward model.
+\end{abstract}
+
+\section{Introduction}
+Music for a reading interface poses a different problem from generating a self-contained song. The reader controls the duration of a paragraph, may revisit material, and may pause unpredictably. A literal response to each event can become distracting; a single unchanging texture can become monotonous. A scene involving a falling safe and a deadpan criminal, for example, admits suspenseful, comic, or propulsive accompaniment. None is uniquely specified by the nouns in the paragraph.
+
+This working paper investigates how to select and evolve such accompaniment while retaining a lightweight browser implementation. We distinguish four constructs: narrative appropriateness, musical continuity, personal enjoyment, and interference with reading. Semantic similarity is considered evidence about the first construct at most; it is not a substitute for all four. Absence of audio may be a valid product choice, although a nominal music evaluator that ranks an all-zero signal highly still requires diagnosis.
+
+Our research questions are: (RQ1) do semantic audio evaluators discriminate among plausible procedural accompaniments and reject controls? (RQ2) do evolutionary gains survive changes in wording, seed and listening window? (RQ3) do music-specific embeddings, learned preference rewards, or audio-capable language models agree better with listeners than raw CLAP? (RQ4) can sparse personal feedback guide diverse search using a small model suitable for local execution? (RQ5) which changes improve experience without increasing distraction or disrupting musical identity?
+
+We report completed engineering experiments separately from prospective human studies. Informal feedback motivated interface and timbre changes, but has not been converted into experimental preference labels. We make no novelty claim about contrastive audio embeddings, evolutionary search or preference learning individually. The intended contribution is their controlled application to continuous literary accompaniment, including negative evidence about automatic rewards.
+
+\section{Related work and construct validity}
+Contrastive language--audio pretraining supports shared representations for retrieval and classification \cite{clap}. MuQ-MuLan provides music--text embeddings, while CLaMP~3 relates text to multiple musical modalities \cite{muq,clamp}. Such capabilities motivate candidate evaluators, but retrieval performance does not establish suitability for ironic prose, sustained reading or a particular listener.
+
+MusicEval supplies expert-rated generated music and investigates a learned assessment model using CLAP representations \cite{musiceval}. TuneJury instead learns preference scores from human-rated comparisons and describes calibration for distribution shifts \cite{tunejury}. These approaches illustrate that representation learning and preference supervision solve different parts of evaluation. Neither result establishes transfer to our sparse synthesised scores or to reading comfort.
+
+Audio-language models offer a possible way to ask separate questions about narrative function, instrumentation and coherence. Their explanations must themselves be audited. Controlled probes by Modrzejewski and Radzikowski expose dependencies on question wording, prompt information and pair position in music judging \cite{judge}. We therefore require audio-removal, audio-swap, identical-pair and order-reversal checks before interpreting an audio-language model's ratings.
+
+MusicRL demonstrates preference-based refinement of a learned music generator \cite{musicrl}. Our setting does not initially require policy-gradient training of a large generator: candidates are renderings of a compact procedural genotype. A supervised preference ranker followed by bounded search is a simpler first intervention. It permits personalisation without shipping a foundation model to the reader.
+
+Finally, the cognitive effects of background audio are a separate empirical question. Souza and Barbosa found detrimental effects of lyrical music on several tasks, including reading, while the tested instrumental condition did not credibly improve or impair performance \cite{souza}. A meta-analysis distinguishes music, speech and noise, highlighting language-related distraction rather than supporting a universal rule about all instrumental accompaniment \cite{vasilev}. Neither validates this adaptive system. We do not infer a comprehension benefit from an attractive soundtrack. Prospective evaluation must include silence, fixed accompaniment and a direct measure of reading interference; any comprehension claim requires a separate study with appropriate measures and sample-size justification.
+
+\section{Problem formulation}
+Let $x_t$ denote the current paragraph, $h_t$ the available reading history, $u$ a listener, and $z$ a reproducible seed. A procedural engine renders
+\begin{equation}
+ a_{1:T}=G(x_{1:T},h_{1:T};g,z),\qquad g\in\mathcal G,
+\end{equation}
+where $g$ combines numeric traits, a phrase recipe, instrumentation palette and a harmonic snapshot. The actual temporal trajectory depends on reading actions; text position alone does not determine musical time. Unseen paragraphs are not inputs to the deployed lexical director.
+
+The latent utility is a vector rather than a known scalar:
+\begin{equation}
+ \mathbf U_u(x,a)=\big(F(x,a),C(a),E_u(a),-D_u(x,a)\big),
+\end{equation}
+where $F$ is narrative fit, $C$ coherence, $E_u$ enjoyment and $D_u$ distraction. These components may conflict. A highly effective dramatic accent can interrupt reading; an enjoyable piece can be a poor narrative match. We propose separate observations for these components before considering learned trade-offs.
+
+An evaluator $r$ may shortlist candidates only inside a feasible set,
+\begin{equation}
+ \mathcal G_{\mathrm{safe}}=\{g:\text{signal and continuity checks pass}\},
+ \qquad g^*=\arg\max_{g\in\mathcal G_{\mathrm{safe}}}r(x,G(g,z)).
+\end{equation}
+This notation does not imply that $r$ estimates $\mathbf U_u$. Hard gates prevent a semantic score from compensating for clipping, invalid samples or a broken musical cursor. They do not certify taste or coherence. Device amplification also prevents a digital sample bound from guaranteeing physical sound-pressure safety.
+
+We separate development and deployment. Development may use pretrained encoders or language models to compare renderings, inspect failure modes and suggest changes. Deployment retains original rules, synthesis, accepted snapshots, and optionally a small local preference model. A large evaluator is not a required runtime service.
+
+\section{System and reproducible measurement}
+\subsection{Procedural renderer and exploration interface}
+The Awen reader is a single HTML file with inline JavaScript and CSS. Native Web Audio produces original material without downloaded instrument samples. The composer uses a fixed 72~BPM clock, bounded chord voicings, recurring motifs, smoothed expression and bar/phrase transition rules. Paragraph navigation retains the musical cursor. Current numeric traits control melody activity, attack softness, warmth, room, background presence and background movement. Other choices determine palette, phrase pattern and a versioned harmonic recipe.
+
+The nine-card exploration view presents broad authored directions rather than nine small perturbations of one sound. It includes warm ensemble, frontier guitar/whistle, desert strings/brass, chamber, clockwork pizzicato, space synth, driving strings, background-led and noir choices. Up to three selected parents can be retained while nearby variants are generated. Selection is explicitly personal exploration, not a blinded experiment. Instrument families differ in excitation and articulation: plucked strings decay, winds include sustained breath and vibrato, bowed voices swell, and brass has time-varying filtering. This does not claim orchestral realism.
+
+All preview audio traverses the production compressor, master and final sample limiter. Offline previews are mono at 24~kHz, begin after the first rendered second, receive edge fades and use attenuation-only RMS balancing toward 0.018. The sample ceiling is 0.14. Equal RMS is not equal perceived loudness. The deployed engine does not use CLAP, an LLM or a network music generator.
+
+\subsection{Identity, recovery and provenance}
+Experiment directories and invocation logs use timestamps and UUIDs. Manifests bind source hashes, text, seeds, candidate parameters, render settings and model identities. Artifact checksums cover audio, traces and feature vectors. Jobs publish atomic results under a write-ahead journal and an operating-system lock; completed or published results can be recovered after interruption. Local failed inference may retry, while already-published features are reused. Corrupt artifacts cause a failure rather than silent replacement.
+
+The CLAP backend pins \code{laion/larger_clap_general}, revision \code{ada0c23a36c4e8582805bb38fec3905903f18b41}. The weight checksum, preprocessing, CPU float32 mode, package versions and thread count are recorded. Audio is resampled from 24 to 48~kHz, normalised embeddings are compared by dot product, and excessive text length is rejected instead of silently truncated. Identity checks prevent substituting another encoder merely because it has the same embedding dimension.
+
+\section{Completed CLAP evolution pilot}
+\subsection{Design}
+The scene is paragraph~3 of chapter~I of \emph{The Stainless Steel Rat}, with preceding context. Two developer-authored descriptions propose an instrumental accompaniment with comic danger, movement and space for narration. They were fixed before scoring and omit instrument names. These are accompaniment hypotheses, not independent annotations of the prose. The complete paragraph was not embedded directly.
+
+Nine grid options were evaluated on seed \code{awen-explore-1}. Two generations of six children selected the two highest-ranked eligible parents while retaining all ancestors. Each child mutated two bounded numeric traits and retained its parent's palette, phrase recipe and harmony. This is elitist evolutionary search without recombination or generator-weight training. The objective was
+\begin{equation}
+ R_{\mathrm{ens}}(g)=\frac{1}{|W||Q|}\sum_{w\in W}\sum_{q\in Q}
+ \langle e_a(a_w(g)),e_t(q)\rangle,
+\end{equation}
+using two descriptions and two ten-second windows beginning at preview seconds~2 and~18. Thus there were 21 search candidates, not 21 independent narratives.
+
+After selection, the familiar ensemble, best original grid card and evolved selection were checked on a new seed and two unused descriptions. Reflective-scene and unsuitable-caption controls, silence and a half-amplitude version of the winner were also scored. These diagnostic results did not trigger further mutation. Three additional renders supplied the fresh-seed finalists; the original-seed renderings were reused.
+
+\subsection{Results}
+\begin{table}[ht]
+\centering
+\caption{CLAP target-description means in the single-scene pilot. Scores are cosine associations, not calibrated preference probabilities.}
+\begin{tabular}{lrr}
+\toprule
+Candidate & Search seed & Fresh seed\\
+\midrule
+Familiar warm ensemble & 0.185747 & 0.191080\\
+Best original: Driving strings & 0.230422 & 0.220112\\
+Best generation~1 & 0.235743 & Not tested\\
+Best generation~2 & 0.239399 & 0.228750\\
+\bottomrule
+\end{tabular}
+\label{tab:pilot}
+\end{table}
+
+Relative to Driving strings, the final genotype reduced activity from 0.95 to 0.406655, softness from 0.15 to 0, and background motion from 0.4 to 0.243618. The selected recipe, ensemble palette and minor-drive harmony were preserved. This creates fewer melodic entries and firmer attacks while retaining the rhythmic framework. Other numeric traits were unchanged.
+
+The target-mean gain was 0.008976 on the search seed and 0.008639 on the fresh seed (Table~\ref{tab:pilot}). Mean unused-description gains were 0.007344 and 0.003150 respectively. However, only three of four description--window comparisons improved on the original seed and two of four on the fresh seed. The fresh seed's second window regressed for both unused descriptions. These observations are correlated and support neither a confidence interval nor a population-level improvement claim.
+
+Silence scored 0.216163 on the slapstick check description, exceeding the evolved music's approximate means of 0.132 and 0.116. Its unused-description mean, 0.205376, exceeded all musical finalists. Silence was excluded from musical selection by signal gates, but that exclusion does not repair the semantic evaluator. Furthermore, the evolved candidate gained against the reflective caption as well: the action-minus-reflective margin fell slightly on both seeds. Halving waveform amplitude changed target mean by $-0.001963$. Thus increased association did not demonstrate increased action specificity.
+
+All 21 search candidates passed the engineering gates; 24 native renders were produced in total. The largest measured post-preview peak was below 0.087693. Fifty-six features were newly computed and four reused from the shared cache. A real two-render pause, zero-budget replay, continuation and completed zero-budget replay verified that finished work was not recomputed. These are engineering results, not listening outcomes.
+
+\section{Exploratory comparison of evaluator formulations}
+\label{sec:comparison}
+Before downloading additional models, we isolate how the scoring formulation changes selection with a fixed encoder and audio pool. Single-caption objectives, their equal-weight ensemble and a contrastive objective are compared:
+\begin{equation}
+ R_{\mathrm{ctr}}(g)=R_{\mathrm{ens}}(g)-\frac{1}{|W|}\sum_{w\in W}
+ \langle e_a(a_w(g)),e_t(q_{\mathrm{reflective}})\rangle.
+\end{equation}
+The subtraction weight is fixed at one. Warm ensemble and unchanged Driving strings are fixed baselines. Each formulation ranks the same eligible 21 candidates. Unique selections are then rendered on a third seed and scored against two newly fixed descriptions. Pairwise ranking concordance is a measure of objective agreement only; it is not accuracy without listener labels.
+
+This comparison is \emph{post hoc}. The pool was generated by the original ensemble search, so it is not a fair equal-budget comparison of optimisers and is not preregistered. Earlier check captions are now development material. The new seed and descriptions are reserved only for this next screening step. All four semantic formulations still use CLAP; this is not a result about MuQ, CLaMP, TuneJury or an audio-language judge.
+
+\input{comparison-results.tex}
+
+\section{Prospective experiments and decision gates}
+\subsection{E1: Representation and reward comparison}
+After the present screen, compare general CLAP, a pinned music-specific embedding model, a released preference reward, and simple signal/symbolic baselines on identical candidate files. Use a tiny shared set of passages before expanding data. Freeze preprocessing, captions and selection budgets. Report control failures, wording/window/seed stability, runtime cost and agreement with separately collected labels. Cross-model cosine magnitudes must not be compared as though their scales were calibrated.
+
+MuQ-MuLan and CLaMP~3 are candidates for the representation branch; TuneJury is a candidate for the preference branch. Their availability and reported retrieval or preference results are not experimental results here. A prerequisite audit must establish exact checkpoint revisions, access conditions, input pipelines and licences. In particular, the primary TuneJury stack requires encoders different from the cached general CLAP model, and a gated MERT dependency is documented. Its lighter head still expects a specified music encoder. No head may be applied to incompatible cached vectors. We record pending candidates rather than disguising substituted inputs as a benchmark.
+
+\subsection{E2: Audio-language judge}
+Give a qualified audio-capable model the passage, context and actual audio. Ask separately about narrative support, coherence and interference, require localised observations, and allow abstention. Hide candidate names, genomes and optimiser scores. Randomise order and include reverse-order, identical-audio, missing-audio, silence, repeated/drone and discontinuity controls. Evaluate prompt rewordings and swapped music under the same passage. Fluent rationales alone do not establish audio dependence. An evaluator that fails controls is not promoted regardless of apparent score correlation.
+
+Model-generated judgements are recorded as synthetic supervision, never as human preferences. Comparing two automated judges only establishes agreement. Actual listener-labelled development examples are needed to estimate whether either judge predicts the intended construct.
+
+\subsection{E3: Sparse personal preference learning}
+The grid can elicit a shortlist, an explicit rejection, a tie or no opinion. A non-selected card is not automatically a negative: it may not have been heard. Pairwise examples may be derived only from explicit rankings or comparisons with recorded exposure context. Fit, enjoyment and distraction are separate labels; the first personal study can focus on one listener without claiming population generalisation.
+
+Start with a regularised preference model on numeric/symbolic features. For a listener $u$ and observed preference $a_i\succ a_j$, a Bradley--Terry model has
+\begin{equation}
+ P_u(a_i\succ a_j\mid x)=\sigma\left(f_{\theta,u}(x,a_i)-f_{\theta,u}(x,a_j)\right).
+\end{equation}
+Compare a global model, a personal offset and a small nonlinear alternative only as label volume permits. Frozen audio/text embeddings can be added in an ablation, not assumed necessary. Use held-out chapters, seeds and whole works; keep near-duplicate variants together. Test learning curves, ties, abstention and failure to beat a no-learning diverse grid. Avoid treating all inferred pairs from one grid as independent observations.
+
+This is preference learning followed by search, not initially full RLHF of a foundation generator. A small fitted model or selected parameter/rule table could be exported to the browser. If a large development model is distilled, evaluate the compact replacement's choices and continuity directly. Student accuracy cannot be inferred from the teacher's results.
+
+\subsection{E4: Controlled optimisation and reading acceptance}
+Only evaluators that pass earlier gates should drive matched-budget searches. Retain a fixed incumbent, random-search and diversity-preserving baselines. Compare multiple seeds and record diversity, rejection rates and ranking uncertainty. Larger regime changes should respect chapter structure; within-chapter transitions require separate continuity tests. Explicit user changes are a different intervention from automatic direction changes.
+
+A subsequent listening study should compare silence, fixed accompaniment, rule-directed scoring and personalised scoring at comfortable controlled levels. Randomise presentation, counterbalance passages and separate enjoyment, distraction, immersion and comprehension outcomes. Specify primary outcomes and stopping rules before collecting data. Estimate sample size from an appropriate pilot; the present single-scene windows do not provide a defensible population effect estimate. Claim improved comprehension only if that study supports it.
+
+\section{Limitations, ethics and reproducibility}
+The completed pilot has one prose scene, procedural timbres and a small correlated candidate population. The search space constrains what an evaluator can improve: no reward can discover a composition rule absent from the genotype. A fixed tempo and short clips may hide long-session fatigue and failures at scene transitions. Descriptions can encode the developer's intended interpretation rather than a listener's. Seed generalisation is not work, genre or listener generalisation.
+
+At manuscript preparation there are zero collected human study labels. There is no preference model trained for Awen, no completed cross-model inference comparison, and no audio-language judge result. Existing informal design feedback is not retrospectively relabelled as a study. Prepared calibration materials and automated tests are described as infrastructure rather than participant evidence. The reader's defaults and personal profiles have not been automatically replaced by search winners.
+
+Future feedback collection should be voluntary, permit stopping and deletion, and distinguish local experiments from any external model upload. Book texts, source versions and model licences require item-level provenance; age or black-and-white appearance is not proof of unrestricted reuse. Model weights and raw experiment audio remain outside the application and Git history. The bounded digital output protects a numerical signal constraint, not arbitrary physical playback conditions.
+
+Artifacts include frozen suites, source/checkpoint hashes, candidate snapshots, per-window scores, job manifests, unique logs, tests and listening pages. Raw audio and vectors are archived locally under ignored experiment directories; a public complete benchmark release has not been prepared. Cross-browser bit-identical DSP is not claimed. Results are linked to exact local reports through machine-readable proofs. The manuscript and protocol are expected to change as actual comparison and listener evidence is acquired.
+
+\section{Conclusion}
+The prototype demonstrates reproducible continuous synthesis and bounded CLAP-guided parameter search. It also demonstrates why optimisation success is weaker evidence than evaluator validity: average association increased while meaningful controls failed. The immediate research task is to compare representations, preference rewards and controlled audio-language judgements against explicit listener constructs. A small personal ranker may ultimately be sufficient for deployment, but that remains a hypothesis. This working paper provides measured pilot evidence and a staged protocol without claiming a validated literary-music reward.
+
+\begin{thebibliography}{9}
+\bibitem{clap} Y.~Wu et al. \emph{Large-scale Contrastive Language-Audio Pretraining with Feature Fusion and Keyword-to-Caption Augmentation}. arXiv:2211.06687, 2022, revised 2024. \url{https://arxiv.org/abs/2211.06687}.
+\bibitem{muq} H.~Zhu et al. \emph{MuQ: Self-Supervised Music Representation Learning with Mel Residual Vector Quantization}. arXiv:2501.01108, 2025. \url{https://arxiv.org/abs/2501.01108}.
+\bibitem{clamp} S.~Wu et al. \emph{CLaMP 3: Universal Music Information Retrieval Across Unaligned Modalities and Unseen Languages}. ACL, 2025. \url{https://arxiv.org/abs/2502.10362}.
+\bibitem{musiceval} C.~Liu et al. \emph{MusicEval: A Generative Music Dataset with Expert Ratings for Automatic Text-to-Music Evaluation}. ICASSP, 2025. \url{https://arxiv.org/abs/2501.10811}.
+\bibitem{tunejury} Y.~Kim et al. \emph{TuneJury: An Open Metric for Improving Music Generation Preference Alignment}. arXiv:2606.17006, 2026. Preprint. \url{https://arxiv.org/abs/2606.17006}.
+\bibitem{judge} M.~Modrzejewski and T.~Radzikowski. \emph{What Do Audio-Language Judges of Generated Music Listen For? Four Probes with Controls from Expert Ratings}. arXiv:2610.13247, 2026. Preprint. \url{https://arxiv.org/abs/2610.13247}.
+\bibitem{musicrl} G.~Cideron et al. \emph{MusicRL: Aligning Music Generation to Human Preferences}. arXiv:2402.04229, 2024. \url{https://arxiv.org/abs/2402.04229}.
+\bibitem{souza} A.~S.~Souza and L.~C.~L.~Barbosa. Should We Turn off the Music? Music with Lyrics Interferes with Cognitive Tasks. \emph{Journal of Cognition}, 6(1):24, 2023. \url{https://doi.org/10.5334/joc.273}.
+\bibitem{vasilev} M.~R.~Vasilev, J.~A.~Kirkby and B.~Angele. Auditory Distraction During Reading: A Bayesian Meta-Analysis of a Continuing Controversy. \emph{Perspectives on Psychological Science}, 13(5):567--597, 2018. \url{https://doi.org/10.1177/1745691617747398}.
+\end{thebibliography}
+
+\appendix
+\section{Artifact index}
+The repository is \url{https://github.com/AidanJones/awen}. The pilot design and proof are \code{research/grid-clap-suite.json} and \code{research/grid-clap-proof.json}; its driver is \code{tools/grid_clap.py}. The follow-on comparison uses \code{research/evaluator-comparison-suite.json} and \code{tools/compare_evaluators.py}. The present manuscript is \code{research/paper/main.tex}; the included result section is updated from the completed comparison report. The background and calibration notes are \code{background_music_notes.md} and \code{research/listening-calibration.md}. A separate experiment ledger records pending models and dependencies. Source files provide detailed settings beyond the rounded manuscript tables.
+\end{document}

@@ -160,6 +160,12 @@ For development-only CLAP-guided search of that exact grid, see the
 local ML environment, resumable native renders and pinned embedding cache;
 it does not add a model to the reader or change personal preferences automatically.
 
+The [academic working paper](research/paper/main.tex) formalises the problem,
+reports completed evidence and distinguishes it from proposed studies. Open its
+folder in the built-in LaTeX editor for the compiled PDF preview. The
+[experiment ledger](research/experiment-ledger.md) records the completed objective
+comparison, model prerequisites and remaining listener/preference work.
+
 ```sh
 node --test tests/mvp.test.cjs
 ```

@@ -184,7 +184,7 @@
     },
     {
       "id": "g1-0-7y0dk1",
-      "name": "Driving strings Â· G1.1",
+      "name": "Driving strings · G1.1",
       "objective": 0.2320217251510079,
       "eligible": true,
       "scores": [
@@ -200,7 +200,7 @@
     },
     {
       "id": "g1-1-izk7hk",
-      "name": "Desert horizon Â· G1.2",
+      "name": "Desert horizon · G1.2",
       "objective": 0.20632479707089912,
       "eligible": true,
       "scores": [
@@ -216,7 +216,7 @@
     },
     {
       "id": "g1-2-cb526y",
-      "name": "Driving strings Â· G1.3",
+      "name": "Driving strings · G1.3",
       "objective": 0.23574311412596388,
       "eligible": true,
       "scores": [
@@ -232,7 +232,7 @@
     },
     {
       "id": "g1-3-1o7pqjf",
-      "name": "Desert horizon Â· G1.4",
+      "name": "Desert horizon · G1.4",
       "objective": 0.2142879443196547,
       "eligible": true,
       "scores": [
@@ -248,7 +248,7 @@
     },
     {
       "id": "g1-4-uxl0jn",
-      "name": "Driving strings Â· G1.5",
+      "name": "Driving strings · G1.5",
       "objective": 0.22640944162254967,
       "eligible": true,
       "scores": [
@@ -264,7 +264,7 @@
     },
     {
       "id": "g1-5-10k1f1p",
-      "name": "Desert horizon Â· G1.6",
+      "name": "Desert horizon · G1.6",
       "objective": 0.21040286748064688,
       "eligible": true,
       "scores": [
@@ -280,7 +280,7 @@
     },
     {
       "id": "g2-0-1fhld8s",
-      "name": "Driving strings Â· G1.3 Â· G2.1",
+      "name": "Driving strings · G1.3 · G2.1",
       "objective": 0.2279270117882689,
       "eligible": true,
       "scores": [
@@ -296,7 +296,7 @@
     },
     {
       "id": "g2-1-1c18num",
-      "name": "Driving strings Â· G1.1 Â· G2.2",
+      "name": "Driving strings · G1.1 · G2.2",
       "objective": 0.23184498187143343,
       "eligible": true,
       "scores": [
@@ -312,7 +312,7 @@
     },
     {
       "id": "g2-2-8kqe3d",
-      "name": "Driving strings Â· G1.3 Â· G2.3",
+      "name": "Driving strings · G1.3 · G2.3",
       "objective": 0.23939876674013916,
       "eligible": true,
       "scores": [
@@ -328,7 +328,7 @@
     },
     {
       "id": "g2-3-1atrdoz",
-      "name": "Driving strings Â· G1.1 Â· G2.4",
+      "name": "Driving strings · G1.1 · G2.4",
       "objective": 0.2288629399300012,
       "eligible": true,
       "scores": [
@@ -344,7 +344,7 @@
     },
     {
       "id": "g2-4-1cjyrl1",
-      "name": "Driving strings Â· G1.3 Â· G2.5",
+      "name": "Driving strings · G1.3 · G2.5",
       "objective": 0.23320467825191413,
       "eligible": true,
       "scores": [
@@ -360,7 +360,7 @@
     },
     {
       "id": "g2-5-1coq8qk",
-      "name": "Driving strings Â· G1.1 Â· G2.6",
+      "name": "Driving strings · G1.1 · G2.6",
       "objective": 0.23111262630025842,
       "eligible": true,
       "scores": [
@@ -390,7 +390,7 @@
     }
   ],
   "winnerCard": {
-    "description": "less melody Â· firmer attacks",
+    "description": "less melody · firmer attacks",
     "genome": {
       "activity": 0.40665517603047185,
       "bedMotion": 0.24361806066008287,
@@ -454,7 +454,7 @@
       "warmth": 0.35
     },
     "id": "g2-2-8kqe3d",
-    "name": "Driving strings Â· G1.3 Â· G2.3",
+    "name": "Driving strings · G1.3 · G2.3",
     "palette": "ensemble",
     "parentId": "g1-2-cb526y"
   },
