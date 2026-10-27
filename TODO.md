@@ -1,6 +1,6 @@
 # Awen: open work and exploration
 
-Updated 26 October 2026.
+Updated 27 October 2026.
 
 **Tracking:** Beads is authoritative for current status; run `bd ready` / `bd list`. This roadmap records the work and research strands, including the latest development-loop direction in section 8. Some older items combine shipped features with remaining evaluation; consult their Beads issue before starting work. See [.beads/README.md](.beads/README.md) for the workflow and epic index.
 
@@ -196,8 +196,13 @@ See [score-lab design and commands](research/score-lab.md), [audio-judge rubric]
 - [ ] Compare pretrained LAION CLAP, music-specific MuQ-MuLan and CLaMP 3 on a tiny scene-brief/audio set before training a new joint encoder. Check actual checkpoint licences, revisions, preprocessing and hardware requirements.
 - [ ] Keep embedding association distinct from narrative fit, musical coherence, personal taste and reading comfort. Use independent briefs and negative/shuffled pairs, not the current classifier's labels as ground truth.
 - [ ] Cache by audio/text/checkpoint/preprocessing hashes; measure timed windows and hold out whole works/genres. Only use embeddings for shortlisting or a small ranking layer after listener agreement is useful. An audio-capable LLM can judge finalists during development; neither becomes a required runtime dependency.
+- [ ] Build a replayable blinded calibration packet: around six scenes with three/four same-scene alternatives and a small first set of pairwise fit/taste/distraction labels, including ties and uncertainty. Pilot counts are design proposals, not evidence of reliability.
+- [ ] Compare raw CLAP, a fixed paraphrase ensemble and a small regularised ranker against the incumbent/simple-feature baselines. Keep the encoder frozen first; verify that CLAP actually adds useful held-out information before expanding data or comparing larger models.
+- [ ] Add anti-gaming controls for near-silence, drones, repeated/busy attacks, noise, loudness changes and discontinuities. A fit score cannot compensate for failed signal or continuity constraints. Freeze choices before held-out book/chapter/seed evaluation, report scene-grouped uncertainty, and trial listener shortlisting before automatic reward-based selection.
 
 See [audio–text and script/cue-sheet research](research/audio-text-evaluation.md). The first CLAP checkpoint experiment is complete; cross-model comparisons and reference-corpus work remain backlog items. No reference corpus or model training has been performed.
+
+The [27 October calibration roadmap](research/clap-probe.md#calibration-roadmap--27-october-2026) records the order of work and promotion gates. A reliable combined reward may be possible; raw CLAP is not presumed sufficient, and dropping it is an acceptable outcome.
 
 ### Related open strands
 
