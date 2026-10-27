@@ -1,0 +1,66 @@
+{
+  "version": "awen-calibration-1",
+  "date": "2026-10-27",
+  "packetId": "420a255a7c24430193a89ab6b83ce48b",
+  "packetSha256": "5493c7ffe537bf078d23c3da2868c2742516ffeda9253da2785a7adba13ab64b",
+  "sources": {
+    "index.html": "c833ea4e21453b705c93002b0188e37e13201c31d037c5cc751777ff1dd2ec99",
+    "research/calibration-scenes.json": "c8afdb61fa6a92edad82167a2db89ef02b49805693332fb09b3f94750dde1fa9",
+    "research/score-lab-fixtures.json": "d265f17935bd5914f421e9320793baf1503de60209abd48d203a0f1ad5ebe3c4",
+    "research/score-lab-judge.md": "30384fa8e1427228513aaabdf33dee6e18b261dfd2ac9c874e68cc4c997132bd",
+    "tools/calibration-review.html": "2ca922ec410845bc27bbaca4be6a696af2c169fa148e0bea7551c6b153750a23",
+    "tools/calibration-worker.cjs": "994e7f954fd3a24164171cde484af08d6581eb27a902cca2956967728e5802cd",
+    "tools/calibration_packet.py": "18da27f3e80571c0e81ed818b6febb7b6dce8177b3ee51952e3315bd8bd9b45a",
+    "tools/score-lab-metrics.cjs": "4cebcea37cb1dbd827f8bc7ab6118b9feed05af92101a76da4246ad1e4ef7dd9",
+    "tools/score-lab-worker.cjs": "bcc016f33be0a3dafd63c441d299f584205a826b7ba059b7aefb39a94a7e845a",
+    "tools/score-lab.cjs": "ffe3c59ac68090feffa492ba451d50c3756d359137ecb5dca26193042f481068",
+    "tools/score_lab.py": "c83453aab83c02a34d7bffdab02e48e991b207ecec51f8e07917e60fc0531926"
+  },
+  "sceneCount": 6,
+  "books": [
+    "rat",
+    "riders",
+    "time"
+  ],
+  "reservedHoldout": "war",
+  "nativeClips": 18,
+  "nativeClipsReusedInFinalPacket": 18,
+  "newNativeRendersInFinalPacket": 0,
+  "publicAudioFiles": 18,
+  "comparisons": {
+    "primary": 12,
+    "reversedOrder": 3,
+    "identicalAudio": 3
+  },
+  "publicExcerptSeconds": 26.666666666666668,
+  "maxPublicPeak": 0.080596923828125,
+  "postGainRmsRange": [
+    0.014733019096143258,
+    0.018
+  ],
+  "normalization": "Per-scene common RMS by attenuation only, with identical edge fades; perceived loudness equality not established.",
+  "originalNativePreparationPausedAfterRenders": 3,
+  "originalCompletedJobsUnchangedOnResume": true,
+  "finalCompletedJobsUnchangedOnResume": true,
+  "allRenderAttemptCountsOne": true,
+  "cacheOnlyResumeNewRenders": 0,
+  "invocationLogs": [
+    "20261027T092345.399319Z-3b061a4ad7234d0d84a1313cc3572c68.jsonl",
+    "20261027T092353.338435Z-04e2b9d4934d4fcfa29d07014e6ed3d0.jsonl",
+    "20261027T092358.806710Z-76db6573e0e34c7eb998ffa9e44cd011.jsonl"
+  ],
+  "humanLabels": 0,
+  "rankerTrained": false,
+  "rewardCalibrated": false,
+  "nativeRuntimeChanged": false,
+  "verification": {
+    "pythonTests": 46,
+    "javascriptTests": 52,
+    "isolatedPlaywrightReview": "passed; TEST ONLY responses not imported"
+  },
+  "limitations": [
+    "Developer-selected pilot, not independently labelled or held-out validation.",
+    "Rater/listening identity is self-reported. No musical winner or reading benefit established.",
+    "Recipes and palettes vary together; labels cannot identify individual trait effects."
+  ]
+}

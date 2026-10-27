@@ -16,6 +16,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import time
 import traceback
 import uuid
 
@@ -61,7 +62,16 @@ def atomic(path, data, *, exclusive=False):
         handle.write(data)
         handle.flush()
         os.fsync(handle.fileno())
-    os.replace(temp, path)
+    # Windows scanners/readers can briefly hold a destination without delete sharing.
+    # Retry only known sharing/access errors; retain the complete temp file on failure.
+    for attempt in range(6):
+        try:
+            os.replace(temp, path)
+            break
+        except OSError as error:
+            if os.name != "nt" or getattr(error, "winerror", None) not in (5, 32, 33) or attempt == 5:
+                raise
+            time.sleep(.02 * 2 ** attempt)
     if os.name != "nt":
         fd = os.open(path.parent, os.O_RDONLY)
         try:

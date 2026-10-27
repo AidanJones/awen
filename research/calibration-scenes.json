@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "id": "awen-listening-pilot-1",
+  "description": "Developer-selected listening pilot, not gold scene labels or a representative benchmark. No preferred variant is designated.",
+  "holdoutBooks": ["war"],
+  "renderSteps": 128,
+  "cropStartStep": 32,
+  "cropSteps": 64,
+  "scenes": [
+    {"id":"rat-escape","book":"rat","chapter":"chapter-1","paragraph":3,"preceding":true,"selectionNote":"Comic action and escape; dialogue in preceding context.","variants":[["classic","ensemble"],["caper","noir"],["dialogue","chamber"]]},
+    {"id":"rat-reflection","book":"rat","chapter":"chapter-2","paragraph":1,"preceding":false,"selectionNote":"Reflective first-person narration after action.","variants":[["classic","ensemble"],["dialogue","chamber"],["unseen","noir"]]},
+    {"id":"riders-landscape","book":"riders","chapter":"chapter-1","paragraph":1,"preceding":false,"selectionNote":"Quiet landscape and movement subsiding.","variants":[["classic","ensemble"],["frontier","frontier"],["caper","synth"]]},
+    {"id":"riders-aftermath","book":"riders","chapter":"chapter-2","paragraph":1,"preceding":false,"selectionNote":"Gratitude and an emotional aftermath.","variants":[["classic","ensemble"],["dialogue","chamber"],["unseen","desert"]]},
+    {"id":"time-discussion","book":"time","chapter":"chapter-1","paragraph":2,"preceding":true,"selectionNote":"An animated explanation and conversation.","variants":[["classic","ensemble"],["dialogue","chamber"],["caper","noir"]]},
+    {"id":"time-journey","book":"time","chapter":"chapter-3","paragraph":3,"preceding":true,"selectionNote":"A character recounts unsettling sensations of travel; recalled action is not an instruction to score a new chase.","variants":[["classic","ensemble"],["frontier","synth"],["unseen","ensemble"]]}
+  ]
+}

@@ -241,6 +241,30 @@ class LifecycleTests(unittest.TestCase):
         self.assertEqual(lab.read(file), {"value": "original"})
         self.assertEqual(len(list(self.directory.glob("atomic-test.json.*.tmp"))), 1)
 
+    @unittest.skipUnless(os.name == "nt", "Windows sharing-violation policy")
+    def test_atomic_replace_retries_only_bounded_windows_sharing_errors(self):
+        file = self.directory / "windows-retry.json"
+        lab.atomic(file, lab.encode({"value": "old"}))
+        replace = lab.os.replace
+        calls = []
+        error = PermissionError("TEST ONLY scanner lock")
+        error.winerror = 32
+        def held_then_released(source, target):
+            calls.append(1)
+            if len(calls) <= 2:
+                raise error
+            return replace(source, target)
+        with patch.object(lab.os, "replace", side_effect=held_then_released), patch.object(lab.time, "sleep") as wait:
+            lab.atomic(file, lab.encode({"value": "new"}))
+        self.assertEqual(len(calls), 3)
+        self.assertEqual(wait.call_count, 2)
+        self.assertEqual(lab.read(file), {"value": "new"})
+        with patch.object(lab.os, "replace", side_effect=error) as held, patch.object(lab.time, "sleep"):
+            with self.assertRaises(PermissionError):
+                lab.atomic(file, lab.encode({"value": "must not replace"}))
+            self.assertEqual(held.call_count, 6)
+        self.assertEqual(lab.read(file), {"value": "new"})
+
     def hard_exit(self, checkpoint):
         code = '''
 import os, sys
