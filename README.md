@@ -142,6 +142,13 @@ The richer ensemble preset is an artistic option, not a claimed cognitive benefi
 
 ## Verification
 
+For a wider personal starting search alongside the paired listening review, run
+`python tools/exploration_page.py` and open the printed standalone HTML page.
+Its nine-card grid offers distinct phrase recipes, palettes and harmonic directions;
+keep up to three parents, generate variations, back up rounds, or download a
+reader-compatible profile. See [nine-direction exploration](research/nine-direction-exploration.md)
+for playback, storage, palette-import details and isolated Playwright checks.
+
 ```sh
 node --test tests/mvp.test.cjs
 ```

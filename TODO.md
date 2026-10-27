@@ -207,6 +207,8 @@ The [27 October calibration roadmap](research/clap-probe.md#calibration-roadmap-
 
 ### Related open strands
 
+- [x] Nine-direction personal exploration (`awen-w3k`): broad 3×3 starting grid, production-engine previews, up to three retained parents, bounded seeded refinement, previous rounds, backups and reader-profile downloads. Separate from blinded A/B labels. See [guide and limits](research/nine-direction-exploration.md).
+- [ ] Listen across these starting directions in longer reading sessions; use actual preferences to choose which richer compositional traits should evolve next. Automated waveform differences do not prove meaningful musical diversity.
 - [ ] Richer musical traits and meaningful bounds — `awen-3fr.3` / EVO-03.
 - [ ] Reliable replay of archived comparisons and complete generation lineage — `awen-3fr.5` / EVO-05.
 - [ ] Explicit chapter-aware runtime direction and varied traversal fixtures — `awen-7x1.3.2` / MUSIC-03.
