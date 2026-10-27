@@ -7,13 +7,14 @@ Generate a portable page with the standard Python library:
 ```sh
 python tools/exploration_page.py
 # Optional: --output <new-directory> --paired-url http://127.0.0.1:50473/review.html
+# --previous-url <earlier-explorer-url> keeps older sounds/backups accessible
 ```
 
 Open the printed `explore.html` directly, or serve its directory locally. It embeds the production engine, harmonic library and six pilot passages in one HTML file; it needs no network, model, CDN or build tooling to run. The generator refuses to overwrite a directory and emits a manifest with page/engine hashes. Regenerate after engine changes; backups from a different engine hash are rejected rather than silently replayed differently. The main reader remains `index.html`.
 
 ## Starting grid and refinement
 
-The desktop grid is 3 × 3 (two columns on tablets, one on phones). Nine starting cards cover five authored phrase recipes, six sound palettes and nine distinct recipe/harmony identities:
+The desktop grid is 3 × 3 (two columns on tablets, one on phones). The updated nine starting cards cover six authored phrase recipes, six sound palettes and nine distinct recipe/harmony identities:
 
 | Direction | Phrase recipe / palette | Harmony |
 | --- | --- | --- |
@@ -21,11 +22,11 @@ The desktop grid is 3 × 3 (two columns on tablets, one on phones). Nine startin
 | Open frontier | Frontier / frontier | Open modal space |
 | Desert horizon | Frontier / desert | Held-root suspension |
 | Intimate chamber | Dialogue / chamber | Gentle release |
-| Noir caper | Caper / noir | Minor-sixth intrigue |
+| Clockwork caper | Pizzicato / ensemble | Minor-sixth intrigue |
 | Suspended space | Dialogue / synth | Major-third colour |
-| Unseen presence | Unseen / noir | Chromatic neighbour tension |
+| Driving strings | Pursuit / ensemble | Minor driving cycle |
 | Background led | Dialogue / ensemble, no lead | Warm added-note continuity |
-| Gentle release | Classic / chamber | Gentle release |
+| Noir caper | Caper / noir | Minor-sixth intrigue |
 
 These combine existing original synthesised material; they are not recordings or imitations of named film composers. Background led removes lead melody but retains sparse bass and the continuous bed. Each direction also varies numeric traits. Broad structural choices are deliberately authored rather than hoping small random mutations produce a different genre.
 
@@ -52,6 +53,6 @@ python -m unittest discover -s tests -p 'test_exploration_page.py'
 node tests/exploration.browser.cjs
 ```
 
-The isolated native-audio proof rendered all nine starting directions for one Rat passage/seed: all nine waveform hashes differed, RMS ranged 0.00984–0.018 and maximum peak was 0.08080, below 0.14. It verifies five phrase recipes/six palettes/nine harmonic identities, readable dark/mobile UI, no autoplay/network, single-source playback, Stop during rendering, deterministic multi-parent refinement, reader-profile compatibility, reload and validated export/restore. These checks establish working audio and interaction, not perceptual distinctness or musical quality. The production audio and evolution regression suites also run separately.
+The isolated native-audio proof renders all nine starting directions for one Rat passage/seed and checks different waveform hashes, non-silent output, RMS at or below 0.018 and peaks below 0.14. It verifies six phrase recipes/six palettes/nine harmonic identities, readable dark/mobile UI, no autoplay/network, single-source playback, Stop during rendering, deterministic multi-parent refinement, reader-profile compatibility, reload and validated export/restore. These checks establish working audio and interaction, not perceptual distinctness or musical quality. The production audio and evolution regression suites also run separately. See [instrument and kinetic-scoring changes](instrument-articulation.md) for the second listening iteration.
 
 Next listening work: judge whether the broad directions are sufficiently different and comfortable over a longer read, identify useful extra composition traits beyond the current six, and decide how explicit taste/fit/comfort feedback should be archived. The broad starting grid does not establish a reliable evolution reward; the calibration roadmap and held-out evaluation gates still apply.

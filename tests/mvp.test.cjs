@@ -45,7 +45,7 @@ test('smoothing converges, is time-based, and cancels superseded targets',()=>{
 });
 class Param{constructor(){this.value=0;}setValueAtTime(v){this.value=v;}setTargetAtTime(v){this.value=v;}linearRampToValueAtTime(v){this.value=v;}exponentialRampToValueAtTime(v){this.value=v;}cancelScheduledValues(){}cancelAndHoldAtTime(){}}
 class Node{constructor(){for(const k of ['gain','frequency','detune','Q','threshold','knee','ratio','attack','release'])this[k]=new Param();this.connections=[];}connect(n){this.connections.push(n);}disconnect(){}start(){}stop(){}setPeriodicWave(){}getFloatTimeDomainData(a){a.fill(0);}}
-class FakeContext{constructor(){this.currentTime=0;this.sampleRate=1000;this.state='suspended';this.destination={};this.nodes=0;}createGain(){this.nodes++;return new Node();}createBiquadFilter(){this.nodes++;return new Node();}createOscillator(){this.nodes++;return new Node();}createWaveShaper(){return new Node();}createDynamicsCompressor(){return new Node();}createAnalyser(){return new Node();}createPeriodicWave(){return {};}createConvolver(){return new Node();}createBuffer(channels,length){const data=Array.from({length:channels},()=>new Float32Array(length));return {getChannelData:i=>data[i]};}async resume(){this.state='running';}async close(){this.state='closed';}}
+class FakeContext{constructor(){this.currentTime=0;this.sampleRate=1000;this.state='suspended';this.destination={};this.nodes=0;}createGain(){this.nodes++;return new Node();}createBiquadFilter(){this.nodes++;return new Node();}createOscillator(){this.nodes++;return new Node();}createBufferSource(){this.nodes++;return new Node();}createWaveShaper(){return new Node();}createDynamicsCompressor(){return new Node();}createAnalyser(){return new Node();}createPeriodicWave(){return {};}createConvolver(){return new Node();}createBuffer(channels,length){const data=Array.from({length:channels},()=>new Float32Array(length));return {getChannelData:i=>data[i]};}async resume(){this.state='running';}async close(){this.state='closed';}}
 ctx.AudioContext=FakeContext;
 test('audio starts on demand, keeps graph/clock on navigation, and stops promptly',async()=>{
  const a=new api.AudioAdapter();assert.equal(a.ctx,null);await a.start();const graph=a.ctx,layers=a.layers;
@@ -184,8 +184,19 @@ test('authored starting points change musical structure and preserve determinist
   for(let step=0;step<192;step++){const x=api.planStep(a,{kind:'caper'},style),y=api.planStep(b,{kind:'caper'},style);assert.equal(JSON.stringify(x),JSON.stringify(y));a=x.state;b=y.state;notes.push(...x.events.map(e=>({...e,step})));if(x.harmony)harmonies.push(step);}
   assert(notes.every(e=>e.midi>=48&&e.midi<=81&&e.level>0&&e.level<=.4&&e.duration>0&&e.duration<=3));logs[style]=JSON.stringify(notes);counts[style]=notes.filter(e=>e.layer===2).length;assert.equal(harmonies[1],api.SCORE_STYLES[style].bars*8);
  }
- assert.equal(new Set(Object.values(logs)).size,5);assert(counts.frontier<counts.classic);assert(counts.dialogue<counts.classic);assert(counts.caper>counts.frontier);
+ assert.equal(new Set(Object.values(logs)).size,7);assert(counts.frontier<counts.classic);assert(counts.dialogue<counts.classic);assert(counts.caper>counts.frontier);
  let s=api.makeComposer();for(let i=0;i<64;i++){const r=api.planStep(s,{kind:'dialogue'},'dialogue');if(i>=32)assert(r.events.every(e=>e.layer!==2),'dialogue recipe must leave a complete answer phrase open');s=r.state;}
+});
+
+test('Rat safe-drop is action, with bounded rhythmic motion rather than a tempo or cursor reset',()=>{
+ const text=books[0].chapters[0].paragraphs[2],f=api.contextual(api.analyze(text).raw,api.analyze(books[0].chapters[0].paragraphs[1]).raw);
+ assert.equal(api.directPassage(text,f,'safe-drop').kind,'chase');
+ for(const style of ['classic','frontier','caper','pursuit','pizzicato']){
+  const collect=kind=>{let state=api.makeComposer('kinetic');const events=[];for(let step=0;step<64;step++){const r=api.planStep(state,{kind},style);state=r.state;events.push(...r.events);}assert.equal(state.step,64);return events;};
+  const calm=collect('reflective'),action=collect('chase');assert(action.filter(e=>e.layer===3).length>calm.filter(e=>e.layer===3).length,style);assert(action.every(e=>e.level<=.4&&e.midi>=48&&e.midi<=81&&e.duration<=3));
+ }
+ // Old checkpoints must not silently resume a different composer implementation.
+ assert.equal(api.restoreComposer({...api.makeComposer(),version:'awen-score-2',step:96},'rat-001','rat').step,0);
 });
 test('starting-point gallery includes recipes and evolution retains the selected parent identity',()=>{
  const current=api.normalGenome(),gallery=api.makeStartingGallery(current,'small-proof');assert.equal(gallery.length,6);assert.equal(new Set(gallery.map(c=>api.genomeKey(c.genome))).size,6);for(const id of ['frontier','caper','unseen','dialogue'])assert(gallery.some(c=>c.genome.scoreStyle===id));
