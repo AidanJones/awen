@@ -228,6 +228,10 @@ Classical-repertoire strand (31 October): see
 
 - [x] Integrate a bounded figured-line DSL with reader playback, profiles, pins,
   phrase-boundary changes, gallery/grid evolution and the development renderer.
+- [x] Add nine source-linked classical-inspired recipes, contrasting harmonic
+  pacing/textures, an inspectable lexical cue map, three development modes and a
+  chapter-indexed tonal route. Profile/checkpoint/grid/evaluator integration is
+  documented in [classical directions](research/classical-directions.md).
 - [ ] Prototype section-specific Vivaldi storm/cold/indoor-repose contrasts after
   inspecting score/sonnet alignment; retain programme evidence separately from
   proposed reading uses.
@@ -237,6 +241,10 @@ Classical-repertoire strand (31 October): see
   Debussy; add bounded meter, texture and development features only as needed.
 - [ ] Compare structural families with the familiar score in small listener
   sessions before enlarging the corpus or using fit metrics for selection.
+- [ ] Improve chapter changes with composed cadential bridges; test longer held
+  cycles, out-of-order reading, ambiguous/negated cues and mixed scenes with real
+  listener feedback. Existing four-bar transitions crossfade harmony but may
+  leave a long harmonic cycle before its closing cadence.
 - [ ] Add structural DSL mutation and fully tracked lineage only after parser,
   continuity and listening constraints are established. Current evolution
   preserves DSL source and varies numeric genome traits.

@@ -1,0 +1,302 @@
+{
+  "version": "1.0.0",
+  "id": "awen-classical-knowledge",
+  "readingBenefitEstablished": false,
+  "sources": [
+    {
+      "id": "larsen",
+      "title": "Larsen: Motivic Continuity (2020)",
+      "url": "https://doi.org/10.18177/sym.2020.60.sr.11479",
+      "scope": "BWV 1007 opening and motivic analysis",
+      "kind": "analysis"
+    },
+    {
+      "id": "yates",
+      "title": "Yates: Bach unaccompanied string music (1998)",
+      "url": "https://www.stanleyyates.com/s/Bach_Unaccompanied_String_Music-f7sy.pdf",
+      "scope": "Introduction and sections 1.1–1.2",
+      "kind": "analysis"
+    },
+    {
+      "id": "barbican",
+      "title": "Harriet Smith: Vivaldi / Corelli programme",
+      "url": "https://www.barbican.org.uk/vivaldis-four-seasons-live-from-the-barbican",
+      "scope": "Programme commentary and sonnet imagery; no note-level transcription",
+      "kind": "programme-commentary"
+    },
+    {
+      "id": "chopin",
+      "title": "Tomaszewski: Chopin Op. 28 No. 4",
+      "url": "https://chopin.nifc.pl/en/chopin/kompozycja/197",
+      "scope": "Institute work commentary, indexed text; no score transcription",
+      "kind": "institution-analysis"
+    }
+  ],
+  "presets": [
+    {
+      "id": "flowing",
+      "label": "Bach-inspired flowing line",
+      "work": "BWV 1007 Prelude",
+      "description": "Recurring figure and implied bass/upper roles.",
+      "sourceIds": [
+        "larsen",
+        "yates"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "program": "score 1\nname \"Flowing figured cello\"\nkey G2 major\ninstrument bow\nbass pedal\nfigure b 1 2 n2 2 1 2 1\ncycle I IV V7 I vi ii V7 I\ngate 0.95\nneighbor 0.4\ncadence 4\nbreath 0\ntexture line\nhold 1\nshape steady"
+    },
+    {
+      "id": "sequence",
+      "label": "Bach-inspired minor cycle",
+      "work": "Solo string writing",
+      "description": "Moving bass and persistent minor figuration; an original cycle.",
+      "sourceIds": [
+        "yates"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "program": "score 1\nname \"Minor sequence\"\nkey G2 minor\ninstrument bow\nbass roots\nfigure b 1 2 1 b 2 1 2\ncycle i iv V7 i VI ii_dim V7 i\ngate 0.85\nneighbor 0\ncadence 4\nbreath 0\ntexture line\nhold 1\nshape steady"
+    },
+    {
+      "id": "dialogue",
+      "label": "Bach-inspired dialogue gaps",
+      "work": "Implied instrumental dialogue",
+      "description": "Register roles and space for an answering phrase.",
+      "sourceIds": [
+        "yates"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "program": "score 1\nname \"Figured dialogue gaps\"\nkey G2 major\ninstrument felt\nbass roots\nfigure b 1 2 - 2 1 - 1\ncycle I vi V7 I IV ii V7 I\ngate 0.8\nneighbor 0\ncadence 4\nbreath 1\ntexture line\nhold 1\nshape steady"
+    },
+    {
+      "id": "spring",
+      "label": "Vivaldi-inspired spring calls",
+      "work": "Spring: birdsong imagery",
+      "description": "Short separated upper calls over a moving bass; not a birdcall transcription.",
+      "sourceIds": [
+        "barbican"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "program": "score 1\nname \"Spring calls\"\nkey G2 major\ninstrument flute\nbass roots\nfigure b 1 2 - 2 1 - -\ncycle I IV V7 I\ngate 0.6\nneighbor 0\ncadence 4\nbreath 0\ntexture lyric\nhold 1\nshape answer"
+    },
+    {
+      "id": "storm",
+      "label": "Vivaldi-inspired storm motion",
+      "work": "Summer: storm episode",
+      "description": "Continuous short bowed attacks and a bounded phrase swell.",
+      "sourceIds": [
+        "barbican"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "program": "score 1\nname \"Storm motion\"\nkey G2 minor\ninstrument bow\nbass roots\nfigure b 1 2 1 b 2 1 2\ncycle i iv V7 i\ngate 0.55\nneighbor 0\ncadence 4\nbreath 0\ntexture line\nhold 1\nshape swell"
+    },
+    {
+      "id": "frost",
+      "label": "Vivaldi-inspired winter pulse",
+      "work": "Winter: exposed cold",
+      "description": "Repeated dry plucks with slower harmonic movement.",
+      "sourceIds": [
+        "barbican"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "program": "score 1\nname \"Winter pulse\"\nkey G2 minor\ninstrument guitar\nbass pedal\nfigure b 1 1 1 b 2 2 2\ncycle i iv V7 i\ngate 0.4\nneighbor 0\ncadence 4\nbreath 0\ntexture pulse\nhold 2\nshape steady"
+    },
+    {
+      "id": "hearth",
+      "label": "Vivaldi-inspired winter shelter",
+      "work": "Winter: sheltered slow episode",
+      "description": "Sparse sustained upper notes contrasting with the cold pulse.",
+      "sourceIds": [
+        "barbican"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "program": "score 1\nname \"Winter shelter\"\nkey G2 major\ninstrument bow\nbass roots\nfigure b 1 - - 2 - - -\ncycle I IV V7 I\ngate 1.05\nneighbor 0\ncadence 4\nbreath 1\ntexture lyric\nhold 2\nshape steady"
+    },
+    {
+      "id": "elegy",
+      "label": "Chopin-inspired quiet elegy",
+      "work": "Op. 28 No. 4: restrained expression",
+      "description": "Slow chordal support and repeated upper gestures; original diatonic adaptation, not Chopin harmony.",
+      "sourceIds": [
+        "chopin"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "program": "score 1\nname \"Quiet elegy\"\nkey G2 minor\ninstrument felt\nbass roots\nfigure b 1 - - b 1 - -\ncycle i iv V7 i\ngate 1.05\nneighbor 0\ncadence 4\nbreath 1\ntexture chords\nhold 4\nshape steady"
+    },
+    {
+      "id": "concertino",
+      "label": "Corelli-inspired call and space",
+      "work": "Op. 6 No. 1: contrasting activity and silences",
+      "description": "Two active bars followed by a thinner answer.",
+      "sourceIds": [
+        "barbican"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "program": "score 1\nname \"Concertino call and space\"\nkey G2 major\ninstrument guitar\nbass roots\nfigure b 1 2 - 2 1 - -\ncycle I ii V7 I\ngate 0.7\nneighbor 0\ncadence 4\nbreath 1\ntexture line\nhold 1\nshape answer"
+    }
+  ],
+  "cues": [
+    {
+      "id": "storm",
+      "label": "Storm / impact",
+      "words": [
+        "storm",
+        "thunder",
+        "lightning",
+        "explosion",
+        "exploded",
+        "gunfire",
+        "black powder"
+      ],
+      "preset": "storm",
+      "gate": 0.7,
+      "density": 1,
+      "effect": "shorter attacks and a rising phrase envelope",
+      "evidenceStatus": "awen-proposal"
+    },
+    {
+      "id": "pursuit",
+      "label": "Pursuit / urgency",
+      "words": [
+        "chase",
+        "chased",
+        "fled",
+        "pursuit",
+        "dodged",
+        "scrambled",
+        "raced"
+      ],
+      "preset": "storm",
+      "gate": 0.78,
+      "density": 1,
+      "effect": "more continuous motion without changing tempo",
+      "evidenceStatus": "awen-proposal"
+    },
+    {
+      "id": "cold",
+      "label": "Exposed cold",
+      "words": [
+        "snow",
+        "frost",
+        "frozen",
+        "shiver",
+        "shivering",
+        "icy",
+        "blizzard"
+      ],
+      "preset": "frost",
+      "gate": 0.65,
+      "density": 0.9,
+      "effect": "dry repeated articulation",
+      "evidenceStatus": "awen-proposal"
+    },
+    {
+      "id": "shelter",
+      "label": "Shelter / repose",
+      "words": [
+        "fireside",
+        "fireplace",
+        "shelter",
+        "sheltered",
+        "rested",
+        "peaceful",
+        "warmth"
+      ],
+      "preset": "hearth",
+      "gate": 1.1,
+      "density": 0.55,
+      "effect": "longer notes and more space",
+      "evidenceStatus": "awen-proposal"
+    },
+    {
+      "id": "grief",
+      "label": "Grief / loss",
+      "words": [
+        "grief",
+        "mourned",
+        "mourning",
+        "sorrow",
+        "wept",
+        "bereaved"
+      ],
+      "preset": "elegy",
+      "gate": 1.05,
+      "density": 0.5,
+      "effect": "restrained repeated gestures and sparse accompaniment",
+      "evidenceStatus": "awen-proposal"
+    },
+    {
+      "id": "nature",
+      "label": "Open nature",
+      "words": [
+        "birdsong",
+        "birds",
+        "blossom",
+        "meadow",
+        "springtime",
+        "brook"
+      ],
+      "preset": "spring",
+      "gate": 0.9,
+      "density": 0.8,
+      "effect": "separated lyrical calls",
+      "evidenceStatus": "awen-proposal"
+    },
+    {
+      "id": "dialogue",
+      "label": "Conversation",
+      "words": [
+        "said",
+        "asked",
+        "replied",
+        "whispered"
+      ],
+      "preset": "dialogue",
+      "gate": 0.95,
+      "density": 0.5,
+      "effect": "space around upper-register phrases",
+      "evidenceStatus": "awen-proposal"
+    },
+    {
+      "id": "wonder",
+      "label": "Wonder / discovery",
+      "words": [
+        "wonder",
+        "discovered",
+        "marvellous",
+        "marvelous",
+        "astonished"
+      ],
+      "preset": "flowing",
+      "gate": 1,
+      "density": 0.85,
+      "effect": "connected figuration",
+      "evidenceStatus": "awen-proposal"
+    },
+    {
+      "id": "neutral",
+      "label": "No strong cue",
+      "words": [],
+      "preset": "flowing",
+      "gate": 1,
+      "density": 1,
+      "effect": "retain the chosen direction",
+      "evidenceStatus": "awen-proposal"
+    }
+  ],
+  "chapterRoute": {
+    "offsets": [
+      0,
+      5,
+      7,
+      0
+    ],
+    "labels": [
+      "home",
+      "subdominant region",
+      "dominant region",
+      "home"
+    ],
+    "transition": "next-four-bar-boundary",
+    "evidenceStatus": "awen-proposal"
+  }
+}

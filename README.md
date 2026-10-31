@@ -148,10 +148,17 @@ The richer ensemble preset is an artistic option, not a claimed cognitive benefi
 
 ## Verification
 
+The [classical directions guide](research/classical-directions.md) describes nine
+Bach, Vivaldi, Chopin and Corelli-inspired starting points, inspectable text-to-music
+rules and deterministic chapter development. Choose **Classical-inspired starting
+points** in the reader, or **Classical-inspired nine** in a newly generated explorer.
+The source-linked [design library](research/classical-knowledge.json) is embedded
+in the standalone reader; no runtime fetch or model is required.
+
 The [Bach-inspired DSL guide](research/bach-dsl.md) describes the integrated score
 editor, reader/gallery/profile support and **Bach-inspired nine** explorer set.
 The [classical literature review](research/classical-inspiration.md) separates
-implemented Bach-inspired figures from proposed Vivaldi/Chopin starting points
+implemented original adaptations from further score-analysis proposals
 and the listening evidence still needed. All are original adaptations; the
 reader does not play recordings or require an ML model.
 

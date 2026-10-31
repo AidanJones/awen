@@ -1,0 +1,73 @@
+{
+  "testOnly": true,
+  "transition": {
+    "before": "elegy",
+    "waiting": "elegy",
+    "after": "storm",
+    "offset": 5,
+    "epoch": 32,
+    "tick": 33
+  },
+  "native": [
+    {
+      "id": "flowing",
+      "rms": 0.01783159766393736,
+      "peak": 0.06831243634223938
+    },
+    {
+      "id": "sequence",
+      "rms": 0.01709901471819626,
+      "peak": 0.07189910113811493
+    },
+    {
+      "id": "dialogue",
+      "rms": 0.0073040288122129616,
+      "peak": 0.06302431225776672
+    },
+    {
+      "id": "spring",
+      "rms": 0.021605313090671898,
+      "peak": 0.07646593451499939
+    },
+    {
+      "id": "storm",
+      "rms": 0.01180570081967138,
+      "peak": 0.07162138819694519
+    },
+    {
+      "id": "frost",
+      "rms": 0.009827290903306661,
+      "peak": 0.07563737034797668
+    },
+    {
+      "id": "hearth",
+      "rms": 0.018626163695412905,
+      "peak": 0.07224972546100616
+    },
+    {
+      "id": "elegy",
+      "rms": 0.014857328006927937,
+      "peak": 0.07364730536937714
+    },
+    {
+      "id": "concertino",
+      "rms": 0.009133925023248632,
+      "peak": 0.0742843896150589
+    }
+  ],
+  "nativeGate": {
+    "eligible": true,
+    "reasons": []
+  },
+  "engineSha256": "f5ee3a0273bed77121f81df10616dd86e8ccc35f4e7b762612033af91e274853",
+  "verification": "tests/classical.browser.cjs",
+  "listenerRatings": 0,
+  "nativeRenderSeconds": 64,
+  "traversalSteps": 192,
+  "traversalChecks": [
+    "No recipe switch for dramatic words inside the first chapter",
+    "New storm recipe enters at step 64 after chapter change at step 45",
+    "Shelter recipe enters at step 128 after chapter change at step 109",
+    "Backward jump returns to home recipe and tonal region at step 160"
+  ]
+}
