@@ -148,6 +148,13 @@ The richer ensemble preset is an artistic option, not a claimed cognitive benefi
 
 ## Verification
 
+The [Bach-inspired DSL guide](research/bach-dsl.md) describes the integrated score
+editor, reader/gallery/profile support and **Bach-inspired nine** explorer set.
+The [classical literature review](research/classical-inspiration.md) separates
+implemented Bach-inspired figures from proposed Vivaldi/Chopin starting points
+and the listening evidence still needed. All are original adaptations; the
+reader does not play recordings or require an ML model.
+
 For a wider personal starting search alongside the paired listening review, run
 `python tools/exploration_page.py` and open the printed standalone HTML page.
 Its nine-card grid offers distinct phrase recipes, palettes and harmonic directions;

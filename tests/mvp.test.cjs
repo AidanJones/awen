@@ -8,7 +8,7 @@ const script=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
 const books=JSON.parse(html.match(/<script id="books" type="application\/json">([\s\S]*?)<\/script>/)[1]);
 const ctx=vm.createContext({setInterval:()=>1,clearInterval:()=>{},setTimeout,clearTimeout});
 vm.runInContext(script.split('const $=id=>')[0],ctx);
-const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT,makeGallery,genomeDistance,genomeKey,describeGenome,cleanName,profileStamp,previewAttenuation,PREVIEW_RMS,SCORE_STYLES,starterGenome,makeStartingGallery,SKETCH_VERSION,validateScoringKnowledge,compileHarmonyRecipe,normalHarmonyRecipe,normalHarmonyChoice,makeHarmonyGallery,harmonicIdentity,canRestoreScoreSession,SOUND_PALETTES,soundPalette,paletteInstrument})',ctx);
+const api=vm.runInContext('({analyze,contextual,mapScore,smooth,neutral,AudioAdapter,dimensions,limiterCurve,OUTPUT_CEILING,MASTER_GAIN,directPassage,planStep,makeComposer,restoreComposer,voiceLead,scoreRandom,sfc32,hash32,normalSeed,STEP_SECONDS,COMPOSER_VERSION,normalGenome,mutateGenome,normalProfile,GENOME_DEFAULT,makeGallery,genomeDistance,genomeKey,describeGenome,cleanName,profileStamp,previewAttenuation,PREVIEW_RMS,SCORE_STYLES,starterGenome,makeStartingGallery,SKETCH_VERSION,validateScoringKnowledge,compileHarmonyRecipe,normalHarmonyRecipe,normalHarmonyChoice,makeHarmonyGallery,harmonicIdentity,canRestoreScoreSession,SOUND_PALETTES,soundPalette,paletteInstrument,compileScoreDSL,normalScoreDSL,SCORE_DSL_PRESETS,dslGenome,makeDSLGallery})',ctx);
 test('complete curated books retain spine order, stable IDs and nonempty paragraphs',()=>{
  assert.deepEqual(books.map(b=>b.chapters.length),[19,27,13,23]);
  for(const b of books){const ids=new Set();for(const c of b.chapters){assert(c.title);c.paragraphs.forEach((p,i)=>{assert(p.trim());const id=b.id+':'+c.id+':'+i;assert(!ids.has(id));ids.add(id);});}assert(b.license.includes('CC0'));assert(b.colophon);assert(b.url.startsWith('https://standardebooks.org/ebooks/'));}
@@ -182,9 +182,9 @@ test('authored starting points change musical structure and preserve determinist
  const logs={},counts={};for(const style of Object.keys(api.SCORE_STYLES)){
   let a=api.makeComposer(),b=api.makeComposer(),notes=[],harmonies=[];
   for(let step=0;step<192;step++){const x=api.planStep(a,{kind:'caper'},style),y=api.planStep(b,{kind:'caper'},style);assert.equal(JSON.stringify(x),JSON.stringify(y));a=x.state;b=y.state;notes.push(...x.events.map(e=>({...e,step})));if(x.harmony)harmonies.push(step);}
-  assert(notes.every(e=>e.midi>=48&&e.midi<=81&&e.level>0&&e.level<=.4&&e.duration>0&&e.duration<=3));logs[style]=JSON.stringify(notes);counts[style]=notes.filter(e=>e.layer===2).length;assert.equal(harmonies[1],api.SCORE_STYLES[style].bars*8);
+  assert(notes.every(e=>e.midi>=(style==='figured'?36:48)&&e.midi<=81&&e.level>0&&e.level<=.4&&e.duration>0&&e.duration<=3));logs[style]=JSON.stringify(notes);counts[style]=notes.filter(e=>e.layer===2).length;assert.equal(harmonies[1],api.SCORE_STYLES[style].bars*8);
  }
- assert.equal(new Set(Object.values(logs)).size,7);assert(counts.frontier<counts.classic);assert(counts.dialogue<counts.classic);assert(counts.caper>counts.frontier);
+ assert.equal(new Set(Object.values(logs)).size,8);assert(counts.frontier<counts.classic);assert(counts.dialogue<counts.classic);assert(counts.caper>counts.frontier);
  let s=api.makeComposer();for(let i=0;i<64;i++){const r=api.planStep(s,{kind:'dialogue'},'dialogue');if(i>=32)assert(r.events.every(e=>e.layer!==2),'dialogue recipe must leave a complete answer phrase open');s=r.state;}
 });
 

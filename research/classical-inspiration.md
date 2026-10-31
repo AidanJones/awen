@@ -1,0 +1,31 @@
+# Classical repertoire as compositional evidence
+
+Research pass: 31 October 2026. The existing literature review emphasised reading distraction, film/theatre scoring and evaluator validity. The paper did not previously cite a focused classical-analysis case study. This note adds that strand; it is not an annotated score corpus or evidence that classical music improves reading.
+
+## Sources actually consulted
+
+| Source and scope reviewed | Useful observation | Original Awen proposal / implementation status |
+|---|---|---|
+| Josquin Larsen (2020), [Motivic Continuity in the Instrumental Suites, Sonatas, and Partitas of J. S. Bach](https://symposium.music.org/60-1/articles/motivic-continuity-in-the-instrumental-suites-sonatas-and-partitas-of-j-s-bach), opening BWV 1007 analysis and motivic discussion; DOI 10.18177/sym.2020.60.sr.11479 | Recurring small figures can connect surface motion to a slower harmonic structure. | Implemented: repeated figuration, pedal/roots, resolving lower neighbours and cadences in a bounded original recipe. No transcription or claim to reproduce Bach's compositional method. |
+| Stanley Yates (1998), [Bach's Unaccompanied String Music](https://www.stanleyyates.com/s/Bach_Unaccompanied_String_Music-f7sy.pdf), introduction and sections 1.1–1.2 | Arpeggiation and register changes can imply multiple voices in one instrumental line. Rhetorical structure matters alongside note patterns. | Implemented: bass and upper-register roles within a figure. Independent contrapuntal voices and rhetorical development remain future work. |
+| Netherlands Bach Society, [Cello Suite no. 1, BWV 1007](https://www.bachvereniging.nl/en/bwv/bwv-1007), work/performance commentary | Resonance and interpretative bowing contribute to the result. | Keep instrument articulation separate from note grammar. The mathematical description alone is insufficient; procedural bow synthesis is not a cello performance. |
+| Harriet Smith, [Barbican Four Seasons programme](https://www.barbican.org.uk/vivaldis-four-seasons-live-from-the-barbican), Vivaldi paragraphs and accompanying sonnet presentation | The published sonnets specify images; Summer moves toward a storm, while Winter contrasts cold with a warm slow movement. Sonnet authorship is uncertain. | Proposed: separate `programme`, `section`, `texture` and transition envelopes. Do not translate winter into a compulsory minor key or summer into cheerful music. No Vivaldi preset implemented yet. |
+| Mieczysław Tomaszewski, [Chopin Institute: Prelude in E minor, Op. 28 No. 4](https://chopin.nifc.pl/en/chopin/kompozycja/197), work commentary (search-indexed institute text; direct page requires JavaScript) | Describes a brief, slow, subdued elegiac piece with an insistent small-interval motif. | Proposed: restrained repeated gesture, limited dynamics and controlled harmonic tension. “Reflection” is our candidate reading use, not the composer's universal label. No Chopin preset implemented yet. |
+| Artur Bielecki, [Chopin Institute: Preludes](https://chopin.nifc.pl/en/chopin/gatunki/12_preludia), cycle commentary | Contrasting autonomous pieces can retain unity across an ordered cycle. | Proposed: a coherent collection of starting points with different textures, rather than nine instrument swaps alone. Chapter-scale contrast should be tested separately from paragraph adaptation. |
+
+These are music analysis, performer/institution commentary and programme evidence, not six controlled experiments. Only the specified pages/sections were consulted. The [Mutopia BWV 1007 catalogue](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=517) is an edition lead; its score has not been encoded here. No recording, score example or modern arrangement was copied into the engine.
+
+## Evidence representation for the engine
+
+Keep the source observation, our musical adaptation and listener evidence separate. A future library entry should carry `sourceId`, `work`, `section`, `reviewedScope`, `evidenceKind`, `observedTechnique`, `proposedDSL`, `candidateUses`, `implementationStatus` and `listenerEvidence`. Programme text supports an intended image; an analyst's reading supports a particular interpretation; neither supplies a validated paragraph-to-music reward. The compiled executable recipe should contain bounded musical parameters, with these references retained in authoring metadata.
+
+The first implementation is documented in [Bach-inspired DSL](bach-dsl.md). It supports a small subset of techniques. “Minor sequence” is an original minor harmonic cycle, not an encoded historical sequence model. Existing harmonic directions can override its chord plan; this is an explicit user choice, not evidence about the source work.
+
+## Next small experiments
+
+1. Vivaldi: compare a cold repeated gesture, an indoor lyrical texture and a storm texture over the same passages and seeds. Add only the missing bounded rhythm/texture features needed for those contrasts. Use section-specific references; inspect the original score/sonnet alignment before claiming note-level correspondence.
+2. Chopin: inspect a specific edition of Op. 28 No. 4, then prototype voice-leading and slow harmonic change separately from timbre. Measure whether it reduces busy attacks without becoming static.
+3. Broaden formal contrast: inspect Beethoven's motivic development, Satie's triple-meter accompaniment and Debussy's harmonic colour in primary scores and work-specific analysis. These are research leads, not completed reviews or implemented styles. Triple meter, sustained suspensions and chordal textures need real engine support.
+4. Compare each new family with the familiar authored score and Bach-inspired figures. Gather separate preferences for enjoyment, passage fit and distraction, including ties and an option to retain the familiar score. Automated diversity and embedding scores are diagnostics, not substitutes for those answers.
+
+No large dataset or model training is needed for this first comparison. Preserve source versions, seeds, recipe snapshots and unique resumable run logs if these recipes enter the development evaluator. Modern recordings and editions require their own provenance checks; a historical composition's age does not describe a recording's rights.

@@ -222,6 +222,25 @@ The [27 October calibration roadmap](research/clap-probe.md#calibration-roadmap-
 
 ## Suggested next slice
 
+Classical-repertoire strand (31 October): see
+[reviewed sources and staged experiments](research/classical-inspiration.md) and
+[implemented Bach-inspired DSL](research/bach-dsl.md).
+
+- [x] Integrate a bounded figured-line DSL with reader playback, profiles, pins,
+  phrase-boundary changes, gallery/grid evolution and the development renderer.
+- [ ] Prototype section-specific Vivaldi storm/cold/indoor-repose contrasts after
+  inspecting score/sonnet alignment; retain programme evidence separately from
+  proposed reading uses.
+- [ ] Inspect a specified Chopin Op. 28 No. 4 edition and prototype slow harmonic
+  movement/voice leading as a distinct starting family.
+- [ ] Review primary scores and work-specific analysis for Beethoven, Satie and
+  Debussy; add bounded meter, texture and development features only as needed.
+- [ ] Compare structural families with the familiar score in small listener
+  sessions before enlarging the corpus or using fit metrics for selection.
+- [ ] Add structural DSL mutation and fully tracked lineage only after parser,
+  continuity and listening constraints are established. Current evolution
+  preserves DSL source and varies numeric genome traits.
+
 1. Use the resumable Python bridge to connect and calibrate a real provider against the strict judge exchange.
 2. Calibrate the judge and metric thresholds on a few matched comparisons, with listener judgements kept separate.
 3. Add chapter context and continuity fixtures before changing automatic runtime direction.
