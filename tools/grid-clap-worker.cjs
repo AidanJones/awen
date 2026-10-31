@@ -9,7 +9,7 @@ function atomic(file,bytes){const temp=file+'.'+crypto.randomUUID()+'.tmp';fs.wr
  else if(command==='render'){
   const rendered=await page.evaluate(async input=>{
    const trace=[],events=[],note=AudioAdapter.prototype.note,compose=AudioAdapter.prototype.composeBeat;
-   AudioAdapter.prototype.note=function(hz,time,duration,layer,level,destination,instrument){events.push({step:this.tick-1,layer,midi:Math.round(69+12*Math.log2(hz/440)),duration,instrument:paletteInstrument(this.palette,instrument,(this.tick+31)%32)});return note.call(this,hz,time,duration,layer,level,destination,instrument);};
+   AudioAdapter.prototype.note=function(hz,time,duration,layer,level,destination,instrument){events.push({step:this.tick-1,layer,midi:Math.round(69+12*Math.log2(hz/440)),duration,instrument:paletteInstrument(this.palette,instrument,(this.tick+31)%32,layer)});return note.call(this,hz,time,duration,layer,level,destination,instrument);};
    AudioAdapter.prototype.composeBeat=function(time){compose.call(this,time);trace.push({tick:this.tick,chapter:'fixed-scene',state:{...this.state},regime:JSON.stringify([this.palette,this.genome.scoreStyle,harmonicIdentity(this.genome),this.composer.seed])});};
    const r=await renderPreview(input.card,data.scenes[input.scene],input.seed,input.seconds);return {samples:Array.from(r.buffer.getChannelData(0)),gain:r.gain,trace,events};
   },input),samples=Float32Array.from(rendered.samples),signal=signalMetrics(samples,24000),structure=traceMetrics(rendered.trace,rendered.events,rendered.trace.length),wav=pcmWav(samples,24000),trace=JSON.stringify({trace:rendered.trace,events:rendered.events})+'\n',out=path.dirname(outputFile);

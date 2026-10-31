@@ -155,6 +155,12 @@ points** in the reader, or **Classical-inspired nine** in a newly generated expl
 The source-linked [design library](research/classical-knowledge.json) is embedded
 in the standalone reader; no runtime fetch or model is required.
 
+The **Sound palette** dropdown also includes **Baroque · harpsichord & strings**,
+**Cello · bowed chamber**, **Romantic · piano & strings** and **Pastoral · flute &
+strings**. These provide distinct instrumental combinations for any starting
+point; newly generated classical grids use matching palettes. See
+[palette routing, synthesis and checks](research/classical-palettes.md).
+
 The [Bach-inspired DSL guide](research/bach-dsl.md) describes the integrated score
 editor, reader/gallery/profile support and **Bach-inspired nine** explorer set.
 The [classical literature review](research/classical-inspiration.md) separates

@@ -257,3 +257,7 @@ test('western edition is complete, attributed and pinned without changing earlie
 test('all palettes select known original timbres and preserve the playing graph and cursor',async()=>{
  const a=new api.AudioAdapter();await a.start();const graph=a.ctx,tick=a.tick;for(const id of Object.keys(api.SOUND_PALETTES)){a.setPalette(id);assert.equal(a.palette,id);assert.equal(a.ctx,graph);assert.equal(a.tick,tick);}assert.equal(api.paletteInstrument('frontier','flute'),'whistle');assert.equal(api.paletteInstrument('frontier','guitar',22),'whistle');assert.equal(api.paletteInstrument('desert','guitar'),'softBrass');assert.equal(api.paletteInstrument('desert','flute'),'softBrass');assert.equal(api.paletteInstrument('noir','flute'),'lowReed');assert.equal(api.paletteInstrument('frontier','tone'),'tone');assert.equal(api.soundPalette('unknown'),'ensemble');await a.dispose();
 });
+test('classical palettes orchestrate each layer distinctly and leave the check tone intact',()=>{
+ const expected={baroque:['harpsichord','bow','harpsichord','pizzicato'],cello:['bow','mutedString','bow','woodTap'],romantic:['roundBass','bow','felt','felt'],pastoral:['roundBass','mutedString','flute','woodTap']};
+ for(const [id,instruments] of Object.entries(expected)){assert.equal(api.soundPalette(id),id);for(let layer=0;layer<4;layer++)assert.equal(api.paletteInstrument(id,'guitar',0,layer),instruments[layer]);assert.equal(api.paletteInstrument(id,'tone',0,2),'tone');}
+});

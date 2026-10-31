@@ -1,0 +1,31 @@
+{
+  "testOnly": true,
+  "readerSha256": "b8ea629ed1c304e0061a74bc171fa357d224a488591ff7f566c1c29d7feb73e6",
+  "metrics": [
+    {
+      "palette": "baroque",
+      "rms": 0.01082003356906024,
+      "peak": 0.0657154768705368
+    },
+    {
+      "palette": "cello",
+      "rms": 0.0178795031995575,
+      "peak": 0.0685732439160347
+    },
+    {
+      "palette": "romantic",
+      "rms": 0.013228095885253822,
+      "peak": 0.06186657398939133
+    },
+    {
+      "palette": "pastoral",
+      "rms": 0.024679215256302258,
+      "peak": 0.062027543783187866
+    }
+  ],
+  "harpsichordGuitarDistance": 0.4093959532938264,
+  "overloadPeak": 0.139999657869339,
+  "verification": "tests/classical-palettes.browser.cjs",
+  "nativeRenderSeconds": 32,
+  "listenerRatings": 0
+}

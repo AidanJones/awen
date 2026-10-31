@@ -232,6 +232,10 @@ Classical-repertoire strand (31 October): see
   pacing/textures, an inspectable lexical cue map, three development modes and a
   chapter-indexed tonal route. Profile/checkpoint/grid/evaluator integration is
   documented in [classical directions](research/classical-directions.md).
+- [x] Add four dedicated classical sound palettes with layer-specific instruments,
+  a procedural harpsichord colour, reader recommendations and matching grid cards.
+  See [palette details](research/classical-palettes.md); audible quality remains
+  a listener check rather than an automated result.
 - [ ] Prototype section-specific Vivaldi storm/cold/indoor-repose contrasts after
   inspecting score/sonnet alignment; retain programme evidence separately from
   proposed reading uses.
