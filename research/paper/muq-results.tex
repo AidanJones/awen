@@ -1,0 +1,41 @@
+\subsection{Matched-file MuQ-MuLan comparison (31 October 2026)}
+
+A first alternate-encoder diagnostic evaluates five fixed existing clips: warm ensemble, original strings, desert, background-led and the earlier CLAP-evolved strings. Both models receive the same two ten-second windows and six previously inspected descriptions. There is no new synthesis, mutation or human labelling. This is a selected single-scene probe, not an unbiased model benchmark.
+
+\begin{table}[ht]
+
+\centering\small
+
+\caption{Within-model diagnostics on five matched clips. Counts and ranking reversals are descriptive; raw cosine magnitudes are not calibrated between models.}
+
+\begin{tabular}{p{8.2cm}rr}
+
+\toprule
+
+Diagnostic & CLAP & MuQ-MuLan\\
+
+\midrule
+
+Clips below silence: target mean (out of 5) & 2 & 5 \\
+
+Clips below silence: unused mean (out of 5) & 5 & 2 \\
+
+Window rank reversals (out of 10 pairs) & 0 & 6 \\
+
+Target-wording rank reversals (out of 10 pairs) & 1 & 1 \\
+
+Positive action-minus-reflective margin (out of 5) & 2 & 0 \\
+
+\bottomrule
+
+\end{tabular}
+
+\label{tab:muq}
+
+\end{table}
+
+MuQ-MuLan selects desert on target-description mean and warm ensemble on unused-description mean; CLAP selects the evolved strings on both. Their rankings agree on 7/10 target pairs and 4/10 unused-description pairs. MuQ reduces the unused-description silence failure count but worsens the target silence count and window stability (Table~\ref{tab:muq}). Its action-minus-reflective margin is non-positive for every clip. Neither model has demonstrated human fit or preference accuracy.
+
+The alternate checkpoint is pinned to revision \code{2e01c796b71dca71b45251384c04cd7b237c9020}. It uses official MuQ modules and pinned local architecture/tokenizer files; the complete state loads strictly (805 entries, no missing or unexpected keys). Local architecture construction avoids redundant base-weight downloads without replacing trained parameters. CPU float32 inference follows the official single-clip path at 24~kHz. The old CLAP environment and cached features are retained separately. There are 22 new MuQ features, no new native renders, and verified pause/resume and completed zero-budget replay. Model/source/preprocessing hashes and all rows are recorded in \code{research/muq-comparison-proof.json}.
+
+These mixed controls do not support promoting MuQ-MuLan as a reliable reward or declaring CLAP the more accurate listener model. The probe motivates explicit preference calibration rather than selecting a replacement by its name, size, or raw cosine scale. Learned preference rewards and audio-language judges remain untested here.

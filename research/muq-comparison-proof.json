@@ -1,0 +1,680 @@
+{
+  "version": 1,
+  "status": "diagnostic-comparison-only",
+  "experimentId": "149578948afe4e23863123c842599050",
+  "experimentDirectory": ".score-lab\\muq-comparison\\20261031T112116.671508Z-c2abf97a78e443a3a4e05ff66b9cc3d0",
+  "reportSha256": "ed493dcca8957ba9b9ac3714682a7220ea32c3481f970095107f38dd946ded76",
+  "sourceReportSha256": "6c7b60e04159febe39d00f46103496965dece02cc5f58e07164566290687b22b",
+  "sources": {
+    "research/muq-comparison-suite.json": "e65430fee4e2b639ddad10c59955d689e29e84cba2dae3958869b4bba4e2741c",
+    "research/muq-model.json": "8898cdc80d262b2a22fad3ef52b7b4052c9d30307059d6d8c76e40f35869284d",
+    "tools/clap_backend.py": "3499d3927518415fad9a330a343c2cda17d724c5fc65e540263d2d96ec1e8433",
+    "tools/compare_muq.py": "3cba659dcc79d4660f9ac039926eeb9f04c62f79853bc20ac77313eb9095eb0e",
+    "tools/muq_backend.py": "6eccb8d67219a1395a075aa8735151b9ee7cd511067df0cef148357eb4550d31",
+    "tools/score_embeddings.py": "b689877a34ca8da6682c884ac67355414785bbb36f03e5201ea30d5e6db00129",
+    "tools/score_lab.py": "c83453aab83c02a34d7bffdab02e48e991b207ecec51f8e07917e60fc0531926"
+  },
+  "suite": {
+    "captionKeys": [
+      "target-1",
+      "target-2",
+      "check-1",
+      "check-2",
+      "contrast",
+      "unsuitable"
+    ],
+    "cards": [
+      "warm",
+      "pursuit",
+      "desert",
+      "bed",
+      "g2-2-8kqe3d"
+    ],
+    "comparison": "Within-model rankings, action-minus-reflective margins, wording/window reversals and control failures. Cosine scales are not calibrated across models.",
+    "controls": [
+      "silence",
+      "half-amplitude previous CLAP winner"
+    ],
+    "id": "current-grid-muq-clap-1",
+    "limitations": [
+      "One previously inspected narrative scene and a CLAP-generated pool; not an unbiased model benchmark.",
+      "No human fit, enjoyment or distraction labels; no quality accuracy or personal preference established.",
+      "Only two correlated windows per clip and no fresh work/genre holdout.",
+      "No model training, large dataset, evolutionary expansion or runtime model dependency."
+    ],
+    "selection": "Five fixed existing search-seed clips selected before MuQ scores are inspected. No new mutation, caption search or automatic adoption.",
+    "version": 1,
+    "windows": [
+      2,
+      18
+    ]
+  },
+  "captions": {
+    "check-1": "Music for a sly fugitive springing a trap and escaping, balancing danger with deadpan humour and a sense of forward momentum.",
+    "check-2": "A cinematic accompaniment to sudden slapstick action: a surprising crash, a resourceful criminal and an indignant pursuer. Instrumental music behind a narrator.",
+    "contrast": "Quiet, unhurried instrumental background music for a reflective landscape passage, with stillness and a spacious, contemplative mood.",
+    "target-1": "Instrumental background music for a quick, comic escape: suspenseful anticipation, a sudden heavy impact and nimble, playful motion, leaving space for narration.",
+    "target-2": "A lively instrumental underscore for a mischievous escape sequence, with rhythmic movement, tension and humorous surprise. No speech or vocals.",
+    "unsuitable": "Loud heavy metal music with screamed vocals and distorted guitars."
+  },
+  "clips": [
+    {
+      "id": "warm",
+      "sha256": "58df21cdc01381e4abd0ab27d9128426086608a3957a3a1653af1f31ae0c471d",
+      "nativeGate": {
+        "eligible": true,
+        "reasons": []
+      }
+    },
+    {
+      "id": "pursuit",
+      "sha256": "40593016a8a8b0a53a5112f67e45f4e96c814b5cc8674680d6fcd41a9622c0a1",
+      "nativeGate": {
+        "eligible": true,
+        "reasons": []
+      }
+    },
+    {
+      "id": "desert",
+      "sha256": "ae191651af317bdc582d88b40197552ca44bc0678970330019bdb6ea615ce470",
+      "nativeGate": {
+        "eligible": true,
+        "reasons": []
+      }
+    },
+    {
+      "id": "bed",
+      "sha256": "9cb5d51a3a737f72f52298def039821f66e5df6ae7b7e69af4c85b4b2e93d4cd",
+      "nativeGate": {
+        "eligible": true,
+        "reasons": []
+      }
+    },
+    {
+      "id": "g2-2-8kqe3d",
+      "sha256": "6254a8878edc3fd8e3917f68be638afa0602fba0ee9a758528c867cc09dc4c1b",
+      "nativeGate": {
+        "eligible": true,
+        "reasons": []
+      }
+    }
+  ],
+  "models": {
+    "clap": {
+      "diagnostics": {
+        "halfAmplitudeTargetDelta": -0.001962610994511116,
+        "pairCount": 10,
+        "positiveSpecificity": 2,
+        "silenceAboveTargetMean": [
+          "warm",
+          "bed"
+        ],
+        "silenceAboveUnusedMean": [
+          "warm",
+          "pursuit",
+          "desert",
+          "bed",
+          "g2-2-8kqe3d"
+        ],
+        "windowRankFlipPairs": 0,
+        "wordingRankFlipPairs": 1
+      },
+      "halfLevelScores": [
+        {
+          "check-1": 0.17857771970534383,
+          "check-2": 0.11834441168150311,
+          "contrast": 0.23566966093021283,
+          "target-1": 0.167381098729869,
+          "target-2": 0.2746796788958216,
+          "unsuitable": -0.1027883438857347
+        },
+        {
+          "check-1": 0.20985847107193134,
+          "check-2": 0.15284407765247832,
+          "contrast": 0.2430538033568091,
+          "target-1": 0.20842943751181714,
+          "target-2": 0.29925440784500434,
+          "unsuitable": -0.06832582382226567
+        }
+      ],
+      "identity": {
+        "backendSha256": "3499d3927518415fad9a330a343c2cda17d724c5fc65e540263d2d96ec1e8433",
+        "packages": {
+          "huggingface-hub": "0.36.2",
+          "numpy": "2.3.5",
+          "safetensors": "0.8.0",
+          "scipy": "1.16.3",
+          "tokenizers": "0.22.2",
+          "torch": "2.8.0+cpu",
+          "transformers": "4.57.1"
+        },
+        "spec": {
+          "backend": "transformers-clap-cpu-1",
+          "dimension": 512,
+          "license": "apache-2.0",
+          "modelCard": "https://huggingface.co/laion/larger_clap_general",
+          "modelId": "laion/larger_clap_general",
+          "preprocessing": {
+            "audioPadding": "repeatpad",
+            "audioTruncation": "rand_trunc; exact ten-second input prevents random cropping",
+            "device": "cpu",
+            "dtype": "float32",
+            "normalization": "L2 float32 outputs; cosine dot product",
+            "pcm": "mono signed 16-bit little-endian divided by 32768",
+            "resample": "scipy.signal.resample_poly up=2 down=1 window=(kaiser,5.0) padtype=constant",
+            "seconds": 10,
+            "seed": 0,
+            "sourceSampleRate": 24000,
+            "targetSampleRate": 48000,
+            "textMaxTokens": 77,
+            "textTruncation": "reject; no silent truncation",
+            "threads": 2
+          },
+          "revision": "ada0c23a36c4e8582805bb38fec3905903f18b41",
+          "textTowerSanity": {
+            "purpose": "Reject extreme representation collapse, not establish semantic accuracy. The music-only checkpoint failed this independent API check.",
+            "rejectIfMinimumPairwiseCosineAbove": 0.995,
+            "texts": [
+              "The sound of a dog barking.",
+              "A piano playing a soft melody.",
+              "A man speaking loudly."
+            ]
+          },
+          "version": 1,
+          "weights": "pytorch_model.bin",
+          "weightsBytes": 776444665,
+          "weightsSha256": "314eb00cce6ad68d25237b8446b659ccdb136ed4672c1bca470f142f72455026"
+        }
+      },
+      "rows": [
+        {
+          "id": "warm",
+          "name": "Warm ensemble",
+          "scores": [
+            {
+              "check-1": 0.11642502132514676,
+              "check-2": 0.12764666830675592,
+              "contrast": 0.23753711243910264,
+              "target-1": 0.18099290366940665,
+              "target-2": 0.18973614695503263,
+              "unsuitable": -0.017089621938785274
+            },
+            {
+              "check-1": 0.15801157260512022,
+              "check-2": 0.11035339885313425,
+              "contrast": 0.2518707814507392,
+              "target-1": 0.1713920149261655,
+              "target-2": 0.20086753403164573,
+              "unsuitable": -0.058059054431338165
+            }
+          ],
+          "specificity": -0.0589567970493583,
+          "targetMean": 0.18574714989556262,
+          "unusedMean": 0.1281091652725393
+        },
+        {
+          "id": "pursuit",
+          "name": "Driving strings",
+          "scores": [
+            {
+              "check-1": 0.1957883345710161,
+              "check-2": 0.10786972618657917,
+              "contrast": 0.22019070667471746,
+              "target-1": 0.1660531159571296,
+              "target-2": 0.2756730778303133,
+              "unsuitable": -0.10919637682718442
+            },
+            {
+              "check-1": 0.21285209266281782,
+              "check-2": 0.1294707165140143,
+              "contrast": 0.22255625300826937,
+              "target-1": 0.19083428177058923,
+              "target-2": 0.2891295205860291,
+              "unsuitable": -0.0836161077188189
+            }
+          ],
+          "specificity": 0.00904901919452189,
+          "targetMean": 0.2304224990360153,
+          "unusedMean": 0.16149521748360685
+        },
+        {
+          "id": "desert",
+          "name": "Desert horizon",
+          "scores": [
+            {
+              "check-1": 0.132088802589924,
+              "check-2": 0.17761053736484453,
+              "contrast": 0.2896916462043456,
+              "target-1": 0.1803712832193352,
+              "target-2": 0.23195580556006465,
+              "unsuitable": -0.02292088297056171
+            },
+            {
+              "check-1": 0.16630374134754672,
+              "check-2": 0.16270363278033975,
+              "contrast": 0.2678214892514732,
+              "target-1": 0.1941603034677934,
+              "target-2": 0.2459991811719385,
+              "unsuitable": -0.05062437144586272
+            }
+          ],
+          "specificity": -0.06563492437312646,
+          "targetMean": 0.21312164335478295,
+          "unusedMean": 0.15967667852066375
+        },
+        {
+          "id": "bed",
+          "name": "Background led",
+          "scores": [
+            {
+              "check-1": -0.08215698902882723,
+              "check-2": -0.0063435229574373,
+              "contrast": 0.2392291822696839,
+              "target-1": 0.0032126040414244303,
+              "target-2": 0.059147261818443056,
+              "unsuitable": -0.10490586904308055
+            },
+            {
+              "check-1": -0.0017362750981724797,
+              "check-2": 0.03937793089047774,
+              "contrast": 0.28133626494027714,
+              "target-1": 0.060151587303424424,
+              "target-2": 0.14099200326306122,
+              "unsuitable": -0.0989154733390459
+            }
+          ],
+          "specificity": -0.1944068594983922,
+          "targetMean": 0.06587586410658829,
+          "unusedMean": -0.012714714048489818
+        },
+        {
+          "id": "g2-2-8kqe3d",
+          "name": "Driving strings · G1.3 · G2.3",
+          "scores": [
+            {
+              "check-1": 0.19990678138654688,
+              "check-2": 0.12362675867921821,
+              "contrast": 0.22993246235077866,
+              "target-1": 0.1785942318433526,
+              "target-2": 0.281341070532275,
+              "unsuitable": -0.10601329730030717
+            },
+            {
+              "check-1": 0.21182088269593552,
+              "check-2": 0.14000343097748796,
+              "contrast": 0.23286082421996523,
+              "target-1": 0.20138582498050228,
+              "target-2": 0.2962739396044267,
+              "unsuitable": -0.08253361859969174
+            }
+          ],
+          "specificity": 0.008002123454767196,
+          "targetMean": 0.23939876674013916,
+          "unusedMean": 0.16883946343479714
+        }
+      ],
+      "silenceScores": {
+        "check-1": 0.19458888258625454,
+        "check-2": 0.21616345270246112,
+        "contrast": 0.16947815086794715,
+        "target-1": 0.23438352325820547,
+        "target-2": 0.17848257488808664,
+        "unsuitable": 0.14611302691530592
+      },
+      "targetRanking": [
+        "g2-2-8kqe3d",
+        "pursuit",
+        "desert",
+        "warm",
+        "bed"
+      ],
+      "textTowerSanity": {
+        "meaning": "Extreme-collapse check only; not semantic validation.",
+        "pairwiseCosines": [
+          0.18757137954260267,
+          0.31553199054321585,
+          0.13684393181566246
+        ],
+        "rejectThreshold": 0.995,
+        "usable": true
+      },
+      "unusedRanking": [
+        "g2-2-8kqe3d",
+        "pursuit",
+        "desert",
+        "warm",
+        "bed"
+      ]
+    },
+    "muq": {
+      "diagnostics": {
+        "halfAmplitudeTargetDelta": -0.003487848462063861,
+        "pairCount": 10,
+        "positiveSpecificity": 0,
+        "silenceAboveTargetMean": [
+          "warm",
+          "pursuit",
+          "desert",
+          "bed",
+          "g2-2-8kqe3d"
+        ],
+        "silenceAboveUnusedMean": [
+          "bed",
+          "g2-2-8kqe3d"
+        ],
+        "windowRankFlipPairs": 6,
+        "wordingRankFlipPairs": 1
+      },
+      "halfLevelScores": [
+        {
+          "check-1": 0.0425525954314494,
+          "check-2": -0.04480533993434143,
+          "contrast": 0.10282984378368856,
+          "target-1": 0.03402736781071512,
+          "target-2": 0.04544048691718756,
+          "unsuitable": -0.14028751892780383
+        },
+        {
+          "check-1": 0.06632105670593652,
+          "check-2": -0.018227600464382376,
+          "contrast": 0.10956055800686228,
+          "target-1": 0.060623781420674885,
+          "target-2": 0.034006762528360164,
+          "unsuitable": -0.11649075092479737
+        }
+      ],
+      "identity": {
+        "backendSha256": "6eccb8d67219a1395a075aa8735151b9ee7cd511067df0cef148357eb4550d31",
+        "packages": {
+          "easydict": "1.13",
+          "einops": "0.8.1",
+          "huggingface-hub": "0.36.2",
+          "librosa": "0.11.0",
+          "muq": "0.1.0",
+          "nnAudio": "0.3.3",
+          "numpy": "2.3.5",
+          "scipy": "1.16.3",
+          "sentencepiece": "0.2.1",
+          "tokenizers": "0.15.2",
+          "torch": "2.8.0+cpu",
+          "torchaudio": "2.8.0+cpu",
+          "transformers": "4.38.2",
+          "x-clip": "0.14.4"
+        },
+        "sourceTreeSha256": "e3e9ec70be54bbb240b48c8cd95e11d123ef790083f7dd4ee0d0f935d357fbbd",
+        "spec": {
+          "audioConfigRevision": "0562a57814f6f8bbd9fdea0a25921a2fce1a841a",
+          "backend": "awen-muq-mulan-cpu-1",
+          "codeLicense": "MIT",
+          "dimension": 512,
+          "files": {
+            "audio/config.json": {
+              "bytes": 3133,
+              "sha256": "237335ee27d8fb951ce778701a12a79e06c51ae636dd786f97e45f51ce532543"
+            },
+            "mulan/config.json": {
+              "bytes": 847,
+              "sha256": "8fefc545ef87ecd9bcde7417dd03464370c48c321f36dcff20266a752079e468"
+            },
+            "mulan/pytorch_model.bin": {
+              "bytes": 2653954401,
+              "sha256": "d42ae3f7cb9b66759ee0089ddc70e2f28b130c2d8ba621457358272d32dd0444"
+            },
+            "text/config.json": {
+              "bytes": 615,
+              "sha256": "d66ed8cd4f2a93b358c245e50736fa389ed4f35c0bae7aad0b32abb20c62b579"
+            },
+            "text/sentencepiece.bpe.model": {
+              "bytes": 5069051,
+              "sha256": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865"
+            },
+            "text/tokenizer.json": {
+              "bytes": 9096718,
+              "sha256": "a898ea75433890f6610f4e470b8ebeb0c21dce5c8dd61f892eb09eb5919d2e2c"
+            },
+            "text/tokenizer_config.json": {
+              "bytes": 25,
+              "sha256": "994f46754c5bf4014f1aa92d34b1374319c3a6b3f702105cd5b742beaecd18ce"
+            }
+          },
+          "license": "CC-BY-NC-4.0",
+          "loading": "Official modules instantiated from pinned local configs, then complete main state dict loaded strictly. No partial loading or base-model weight download. Tokenizer set to pinned local files; no remote code.",
+          "modelId": "OpenMuQ/MuQ-MuLan-large",
+          "preprocessing": {
+            "device": "cpu",
+            "dtype": "float32",
+            "normalization": "L2 output; official single-clip serial forward",
+            "pcm": "mono PCM16 little-endian divided by 32768; no gain or resampling",
+            "seconds": 10,
+            "seed": 0,
+            "sourceSampleRate": 24000,
+            "text": "single text per feature, local pinned XLM-R fast tokenizer, reject >510 tokens",
+            "threads": 2
+          },
+          "revision": "2e01c796b71dca71b45251384c04cd7b237c9020",
+          "sourceRepository": "https://github.com/tencent-ailab/MuQ",
+          "sourceRevision": "28847ea50cd31ac4b8b6a7dacc051ad7d1c7606a",
+          "sourceTreeSha256": "e3e9ec70be54bbb240b48c8cd95e11d123ef790083f7dd4ee0d0f935d357fbbd",
+          "textConfigRevision": "e73636d4f797dec63c3081bb6ed5c7b0bb3f2089",
+          "textTowerSanity": {
+            "rejectIfMinimumPairwiseCosineAbove": 0.995,
+            "texts": [
+              "The sound of a dog barking.",
+              "A piano playing a soft melody.",
+              "A man speaking loudly."
+            ]
+          },
+          "version": 1
+        }
+      },
+      "rows": [
+        {
+          "id": "warm",
+          "name": "Warm ensemble",
+          "scores": [
+            {
+              "check-1": 0.2111839435570181,
+              "check-2": 0.16829104650515372,
+              "contrast": 0.11071246250627843,
+              "target-1": 0.11939555650309708,
+              "target-2": 0.033751615340366165,
+              "unsuitable": -0.007555148637646871
+            },
+            {
+              "check-1": 0.0592693343752983,
+              "check-2": -0.005493068781760236,
+              "contrast": 0.11023725076370196,
+              "target-1": -0.018426393332647527,
+              "target-2": -0.027125583582254375,
+              "unsuitable": -0.062433947910782876
+            }
+          ],
+          "specificity": -0.08357605790284986,
+          "targetMean": 0.026898798732140336,
+          "unusedMean": 0.10831281391392747
+        },
+        {
+          "id": "pursuit",
+          "name": "Driving strings",
+          "scores": [
+            {
+              "check-1": 0.0534131327245674,
+              "check-2": -0.0530088386210163,
+              "contrast": 0.09895009092944312,
+              "target-1": 0.041333007939113965,
+              "target-2": 0.05624968837063917,
+              "unsuitable": -0.1435433208623931
+            },
+            {
+              "check-1": 0.09889269828742327,
+              "check-2": 0.0030616859563796324,
+              "contrast": 0.1113753699262366,
+              "target-1": 0.08815377268139192,
+              "target-2": 0.07872636017405808,
+              "unsuitable": -0.09773855927566155
+            }
+          ],
+          "specificity": -0.03904702313653907,
+          "targetMean": 0.06611570729130078,
+          "unusedMean": 0.0255896695868385
+        },
+        {
+          "id": "desert",
+          "name": "Desert horizon",
+          "scores": [
+            {
+              "check-1": 0.0550958260475292,
+              "check-2": 0.0939803330099732,
+              "contrast": 0.2256298375195856,
+              "target-1": 0.12189474840219282,
+              "target-2": 0.12239585788317377,
+              "unsuitable": -0.06021921944064551
+            },
+            {
+              "check-1": 0.04321032600515637,
+              "check-2": 0.04302820281283787,
+              "contrast": 0.19341672619364966,
+              "target-1": 0.0639034419005693,
+              "target-2": 0.03584103318798152,
+              "unsuitable": -0.06699240274681592
+            }
+          ],
+          "specificity": -0.12351451151313826,
+          "targetMean": 0.08600877034347935,
+          "unusedMean": 0.05882867196887416
+        },
+        {
+          "id": "bed",
+          "name": "Background led",
+          "scores": [
+            {
+              "check-1": 0.0036274608820415564,
+              "check-2": 0.009661285182397188,
+              "contrast": 0.12948701136926138,
+              "target-1": 0.06187594662650621,
+              "target-2": 0.058076759745396084,
+              "unsuitable": -0.03330771227140558
+            },
+            {
+              "check-1": -0.02750660027901484,
+              "check-2": -0.0565132791684561,
+              "contrast": 0.15883676369501376,
+              "target-1": -0.042057513541327904,
+              "target-2": -0.07118315185960802,
+              "unsuitable": -0.07014950772264
+            }
+          ],
+          "specificity": -0.142483877289396,
+          "targetMean": 0.0016780102427415913,
+          "unusedMean": -0.01768278334575805
+        },
+        {
+          "id": "g2-2-8kqe3d",
+          "name": "Driving strings · G1.3 · G2.3",
+          "scores": [
+            {
+              "check-1": 0.0476343373815154,
+              "check-2": -0.057783358759306805,
+              "contrast": 0.08240845855766549,
+              "target-1": 0.026095498218593013,
+              "target-2": 0.04122156325101232,
+              "unsuitable": -0.13280004962160993
+            },
+            {
+              "check-1": 0.0826443563904259,
+              "check-2": -0.010822750189606708,
+              "contrast": 0.11018065273765001,
+              "target-1": 0.07441455087296875,
+              "target-2": 0.04631818018261909,
+              "unsuitable": -0.10185370940533403
+            }
+          ],
+          "specificity": -0.04928210751635946,
+          "targetMean": 0.04701244813129829,
+          "unusedMean": 0.015418146205756947
+        }
+      ],
+      "silenceScores": {
+        "check-1": -0.034207783920772,
+        "check-2": 0.08407863490781069,
+        "contrast": 0.12019731541636439,
+        "target-1": 0.1090636466018763,
+        "target-2": 0.149828039368715,
+        "unsuitable": -0.0180120912772402
+      },
+      "targetRanking": [
+        "desert",
+        "pursuit",
+        "g2-2-8kqe3d",
+        "warm",
+        "bed"
+      ],
+      "textTowerSanity": {
+        "meaning": "Extreme-collapse check only; not semantic validation.",
+        "pairwiseCosines": [
+          -0.02302701023950596,
+          0.5492142273372167,
+          0.09948466341831796
+        ],
+        "rejectThreshold": 0.995,
+        "usable": true
+      },
+      "unusedRanking": [
+        "warm",
+        "desert",
+        "pursuit",
+        "g2-2-8kqe3d",
+        "bed"
+      ]
+    }
+  },
+  "muqFeaturesComputed": 22,
+  "muqSharedCacheHits": 0,
+  "maxAttempts": 1,
+  "newNativeRenders": 0,
+  "humanLabels": 0,
+  "runtimeModified": false,
+  "deploymentApproved": false,
+  "loadingValidation": {
+    "preflightStrictStateKeys": 805,
+    "missingKeys": 0,
+    "unexpectedKeys": 0,
+    "duplicateBaseWeightDownloads": false
+  },
+  "crossModelRankAgreement": {
+    "targetRanking": {
+      "concordantPairs": 7,
+      "totalPairs": 10
+    },
+    "unusedRanking": {
+      "concordantPairs": 4,
+      "totalPairs": 10
+    }
+  },
+  "recoveryInvocations": [
+    {
+      "log": "20261031T112117.112885Z-71bf051075cd4d6fb4b78fe6b710962e.jsonl",
+      "featuresComputed": 3,
+      "backendLoads": 1,
+      "paused": true
+    },
+    {
+      "log": "20261031T112222.118155Z-e636a0b6e5db4c859088aaa487ecaa1a.jsonl",
+      "featuresComputed": 0,
+      "backendLoads": 0,
+      "paused": true
+    },
+    {
+      "log": "20261031T112223.347377Z-4ad53b3602e247a3b077aff781139fce.jsonl",
+      "featuresComputed": 19,
+      "backendLoads": 1,
+      "paused": false
+    },
+    {
+      "log": "20261031T112645.047250Z-93edca0cc26248c0b90cb266dc09bc1a.jsonl",
+      "featuresComputed": 0,
+      "backendLoads": 0,
+      "paused": false
+    }
+  ]
+}

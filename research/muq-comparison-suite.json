@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "id": "current-grid-muq-clap-1",
+  "cards": ["warm", "pursuit", "desert", "bed", "g2-2-8kqe3d"],
+  "windows": [2, 18],
+  "captionKeys": ["target-1", "target-2", "check-1", "check-2", "contrast", "unsuitable"],
+  "selection": "Five fixed existing search-seed clips selected before MuQ scores are inspected. No new mutation, caption search or automatic adoption.",
+  "controls": ["silence", "half-amplitude previous CLAP winner"],
+  "comparison": "Within-model rankings, action-minus-reflective margins, wording/window reversals and control failures. Cosine scales are not calibrated across models.",
+  "limitations": [
+    "One previously inspected narrative scene and a CLAP-generated pool; not an unbiased model benchmark.",
+    "No human fit, enjoyment or distraction labels; no quality accuracy or personal preference established.",
+    "Only two correlated windows per clip and no fresh work/genre holdout.",
+    "No model training, large dataset, evolutionary expansion or runtime model dependency."
+  ]
+}

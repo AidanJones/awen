@@ -1,6 +1,6 @@
 # Audio–text embeddings and reference material
 
-26 October 2026. Research supporting the development evaluator. The [small CLAP probe](clap-probe.md) is now implemented and measured; MuQ-MuLan, CLaMP 3 and reference-corpus comparisons remain backlog work. None adds a runtime dependency to the reader.
+Updated 31 October 2026. Research supporting the development evaluator. The [small CLAP probe](clap-probe.md) and [five-clip MuQ/CLAP comparison](muq-comparison.md) are implemented and measured; CLaMP 3, learned-preference evaluators and reference-corpus comparisons remain backlog work. None adds a runtime dependency to the reader.
 
 ## Existing CLIP-like audio models
 
@@ -10,7 +10,7 @@
 | [MuQ-MuLan](https://github.com/tencent-ailab/MuQ) | Music/text joint embeddings; distinct from the audio-only MuQ encoder | Compare music-specific descriptions against the general audio model |
 | [CLaMP 3](https://github.com/sanderwood/clamp3) | Shared music retrieval representations across text, audio and symbolic/visual music modalities | Later compare symbolic score plans and actual audio against the same brief |
 
-The official MuQ repository specifies 24 kHz audio, approximately 700M parameters for MuQ-MuLan, MIT code and CC-BY-NC 4.0 model weights. Its input rate matches the lab WAVs, but that does not establish alignment quality. Check each chosen checkpoint's actual revision, licence, preprocessing, truncation/windowing and hardware needs before installation. MuQ/CLaMP weights have not been downloaded or benchmarked here. CLAP checkpoints were downloaded for the separate local probe; all remain development tools rather than browser/device requirements.
+The official MuQ repository specifies 24 kHz audio, approximately 700M parameters for MuQ-MuLan, MIT code and CC-BY-NC 4.0 model weights. Its input rate matches the lab WAVs, but that does not establish alignment quality. The pinned MuQ weights were downloaded and benchmarked in an isolated environment on 31 October; CLaMP remains untested. Check exact revision, licence, preprocessing, truncation/windowing and hardware needs before each new installation. All models remain development tools rather than browser/device requirements.
 
 A joint embedding makes cosine similarity possible; it does not make a play paragraph a music caption. Retrieval of “tense strings” is different from deciding whether a quiet suspended accompaniment supports an ironic conversation. Literal mention of gunshots or a train could reward sound effects rather than useful music. Do not turn similarity into a universal musical-quality score or manufacture LLM-style coherence/comfort votes from it.
 

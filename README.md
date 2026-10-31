@@ -165,6 +165,9 @@ reports completed evidence and distinguishes it from proposed studies. Open its
 folder in the built-in LaTeX editor for the compiled PDF preview. The
 [experiment ledger](research/experiment-ledger.md) records the completed objective
 comparison, model prerequisites and remaining listener/preference work.
+The [MuQ versus CLAP diagnostic](research/muq-comparison.md) now compares a pinned
+alternate music encoder on identical clips. Its mixed controls support further
+listener calibration, not automatically replacing the runtime or reward.
 
 ```sh
 node --test tests/mvp.test.cjs

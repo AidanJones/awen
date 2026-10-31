@@ -8,4 +8,4 @@ This is a working paper, not a submitted or peer-reviewed publication. The autho
 
 Evidence is linked through `research/grid-clap-proof.json`, the evaluator-comparison proof, frozen suite files and the [experiment ledger](../experiment-ledger.md). Raw audio, features and model weights remain in ignored local experiment directories. No full public benchmark dataset or external human study has been released.
 
-The built-in compiler successfully compiled the initial complete draft on 27 October 2026; compile again after changing source. Standard local LaTeX tools can also compile `main.tex`. Publishing this draft externally and choosing named authors are separate decisions.
+Version 0.2 (31 October 2026) adds the executed five-clip MuQ/CLAP comparison in `muq-results.tex` and replaces the previous statement that no cross-model inference had run. The built-in compiler successfully compiled the updated document; compile again after changing source. Standard local LaTeX tools can also compile `main.tex`. Publishing this draft externally and choosing named authors are separate decisions.
