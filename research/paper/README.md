@@ -25,6 +25,12 @@ losses are not human preference accuracy; this does not replace the proposed
 pretrained-critic and reader-calibration studies. See the
 [implementation roadmap](../multiobjective-roadmap.md) for scope and commands.
 
+Version 0.6 (1 November) adds the released-model inventory and metadata-only
+preflight, score-only advisory criticism and its coverage, and the requested
+narrative-to-music dictionary backlog. References include Audiobox Aesthetics,
+MuQ-Eval, SongEval, Essentia, MorpheuS and music21. No new pretrained critic
+inference or validated reading-comfort reward is claimed.
+
 Use the [research index](../README.md) for feature guides, proof scope and
 reproduction commands. The classical [direction proof](../classical-directions-proof.json)
 and [palette proof](../classical-palettes-proof.json) contain engineering data,

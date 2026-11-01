@@ -20,6 +20,9 @@ uncompleted listener studies.
 | CLAP probes and grid evolution | [Probe](clap-probe.md), [bounded grid search](grid-clap-evolution.md) | Their linked proofs; optimisation gains did not establish a reliable reward |
 | Evaluator and encoder comparisons | [Experiment ledger](experiment-ledger.md), [MuQ comparison](muq-comparison.md) | Completed diagnostics, model identities and remaining decision gates |
 | Multi-objective ML feedback | [Roadmap and prototype](multiobjective-roadmap.md), [reward research](multiobjective-reward.md) | Native-audio/CLAP plus fitted synthetic-label test-head prototype; pretrained enjoyment/comfort replacement and scientific calibration remain open |
+| Released pretrained critics | [Model inventory](pretrained-evaluators.md) | Primary sources and pinned public metadata; new quality-model inference has not run |
+| Score-only musical criticism | [Symbolic critic](symbolic-critic.md) | [Proof](symbolic-critic-proof.json), 18 verified note traces, no waveform analysis; style-dependent advisory rules |
+| Narrative-to-music dictionary | [Backlog specification](narrative-dictionary-plan.md) | `awen-xfp.7`: future literature-backed multi-label definitions, musical mappings and held-out fixtures |
 | Real preference calibration | [Listening protocol](listening-calibration.md) | Prepared interface; no real listener ratings in the engineering proofs |
 | Academic account | [Paper source](paper/main.tex), [paper guide](paper/README.md) | Compiled editor preview; measured results distinguished from proposed experiments |
 

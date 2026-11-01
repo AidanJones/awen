@@ -1,7 +1,8 @@
 # Evaluator experiments and next gates
 
-Documentation updated 1 November 2026; the latest executions below occurred on
-31 October. This ledger distinguishes executed evidence, engineering preparation
+Documentation updated 1 November 2026; the latest engineering runs completed on
+1 November. Earlier encoder comparisons retain their original dated snapshots.
+This ledger distinguishes executed evidence, engineering preparation
 and proposed studies. No real human study labels are reported by the linked
 engineering and model-comparison proofs.
 
@@ -18,6 +19,8 @@ engineering and model-comparison proofs.
 | Human preference calibration | Interface prepared; labels absent | Existing blinded packet and exploratory grid. Use explicit fit, enjoyment and distraction feedback; an unheard/unselected card is not a rejection. |
 | Personal ranker | Proposed | Begin regularised small model on engine/passage features; add embeddings in an ablation after labels exist. No RLHF or reader-labelled ranker training performed; the separate prototype uses synthetic test targets only. |
 | Multi-objective integration prototype | Native/CLAP engineering run executed | Three scenes, 18 music clips, nine excluded controls, fitted synthetic-label test heads, one Pareto/crowding mutation generation. 54 new encoder features, two real process-death recoveries and zero-budget completed replay. [Roadmap/results](multiobjective-roadmap.md), [proof](multiobjective-prototype-proof.json). No validated enjoyment/comfort reward or runtime adoption. |
+| Symbolic advisory critic | Score-only analysis executed | 18 verified note traces with harmonic plans; no waveform analysis, no new rendering/ML inference, nine waveform-only controls skipped. Audited replay and soft style-dependent diagnostics. [Guide](symbolic-critic.md), [proof](symbolic-critic-proof.json). Not full counterpoint or a reading-comfort model. |
+| Released quality critics | Primary-source/metadata preflight only | Audiobox, TuneJury, MuQ-Eval, SongEval and Essentia reviewed. Two HF artifact inventories and an Audiobox source revision recorded; no new weights downloaded or inferred. [Inventory](pretrained-evaluators.md). |
 | Matched-budget optimisation / long reading | Proposed | Evaluators must first demonstrate useful listener agreement; retain silence/fixed/diverse-grid baselines and whole-work holdouts. |
 
 ## Alternate-model preflight

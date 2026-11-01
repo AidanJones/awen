@@ -1,0 +1,672 @@
+{
+  "version": 1,
+  "date": "2026-11-01",
+  "ruleBased": true,
+  "humanPreferenceValidated": false,
+  "promotionAllowed": false,
+  "sourceReportSha256": "ead8686653f2cfc16089d4bca9a5c1f76f5146fd972dd20b0da468979e96b8b9",
+  "experiment": ".score-lab/symbolic-critic/20261101T210458.418640Z-30f30fc4ec4b4374988e3ca46eec6b23",
+  "sources": {
+    "tools/symbolic_critic.py": "b39980c4eccea14f33fe712c4c36e22a5fc9ae0c964f73f3fd42fbf8f8de2d0d",
+    "tools/symbolic-plan.cjs": "1432264eec444955d3933d20087324da7481a5631004791da167ec07ee17dcdf",
+    "tools/score_lab.py": "c83453aab83c02a34d7bffdab02e48e991b207ecec51f8e07917e60fc0531926",
+    "tools/score-lab.cjs": "0b2897651d391603c2aa82b45fa8351bb9cd66ed745cd432dd4dfea00fb86e9c",
+    "index.html": "b8ea629ed1c304e0061a74bc171fa357d224a488591ff7f566c1c29d7feb73e6"
+  },
+  "reportSha256": "19cbcbe71204cc3aa07a06eb03662cb7c44bb439757ae2f5bbf12ed9d78e707d",
+  "scoreStreams": 18,
+  "skippedWaveformControls": 9,
+  "audioReadsDuringAuditedReplay": 0,
+  "completedReplaySameHash": true,
+  "newJobAttemptsOnReplay": 0,
+  "rows": [
+    {
+      "id": "rat-escape/classical-flowing",
+      "traceSha256": "824e617f87eb323e62d0c6f1b926e293d2f26988fcb616ca1258dcb9cc10aa4a",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "active",
+      "style": "figured",
+      "metrics": {
+        "adjacentContourRepeatFraction": 0.0,
+        "attacksPerSecond": 2.4000000000000004,
+        "chordToneFraction": 0.9367088607594937,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 10,
+        "melodicTransitions": 64,
+        "nonChordMelodyNotes": 2,
+        "notes": 79,
+        "notesPerSecond": 2.4000000000000004,
+        "overlappingNotePairs": 0,
+        "resolvedOrnaments": 2,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": null,
+        "tritoneClassOverlapFraction": null,
+        "uniqueContourBars": 6,
+        "uniqueRhythmBars": 2
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 1.0,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": 1.0
+      }
+    },
+    {
+      "id": "rat-escape/classical-storm",
+      "traceSha256": "7dede8aacece04c7097a3b660f56d2fc4672828f7b8b094dae2ee31e620df5c0",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "active",
+      "style": "figured",
+      "metrics": {
+        "adjacentContourRepeatFraction": 0.0,
+        "attacksPerSecond": 2.4000000000000004,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 10,
+        "melodicTransitions": 54,
+        "nonChordMelodyNotes": 0,
+        "notes": 79,
+        "notesPerSecond": 2.4000000000000004,
+        "overlappingNotePairs": 0,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": null,
+        "tritoneClassOverlapFraction": null,
+        "uniqueContourBars": 4,
+        "uniqueRhythmBars": 2
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 1.0,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": null
+      }
+    },
+    {
+      "id": "rat-escape/classical-elegy",
+      "traceSha256": "563d9398224297251b65fd79a74ee2d5481dc89e7252f8e0fff2c690732efbee",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "active",
+      "style": "lyric",
+      "metrics": {
+        "adjacentContourRepeatFraction": 1.0,
+        "attacksPerSecond": 1.2151898734177216,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 0,
+        "melodicTransitions": 17,
+        "nonChordMelodyNotes": 0,
+        "notes": 60,
+        "notesPerSecond": 1.8227848101265824,
+        "overlappingNotePairs": 193,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": 0.015544041450777202,
+        "tritoneClassOverlapFraction": 0.0,
+        "uniqueContourBars": 1,
+        "uniqueRhythmBars": 1
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 1.0,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": null
+      }
+    },
+    {
+      "id": "rat-escape/classical-spring",
+      "traceSha256": "88b7beb784341cfe1306f1d654bd8f0a67e7017ea8b29387aa9f297447e3d15a",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "active",
+      "style": "lyric",
+      "metrics": {
+        "adjacentContourRepeatFraction": 0.25,
+        "attacksPerSecond": 1.2151898734177216,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 12,
+        "maximumLeap": 9,
+        "melodicTransitions": 25,
+        "nonChordMelodyNotes": 0,
+        "notes": 40,
+        "notesPerSecond": 1.2151898734177216,
+        "overlappingNotePairs": 14,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": 0.0,
+        "tritoneClassOverlapFraction": 0.0,
+        "uniqueContourBars": 3,
+        "uniqueRhythmBars": 2
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 1.0,
+        "melodicEconomy": 0.52,
+        "ornamentResolution": null
+      }
+    },
+    {
+      "id": "rat-escape/g1-0-kksbpu",
+      "traceSha256": "563d9398224297251b65fd79a74ee2d5481dc89e7252f8e0fff2c690732efbee",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "active",
+      "style": "lyric",
+      "metrics": {
+        "adjacentContourRepeatFraction": 1.0,
+        "attacksPerSecond": 1.2151898734177216,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 0,
+        "melodicTransitions": 17,
+        "nonChordMelodyNotes": 0,
+        "notes": 60,
+        "notesPerSecond": 1.8227848101265824,
+        "overlappingNotePairs": 193,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": 0.015544041450777202,
+        "tritoneClassOverlapFraction": 0.0,
+        "uniqueContourBars": 1,
+        "uniqueRhythmBars": 1
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 1.0,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": null
+      }
+    },
+    {
+      "id": "rat-escape/g1-1-m16su1",
+      "traceSha256": "824e617f87eb323e62d0c6f1b926e293d2f26988fcb616ca1258dcb9cc10aa4a",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "active",
+      "style": "figured",
+      "metrics": {
+        "adjacentContourRepeatFraction": 0.0,
+        "attacksPerSecond": 2.4000000000000004,
+        "chordToneFraction": 0.9367088607594937,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 10,
+        "melodicTransitions": 64,
+        "nonChordMelodyNotes": 2,
+        "notes": 79,
+        "notesPerSecond": 2.4000000000000004,
+        "overlappingNotePairs": 0,
+        "resolvedOrnaments": 2,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": null,
+        "tritoneClassOverlapFraction": null,
+        "uniqueContourBars": 6,
+        "uniqueRhythmBars": 2
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 1.0,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": 1.0
+      }
+    },
+    {
+      "id": "riders-landscape/classical-flowing",
+      "traceSha256": "14e446a558d13516aa216ec0bb697b3ef546937fbb48d27278815e8af946391e",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "calm",
+      "style": "figured",
+      "metrics": {
+        "adjacentContourRepeatFraction": 0.0,
+        "attacksPerSecond": 2.4000000000000004,
+        "chordToneFraction": 0.9240506329113924,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 10,
+        "melodicTransitions": 64,
+        "nonChordMelodyNotes": 3,
+        "notes": 79,
+        "notesPerSecond": 2.4000000000000004,
+        "overlappingNotePairs": 0,
+        "resolvedOrnaments": 3,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": null,
+        "tritoneClassOverlapFraction": null,
+        "uniqueContourBars": 5,
+        "uniqueRhythmBars": 2
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 0.0,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": 1.0
+      }
+    },
+    {
+      "id": "riders-landscape/classical-storm",
+      "traceSha256": "8ef26b2b6001bef031f17aa3f439d52c4d6b6488fdd931904a9f7abc5e767522",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "calm",
+      "style": "figured",
+      "metrics": {
+        "adjacentContourRepeatFraction": 0.0,
+        "attacksPerSecond": 2.4000000000000004,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 10,
+        "melodicTransitions": 54,
+        "nonChordMelodyNotes": 0,
+        "notes": 79,
+        "notesPerSecond": 2.4000000000000004,
+        "overlappingNotePairs": 0,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": null,
+        "tritoneClassOverlapFraction": null,
+        "uniqueContourBars": 4,
+        "uniqueRhythmBars": 2
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 0.0,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": null
+      }
+    },
+    {
+      "id": "riders-landscape/classical-elegy",
+      "traceSha256": "377f1a8b758afbe22c18e831bb96cbcfe9cfef79c093154f3116828042d1ecef",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "calm",
+      "style": "lyric",
+      "metrics": {
+        "adjacentContourRepeatFraction": 1.0,
+        "attacksPerSecond": 1.2151898734177216,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 0,
+        "melodicTransitions": 17,
+        "nonChordMelodyNotes": 0,
+        "notes": 60,
+        "notesPerSecond": 1.8227848101265824,
+        "overlappingNotePairs": 193,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": 0.015544041450777202,
+        "tritoneClassOverlapFraction": 0.0,
+        "uniqueContourBars": 1,
+        "uniqueRhythmBars": 1
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 0.9873417721518987,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": null
+      }
+    },
+    {
+      "id": "riders-landscape/classical-spring",
+      "traceSha256": "9e5a32325bfe52b15f55cbef7dee50bacc9e34a1c7848745686bf7168d6d25a6",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "calm",
+      "style": "lyric",
+      "metrics": {
+        "adjacentContourRepeatFraction": 0.25,
+        "attacksPerSecond": 1.2151898734177216,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 12,
+        "maximumLeap": 9,
+        "melodicTransitions": 25,
+        "nonChordMelodyNotes": 0,
+        "notes": 40,
+        "notesPerSecond": 1.2151898734177216,
+        "overlappingNotePairs": 14,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": 0.0,
+        "tritoneClassOverlapFraction": 0.0,
+        "uniqueContourBars": 3,
+        "uniqueRhythmBars": 2
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 0.9873417721518987,
+        "melodicEconomy": 0.52,
+        "ornamentResolution": null
+      }
+    },
+    {
+      "id": "riders-landscape/g1-0-s7shmu",
+      "traceSha256": "377f1a8b758afbe22c18e831bb96cbcfe9cfef79c093154f3116828042d1ecef",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "calm",
+      "style": "lyric",
+      "metrics": {
+        "adjacentContourRepeatFraction": 1.0,
+        "attacksPerSecond": 1.2151898734177216,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 0,
+        "melodicTransitions": 17,
+        "nonChordMelodyNotes": 0,
+        "notes": 60,
+        "notesPerSecond": 1.8227848101265824,
+        "overlappingNotePairs": 193,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": 0.015544041450777202,
+        "tritoneClassOverlapFraction": 0.0,
+        "uniqueContourBars": 1,
+        "uniqueRhythmBars": 1
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 0.9873417721518987,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": null
+      }
+    },
+    {
+      "id": "riders-landscape/g1-1-15xnyf7",
+      "traceSha256": "377f1a8b758afbe22c18e831bb96cbcfe9cfef79c093154f3116828042d1ecef",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "calm",
+      "style": "lyric",
+      "metrics": {
+        "adjacentContourRepeatFraction": 1.0,
+        "attacksPerSecond": 1.2151898734177216,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 0,
+        "melodicTransitions": 17,
+        "nonChordMelodyNotes": 0,
+        "notes": 60,
+        "notesPerSecond": 1.8227848101265824,
+        "overlappingNotePairs": 193,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": 0.015544041450777202,
+        "tritoneClassOverlapFraction": 0.0,
+        "uniqueContourBars": 1,
+        "uniqueRhythmBars": 1
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 0.9873417721518987,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": null
+      }
+    },
+    {
+      "id": "time-discussion/classical-flowing",
+      "traceSha256": "847e9a6eac170e657b21583a7db6b09c0b847d947db8a0836fc68eeea8d20e5c",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "neutral",
+      "style": "figured",
+      "metrics": {
+        "adjacentContourRepeatFraction": 0.0,
+        "attacksPerSecond": 2.4000000000000004,
+        "chordToneFraction": 0.9240506329113924,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 10,
+        "melodicTransitions": 64,
+        "nonChordMelodyNotes": 3,
+        "notes": 79,
+        "notesPerSecond": 2.4000000000000004,
+        "overlappingNotePairs": 0,
+        "resolvedOrnaments": 3,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": null,
+        "tritoneClassOverlapFraction": null,
+        "uniqueContourBars": 6,
+        "uniqueRhythmBars": 2
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 0.9999999999999998,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": 1.0
+      }
+    },
+    {
+      "id": "time-discussion/classical-storm",
+      "traceSha256": "2df274da77eda53d92e92d6dc2294d5b2ac5c0e5aea148532591143f105f234d",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "neutral",
+      "style": "figured",
+      "metrics": {
+        "adjacentContourRepeatFraction": 0.0,
+        "attacksPerSecond": 2.4000000000000004,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 10,
+        "melodicTransitions": 54,
+        "nonChordMelodyNotes": 0,
+        "notes": 79,
+        "notesPerSecond": 2.4000000000000004,
+        "overlappingNotePairs": 0,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": null,
+        "tritoneClassOverlapFraction": null,
+        "uniqueContourBars": 4,
+        "uniqueRhythmBars": 2
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 0.9999999999999998,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": null
+      }
+    },
+    {
+      "id": "time-discussion/classical-elegy",
+      "traceSha256": "4c5072e7bb52ec074d72ab59a0775468f9820ed956b3b452cc324a732a1c31ba",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "neutral",
+      "style": "lyric",
+      "metrics": {
+        "adjacentContourRepeatFraction": 1.0,
+        "attacksPerSecond": 1.2151898734177216,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 0,
+        "melodicTransitions": 17,
+        "nonChordMelodyNotes": 0,
+        "notes": 60,
+        "notesPerSecond": 1.8227848101265824,
+        "overlappingNotePairs": 193,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": 0.015544041450777202,
+        "tritoneClassOverlapFraction": 0.0,
+        "uniqueContourBars": 1,
+        "uniqueRhythmBars": 1
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 1.0,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": null
+      }
+    },
+    {
+      "id": "time-discussion/classical-spring",
+      "traceSha256": "78b56a4192abea510deeebd27a76f60eb13b25e369362a0fdc4738dd5f98eb16",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "neutral",
+      "style": "lyric",
+      "metrics": {
+        "adjacentContourRepeatFraction": 0.25,
+        "attacksPerSecond": 1.2151898734177216,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 12,
+        "maximumLeap": 9,
+        "melodicTransitions": 25,
+        "nonChordMelodyNotes": 0,
+        "notes": 40,
+        "notesPerSecond": 1.2151898734177216,
+        "overlappingNotePairs": 14,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": 0.0,
+        "tritoneClassOverlapFraction": 0.0,
+        "uniqueContourBars": 3,
+        "uniqueRhythmBars": 2
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 1.0,
+        "melodicEconomy": 0.52,
+        "ornamentResolution": null
+      }
+    },
+    {
+      "id": "time-discussion/g1-0-1olm9ib",
+      "traceSha256": "4c5072e7bb52ec074d72ab59a0775468f9820ed956b3b452cc324a732a1c31ba",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "neutral",
+      "style": "lyric",
+      "metrics": {
+        "adjacentContourRepeatFraction": 1.0,
+        "attacksPerSecond": 1.2151898734177216,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 0,
+        "melodicTransitions": 17,
+        "nonChordMelodyNotes": 0,
+        "notes": 60,
+        "notesPerSecond": 1.8227848101265824,
+        "overlappingNotePairs": 193,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": 0.015544041450777202,
+        "tritoneClassOverlapFraction": 0.0,
+        "uniqueContourBars": 1,
+        "uniqueRhythmBars": 1
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 1.0,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": null
+      }
+    },
+    {
+      "id": "time-discussion/g1-1-159tkfj",
+      "traceSha256": "4c5072e7bb52ec074d72ab59a0775468f9820ed956b3b452cc324a732a1c31ba",
+      "coverage": {
+        "explicitHarmony": true,
+        "monophonicMelody": true,
+        "scheduledNotesOnly": true,
+        "waveformRead": false
+      },
+      "profile": "neutral",
+      "style": "lyric",
+      "metrics": {
+        "adjacentContourRepeatFraction": 1.0,
+        "attacksPerSecond": 1.2151898734177216,
+        "chordToneFraction": 1.0,
+        "completeBars": 9,
+        "largeLeaps": 0,
+        "maximumLeap": 0,
+        "melodicTransitions": 17,
+        "nonChordMelodyNotes": 0,
+        "notes": 60,
+        "notesPerSecond": 1.8227848101265824,
+        "overlappingNotePairs": 193,
+        "resolvedOrnaments": 0,
+        "seconds": 32.916666666666664,
+        "semitoneClassOverlapFraction": 0.015544041450777202,
+        "tritoneClassOverlapFraction": 0.0,
+        "uniqueContourBars": 1,
+        "uniqueRhythmBars": 1
+      },
+      "advisoryScores": {
+        "activityTargetMatch": 1.0,
+        "melodicEconomy": 1.0,
+        "ornamentResolution": null
+      }
+    }
+  ]
+}

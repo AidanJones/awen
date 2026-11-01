@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "status": "metadata-reviewed-not-downloaded-or-inferred",
+  "modelId": "facebook/audiobox-aesthetics",
+  "revision": "9b1dd8e5df9af7216e836a98974fe3b82c56ded6",
+  "sourceRepository": "https://github.com/facebookresearch/audiobox-aesthetics",
+  "sourceRevision": "2618e9d451b456e9328b39495b5e6234678aa550",
+  "weightFile": "model.safetensors",
+  "expectedWeightBytes": 415472992,
+  "expectedWeightSha256": "a5a3c2412649cc2384ec525ffd5180ce6c4778f43bed6108e0a1303de04d014e",
+  "licenseFromModelMetadata": "cc-by-4.0",
+  "axes": [
+    "CE",
+    "CU",
+    "PC",
+    "PQ"
+  ],
+  "expectedAudioInput": "mono 16 kHz, official ten-second windowing",
+  "plannedDevice": "cpu",
+  "plannedPrecision": "float32, subject to smoke test",
+  "requirements": "separate environment; inspect strict state loading, transforms and exact dependency versions before inference",
+  "cachePolicy": "pin weights/config/source/preprocessing; use existing unique/resumable jobs; no silent encoder substitution",
+  "validatedForReadingComfort": false,
+  "localWeightChecksumVerified": false,
+  "inferenceExecuted": false
+}

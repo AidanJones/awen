@@ -157,6 +157,13 @@ models, gated Pareto selection and seeded offspring. It creates a labelled
 listening page and uses the existing unique/resumable job machinery. The test
 models do not establish enjoyment or reading comfort, and no winner is deployed.
 
+The [pretrained evaluator inventory](research/pretrained-evaluators.md) records
+released quality/preference/emotion models and metadata-only preflight. The
+[score-only critic](research/symbolic-critic.md) adds explainable theory/texture
+diagnostics over existing note traces without rendering or loading audio.
+The [narrative dictionary specification](research/narrative-dictionary-plan.md)
+tracks future source-backed text classifications and musical feature mappings.
+
 The [classical directions guide](research/classical-directions.md) describes nine
 Bach, Vivaldi, Chopin and Corelli-inspired starting points, inspectable text-to-music
 rules and deterministic chapter development. Choose **Classical-inspired starting

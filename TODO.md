@@ -222,6 +222,18 @@ The [27 October calibration roadmap](research/clap-probe.md#calibration-roadmap-
 
 ## Suggested next slice
 
+- [x] Inventory pretrained quality/preference/emotion models using primary
+  sources and artifact metadata; [findings](research/pretrained-evaluators.md).
+  No new quality checkpoint has been downloaded or inferred.
+- [x] Implement and replay a [score-only advisory critic](research/symbolic-critic.md)
+  over 18 verified score traces. It supplements acoustic evaluation and is not
+  a validated music/comfort reward or an automatic preference update.
+- [ ] `awen-xfp.7`: build the [literature-backed text-to-music dictionary](research/narrative-dictionary-plan.md),
+  reconciling current scene IDs with dramatic function, pace, tone, viewpoint,
+  irony, environment and structural boundaries. Include definitions,
+  counterexamples, uncertainty and source-scoped alternative musical mappings;
+  test on independent held-out book/chapter annotations before runtime changes.
+
 The [staged implementation roadmap](research/multiobjective-roadmap.md) tracks
 M0/M1 prototype plumbing and real-encoder integration, then M2 pretrained audio
 quality feedback, M3 learned scene preference, M4 actual reader calibration,

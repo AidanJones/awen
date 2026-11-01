@@ -1,0 +1,90 @@
+{
+  "checkedAt": "2026-11-01T20:56:58.107755+00:00",
+  "metadataOnly": true,
+  "models": {
+    "audiobox": {
+      "url": "https://huggingface.co/api/models/facebook/audiobox-aesthetics?blobs=true",
+      "revision": "9b1dd8e5df9af7216e836a98974fe3b82c56ded6",
+      "license": "cc-by-4.0",
+      "files": [
+        {
+          "name": "README.md",
+          "size": 5924,
+          "lfs": null
+        },
+        {
+          "name": "checkpoint.pt",
+          "size": 415520834,
+          "lfs": {
+            "sha256": "a4931a7a01c3e6733352e9d85371835f03bf9135f8b31e1583c23538811d4a32",
+            "size": 415520834,
+            "pointerSize": 134
+          }
+        },
+        {
+          "name": "config.json",
+          "size": 492,
+          "lfs": null
+        },
+        {
+          "name": "model.safetensors",
+          "size": 415472992,
+          "lfs": {
+            "sha256": "a5a3c2412649cc2384ec525ffd5180ce6c4778f43bed6108e0a1303de04d014e",
+            "size": 415472992,
+            "pointerSize": 134
+          }
+        }
+      ]
+    },
+    "muq_eval": {
+      "url": "https://huggingface.co/api/models/zhudi2825/MuQ-Eval-A1?blobs=true",
+      "revision": "b082e238827df51d99ac66bdd1b6f0d2406bc90e",
+      "license": "mit",
+      "files": [
+        {
+          "name": "README.md",
+          "size": 2249,
+          "lfs": null
+        },
+        {
+          "name": "base.yaml",
+          "size": 2589,
+          "lfs": null
+        },
+        {
+          "name": "best_model.pt",
+          "size": 1341898958,
+          "lfs": {
+            "sha256": "681048d045e947b285c5ef618d19c05a3bc6d9e0621654ead1e0a8356b6ceaac",
+            "size": 1341898958,
+            "pointerSize": 135
+          }
+        },
+        {
+          "name": "checkpoint_info.json",
+          "size": 480,
+          "lfs": null
+        },
+        {
+          "name": "config.yaml",
+          "size": 544,
+          "lfs": null
+        },
+        {
+          "name": "model_state_dict.pt",
+          "size": 1336614308,
+          "lfs": {
+            "sha256": "4163ec9ba81bc0f7616611804414215220ae46fe1c8ae6fdff3f7919e7d21455",
+            "size": 1336614308,
+            "pointerSize": 135
+          }
+        }
+      ]
+    },
+    "audiobox_source": {
+      "url": "https://api.github.com/repos/facebookresearch/audiobox-aesthetics/commits/main",
+      "revision": "2618e9d451b456e9328b39495b5e6234678aa550"
+    }
+  }
+}
