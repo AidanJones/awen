@@ -222,6 +222,14 @@ The [27 October calibration roadmap](research/clap-probe.md#calibration-roadmap-
 
 ## Suggested next slice
 
+The [multi-objective learned feedback plan](research/multiobjective-reward.md)
+specifies a bounded 12-candidate probe before larger search: keep CLAP as a
+baseline, preflight one pretrained audio-only preference/aesthetic evaluator,
+report fit/enjoyment/estimated-distraction separately and use hard continuity
+gates. Compare a learned text/audio preference reward next; do not assume a
+generic quality or complexity model measures reading annoyance. Pareto evolution,
+actual reader calibration and richer structural mutation remain open work.
+
 Classical-repertoire strand (31 October): see
 [reviewed sources and staged experiments](research/classical-inspiration.md) and
 [implemented Bach-inspired DSL](research/bach-dsl.md).

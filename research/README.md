@@ -19,6 +19,7 @@ uncompleted listener studies.
 | Reproducible development audio evaluation | [JavaScript lab](score-lab.md), [Python bridge](score-lab-python.md), [judge contract](score-lab-judge.md) | Unique runs, source hashes, native renders, cache/checkpoint recovery; models remain development-only |
 | CLAP probes and grid evolution | [Probe](clap-probe.md), [bounded grid search](grid-clap-evolution.md) | Their linked proofs; optimisation gains did not establish a reliable reward |
 | Evaluator and encoder comparisons | [Experiment ledger](experiment-ledger.md), [MuQ comparison](muq-comparison.md) | Completed diagnostics, model identities and remaining decision gates |
+| Multi-objective ML feedback | [Learned reward plan](multiobjective-reward.md) | Proposed learned preference/aesthetics probe, separate fit/enjoyment/distraction signals and gated Pareto search; not yet executed |
 | Real preference calibration | [Listening protocol](listening-calibration.md) | Prepared interface; no real listener ratings in the engineering proofs |
 | Academic account | [Paper source](paper/main.tex), [paper guide](paper/README.md) | Compiled editor preview; measured results distinguished from proposed experiments |
 
