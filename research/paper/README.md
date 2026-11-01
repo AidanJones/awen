@@ -9,3 +9,17 @@ This is a working paper, not a submitted or peer-reviewed publication. The autho
 Evidence is linked through `research/grid-clap-proof.json`, the evaluator-comparison proof, frozen suite files and the [experiment ledger](../experiment-ledger.md). Raw audio, features and model weights remain in ignored local experiment directories. No full public benchmark dataset or external human study has been released.
 
 Version 0.2 (31 October 2026) adds the executed five-clip MuQ/CLAP comparison in `muq-results.tex` and replaces the previous statement that no cross-model inference had run. The built-in compiler successfully compiled the updated document; compile again after changing source. Standard local LaTeX tools can also compile `main.tex`. Publishing this draft externally and choosing named authors are separate decisions.
+
+Version 0.3 (31 October) adds classical-analysis references, the bounded DSL,
+nine original classical-inspired directions and the optional chapter/text
+policy. Version 0.4 (1 November) documents the four dedicated instrument
+palettes, layer-specific routing and procedural harpsichord, and expands the
+artifact index. These are implementation/engineering additions; no new CLAP,
+MuQ, human-preference or reading-benefit result is implied. Historical measured
+tables remain tied to their original source snapshots.
+
+Use the [research index](../README.md) for feature guides, proof scope and
+reproduction commands. The classical [direction proof](../classical-directions-proof.json)
+and [palette proof](../classical-palettes-proof.json) contain engineering data,
+not listener labels. The palette choice remains separate from reader-profile
+exports and must be selected manually after importing a grid card's profile.

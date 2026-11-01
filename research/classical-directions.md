@@ -55,6 +55,13 @@ Only chapter changes or explicit user choices may replace the recipe/tonal regio
 
 The policy is versioned in `genome.classical`; the composer checkpoint records active recipe, chapter, local cycle epoch, tonal offset and smoothed expression. Checkpoint identity includes the policy, and invalid state restarts safely. Composer version is `awen-score-5`. Old DSL v1 sources gain default texture/hold/shape fields; incompatible older composer checkpoints restart. Canonical source and policy survive profile/pin/export and numeric evolution. Editing/applying a raw DSL deliberately exits automatic chapter direction; undo restores it.
 
+The main **Steady ambience** control removes paragraph cue input. If classical
+chapter development remains selected, chapter-indexed tonal movement still
+occurs; choose **Hold this direction** as well to hold the recipe and tonal
+region. The cue display describes the text's suggestion, which is not applied
+when the relevant mode holds expression. Reader profile exports do not contain
+the active sound palette; select it separately after import.
+
 ## Maintenance and validation
 
 `python tools/compile_classical.py` embeds the JSON in `index.html`; `--check` verifies it matches. This is an authoring utility, not a required build step: the committed reader runs directly with inline code and no model/network dependency. New library behaviour requires a library version change and compatible import handling. Generated explorer pages preserve their embedded runtime; old experiment directories should not be overwritten.

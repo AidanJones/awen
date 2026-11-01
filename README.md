@@ -8,6 +8,9 @@ Active work is tracked in **Beads**: run `bd ready` for available tasks. See the
 
 ## Open it
 
+See the [research and implementation map](research/README.md) for the classical
+features, source literature, evidence, reproduction commands and open studies.
+
 Download `index.html` and open it in a modern browser. Click **Start soundtrack** to enable audio. Everything needed for reading and synthesis is embedded; the external edition and licence links are optional.
 
 For a consistent storage origin, serve the directory instead:
@@ -203,7 +206,7 @@ node tests/audio.browser.cjs
 
 Alternatively, set `AWEN_BROWSER_CHANNEL=msedge` to use installed Edge in a separate headless test profile. Playwright is a testing dependency only. The suite renders the production graph in native `OfflineAudioContext`, including an 80-second score, both palettes, background controls, muted layers, maximum levels and overloads. Live checks cover uninterrupted musical position through 20 paragraph changes, scene dwell/bar boundaries, explicit/generated/queued seeds, per-book seeds and checkpoints, all playback/mute controls, waveform/reduced motion, restart/jumps, mobile layout and no autoplay. These verify generated samples and behaviour, not the physical speakers or artistic quality.
 
-The current revision passes 44 dependency-free MVP tests. The isolated Playwright suites check a final sample ceiling of 0.14, exact silence for zero master/all layers muted, audible output at the default level, and all controls described above. Listening quality and sustained real-device operation remain separate acceptance work.
+The current revision passes 45 dependency-free MVP tests (63 across the MVP, lab, DSL and classical planning suites). The isolated Playwright suites check a final sample ceiling of 0.14, exact silence for zero master/all layers muted, audible output at the default level, and all controls described above. Listening quality and sustained real-device operation remain separate acceptance work.
 
 Manual browser smoke checks: initial silence; user-gesture start; navigation while playing; keyboard navigation; chapter jump; per-book restoration; reload with saved progress and audio off; steady ambience; inspector; appearance and pause. Browser playback state was checked in the Codex in-app Chromium browser. Audible quality, long sessions, Safari/iOS, mobile devices and interruptions on real hardware still need listening/device tests.
 

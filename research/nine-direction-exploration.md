@@ -14,7 +14,15 @@ Open the printed `explore.html` directly, or serve its directory locally. It emb
 
 ## Starting grid and refinement
 
-The desktop grid is 3 × 3 (two columns on tablets, one on phones). The updated nine starting cards cover six authored phrase recipes, six sound palettes and nine distinct recipe/harmony identities:
+The **Starting set** selector now offers **Broad nine**, **Bach-inspired nine**
+and **Classical-inspired nine**. The Bach set crosses three figured recipes with
+three instruments. The classical set offers nine structural directions with
+matching Baroque, Cello, Romantic and Pastoral palettes; see
+[classical development](classical-directions.md) and [palettes](classical-palettes.md).
+Choosing a set appends a round, so earlier choices remain reachable with
+Previous round. Current reader palette choices are independent of recipe choice.
+
+The desktop grid is 3 × 3 (two columns on tablets, one on phones). The **Broad nine** cards below cover six authored phrase recipes, six of the reader's ten sound palettes and nine distinct recipe/harmony identities:
 
 | Direction | Phrase recipe / palette | Harmony |
 | --- | --- | --- |

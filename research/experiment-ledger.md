@@ -1,6 +1,9 @@
 # Evaluator experiments and next gates
 
-Updated 31 October 2026. This ledger distinguishes executed evidence, engineering preparation and proposed studies. No real human study labels have been collected.
+Documentation updated 1 November 2026; the latest executions below occurred on
+31 October. This ledger distinguishes executed evidence, engineering preparation
+and proposed studies. No real human study labels are reported by the linked
+engineering and model-comparison proofs.
 
 | Stage | Status | Evidence / decision |
 | --- | --- | --- |
@@ -9,6 +12,8 @@ Updated 31 October 2026. This ledger distinguishes executed evidence, engineerin
 | Nine-grid bounded evolution | Executed | 21 candidates + 3 fresh-seed renders. Mean gain, but unresolved controls/specificity. `grid-clap-proof.json`. |
 | Fixed-pool objective comparison | Executed | Six methods selected five unique clips. Ensemble winner fell slightly below unchanged strings on new-description mean; contrastive selected an earlier variant, but silence/wording concerns remain. Post-hoc, same encoder, not an independent-model or equal-budget-optimiser benchmark. `evaluator-comparison-proof.json`. |
 | Alternate encoder comparison | MuQ versus CLAP executed | Five matched existing clips and controls, 22 MuQ features, no new renders or training. Mixed silence and window results do not establish a reliable replacement. `muq-comparison-proof.json`. Other models remain unbenchmarked. |
+| Classical composition/controller integration | Engineering checks executed | Nine source-linked original recipes, text cue rules, checkpointed chapter route; nine native 64-second renders and a 192-step forward/backward traversal. [Guide](classical-directions.md), [proof](classical-directions-proof.json). No embedding reward or listener result. |
+| Classical instrument palettes | Engineering checks executed | Four palettes, layer-aware routing and procedural harpsichord; four native 32-second renders, muted/overload checks and matched-energy signal difference. [Guide](classical-palettes.md), [proof](classical-palettes-proof.json). No claim of perceptual authenticity. |
 | Audio-language judge controls | Protocol specified | Real audio dependence, swaps, missing/identical audio, abstention, wording and order controls; not yet run. No model-provider result is invented. |
 | Human preference calibration | Interface prepared; labels absent | Existing blinded packet and exploratory grid. Use explicit fit, enjoyment and distraction feedback; an unheard/unselected card is not a rejection. |
 | Personal ranker | Proposed | Begin regularised small model on engine/passage features; add embeddings in an ablation after labels exist. No RLHF or ranker training performed. |

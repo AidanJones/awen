@@ -12,7 +12,7 @@ This is the consolidated backlog, not a commitment to implement every research i
 - [x] Continuous native Web Audio composer, recurring themes, connected harmony, seeded planning, per-book checkpoints and scene dwell/bar transitions.
 - [x] Adjustable background and layers, palettes, waveform, explicit start/pause, emergency mute and shared output limiter.
 - [x] Six-candidate preference gallery with foreground/background scopes, nearby/wide exploration, multiple parents, pins/names, keep/cancel/undo and a capped decision history.
-- [x] Original musical starting points, six sound palettes including western guitar/whistle and strings/brass, and a source-linked harmonic-direction gallery with saved choices.
+- [x] Original musical starting points, ten sound palettes including classical, western guitar/whistle and strings/brass, and a source-linked harmonic-direction gallery with saved choices.
 - [x] Readable themed dropdowns in night mode.
 - [x] Browser profile persistence plus explicit JSON save/import; neutral repo starter in `profiles/personal.json`. Browser choices do not automatically update that file.
 - [x] Initial reading/music, continuous-score, SSX Tricky and film/audio-drama research notes. Written-source review is complete for this pass; scene listening and score analysis remain open.
