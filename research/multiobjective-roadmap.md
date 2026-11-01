@@ -7,6 +7,11 @@ and personal numeric evolution remain model-free.
 
 ## Stages and promotion gates
 
+The [ordered critic work plan](critic-work-plan.md) tracks the immediate
+symbolic coverage, narrative dictionary, real pretrained evaluator and
+multi-critic integration tasks. Controlled symbolic contrasts now pass; they
+do not validate enjoyment or replace the outstanding M2 evaluator.
+
 | Stage | Deliverable | Acceptance gate / current status |
 |---|---|---|
 | M0: end-to-end plumbing | Native audio → model inference → objective vector → Pareto parents → seeded offspring → replay page | Implemented in `tools/multiobjective_lab.py`; test/real-run evidence is recorded separately below. No automatic adoption. |

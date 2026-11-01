@@ -1,0 +1,162 @@
+{
+  "auditedReplayNoAudioOpens": true,
+  "calibrationSources": {
+    "research/symbolic-contrasts.json": "c0ff5f4f2ba8b14dbae34ed59ce8e908489d88417db32eb40a88154fed156183",
+    "tools/calibrate_symbolic.py": "9720ed7df1e3f78597ecc42499bb57f1e68995717598f2b28f4a15d2eb60435f"
+  },
+  "checks": [
+    {
+      "left": "resolved/advisoryScores/ornamentResolution",
+      "observedLeft": 1.0,
+      "observedRight": 0.0,
+      "op": "gt",
+      "passed": true,
+      "right": "unresolved/advisoryScores/ornamentResolution"
+    },
+    {
+      "left": "transposed/advisoryScores/ornamentResolution",
+      "observedLeft": 1.0,
+      "observedRight": 1.0,
+      "op": "eq",
+      "passed": true,
+      "right": "resolved/advisoryScores/ornamentResolution"
+    },
+    {
+      "left": "transposed/advisoryScores/melodicEconomy",
+      "observedLeft": 1.0,
+      "observedRight": 1.0,
+      "op": "eq",
+      "passed": true,
+      "right": "resolved/advisoryScores/melodicEconomy"
+    },
+    {
+      "left": "unknown-harmony/advisoryScores/ornamentResolution",
+      "observedLeft": null,
+      "observedRight": null,
+      "op": "null",
+      "passed": true
+    },
+    {
+      "left": "figured-octave/advisoryScores/melodicEconomy",
+      "observedLeft": 1.0,
+      "observedRight": 0.0,
+      "op": "gt",
+      "passed": true,
+      "right": "lyric-octave/advisoryScores/melodicEconomy"
+    },
+    {
+      "left": "phrase-break/advisoryScores/melodicEconomy",
+      "observedLeft": null,
+      "observedRight": null,
+      "op": "null",
+      "passed": true
+    },
+    {
+      "left": "polyphonic/advisoryScores/melodicEconomy",
+      "observedLeft": null,
+      "observedRight": null,
+      "op": "null",
+      "passed": true
+    },
+    {
+      "left": "polyphonic/advisoryScores/ornamentResolution",
+      "observedLeft": null,
+      "observedRight": null,
+      "op": "null",
+      "passed": true
+    },
+    {
+      "left": "ostinato/metrics/adjacentContourRepeatFraction",
+      "observedLeft": 1.0,
+      "observedRight": 1,
+      "op": "eq",
+      "passed": true,
+      "value": 1
+    },
+    {
+      "left": "ostinato/advisoryScores/melodicEconomy",
+      "observedLeft": 1.0,
+      "observedRight": 1,
+      "op": "eq",
+      "passed": true,
+      "value": 1
+    },
+    {
+      "left": "calm-sparse/advisoryScores/activityTargetMatch",
+      "observedLeft": 1.0,
+      "observedRight": 0.0,
+      "op": "gt",
+      "passed": true,
+      "right": "calm-busy/advisoryScores/activityTargetMatch"
+    },
+    {
+      "left": "active-busy/advisoryScores/activityTargetMatch",
+      "observedLeft": 1.0,
+      "observedRight": 0.0,
+      "op": "gt",
+      "passed": true,
+      "right": "calm-busy/advisoryScores/activityTargetMatch"
+    },
+    {
+      "left": "chord-clusters/metrics/attacksPerSecond",
+      "observedLeft": 0.6,
+      "observedRight": 0.6,
+      "op": "eq",
+      "passed": true,
+      "right": "calm-sparse/metrics/attacksPerSecond"
+    },
+    {
+      "left": "chord-clusters/metrics/notesPerSecond",
+      "observedLeft": 2.4,
+      "observedRight": 0.6,
+      "op": "gt",
+      "passed": true,
+      "right": "calm-sparse/metrics/notesPerSecond"
+    },
+    {
+      "left": "empty/advisoryScores/activityTargetMatch",
+      "observedLeft": null,
+      "observedRight": null,
+      "op": "null",
+      "passed": true
+    },
+    {
+      "left": "empty/advisoryScores/melodicEconomy",
+      "observedLeft": null,
+      "observedRight": null,
+      "op": "null",
+      "passed": true
+    },
+    {
+      "left": "empty/advisoryScores/ornamentResolution",
+      "observedLeft": null,
+      "observedRight": null,
+      "op": "null",
+      "passed": true
+    }
+  ],
+  "completedReplayNewAttempts": 0,
+  "completedReplayPreservedReport": true,
+  "experiment": ".score-lab/symbolic-contrasts/20261101T234821.787690Z-e4bcd1541ff74d22aa23459373b9078a",
+  "fixtures": 14,
+  "humanRatings": 0,
+  "limitations": [
+    "Expected relations authored alongside rules; not independent musical validation.",
+    "No waveform, timbre, perceived annoyance, chapter-state or listener assessment.",
+    "Passing contrasts does not calibrate thresholds against human preferences."
+  ],
+  "manifestSha256": "e5f2d731f1650fc9c2f1cb67d38efdf3d88f96f597d755a0c2cba25f41bf9a0b",
+  "passed": 17,
+  "promotionAllowed": false,
+  "reportSha256": "3dc2b3de2cfa744d6fe6c56809d63d6d206720efcc31d598580a73a81fcb3ec6",
+  "sources": {
+    "index.html": "b8ea629ed1c304e0061a74bc171fa357d224a488591ff7f566c1c29d7feb73e6",
+    "tools/score-lab.cjs": "0b2897651d391603c2aa82b45fa8351bb9cd66ed745cd432dd4dfea00fb86e9c",
+    "tools/score_lab.py": "c83453aab83c02a34d7bffdab02e48e991b207ecec51f8e07917e60fc0531926",
+    "tools/symbolic-plan.cjs": "1432264eec444955d3933d20087324da7481a5631004791da167ec07ee17dcdf",
+    "tools/symbolic_critic.py": "b39980c4eccea14f33fe712c4c36e22a5fc9ae0c964f73f3fd42fbf8f8de2d0d"
+  },
+  "status": "engineering-contrasts-only",
+  "total": 17,
+  "version": "awen-symbolic-contrasts-1"
+}

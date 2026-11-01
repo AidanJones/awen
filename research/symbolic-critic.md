@@ -62,6 +62,13 @@ inference, reader profile update or default adoption is performed.
 
 ## Evidence and remaining work
 
+The next controlled engineering experiment is implemented in
+`tools/calibrate_symbolic.py`: 14 notation fixtures and 17 expected relations,
+including style-sensitive advice, transposition, repetition and abstention.
+See the [ordered work plan](critic-work-plan.md) and
+[contrast proof](symbolic-contrasts-proof.json). Expectations are authored
+alongside the rules; they are not independent perceptual calibration.
+
 The initial run analysed all 18 saved musical score streams from the three-scene
 prototype. It identified the intended resolving neighbours in the flowing
 figure and flagged large lyrical leaps in the spring calls. Those calls can be

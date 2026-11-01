@@ -7,6 +7,9 @@ uncompleted listener studies.
 
 ## Find a feature or its evidence
 
+The [ordered critic work plan](critic-work-plan.md) links the recent research
+to active Beads tasks and records the first controlled score-only experiment.
+
 | Strand | Guide / specification | Evidence or implementation |
 |---|---|---|
 | Classical repertoire and source scope | [Classical inspiration](classical-inspiration.md) | [Source-linked recipes and cue rules](classical-knowledge.json) |

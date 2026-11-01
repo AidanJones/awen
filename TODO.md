@@ -280,6 +280,11 @@ Classical-repertoire strand (31 October): see
   continuity and listening constraints are established. Current evolution
   preserves DSL source and varies numeric genome traits.
 
+The current research/score-only sequence is recorded in
+[the critic work plan](research/critic-work-plan.md), with live Beads IDs.
+Its first controlled contrast experiment is implemented; perceptual calibration
+and automatic promotion remain outstanding.
+
 1. Use the resumable Python bridge to connect and calibrate a real provider against the strict judge exchange.
 2. Calibrate the judge and metric thresholds on a few matched comparisons, with listener judgements kept separate.
 3. Add chapter context and continuity fixtures before changing automatic runtime direction.
