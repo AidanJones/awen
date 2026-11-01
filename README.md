@@ -151,6 +151,12 @@ The richer ensemble preset is an artistic option, not a claimed cognitive benefi
 
 ## Verification
 
+The [multi-objective ML roadmap and prototype](research/multiobjective-roadmap.md)
+connects native renders, optional real pinned CLAP, fitted synthetic-label test
+models, gated Pareto selection and seeded offspring. It creates a labelled
+listening page and uses the existing unique/resumable job machinery. The test
+models do not establish enjoyment or reading comfort, and no winner is deployed.
+
 The [classical directions guide](research/classical-directions.md) describes nine
 Bach, Vivaldi, Chopin and Corelli-inspired starting points, inspectable text-to-music
 rules and deterministic chapter development. Choose **Classical-inspired starting

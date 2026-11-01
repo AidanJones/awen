@@ -222,6 +222,13 @@ The [27 October calibration roadmap](research/clap-probe.md#calibration-roadmap-
 
 ## Suggested next slice
 
+The [staged implementation roadmap](research/multiobjective-roadmap.md) tracks
+M0/M1 prototype plumbing and real-encoder integration, then M2 pretrained audio
+quality feedback, M3 learned scene preference, M4 actual reader calibration,
+M5 structural mutation and M6 optional sequential/RL policies. Current learned
+enjoyment/distraction heads use synthetic training labels solely to test the
+end-to-end flow. They are not real human preference models.
+
 The [multi-objective learned feedback plan](research/multiobjective-reward.md)
 specifies a bounded 12-candidate probe before larger search: keep CLAP as a
 baseline, preflight one pretrained audio-only preference/aesthetic evaluator,

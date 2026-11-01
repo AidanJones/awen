@@ -1,0 +1,686 @@
+{
+  "version": 1,
+  "date": "2026-11-01",
+  "testOnly": true,
+  "scientificRewardValidated": false,
+  "humanRatings": 0,
+  "promotionAllowed": false,
+  "experiment": ".score-lab/multiobjective/20261101T200556.044111Z-1da391d7f77d4f64ad473e182a851c7c",
+  "reportSha256": "ead8686653f2cfc16089d4bca9a5c1f76f5146fd972dd20b0da468979e96b8b9",
+  "manifestSha256": "098f3ccbe50825cfab95397de81f4e65dd9ac065c787ed84bb169b36a49dcb66",
+  "pageSha256": "01524247c5da2072f1799020c03322329fb1d0c7230f47df1bc226d60eeed349",
+  "sources": {
+    "index.html": "b8ea629ed1c304e0061a74bc171fa357d224a488591ff7f566c1c29d7feb73e6",
+    "research/calibration-scenes.json": "c8afdb61fa6a92edad82167a2db89ef02b49805693332fb09b3f94750dde1fa9",
+    "research/clap-probe-model.json": "86ecaef3ce232a5223a13ea5960ec9782f7d392c7d38536b1d02a0f2a0ea3179",
+    "research/multiobjective-suite.json": "af44c94f77b3df2a7a1cc3db86df4570a367075b42fee6d297d8f5ab8582542d",
+    "research/scoring-knowledge.json": "fd337bea976717bdada70ff3feff429db1e493e1147090154ae44c59373b8589",
+    "tools/clap_backend.py": "3499d3927518415fad9a330a343c2cda17d724c5fc65e540263d2d96ec1e8433",
+    "tools/exploration-review.html": "931dfbc9b7658d717d18ce02684479ab6689560ea8b0b76d9c16136d4f2b4507",
+    "tools/exploration_page.py": "2efc2704ef2d105bda6b4407b1fa056803946733e6779d5d4979f7abb0aedc90",
+    "tools/grid-clap-worker.cjs": "e07310ff00b68c17a902aede6404bf99015c711e3916423f0b9e698c0aa11bb3",
+    "tools/grid_clap.py": "c2a704e5cdf3ac61d24230d546a3d066a055d5a23dc23517a283b0b341fa4fbd",
+    "tools/multiobjective_lab.py": "d6d85e42591c9f0fce8f2d707f53a417874ed52a780863ff4052d36d727d4980",
+    "tools/reward_test_models.py": "f8d522fe2cf1a4bbaa04741d87780b9993132ddc15cb2523df2ae62b3563b6c2",
+    "tools/score-lab-metrics.cjs": "4cebcea37cb1dbd827f8bc7ab6118b9feed05af92101a76da4246ad1e4ef7dd9",
+    "tools/score_embeddings.py": "b689877a34ca8da6682c884ac67355414785bbb36f03e5201ea30d5e6db00129",
+    "tools/score_lab.py": "c83453aab83c02a34d7bffdab02e48e991b207ecec51f8e07917e60fc0531926"
+  },
+  "fitBackend": "real pinned CLAP association margin",
+  "modelIdentity": {
+    "backendSha256": "3499d3927518415fad9a330a343c2cda17d724c5fc65e540263d2d96ec1e8433",
+    "packages": {
+      "huggingface-hub": "0.36.2",
+      "numpy": "2.3.5",
+      "safetensors": "0.8.0",
+      "scipy": "1.16.3",
+      "tokenizers": "0.22.2",
+      "torch": "2.8.0+cpu",
+      "transformers": "4.57.1"
+    },
+    "spec": {
+      "backend": "transformers-clap-cpu-1",
+      "dimension": 512,
+      "license": "apache-2.0",
+      "modelCard": "https://huggingface.co/laion/larger_clap_general",
+      "modelId": "laion/larger_clap_general",
+      "preprocessing": {
+        "audioPadding": "repeatpad",
+        "audioTruncation": "rand_trunc; exact ten-second input prevents random cropping",
+        "device": "cpu",
+        "dtype": "float32",
+        "normalization": "L2 float32 outputs; cosine dot product",
+        "pcm": "mono signed 16-bit little-endian divided by 32768",
+        "resample": "scipy.signal.resample_poly up=2 down=1 window=(kaiser,5.0) padtype=constant",
+        "seconds": 10,
+        "seed": 0,
+        "sourceSampleRate": 24000,
+        "targetSampleRate": 48000,
+        "textMaxTokens": 77,
+        "textTruncation": "reject; no silent truncation",
+        "threads": 2
+      },
+      "revision": "ada0c23a36c4e8582805bb38fec3905903f18b41",
+      "textTowerSanity": {
+        "purpose": "Reject extreme representation collapse, not establish semantic accuracy. The music-only checkpoint failed this independent API check.",
+        "rejectIfMinimumPairwiseCosineAbove": 0.995,
+        "texts": [
+          "The sound of a dog barking.",
+          "A piano playing a soft melody.",
+          "A man speaking loudly."
+        ]
+      },
+      "version": 1,
+      "weights": "pytorch_model.bin",
+      "weightsBytes": 776444665,
+      "weightsSha256": "314eb00cce6ad68d25237b8446b659ccdb136ed4672c1bca470f142f72455026"
+    }
+  },
+  "testModels": {
+    "features": [
+      "rms",
+      "attack_density",
+      "zero_crossing",
+      "envelope_repetition",
+      "envelope_variation",
+      "crest",
+      "difference_brightness"
+    ],
+    "labelSource": "rule-generated-synthetic",
+    "personalComfortValidated": false,
+    "seed": 20261101,
+    "syntheticHoldoutMSE": {
+      "enjoyment": 5.232779796546474e-09,
+      "fit": 4.117135614086956e-08,
+      "unobtrusiveness": 1.3882694438421195e-09
+    },
+    "testOnly": true,
+    "trainingExamples": 192,
+    "version": "awen-synthetic-ridge-rewards-1",
+    "weights": {
+      "enjoyment": [
+        0.8842229671872026,
+        -3.336531844555754e-05,
+        0.34928133503281517,
+        5.506514423989887e-05,
+        0.20941713529267758,
+        0.11970145978814574,
+        0.000206603859828955,
+        -0.09985240723750169,
+        8.601188523099805e-06,
+        -0.49929821098154553,
+        -2.5411468442461393e-05,
+        -0.2994387176337773,
+        -0.1997112159688248,
+        -0.0001649244341462527,
+        -0.0001785554312103378,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "fit": [
+        0.9693606200771707,
+        -2.2335544955093267e-05,
+        -6.587440826844038e-05,
+        -0.0002690381422446597,
+        8.229193826175471e-05,
+        -8.559871463578728e-05,
+        0.00017632748292789602,
+        0.17489461280603258,
+        -4.357238484448134e-05,
+        -0.9989278188561896,
+        0.0001859610016494151,
+        -5.6685646333598516e-05,
+        0.00010916288472140323,
+        -0.0001305188861840112,
+        -0.24990873230482819,
+        -0.00039222849226216994,
+        -0.9988203107145224,
+        1.9982704780300944
+      ],
+      "unobtrusiveness": [
+        0.9998098654927922,
+        -0.14975686445689493,
+        -0.2997226410435336,
+        -0.1498375793957316,
+        -0.1498513313292255,
+        -3.917492752528184e-05,
+        -7.587132223146476e-05,
+        -0.24975018085961959,
+        -0.0002174263871835573,
+        -0.0002574558474218119,
+        -0.0001507944293920792,
+        -0.0001432455779725041,
+        3.719357810474382e-05,
+        7.526830030610903e-05,
+        -0.00022928089075690636,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "testModelsSha256": "e97c90601ffbdca8acea1495bb3ceee41ffa0a4f748d0cf7d2f9ef3e56986b8c",
+  "nativeRenders": 18,
+  "derivedControlClips": 9,
+  "computedFeatures": 54,
+  "featureCacheHits": 12,
+  "jobCount": 115,
+  "uniqueInvocations": 8,
+  "crashRecovery": [
+    {
+      "log": "20261101T200856.461176Z-81e87ad9381540bfbd19aff2c2726687.jsonl",
+      "job": "render-5209f1813119a1000592bb04",
+      "injectedExitCode": 89
+    },
+    {
+      "log": "20261101T201123.297397Z-ca1e1a9f696b4704a5c0b11900832000.jsonl",
+      "job": "render-db7294526907e1322d7ca0bd",
+      "injectedExitCode": 89
+    }
+  ],
+  "completedReplay": {
+    "sameReportHash": true,
+    "newRenders": 0,
+    "newEncoderFeatures": 0,
+    "newJobAttempts": 0,
+    "backendLoaded": false
+  },
+  "renderer": {
+    "browser": "156.0.4314.58",
+    "node": "v24.22.1",
+    "playwright": "1.62.1"
+  },
+  "maximumMusicPeak": 0.0727715939283371,
+  "eligibleMusic": 12,
+  "scenes": [
+    {
+      "id": "rat-escape",
+      "parents": [
+        "classical-elegy",
+        "classical-flowing"
+      ],
+      "initialParetoIds": [
+        "classical-elegy",
+        "classical-flowing"
+      ],
+      "finalParetoIds": [
+        "classical-elegy",
+        "classical-flowing",
+        "g1-0-kksbpu"
+      ],
+      "candidates": [
+        {
+          "id": "classical-flowing",
+          "palette": "cello",
+          "parentId": null,
+          "sha256": "c1d0e84ce656dc0842a92a82e7352a13c406b92532dfd109f9d452af030d6cbe",
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          },
+          "objectives": {
+            "enjoyment": 0.7297587530357242,
+            "fit": 0.009887588077321652,
+            "unobtrusiveness": 0.5131217978159919
+          }
+        },
+        {
+          "id": "classical-storm",
+          "palette": "cello",
+          "parentId": null,
+          "sha256": "82d09060f5a1bfea74658edc480667e0bb535f0600798a21ebd1046afe2e9c90",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "insufficient symbolic variation"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.6600964669164059,
+            "fit": 0.017076469997019394,
+            "unobtrusiveness": 0.5589347007722073
+          }
+        },
+        {
+          "id": "classical-elegy",
+          "palette": "romantic",
+          "parentId": null,
+          "sha256": "196e73144768057b310fc232cd8f3ddf55865c01f3bb9aabec43f0ca8fae17ae",
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          },
+          "objectives": {
+            "enjoyment": 0.9497734915025983,
+            "fit": -0.02218626409607516,
+            "unobtrusiveness": 0.8255854685167147
+          }
+        },
+        {
+          "id": "classical-spring",
+          "palette": "pastoral",
+          "parentId": null,
+          "sha256": "cef79e62993f600cd8aa1d7846d1653bdafded7176f05b58abe74126f3467f0a",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "insufficient symbolic variation"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.8547884932080769,
+            "fit": -0.08493422237689746,
+            "unobtrusiveness": 0.7770330160557061
+          }
+        },
+        {
+          "id": "g1-0-kksbpu",
+          "palette": "romantic",
+          "parentId": "classical-elegy",
+          "sha256": "767e2fd8286a8eecb6f1f1cd69bb73ea7d9951a2f2a2fa7b725279ab3ec3818e",
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          },
+          "objectives": {
+            "enjoyment": 0.9498963548315172,
+            "fit": -0.020410195417853078,
+            "unobtrusiveness": 0.8255483212816427
+          }
+        },
+        {
+          "id": "g1-1-m16su1",
+          "palette": "cello",
+          "parentId": "classical-flowing",
+          "sha256": "3a8618d47dd9bed231f7e599f302c7d3e305bf6006b87113913b5e24d37673ad",
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          },
+          "objectives": {
+            "enjoyment": 0.7292114700406496,
+            "fit": 0.009220517247392479,
+            "unobtrusiveness": 0.5124976402077918
+          }
+        }
+      ],
+      "controls": [
+        {
+          "kind": "silence",
+          "sha256": "444206525131044130514f503d560a3e33a07e543ac4ba2520de3b86325385b6",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "diagnostic control; excluded from selection"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.8842229671872026,
+            "fit": 0.008860183237031999,
+            "unobtrusiveness": 0.9998098654927922
+          }
+        },
+        {
+          "kind": "half-level",
+          "sha256": "4fcc0bc46000e1192413957c3f9da9e317d908f7ff837f40e5c95ec129a7a4f3",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "diagnostic control; excluded from selection"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.7296721361714796,
+            "fit": 0.016532462794102143,
+            "unobtrusiveness": 0.5469119072002663
+          }
+        },
+        {
+          "kind": "two-second-loop",
+          "sha256": "85570e083b10e9061f8411364af479ebb151fc743e28b51995abb9e31827047f",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "diagnostic control; excluded from selection"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.6084280686831527,
+            "fit": 0.02453099256979621,
+            "unobtrusiveness": 0.4141038413074546
+          }
+        }
+      ],
+      "unusedWordingScores": {
+        "classical-elegy": 0.2799210131890948,
+        "classical-flowing": 0.28632046348799534,
+        "g1-0-kksbpu": 0.281998967106751
+      }
+    },
+    {
+      "id": "riders-landscape",
+      "parents": [
+        "classical-elegy"
+      ],
+      "initialParetoIds": [
+        "classical-elegy"
+      ],
+      "finalParetoIds": [
+        "classical-elegy",
+        "g1-0-s7shmu",
+        "g1-1-15xnyf7"
+      ],
+      "candidates": [
+        {
+          "id": "classical-flowing",
+          "palette": "cello",
+          "parentId": null,
+          "sha256": "f94e3c38301d21175a6ce35282ec9475bbd70074ddb2fbb85e7ff59b151afa3a",
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          },
+          "objectives": {
+            "enjoyment": 0.7296475700528752,
+            "fit": -0.08901687419421048,
+            "unobtrusiveness": 0.5138507646830278
+          }
+        },
+        {
+          "id": "classical-storm",
+          "palette": "cello",
+          "parentId": null,
+          "sha256": "c35d7f2817cb9565ee6b5e64c3455d94626e527c4c7125146180d83d1e9e4be8",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "insufficient symbolic variation"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.6600150468920134,
+            "fit": -0.09302175448048708,
+            "unobtrusiveness": 0.5604230968930555
+          }
+        },
+        {
+          "id": "classical-elegy",
+          "palette": "romantic",
+          "parentId": null,
+          "sha256": "3929669cb4ce53be9073c35c5506fb6678c31450fc05f69a62acf67fdc8f7c75",
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          },
+          "objectives": {
+            "enjoyment": 0.9507943764253419,
+            "fit": -0.06949566199374846,
+            "unobtrusiveness": 0.8244993243335464
+          }
+        },
+        {
+          "id": "classical-spring",
+          "palette": "pastoral",
+          "parentId": null,
+          "sha256": "7feadfd73955eef120d86f66870f764e646db3977a950f7f170345bdbd6fd197",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "insufficient symbolic variation"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.8548828717638972,
+            "fit": -0.012051785959308586,
+            "unobtrusiveness": 0.7764202568832305
+          }
+        },
+        {
+          "id": "g1-0-s7shmu",
+          "palette": "romantic",
+          "parentId": "classical-elegy",
+          "sha256": "693a6999775ba12c8d5737cb58f3a7a4a12d971e1e9b77076ca076f3a17a790c",
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          },
+          "objectives": {
+            "enjoyment": 0.9508791686570444,
+            "fit": -0.06989867672260608,
+            "unobtrusiveness": 0.8243534434536925
+          }
+        },
+        {
+          "id": "g1-1-15xnyf7",
+          "palette": "romantic",
+          "parentId": "classical-elegy",
+          "sha256": "cd34a87018d6368402f1cbff4f5efcd1e1d7bf1293165cc683dbb27a8340447e",
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          },
+          "objectives": {
+            "enjoyment": 0.9510296631486926,
+            "fit": -0.06956760545259663,
+            "unobtrusiveness": 0.8242904675258397
+          }
+        }
+      ],
+      "controls": [
+        {
+          "kind": "silence",
+          "sha256": "444206525131044130514f503d560a3e33a07e543ac4ba2520de3b86325385b6",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "diagnostic control; excluded from selection"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.8842229671872026,
+            "fit": -0.016715105303765937,
+            "unobtrusiveness": 0.9998098654927922
+          }
+        },
+        {
+          "kind": "half-level",
+          "sha256": "3392ca907d211becb1bd76fd19d88e6a0a826f09d6d3dc88071ddc6113d7e7dd",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "diagnostic control; excluded from selection"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.729559229930781,
+            "fit": -0.09359824159039268,
+            "unobtrusiveness": 0.5473784790054061
+          }
+        },
+        {
+          "kind": "two-second-loop",
+          "sha256": "edbc2c758acbe08f0b14f21154972115b6866abfa3150094420e094fcd32aff9",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "diagnostic control; excluded from selection"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.6083989111080066,
+            "fit": -0.10448246525774163,
+            "unobtrusiveness": 0.4138899362913139
+          }
+        }
+      ],
+      "unusedWordingScores": {
+        "classical-elegy": 0.2450914888885083,
+        "g1-0-s7shmu": 0.24413876981002391,
+        "g1-1-15xnyf7": 0.24485402094139208
+      }
+    },
+    {
+      "id": "time-discussion",
+      "parents": [
+        "classical-elegy"
+      ],
+      "initialParetoIds": [
+        "classical-elegy"
+      ],
+      "finalParetoIds": [
+        "classical-elegy",
+        "g1-0-1olm9ib",
+        "g1-1-159tkfj"
+      ],
+      "candidates": [
+        {
+          "id": "classical-flowing",
+          "palette": "cello",
+          "parentId": null,
+          "sha256": "f6518a5f1f6a2d0374eeeabc5a9288a4a00326f48b272b74afa00c808b398ca2",
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          },
+          "objectives": {
+            "enjoyment": 0.7296862852927267,
+            "fit": 0.07993879518069699,
+            "unobtrusiveness": 0.5137599390932985
+          }
+        },
+        {
+          "id": "classical-storm",
+          "palette": "cello",
+          "parentId": null,
+          "sha256": "3dc733fbe39ac24931d9c6b9c9d074f2a222b41ac24c5de0e8cce20f4d71e1b5",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "insufficient symbolic variation"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.6600150505855918,
+            "fit": 0.07562261889132427,
+            "unobtrusiveness": 0.56042312633116
+          }
+        },
+        {
+          "id": "classical-elegy",
+          "palette": "romantic",
+          "parentId": null,
+          "sha256": "754ce396c25f2314065326f9534ebd8010c5c97dc397398b059d01e6700be3db",
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          },
+          "objectives": {
+            "enjoyment": 0.9507943179683018,
+            "fit": 0.0913544235774787,
+            "unobtrusiveness": 0.8244993869371315
+          }
+        },
+        {
+          "id": "classical-spring",
+          "palette": "pastoral",
+          "parentId": null,
+          "sha256": "5d50e5ff089892b5ef3d0cb414a28ca65651fc26505a6e0fcaccf2c117823699",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "insufficient symbolic variation"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.8548828200397945,
+            "fit": 0.09652651750146707,
+            "unobtrusiveness": 0.776420287565207
+          }
+        },
+        {
+          "id": "g1-0-1olm9ib",
+          "palette": "romantic",
+          "parentId": "classical-elegy",
+          "sha256": "a3da2a3396a6c6ab3cffa6cf48f8e90dd6a964377445545a6c46e99e25b92c72",
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          },
+          "objectives": {
+            "enjoyment": 0.9503294779202075,
+            "fit": 0.09252302739304172,
+            "unobtrusiveness": 0.8253633890733825
+          }
+        },
+        {
+          "id": "g1-1-159tkfj",
+          "palette": "romantic",
+          "parentId": "classical-elegy",
+          "sha256": "b4ffe891e066a3cbaba862877030eeebee9864bdf85ddd434b05827059923e90",
+          "gate": {
+            "eligible": true,
+            "reasons": []
+          },
+          "objectives": {
+            "enjoyment": 0.9504983613084608,
+            "fit": 0.09119783601065268,
+            "unobtrusiveness": 0.8248983961935589
+          }
+        }
+      ],
+      "controls": [
+        {
+          "kind": "silence",
+          "sha256": "444206525131044130514f503d560a3e33a07e543ac4ba2520de3b86325385b6",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "diagnostic control; excluded from selection"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.8842229671872026,
+            "fit": 0.007854922066733938,
+            "unobtrusiveness": 0.9998098654927922
+          }
+        },
+        {
+          "kind": "half-level",
+          "sha256": "a3e0718d4c57d61558644fc7e615c805cbcc7c51b757f42e1a60d320a0a9ee53",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "diagnostic control; excluded from selection"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.7295980141809926,
+            "fit": 0.07841546381886252,
+            "unobtrusiveness": 0.5473106567093311
+          }
+        },
+        {
+          "kind": "two-second-loop",
+          "sha256": "e344179a374569c081d2109f4a9fb7fb633827e9f9a34d7c3c844bce215582cb",
+          "gate": {
+            "eligible": false,
+            "reasons": [
+              "diagnostic control; excluded from selection"
+            ]
+          },
+          "objectives": {
+            "enjoyment": 0.6084131884477163,
+            "fit": 0.07876870423720772,
+            "unobtrusiveness": 0.4136956128651336
+          }
+        }
+      ],
+      "unusedWordingScores": {
+        "classical-elegy": 0.34245142773155257,
+        "g1-0-1olm9ib": 0.3390107235330299,
+        "g1-1-159tkfj": 0.3396531985882496
+      }
+    }
+  ]
+}

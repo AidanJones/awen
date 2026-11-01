@@ -18,6 +18,13 @@ artifact index. These are implementation/engineering additions; no new CLAP,
 MuQ, human-preference or reading-benefit result is implied. Historical measured
 tables remain tied to their original source snapshots.
 
+Version 0.5 (1 November) describes the multi-objective integration prototype:
+native rendering, actual optional CLAP, synthetic-label fitted test heads,
+Pareto/crowding selection and one bounded mutation generation. Synthetic test
+losses are not human preference accuracy; this does not replace the proposed
+pretrained-critic and reader-calibration studies. See the
+[implementation roadmap](../multiobjective-roadmap.md) for scope and commands.
+
 Use the [research index](../README.md) for feature guides, proof scope and
 reproduction commands. The classical [direction proof](../classical-directions-proof.json)
 and [palette proof](../classical-palettes-proof.json) contain engineering data,

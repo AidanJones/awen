@@ -1,8 +1,14 @@
 # Learned feedback for multi-objective score evolution
 
-Design update: 1 November 2026. **Proposed experiment, not an executed reward
-comparison.** No new model, training run or preferred runtime score is claimed.
+Design update: 1 November 2026. **The pretrained-reward comparison remains
+proposed; the separate engineering prototype has now run.** No new pretrained
+music critic, human-preference training or preferred runtime score is claimed.
 Models remain development-only; the browser keeps the bounded native renderer.
+
+Implementation now starts with the separate [M0/M1 prototype](multiobjective-roadmap.md):
+small fitted test heads with explicitly synthetic labels and optional existing
+CLAP inference. This tests the loop, not the pretrained music-preference or
+reading-comfort hypotheses below. No new pretrained quality model is claimed.
 
 ## What holds the current feedback back
 

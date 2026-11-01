@@ -16,7 +16,8 @@ engineering and model-comparison proofs.
 | Classical instrument palettes | Engineering checks executed | Four palettes, layer-aware routing and procedural harpsichord; four native 32-second renders, muted/overload checks and matched-energy signal difference. [Guide](classical-palettes.md), [proof](classical-palettes-proof.json). No claim of perceptual authenticity. |
 | Audio-language judge controls | Protocol specified | Real audio dependence, swaps, missing/identical audio, abstention, wording and order controls; not yet run. No model-provider result is invented. |
 | Human preference calibration | Interface prepared; labels absent | Existing blinded packet and exploratory grid. Use explicit fit, enjoyment and distraction feedback; an unheard/unselected card is not a rejection. |
-| Personal ranker | Proposed | Begin regularised small model on engine/passage features; add embeddings in an ablation after labels exist. No RLHF or ranker training performed. |
+| Personal ranker | Proposed | Begin regularised small model on engine/passage features; add embeddings in an ablation after labels exist. No RLHF or reader-labelled ranker training performed; the separate prototype uses synthetic test targets only. |
+| Multi-objective integration prototype | Native/CLAP engineering run executed | Three scenes, 18 music clips, nine excluded controls, fitted synthetic-label test heads, one Pareto/crowding mutation generation. 54 new encoder features, two real process-death recoveries and zero-budget completed replay. [Roadmap/results](multiobjective-roadmap.md), [proof](multiobjective-prototype-proof.json). No validated enjoyment/comfort reward or runtime adoption. |
 | Matched-budget optimisation / long reading | Proposed | Evaluators must first demonstrate useful listener agreement; retain silence/fixed/diverse-grid baselines and whole-work holdouts. |
 
 ## Alternate-model preflight

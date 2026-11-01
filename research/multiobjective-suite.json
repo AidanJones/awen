@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "seconds": 32,
+  "windows": [2, 18],
+  "seed": "multiobjective-pilot-001",
+  "generations": 1,
+  "childrenPerScene": 2,
+  "cardIds": ["classical-flowing", "classical-storm", "classical-elegy", "classical-spring"],
+  "controls": ["silence", "half-level", "two-second-loop"],
+  "description": "Engineering pilot. Independent developer-written musical briefs, not listener labels or a representative test set. Toy training targets are synthetic.",
+  "scenes": [
+    {
+      "id": "rat-escape", "index": 0, "book": "rat", "testTargetDensity": 0.7,
+      "briefs": ["Playful urgent instrumental music with rhythmic motion, light tension and comic suspense.", "A lively instrumental underscore for a clever escape, energetic but controlled."],
+      "checkBrief": "Instrumental accompaniment for brisk comic danger and a resourceful getaway."
+    },
+    {
+      "id": "riders-landscape", "index": 2, "book": "riders", "testTargetDensity": 0.2,
+      "briefs": ["Spacious quiet instrumental music with a gentle pace and an open landscape feeling.", "A restrained instrumental underscore for stillness, distance and calm observation."],
+      "checkBrief": "Unhurried instrumental accompaniment for a broad quiet landscape."
+    },
+    {
+      "id": "time-discussion", "index": 4, "book": "time", "testTargetDensity": 0.4,
+      "briefs": ["Curious measured instrumental music for an animated thoughtful conversation, with breathing room.", "A lightly inquisitive instrumental underscore for discussion and an unfolding idea."],
+      "checkBrief": "Restrained instrumental accompaniment for a curious explanation shared in conversation."
+    }
+  ]
+}

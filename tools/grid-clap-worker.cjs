@@ -4,7 +4,7 @@ const {signalMetrics,traceMetrics,assess,pcmWav,digest}=require('./score-lab-met
 function atomic(file,bytes){const temp=file+'.'+crypto.randomUUID()+'.tmp';fs.writeFileSync(temp,bytes,{flag:'wx'});fs.renameSync(temp,file);}
 (async()=>{const [command,inputFile,outputFile]=process.argv.slice(2),bytes=fs.readFileSync(inputFile),input=JSON.parse(bytes),{chromium}=require('playwright'),browser=await chromium.launch({headless:true,channel:process.env.AWEN_BROWSER_CHANNEL||'msedge'});try{
  const page=await browser.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(pathToFileURL(input.page).href);let result;
- if(command==='grid-plan')result=await page.evaluate(()=>({cards:startingCards(),scenes:data.scenes,composer:COMPOSER_VERSION,engineSha256:data.engineSha256}));
+ if(command==='grid-plan')result=await page.evaluate(kind=>({cards:startingCards(kind),scenes:data.scenes,composer:COMPOSER_VERSION,engineSha256:data.engineSha256}),input.startingSet||'broad');
  else if(command==='grid-children')result=await page.evaluate(({parents,generation,seed,count})=>Array.from({length:count},(_,i)=>{const p=parents[i%parents.length],g=mutateGenome(p.genome,'both',seed+'|grid-clap|'+generation+'|'+i);return {id:'g'+generation+'-'+i+'-'+hash32(JSON.stringify([p.id,g])).toString(36),name:p.name+' · G'+generation+'.'+(i+1),description:describeGenome(g,p.genome),palette:p.palette,genome:g,parentId:p.id};}),input);
  else if(command==='render'){
   const rendered=await page.evaluate(async input=>{
