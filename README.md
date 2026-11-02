@@ -2,7 +2,7 @@
 
 *Every story has a soundtrack.*
 
-A small, local fiction reader with an adaptive synthesiser soundtrack. The entire runnable app is **[index.html](index.html)**: inline CSS, JavaScript and four complete reading texts (science fiction and a western). No React, build, install, CDN, backend, account or API key. Approximately 1.54 MB, mostly book text.
+A small, local fiction reader with an adaptive synthesiser soundtrack. The entire runnable app is **[index.html](index.html)**: inline CSS, JavaScript and four complete reading texts (science fiction and a western). No React, build, install, CDN, backend, account or API key. Approximately 1.6 MB, mostly book text.
 
 Active work is tracked in **Beads**: run `bd ready` for available tasks. See the [Beads workflow](.beads/README.md) and [roadmap snapshot](TODO.md). Personal music evolution, a wider-choice gallery and richer starting palettes are the priorities.
 
@@ -36,6 +36,7 @@ Visit `http://localhost:8000`. Static hosting can serve the same HTML unchanged.
 - **Score seed** shows a seed saved separately for each book (initially `rat-001`, `war-001`, `time-001` and `riders-001`). Apply a chosen seed or select **New interpretation**. During playback a new seed waits for the next four-bar phrase boundary; when paused it applies immediately. The active/queued status is shown. Unapplied queued changes are not committed across a reload.
 - **Follow the story** derives musical targets from local phrase rules. **Steady ambience** uses a fixed neutral target for comparison. Pause for silence.
 - **Behind the soundtrack** shows rule evidence, raw/contextual features, musical targets and the live smoothed state. Rules are artistic heuristics, not validated literary interpretation.
+- **Behind the soundtrack → Scene & musical direction** lets you combine narrative labels, distinguish current from recalled/hypothetical action and compare source-informed music alternatives. It keeps your palette and, by default, your chosen chords. Interpretations save separately from musical preferences; download them with **Download my interpretations**. See the [reader-panel guide](research/narrative-reader-ui.md). Experimental audio judges remain development-only.
 
 Progress, appearance, audio preferences, per-book seeds and score checkpoints stay in `localStorage` under `awen.reader.v1`. Musical state is saved on navigation, pause and periodically while playing. Compatible checkpoints restore the next score-grid position, scene, voicing and motif position; a reload still requires a new user gesture for sound. Incompatible composer/content revisions start a fresh interpretation with the saved seed. Blocked/full storage is reported; reading and audio continue for the session.
 

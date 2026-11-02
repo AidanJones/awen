@@ -1,0 +1,50 @@
+{
+  "version": "awen-narrative-reader-ui-1",
+  "date": "2026-11-02",
+  "testOnly": true,
+  "humanRatings": 0,
+  "classifierAccuracyMeasured": false,
+  "runtimeModelInference": false,
+  "dictionaryVersion": "0.2.0",
+  "sources": {
+    "index.html": "fb96f71fdb25caf3e7d2efd98c2a7fc47d081baf8f1a35355c8cc31d50497cc8",
+    "research/narrative-dictionary.json": "ac3fbcd198511c0399273e06e49df95891dc5ae39d95ba0368f1c8cede5a9c83",
+    "tools/compile_narrative.py": "c58e68eac393fb567f395059ca2104a5648666696ac09940707fa88f117b8904",
+    "tests/narrative.test.cjs": "08753129aa928c4146de600aa3ec93b8253afcc0541e36ecd1a14b395ea1d584",
+    "tests/narrative.browser.cjs": "f18a1a5791409093831ba033ad49b3b872e86740fd33000115e168e346e1175a",
+    "tests/audio.browser.cjs": "ed04b40160f42694ef1ad76bee3b2cd2427b0c264212307197400552f6f97fdb",
+    "tests/evolution.browser.cjs": "214dae29750b39d585f2dda87692f6a3dd57a11b9059050d38dc2709e7ecb74e"
+  },
+  "browser": {
+    "channel": "isolated-msedge-via-playwright",
+    "labels": 28,
+    "selectedOption": "light-motion",
+    "keptPreset": "concertino",
+    "paletteRetained": "frontier",
+    "scopeFilterPassed": true,
+    "keepUndoPassed": true,
+    "interpretationExportPassed": true,
+    "perPassagePersistencePassed": true,
+    "profileHistoryProvenancePassed": true,
+    "darkMobileOverflow": false,
+    "silentStartup": true,
+    "screenshotSha256": "8e151101bcbf22bbfcad9683f4a3b28c6c6e19804ffcd5363a92e00f83ba31ff"
+  },
+  "audioRegression": {
+    "nativeOutputCeiling": 0.14,
+    "observedOverloadPeak": 0.139970600605011,
+    "maximumVolumeAndMutePassed": true,
+    "continuityAndReloadPassed": true
+  },
+  "evolutionRegression": {
+    "previewCancellationAndRestorePassed": true,
+    "profileCompatibilityPassed": true,
+    "limiterPassed": true
+  },
+  "pythonTests": {
+    "run": 85,
+    "skipped": 2,
+    "status": "OK"
+  },
+  "javascriptUnitChecks": 71
+}

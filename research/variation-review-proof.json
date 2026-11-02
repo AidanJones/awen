@@ -1,0 +1,746 @@
+{
+  "archivedTraces": 18,
+  "auditedReplayNoWaveformOpens": true,
+  "completedReplayNewAttempts": 0,
+  "completedReplayPreservedReport": true,
+  "date": "2026-11-02",
+  "experiment": ".score-lab/variation-review/20261102T123928.094218Z-df3b4dea35cb4778a3cfc1bf0014491b",
+  "humanRatings": 0,
+  "jobs": 25,
+  "manifestSha256": "f8cb339cf9fbfaccfd579e6221025b842351f0c151d8669f12898a01600718fa",
+  "modelInference": false,
+  "newRenders": 0,
+  "notationControls": 7,
+  "originalVariationRejections": 6,
+  "promotionAllowed": false,
+  "reportSha256": "2f184a52e9c352989511de8df97b8f4a7bcf511625a1ba76d3c53fdd2f870609",
+  "rows": [
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 5,
+        "completeWindowOnsetSlots": 64,
+        "explicitHarmonicChanges": 8,
+        "layerRelativeContourPhrasePatterns": 2,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "rat-escape/classical-flowing",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": true,
+        "reasons": []
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 7,
+        "completeWindowOnsetSlots": 64,
+        "explicitHarmonicChanges": 7,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 1,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 1,
+        "shortestExactGridPeriodSlots": 32
+      },
+      "flags": [
+        "Four-bar note material repeats; this may be intentional."
+      ],
+      "id": "rat-escape/classical-storm",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": false,
+        "reasons": [
+          "insufficient symbolic variation"
+        ]
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "lyric",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 6,
+        "completeWindowOnsetSlots": 32,
+        "explicitHarmonicChanges": 2,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "rat-escape/classical-elegy",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": true,
+        "reasons": []
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "lyric",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 7,
+        "completeWindowOnsetSlots": 30,
+        "explicitHarmonicChanges": 7,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 1,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 1,
+        "shortestExactGridPeriodSlots": 32
+      },
+      "flags": [
+        "Four-bar note material repeats; this may be intentional."
+      ],
+      "id": "rat-escape/classical-spring",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": false,
+        "reasons": [
+          "insufficient symbolic variation"
+        ]
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "lyric",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 6,
+        "completeWindowOnsetSlots": 32,
+        "explicitHarmonicChanges": 2,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "rat-escape/g1-0-kksbpu",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": true,
+        "reasons": []
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 5,
+        "completeWindowOnsetSlots": 64,
+        "explicitHarmonicChanges": 8,
+        "layerRelativeContourPhrasePatterns": 2,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "rat-escape/g1-1-m16su1",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": true,
+        "reasons": []
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 6,
+        "completeWindowOnsetSlots": 64,
+        "explicitHarmonicChanges": 8,
+        "layerRelativeContourPhrasePatterns": 2,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "riders-landscape/classical-flowing",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": true,
+        "reasons": []
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 7,
+        "completeWindowOnsetSlots": 64,
+        "explicitHarmonicChanges": 7,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 1,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 1,
+        "shortestExactGridPeriodSlots": 32
+      },
+      "flags": [
+        "Four-bar note material repeats; this may be intentional."
+      ],
+      "id": "riders-landscape/classical-storm",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": false,
+        "reasons": [
+          "insufficient symbolic variation"
+        ]
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "lyric",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 6,
+        "completeWindowOnsetSlots": 32,
+        "explicitHarmonicChanges": 2,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "riders-landscape/classical-elegy",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": true,
+        "reasons": []
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "lyric",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 7,
+        "completeWindowOnsetSlots": 30,
+        "explicitHarmonicChanges": 7,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 1,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 1,
+        "shortestExactGridPeriodSlots": 32
+      },
+      "flags": [
+        "Four-bar note material repeats; this may be intentional."
+      ],
+      "id": "riders-landscape/classical-spring",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": false,
+        "reasons": [
+          "insufficient symbolic variation"
+        ]
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "lyric",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 6,
+        "completeWindowOnsetSlots": 32,
+        "explicitHarmonicChanges": 2,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "riders-landscape/g1-0-s7shmu",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": true,
+        "reasons": []
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "lyric",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 6,
+        "completeWindowOnsetSlots": 32,
+        "explicitHarmonicChanges": 2,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "riders-landscape/g1-1-15xnyf7",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": true,
+        "reasons": []
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 6,
+        "completeWindowOnsetSlots": 64,
+        "explicitHarmonicChanges": 8,
+        "layerRelativeContourPhrasePatterns": 2,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "time-discussion/classical-flowing",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": true,
+        "reasons": []
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 7,
+        "completeWindowOnsetSlots": 64,
+        "explicitHarmonicChanges": 7,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 1,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 1,
+        "shortestExactGridPeriodSlots": 32
+      },
+      "flags": [
+        "Four-bar note material repeats; this may be intentional."
+      ],
+      "id": "time-discussion/classical-storm",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": false,
+        "reasons": [
+          "insufficient symbolic variation"
+        ]
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "lyric",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 6,
+        "completeWindowOnsetSlots": 32,
+        "explicitHarmonicChanges": 2,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "time-discussion/classical-elegy",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": true,
+        "reasons": []
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "lyric",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 7,
+        "completeWindowOnsetSlots": 30,
+        "explicitHarmonicChanges": 7,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 1,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 1,
+        "shortestExactGridPeriodSlots": 32
+      },
+      "flags": [
+        "Four-bar note material repeats; this may be intentional."
+      ],
+      "id": "time-discussion/classical-spring",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": false,
+        "reasons": [
+          "insufficient symbolic variation"
+        ]
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "lyric",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 6,
+        "completeWindowOnsetSlots": 32,
+        "explicitHarmonicChanges": 2,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "time-discussion/g1-0-1olm9ib",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": true,
+        "reasons": []
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "lyric",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 6,
+        "completeWindowOnsetSlots": 32,
+        "explicitHarmonicChanges": 2,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 15,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "time-discussion/g1-1-159tkfj",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": {
+        "eligible": true,
+        "reasons": []
+      },
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 3,
+        "completeWindowOnsetSlots": 32,
+        "explicitHarmonicChanges": 0,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 1,
+        "partialTailSlots": 0,
+        "pitchRhythmPhrasePatterns": 1,
+        "shortestExactGridPeriodSlots": 8
+      },
+      "flags": [
+        "Four-bar note material repeats; this may be intentional.",
+        "A one-bar-or-shorter grid cell repeats; musical suitability remains style/context dependent."
+      ],
+      "id": "CONTROL/ostinato",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": null,
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 1,
+        "completeWindowOnsetSlots": 32,
+        "explicitHarmonicChanges": 0,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 1,
+        "partialTailSlots": 0,
+        "pitchRhythmPhrasePatterns": 1,
+        "shortestExactGridPeriodSlots": 2
+      },
+      "flags": [
+        "Four-bar note material repeats; this may be intentional.",
+        "A one-bar-or-shorter grid cell repeats; musical suitability remains style/context dependent."
+      ],
+      "id": "CONTROL/short-cell",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": null,
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 3,
+        "completeWindowOnsetSlots": 32,
+        "explicitHarmonicChanges": 0,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 0,
+        "pitchRhythmPhrasePatterns": 1,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [
+        "Four-bar note material repeats; this may be intentional.",
+        "Some phrase distinctions come only from duration/instrument details, not note/onset changes."
+      ],
+      "id": "CONTROL/duration-jitter",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": null,
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 6,
+        "completeWindowOnsetSlots": 32,
+        "explicitHarmonicChanges": 1,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 0,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "CONTROL/transposed-figure",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": null,
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 1,
+        "completeWindowDistinctPitches": 3,
+        "completeWindowOnsetSlots": 16,
+        "explicitHarmonicChanges": 0,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 1,
+        "partialTailSlots": 0,
+        "pitchRhythmPhrasePatterns": 1,
+        "shortestExactGridPeriodSlots": 8
+      },
+      "flags": [
+        "Less than two complete phrases: between-phrase variation is under-observed.",
+        "A one-bar-or-shorter grid cell repeats; musical suitability remains style/context dependent."
+      ],
+      "id": "CONTROL/single-phrase",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": null,
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 2,
+        "completeWindowOnsetSlots": 2,
+        "explicitHarmonicChanges": 0,
+        "layerRelativeContourPhrasePatterns": 2,
+        "millisecondDurationInstrumentPhrasePatterns": 2,
+        "partialTailSlots": 0,
+        "pitchRhythmPhrasePatterns": 2,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [],
+      "id": "CONTROL/sparse-line",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": null,
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    },
+    {
+      "declaredStyle": "figured",
+      "diagnostics": {
+        "completePhrases": 2,
+        "completeWindowDistinctPitches": 0,
+        "completeWindowOnsetSlots": 0,
+        "explicitHarmonicChanges": 0,
+        "layerRelativeContourPhrasePatterns": 1,
+        "millisecondDurationInstrumentPhrasePatterns": 1,
+        "partialTailSlots": 0,
+        "pitchRhythmPhrasePatterns": 1,
+        "shortestExactGridPeriodSlots": null
+      },
+      "flags": [
+        "Four-bar note material repeats; this may be intentional.",
+        "Empty scheduled score; no positive musical conclusion."
+      ],
+      "id": "CONTROL/empty",
+      "limitations": [
+        "Full saved scheduled trace, not guaranteed to equal a cropped listening interval.",
+        "Layer-relative contours do not establish independent voice identity.",
+        "Continuous bed, acoustic envelopes, perceived repetition and listener tolerance are not assessed."
+      ],
+      "originalGate": null,
+      "promotionAllowed": false,
+      "qualityScore": null,
+      "thresholdChanged": false
+    }
+  ],
+  "skippedWaveformControls": 9,
+  "sourceReportSha256": "19cbcbe71204cc3aa07a06eb03662cb7c44bb439757ae2f5bbf12ed9d78e707d",
+  "sources": {
+    "tools/score_lab.py": "c83453aab83c02a34d7bffdab02e48e991b207ecec51f8e07917e60fc0531926",
+    "tools/symbolic_critic.py": "e8c4aa4e29d381b1aa2158fdd11ae94af4c44b2aba71c88f1799601987736f12",
+    "tools/variation_review.py": "82df0dad8382ed4807fa091f46aabbd8315b480169f3c409c4f1aee6fe8be28f"
+  },
+  "thresholdChanged": false,
+  "version": "awen-variation-review-1"
+}

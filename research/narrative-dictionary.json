@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "id": "awen-narrative-dictionary",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "reviewDate": "2026-11-02",
   "status": "development-dictionary",
-  "runtimeIntegrated": false,
+  "runtimeIntegrated": true,
   "humanPreferenceValidated": false,
   "sourceScope": "Sources motivate dimensions and broad techniques. Entry definitions, labels, signals, exact mappings and bounds are original Awen proposals, not validated ontology or classifier.",
   "dimensions": [
@@ -1478,5 +1478,6 @@
       "status": "proposed",
       "note": "Requires explicit rest/spotting control and listener calibration, not just lower gain."
     }
-  ]
+  ],
+  "runtimeScope": "manual-interpretation-and-audition-only"
 }

@@ -27,7 +27,8 @@ chapter epochs and bed-harmony targets, with explicit coverage limits.
 | Multi-objective ML feedback | [Roadmap and prototype](multiobjective-roadmap.md), [reward research](multiobjective-reward.md) | Native-audio/CLAP plus fitted synthetic-label test-head prototype; pretrained enjoyment/comfort replacement and scientific calibration remain open |
 | Released pretrained critics | [Model inventory](pretrained-evaluators.md), [Audiobox probe](audiobox-probe.md) | Audiobox strict CPU loading and actual four-axis inference; other quality-model candidates remain untested |
 | Score-only musical criticism | [Symbolic critic](symbolic-critic.md) | [Proof](symbolic-critic-proof.json), 18 verified note traces, no waveform analysis; style-dependent advisory rules |
-| Narrative-to-music dictionary | [Dictionary guide](narrative-dictionary.md), [original scope](narrative-dictionary-plan.md) | [Versioned labels/mappings](narrative-dictionary.json), [proof](narrative-dictionary-proof.json); 15 authored controls, no classifier or independent annotation claim |
+| Repetition and variation gates | [Read-only review](variation-gate-review.md) | [Proof](variation-review-proof.json), 18 archived traces plus seven notation controls; no threshold change or listener calibration |
+| Narrative-to-music dictionary | [Dictionary guide](narrative-dictionary.md), [reader panel](narrative-reader-ui.md) | [Versioned labels/mappings](narrative-dictionary.json), [original mapping proof](narrative-dictionary-proof.json), [reader proof](narrative-ui-proof.json); manual choices, no new classifier or independent annotation claim |
 | Real preference calibration | [Listening protocol](listening-calibration.md) | Prepared interface; no real listener ratings in the engineering proofs |
 | Academic account | [Paper source](paper/main.tex), [paper guide](paper/README.md) | Compiled editor preview; measured results distinguished from proposed experiments |
 

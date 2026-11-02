@@ -1,11 +1,13 @@
 # Narrative labels and musical alternatives
 
 Research and implementation: 2 November 2026. The canonical
-[dictionary](narrative-dictionary.json), version 0.1.0, contains 28 proposed
+[dictionary](narrative-dictionary.json), version 0.2.0, contains 28 proposed
 labels in seven dimensions and 12 musical alternatives. It reconciles the
 existing runtime scenes, harmonic scene functions and classical cues.
-It is development metadata and an annotation-to-music mapper, **not** a new text
-classifier, reader UI feature or validated music reward.
+It is metadata and an annotation-to-music mapper, with a bounded
+[manual reader panel](narrative-reader-ui.md). It is not a new text classifier
+or validated music reward. Version 0.1.0's original mapping proof remains a
+historical engineering snapshot; version 0.2.0 adds manual reader integration.
 
 ## What the sources support
 
@@ -65,7 +67,8 @@ Tempo remains 72 BPM. More movement means different note activity/articulation,
 not tempo acceleration. Structural proposals retain chapter-only commitment at
 the next 32-step phrase; expression changes must be smoothed. User palette choice,
 continuity, repeated figures and the output limiter retain their existing policy.
-The mapper itself schedules or plays nothing and changes no runtime setting.
+The Python mapper itself schedules or plays nothing. The reader panel offers
+explicit auditions through the existing gallery, with no automatic adoption.
 
 ## Supplied annotations, not classifier predictions
 
@@ -119,10 +122,13 @@ from annotators. These books have appeared elsewhere in Awen research, so this
 is not an untouched end-to-end research holdout; a final benchmark needs newly
 reserved material. No labels for those real passages are fabricated here.
 
+The reader UI is now implemented under `awen-xfp.5`; its scope and personal
+storage contract are documented [separately](narrative-reader-ui.md). Automatic
+detection and independently annotated evidence remain separate work.
+
 Existing tasks cover the remainder: `awen-xfp.1` independent annotation,
-`awen-xfp.2` detector evaluation/tuning, `awen-xfp.3` viewpoint/context and
-`awen-xfp.5` inspector provenance and browser integration. Integration should
-show evidence and uncertainty, offer several choices plus “keep current”, and
-preserve explicit user direction. Scene interpretation and actual musical
+`awen-xfp.2` detector evaluation/tuning and `awen-xfp.3` viewpoint/context.
+The completed manual inspector offers alternatives plus “keep current” while
+preserving explicit user direction. Scene interpretation and actual musical
 execution need separate tests. A future ML reward must be evaluated against
 independent labels/listeners, not the predictions it is being trained to imitate.

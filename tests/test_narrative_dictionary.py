@@ -21,7 +21,8 @@ class NarrativeDictionaryTests(unittest.TestCase):
         self.assertEqual({e['dimension'] for e in self.library['entries']}, set(self.library['dimensions']))
         self.assertEqual(self.library['reconciliation']['runtimeScenes']['chase'], ['pursuit'])
         self.assertEqual(self.library['reconciliation']['classicalCues']['neutral'], [])
-        self.assertFalse(self.library['runtimeIntegrated'])
+        self.assertTrue(self.library['runtimeIntegrated'])
+        self.assertEqual(self.library['runtimeScope'], 'manual-interpretation-and-audition-only')
         self.assertFalse(self.library['humanPreferenceValidated'])
 
     def test_controls_preserve_scope_uncertainty_and_multiple_alternatives(self):

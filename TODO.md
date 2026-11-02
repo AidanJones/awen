@@ -233,9 +233,10 @@ The [27 October calibration roadmap](research/clap-probe.md#calibration-roadmap-
   reconciling current vocabularies with 28 labels in seven dimensions and 12
   source-scoped musical alternatives. Supplied-annotation mapping and 15 authored
   controls pass; this is not a text-classifier or listener result.
-- [ ] Existing `awen-xfp.1`, `.2`, `.3`, `.5`: independently annotate grouped
-  book/chapter fixtures, evaluate detection/context and integrate an inspector
-  with evidence, uncertainty and explicit user choice before runtime adoption.
+- [x] `awen-xfp.5`: expose [manual interpretations and source-linked auditions](research/narrative-reader-ui.md)
+  in the inspector, separately from rule guesses and listening preferences.
+- [ ] Existing `awen-xfp.1`, `.2`, `.3`: independently annotate grouped
+  book/chapter fixtures and evaluate detection/context before automatic adoption.
 
 The [staged implementation roadmap](research/multiobjective-roadmap.md) tracks
 M0/M1 prototype plumbing and real-encoder integration, then M2 pretrained audio

@@ -1,5 +1,12 @@
 # Academic working paper
 
+Version 0.10 (2 November 2026) adds the actual manual reader integration of
+dictionary v0.2.0: separate rule/personal-choice provenance, scoped alternatives,
+auditions, compatible profiles and interpretation export. Browser/audio checks
+are engineering evidence, not new classifier or listener validation. It also
+records the read-only variation-gate audit on 18 archived traces and seven
+notation controls; no thresholds or historical eligibility were changed.
+
 Version 0.9 (2 November 2026) adds actual pinned Audiobox CPU inference,
 strict checkpoint loading, upstream preprocessing agreement, a five-clip pilot
 and the complete 27-clip frozen-pool/control results with recovery/replay.

@@ -19,7 +19,7 @@ def sources():
 
 
 def validate_library(d):
-    if d['schemaVersion'] != 1 or d['id'] != 'awen-narrative-dictionary' or d['version'] != '0.1.0' or d['runtimeIntegrated'] or d['humanPreferenceValidated']:
+    if d['schemaVersion'] != 1 or d['id'] != 'awen-narrative-dictionary' or d['version'] != '0.2.0' or d['runtimeIntegrated'] is not True or d.get('runtimeScope') != 'manual-interpretation-and-audition-only' or d['humanPreferenceValidated']:
         raise ValueError('Unsupported dictionary version/claims')
     def unique(items):
         ids = [x['id'] for x in items]
