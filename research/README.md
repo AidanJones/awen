@@ -9,6 +9,8 @@ uncompleted listener studies.
 
 The [ordered critic work plan](critic-work-plan.md) links the recent research
 to active Beads tasks and records the first controlled score-only experiment.
+The [versioned symbolic export](symbolic-score.md) now records authored DSL parts,
+chapter epochs and bed-harmony targets, with explicit coverage limits.
 
 | Strand | Guide / specification | Evidence or implementation |
 |---|---|---|

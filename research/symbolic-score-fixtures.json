@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "seed": "symbolic-context-pilot-001",
+  "steps": 96,
+  "presets": ["flowing", "sequence", "dialogue", "spring", "storm", "frost", "hearth", "elegy", "concertino"],
+  "timeline": [
+    {"step": 0, "intent": {"kind":"reflective","chapterId":"chapter-0","chapterIndex":0,"musicCue":{"id":"neutral"}}},
+    {"step": 11, "intent": {"kind":"chase","chapterId":"chapter-1","chapterIndex":1,"musicCue":{"id":"storm"}}},
+    {"step": 59, "intent": {"kind":"reflective","chapterId":"chapter-0","chapterIndex":0,"musicCue":{"id":"neutral"}}}
+  ],
+  "scope": "Authored forward/backward chapter navigation controls; not text annotations or listener evidence."
+}

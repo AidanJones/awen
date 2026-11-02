@@ -1,0 +1,400 @@
+{
+  "auditedReplayNoWaveformOpens": true,
+  "completedReplayNewAttempts": 0,
+  "completedReplayPreservedReport": true,
+  "contextSources": {
+    "tools/symbolic_score.py": "48df463a5d2e5da8c94ebbb72f4ae82f87cd40d6fead8cdcbf71f3f6c7bf2f19"
+  },
+  "experiment": ".score-lab/symbolic-score/20261101T235753.980889Z-87bcb3bbac0046a1ac812b2f65bace3a",
+  "fixtureSources": {
+    "research/symbolic-score-fixtures.json": "f8aa8022dc9d990519feea81c5d71d6bd96a09869d7603a3913ec42d74e765ab",
+    "tools/symbolic-score-fixtures.cjs": "1ddfd4a61c4b3452999a2aa5464a3fc08941bea26ffc8e04333cce5186512223"
+  },
+  "humanRatings": 0,
+  "inputSha256": "e6696959b0a166114e0021e4cf6eb57f7dca9b148db4c249d68363ce72d5a085",
+  "jobs": 9,
+  "manifestSha256": "26dea52c1a40da46ba82f4d9f2c789b5f6f9d2c9fb5336e3467561c12418b5e0",
+  "promotionAllowed": false,
+  "reportSha256": "fe4b46a22e316a07c8bc84a727d7c0376062bf6fbfd7127713634e03cf0d5eb4",
+  "rows": [
+    {
+      "coverage": {
+        "acousticEnvelope": false,
+        "bed": "harmonic-target-only",
+        "physicalOscillatorIdentity": false,
+        "plannedNotes": true,
+        "scheduledNotes": false,
+        "voiceIdentity": "explicit-dsl-part",
+        "waveformRead": false
+      },
+      "id": "flowing",
+      "segments": [
+        {
+          "chapter": "chapter-0",
+          "endStep": 32,
+          "epoch": 0,
+          "preset": "flowing",
+          "startStep": 0,
+          "style": "figured",
+          "transpose": 0
+        },
+        {
+          "chapter": "chapter-1",
+          "endStep": 64,
+          "epoch": 32,
+          "preset": "storm",
+          "startStep": 32,
+          "style": "figured",
+          "transpose": 5
+        },
+        {
+          "chapter": "chapter-0",
+          "endStep": 96,
+          "epoch": 64,
+          "preset": "flowing",
+          "startStep": 64,
+          "style": "figured",
+          "transpose": 0
+        }
+      ]
+    },
+    {
+      "coverage": {
+        "acousticEnvelope": false,
+        "bed": "harmonic-target-only",
+        "physicalOscillatorIdentity": false,
+        "plannedNotes": true,
+        "scheduledNotes": false,
+        "voiceIdentity": "explicit-dsl-part",
+        "waveformRead": false
+      },
+      "id": "sequence",
+      "segments": [
+        {
+          "chapter": "chapter-0",
+          "endStep": 32,
+          "epoch": 0,
+          "preset": "sequence",
+          "startStep": 0,
+          "style": "figured",
+          "transpose": 0
+        },
+        {
+          "chapter": "chapter-1",
+          "endStep": 64,
+          "epoch": 32,
+          "preset": "storm",
+          "startStep": 32,
+          "style": "figured",
+          "transpose": 5
+        },
+        {
+          "chapter": "chapter-0",
+          "endStep": 96,
+          "epoch": 64,
+          "preset": "sequence",
+          "startStep": 64,
+          "style": "figured",
+          "transpose": 0
+        }
+      ]
+    },
+    {
+      "coverage": {
+        "acousticEnvelope": false,
+        "bed": "harmonic-target-only",
+        "physicalOscillatorIdentity": false,
+        "plannedNotes": true,
+        "scheduledNotes": false,
+        "voiceIdentity": "explicit-dsl-part",
+        "waveformRead": false
+      },
+      "id": "dialogue",
+      "segments": [
+        {
+          "chapter": "chapter-0",
+          "endStep": 32,
+          "epoch": 0,
+          "preset": "dialogue",
+          "startStep": 0,
+          "style": "figured",
+          "transpose": 0
+        },
+        {
+          "chapter": "chapter-1",
+          "endStep": 64,
+          "epoch": 32,
+          "preset": "storm",
+          "startStep": 32,
+          "style": "figured",
+          "transpose": 5
+        },
+        {
+          "chapter": "chapter-0",
+          "endStep": 96,
+          "epoch": 64,
+          "preset": "dialogue",
+          "startStep": 64,
+          "style": "figured",
+          "transpose": 0
+        }
+      ]
+    },
+    {
+      "coverage": {
+        "acousticEnvelope": false,
+        "bed": "harmonic-target-only",
+        "physicalOscillatorIdentity": false,
+        "plannedNotes": true,
+        "scheduledNotes": false,
+        "voiceIdentity": "explicit-dsl-part",
+        "waveformRead": false
+      },
+      "id": "spring",
+      "segments": [
+        {
+          "chapter": "chapter-0",
+          "endStep": 32,
+          "epoch": 0,
+          "preset": "spring",
+          "startStep": 0,
+          "style": "lyric",
+          "transpose": 0
+        },
+        {
+          "chapter": "chapter-1",
+          "endStep": 64,
+          "epoch": 32,
+          "preset": "storm",
+          "startStep": 32,
+          "style": "figured",
+          "transpose": 5
+        },
+        {
+          "chapter": "chapter-0",
+          "endStep": 96,
+          "epoch": 64,
+          "preset": "spring",
+          "startStep": 64,
+          "style": "lyric",
+          "transpose": 0
+        }
+      ]
+    },
+    {
+      "coverage": {
+        "acousticEnvelope": false,
+        "bed": "harmonic-target-only",
+        "physicalOscillatorIdentity": false,
+        "plannedNotes": true,
+        "scheduledNotes": false,
+        "voiceIdentity": "explicit-dsl-part",
+        "waveformRead": false
+      },
+      "id": "storm",
+      "segments": [
+        {
+          "chapter": "chapter-0",
+          "endStep": 32,
+          "epoch": 0,
+          "preset": "storm",
+          "startStep": 0,
+          "style": "figured",
+          "transpose": 0
+        },
+        {
+          "chapter": "chapter-1",
+          "endStep": 64,
+          "epoch": 32,
+          "preset": "storm",
+          "startStep": 32,
+          "style": "figured",
+          "transpose": 5
+        },
+        {
+          "chapter": "chapter-0",
+          "endStep": 96,
+          "epoch": 64,
+          "preset": "storm",
+          "startStep": 64,
+          "style": "figured",
+          "transpose": 0
+        }
+      ]
+    },
+    {
+      "coverage": {
+        "acousticEnvelope": false,
+        "bed": "harmonic-target-only",
+        "physicalOscillatorIdentity": false,
+        "plannedNotes": true,
+        "scheduledNotes": false,
+        "voiceIdentity": "explicit-dsl-part",
+        "waveformRead": false
+      },
+      "id": "frost",
+      "segments": [
+        {
+          "chapter": "chapter-0",
+          "endStep": 32,
+          "epoch": 0,
+          "preset": "frost",
+          "startStep": 0,
+          "style": "lyric",
+          "transpose": 0
+        },
+        {
+          "chapter": "chapter-1",
+          "endStep": 64,
+          "epoch": 32,
+          "preset": "storm",
+          "startStep": 32,
+          "style": "figured",
+          "transpose": 5
+        },
+        {
+          "chapter": "chapter-0",
+          "endStep": 96,
+          "epoch": 64,
+          "preset": "frost",
+          "startStep": 64,
+          "style": "lyric",
+          "transpose": 0
+        }
+      ]
+    },
+    {
+      "coverage": {
+        "acousticEnvelope": false,
+        "bed": "harmonic-target-only",
+        "physicalOscillatorIdentity": false,
+        "plannedNotes": true,
+        "scheduledNotes": false,
+        "voiceIdentity": "explicit-dsl-part",
+        "waveformRead": false
+      },
+      "id": "hearth",
+      "segments": [
+        {
+          "chapter": "chapter-0",
+          "endStep": 32,
+          "epoch": 0,
+          "preset": "hearth",
+          "startStep": 0,
+          "style": "lyric",
+          "transpose": 0
+        },
+        {
+          "chapter": "chapter-1",
+          "endStep": 64,
+          "epoch": 32,
+          "preset": "storm",
+          "startStep": 32,
+          "style": "figured",
+          "transpose": 5
+        },
+        {
+          "chapter": "chapter-0",
+          "endStep": 96,
+          "epoch": 64,
+          "preset": "hearth",
+          "startStep": 64,
+          "style": "lyric",
+          "transpose": 0
+        }
+      ]
+    },
+    {
+      "coverage": {
+        "acousticEnvelope": false,
+        "bed": "harmonic-target-only",
+        "physicalOscillatorIdentity": false,
+        "plannedNotes": true,
+        "scheduledNotes": false,
+        "voiceIdentity": "explicit-dsl-part",
+        "waveformRead": false
+      },
+      "id": "elegy",
+      "segments": [
+        {
+          "chapter": "chapter-0",
+          "endStep": 32,
+          "epoch": 0,
+          "preset": "elegy",
+          "startStep": 0,
+          "style": "lyric",
+          "transpose": 0
+        },
+        {
+          "chapter": "chapter-1",
+          "endStep": 64,
+          "epoch": 32,
+          "preset": "storm",
+          "startStep": 32,
+          "style": "figured",
+          "transpose": 5
+        },
+        {
+          "chapter": "chapter-0",
+          "endStep": 96,
+          "epoch": 64,
+          "preset": "elegy",
+          "startStep": 64,
+          "style": "lyric",
+          "transpose": 0
+        }
+      ]
+    },
+    {
+      "coverage": {
+        "acousticEnvelope": false,
+        "bed": "harmonic-target-only",
+        "physicalOscillatorIdentity": false,
+        "plannedNotes": true,
+        "scheduledNotes": false,
+        "voiceIdentity": "explicit-dsl-part",
+        "waveformRead": false
+      },
+      "id": "concertino",
+      "segments": [
+        {
+          "chapter": "chapter-0",
+          "endStep": 32,
+          "epoch": 0,
+          "preset": "concertino",
+          "startStep": 0,
+          "style": "figured",
+          "transpose": 0
+        },
+        {
+          "chapter": "chapter-1",
+          "endStep": 64,
+          "epoch": 32,
+          "preset": "storm",
+          "startStep": 32,
+          "style": "figured",
+          "transpose": 5
+        },
+        {
+          "chapter": "chapter-0",
+          "endStep": 96,
+          "epoch": 64,
+          "preset": "concertino",
+          "startStep": 64,
+          "style": "figured",
+          "transpose": 0
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "index.html": "b8ea629ed1c304e0061a74bc171fa357d224a488591ff7f566c1c29d7feb73e6",
+    "tools/score-lab.cjs": "301a3633dc2521add70ab1a169a64064e98ae8a09cd5b30cfba2742a2c6f0c53",
+    "tools/score_lab.py": "c83453aab83c02a34d7bffdab02e48e991b207ecec51f8e07917e60fc0531926",
+    "tools/symbolic-plan.cjs": "0ad6e3347760a7f542558457b81b58f144762a8828a8b1784896b37db1326cf2",
+    "tools/symbolic-score.cjs": "2b143c2bf4ebf56808bf95ef7b37eafc3f4a80aa412f66d1cba0f6be9094bbe4",
+    "tools/symbolic_critic.py": "e8c4aa4e29d381b1aa2158fdd11ae94af4c44b2aba71c88f1799601987736f12"
+  },
+  "stepsPerScore": 96,
+  "version": "awen-symbolic-score-1"
+}

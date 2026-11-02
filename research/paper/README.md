@@ -1,5 +1,10 @@
 # Academic working paper
 
+Version 0.7 (1 November 2026) records the 17 controlled symbolic relations and
+the nine-home authored-part/chapter-context export pilot. These are engineering
+checks, not independent perceptual or reading-comfort validation. See the
+[symbolic export guide](../symbolic-score.md) and its proof for coverage.
+
 **Evaluating and Personalising Continuous Procedural Scores for Literary Reading: A Reproducible Pilot and Research Protocol**
 
 Open this folder or `main.tex` in the desktop app's LaTeX editor for the compiled PDF preview. The source uses a standard article layout, numbered equations, results tables and a bibliography. `comparison-results.tex` is an included section generated from the follow-on experiment; it is kept separate so measured results can be updated without rewriting the protocol.

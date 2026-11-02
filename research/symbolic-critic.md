@@ -43,9 +43,12 @@ python -m unittest discover -s tests -p test_symbolic_critic.py -q
 
 The importer verifies the completed source manifest, render input/result hashes
 and trace checksums. `tools/symbolic-plan.cjs` exports chords from the same
-production DSL compiler without starting Web Audio. This first exporter supports
-fixed DSL contexts and explicit harmony overrides; dynamic chapter-state
-reconstruction is not implemented and is rejected rather than guessed.
+production DSL compiler without starting Web Audio. The initial trace analysis
+used fixed DSL contexts and explicit harmony overrides. The newer
+[versioned symbolic export](symbolic-score.md) additionally calls the actual
+planner with explicit chapter timelines/snapshots, records authored DSL parts
+and distinguishes planned notes from the earlier scheduled traces. Legacy
+traces still lack part identity; it is not invented retroactively.
 
 The analysed events are the full scheduled render trace, before preview cropping,
 not necessarily the exact cropped listening interval. They include selected
@@ -83,9 +86,10 @@ analysis proof records replay and coverage separately from ML results.
 The [proof](symbolic-critic-proof.json) includes an audited replay that forbids
 audio-file opens, preserves the report hash and creates zero new job attempts.
 
-Next steps are better voice/phrase metadata, harmonic-context changes and
-style-specific tension curves, then calibrated integration into the Pareto
-evaluator. The [text dictionary backlog](narrative-dictionary-plan.md) should
+Authored DSL part identity, absolute phrase origins and chapter context now
+have a separate [implemented export](symbolic-score.md). Full counterpoint,
+style-specific tension curves and calibrated Pareto integration remain open.
+The [text dictionary backlog](narrative-dictionary-plan.md) should
 supply explicit narrative targets. [Pretrained acoustic critics](pretrained-evaluators.md)
 remain useful for rendering/timbre and perceptual properties that a score cannot
 reveal. All these outputs remain distinct from actual reader preferences.

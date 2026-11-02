@@ -11,7 +11,7 @@ import score_lab as lab
 
 VERSION='awen-symbolic-advisory-1'
 ROOT=lab.ROOT
-SOURCES=['tools/symbolic_critic.py','tools/symbolic-plan.cjs','tools/score_lab.py',
+SOURCES=['tools/symbolic_critic.py','tools/symbolic-plan.cjs','tools/symbolic-score.cjs','tools/score_lab.py',
          'tools/score-lab.cjs','index.html']
 PROFILES={'calm':(.25,1.2),'neutral':(.4,2.4),'active':(1.,2.6)}
 
@@ -19,7 +19,9 @@ PROFILES={'calm':(.25,1.2),'neutral':(.4,2.4),'active':(1.,2.6)}
 def sources():return {p:lab.sha((ROOT/p).read_bytes()) for p in SOURCES}
 
 
-def evaluate(events,steps,chords=None,style='lyric',profile='neutral'):
+def evaluate(events,steps,chords=None,style='lyric',profile='neutral',start_step=0):
+    if type(start_step) is not int or not 0<=start_step<=100000000:
+        raise ValueError('Invalid absolute phrase origin')
     if type(steps) is not int or not 1<=steps<=4096 or not isinstance(events,list) or len(events)>50000 or style not in ['lyric','figured'] or profile not in PROFILES:
         raise ValueError('Unsupported score/profile bounds')
     if chords is not None and (len(chords)!=steps or any(not isinstance(c,list) or not 1<=len(c)<=12 or any(type(n) is not int or not 0<=n<12 for n in c) for c in chords)):
@@ -29,7 +31,7 @@ def evaluate(events,steps,chords=None,style='lyric',profile='neutral'):
             raise ValueError('Invalid note event')
     ordered=sorted(events,key=lambda e:(e['step'],e['layer'],e['midi']));seconds=steps*5/12
     melody=[e for e in ordered if e['layer']==2];mono=len({e['step'] for e in melody})==len(melody)
-    transitions=[(a,b) for a,b in zip(melody,melody[1:]) if a['step']//32==b['step']//32 and b['step']-a['step']<=8] if mono else []
+    transitions=[(a,b) for a,b in zip(melody,melody[1:]) if (a['step']+start_step)//32==(b['step']+start_step)//32 and b['step']-a['step']<=8] if mono else []
     leaps=[abs(b['midi']-a['midi']) for a,b in transitions];limit=12 if style=='figured' else 7
     nonchord=[(i,e) for i,e in enumerate(melody) if e['midi']%12 not in chords[e['step']]] if chords is not None and mono else []
     resolved=[]

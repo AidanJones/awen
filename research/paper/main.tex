@@ -7,7 +7,7 @@
 \usepackage{microtype}
 \newcommand{\code}[1]{\texttt{\detokenize{#1}}}
 \title{Evaluating and Personalising Continuous Procedural Scores for Literary Reading\\[5pt]\large A Reproducible Pilot and Research Protocol}
-\author{Awen Project\\\small Working paper v0.6 --- not peer reviewed}
+\author{Awen Project\\\small Working paper v0.7 --- not peer reviewed}
 \date{1 November 2026}
 \begin{document}
 \maketitle
@@ -84,6 +84,8 @@ The completed engineering run rendered 18 musical clips and nine derived control
 
 \subsection{Score-only critics and pretrained alternatives}
 Symbolic analysis supplies a complementary development signal without waveform inference. Existing work such as MorpheuS constrains patterns and tonal-tension profiles, while music21 provides voice-leading analysis machinery \cite{morpheus,music21}. A separate Awen advisory critic now measures scheduled-note leaps, chord membership and local ornament resolution, clustered attack density, relative-pitch/rhythm repetition and overlapping interval classes. It exports harmonic context from the production DSL and reports style-dependent scores or abstention; it does not implement full counterpoint or Spiral Array tension. Eighteen verified render traces were analysed, with an audited replay forbidding audio-file opens. Nine waveform-only controls were excluded because they have no corresponding transformed score. Continuous-bed voices, synthesiser tone, mix and perceived loudness are outside this representation. No universal quality or reading-comfort score is inferred.
+
+Subsequent engineering checks use 14 authored notation fixtures and 17 expected relations, all passing, to exercise style-sensitive advice, transposition and abstention. These expectations are not independent perceptual labels. A versioned planned-score export now preserves authored DSL parts, absolute phrase origins, actual chord context and requested versus active chapter state. Nine classical homes were exported for 96 steps each, giving 27 active-context segments. Event-by-event planner agreement and mid-phrase snapshot continuation were checked. Nine journalled analyses replayed with unchanged reports and no new attempts or waveform opens. Authored parts are not asserted to be independent contrapuntal voices; the continuous bed is represented only by harmony targets, excluding oscillator envelopes and crossfades. Planned events also precede runtime activity/mix filtering. No full counterpoint penalty or automatic selection is enabled.
 
 A primary-source inventory identifies pretrained targets closer to the missing feedback axes: Audiobox Aesthetics for multidimensional audio aesthetics, MuQ-Eval for learned music-quality prediction, and TuneJury for preference reward \cite{audiobox,muqeval,tunejury}. SongEval targets full-song aesthetics, including vocal constructs, while Essentia publishes music descriptor models such as arousal/valence \cite{songeval,essentia}. These differing tasks are not interchangeable with unobtrusiveness during reading. MuQ-Eval's revised abstract reports insensitivity to tested musical-structural distortions, motivating separate symbolic checks rather than a single critic. Published Audiobox metadata was inspected and pinned, but its approximately 415 MB weight file was not downloaded or locally verified; none of these new quality evaluators has run on Awen audio. The inventory records source scope, dependencies, licence metadata and missing checks rather than treating availability as validation.
 
