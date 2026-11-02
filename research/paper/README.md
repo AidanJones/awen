@@ -1,5 +1,12 @@
 # Academic working paper
 
+Version 0.9 (2 November 2026) adds actual pinned Audiobox CPU inference,
+strict checkpoint loading, upstream preprocessing agreement, a five-clip pilot
+and the complete 27-clip frozen-pool/control results with recovery/replay.
+The axes remain separate; no listener validation,
+scene-conditioned quality prediction or automatic reward adoption is claimed.
+See the [measured probe](../audiobox-probe.md) for the complete run status.
+
 Version 0.8 (2 November 2026) adds the implemented development narrative
 dictionary and supplied-annotation mapper, four scoped scholarly references,
 15 authored controls and explicit outstanding classifier/annotation/UI gates.

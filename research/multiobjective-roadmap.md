@@ -10,13 +10,14 @@ and personal numeric evolution remain model-free.
 The [ordered critic work plan](critic-work-plan.md) tracks the immediate
 symbolic coverage, narrative dictionary, real pretrained evaluator and
 multi-critic integration tasks. Controlled symbolic contrasts now pass; they
-do not validate enjoyment or replace the outstanding M2 evaluator.
+do not validate enjoyment. M2 now has a separate strict-loaded Audiobox probe;
+reward integration and reader calibration remain outstanding.
 
 | Stage | Deliverable | Acceptance gate / current status |
 |---|---|---|
 | M0: end-to-end plumbing | Native audio → model inference → objective vector → Pareto parents → seeded offspring → replay page | Implemented in `tools/multiobjective_lab.py`; test/real-run evidence is recorded separately below. No automatic adoption. |
 | M1: existing real encoder | Actual pinned CLAP association margin on three scenes, four roots and one small generation | Run with existing local weights, sanity guard, raw window/caption results and diagnostic controls. A successful run proves integration, not fit validity. |
-| M2: learned generic music evaluator | Replace synthetic enjoyment feedback with one pretrained audio-only scorer | Preflight Audiobox Aesthetics or a compatible TuneJury audio-only model; pin exact encoder/head/config/preprocessing and licence. Verify CPU costs and degraded/control behaviour on the same WAVs before more search. Not implemented yet. |
+| M2: learned generic music evaluator | Replace synthetic enjoyment feedback with one pretrained audio-only scorer | [Audiobox probe](audiobox-probe.md) completed on all 27 frozen WAVs with pinned files, strict CPU load, separate raw axes and verified recovery. CE passed baseline/silence/loop comparisons across three scenes; PQ favoured loops. Historical synthetic-head fronts are unchanged; calibrated reward integration remains open. |
 | M3: learned scene preference | Compare raw CLAP with a learned text/audio preference reward | Use independent dramatic-function briefs, scene shuffles, unused wording and fresh seeds. Test exact encoder/head compatibility; dimensions alone do not establish compatibility. Not implemented yet. |
 | M4: reading comfort / personal taste | Small ranker over frozen representations and separate reader choices | Keep fit, enjoyment and distraction labels distinct. Model-generated estimates are not actual reading comfort. Hold out scenes/works and report uncertainty. No real comfort training yet. |
 | M5: richer evolution | Bounded figure, rhythm, harmonic pacing and texture mutations | Parser/voice-leading bounds, chapter-only structural changes, exact lineage, archived replay and fresh-seed checks before promotion. The current pilot mutates numeric traits only. |

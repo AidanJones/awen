@@ -1,7 +1,9 @@
 # Pretrained evaluators: what we can actually reuse
 
 Primary-source review and public artifact metadata checked 1 November 2026.
-This is an inventory/preflight, not new model inference. The earlier
+The [2 November Audiobox probe](audiobox-probe.md) now adds strict local loading
+and actual CPU inference; the other quality-model candidates remain untested.
+This inventory's original metadata snapshot is retained separately. The earlier
 [prototype](multiobjective-roadmap.md) already documents native audio, actual
 CLAP and synthetic-label test heads; those heads are not human preference models.
 
@@ -38,15 +40,16 @@ records the public repository revision, advertised file sizes and SHA256 values:
   `a5a3c2412649cc2384ec525ffd5180ce6c4778f43bed6108e0a1303de04d014e`.
 - Source revision: `2618e9d451b456e9328b39495b5e6234678aa550`.
 - Inspected inference code converts to 16 kHz mono and uses ten-second windows;
-  source has a CPU selection path. CPU speed/memory and loading compatibility
-  have **not** been measured locally. Upstream package metadata lists PyTorch,
-  torchaudio and auxiliary dependencies; use a separate environment.
+  source has a CPU selection path. The follow-up now verifies strict loading
+  and measures CPU inference. Peak memory is still unmeasured. Upstream package
+  metadata lists PyTorch, torchaudio and auxiliary dependencies; use a separate environment.
 
-Those hashes were obtained from repository metadata. Weight bytes were not
-downloaded or locally checksum-verified. Fetch only pinned config/source/weight
-artifacts, verify bytes and strict state loading, disable unexpected secondary
-downloads, then score a tiny subset of the existing WAVs before the full pilot.
-Do not install into the CLAP/MuQ environments or invalidate their recovery paths.
+Those hashes originally came from repository metadata. On 2 November the pinned
+weight bytes, config and source were downloaded and verified; strict CPU loading
+and a five-clip/control pilot completed. See [the measured follow-up](audiobox-probe.md)
+and [13-file specification](audiobox-model.json). The original
+`audiobox-preflight.json` is a historical metadata-only record, not current status.
+No secondary backbone download or CLAP/MuQ environment upgrade was required.
 
 MuQ-Eval's metadata separately advertises `model_state_dict.pt` at 1,336,614,308
 bytes and another checkpoint container. We did not download either, inspect
@@ -78,7 +81,7 @@ personal reading comfort.
    and one pretrained model. This can expose rendering/timbre problems that
    identical scores conceal.
 3. **Narrative/personal calibration:** compare musical behaviour with an explicit
-   text target and sparse listener feedback. The [dictionary backlog](narrative-dictionary-plan.md)
+   text target and sparse listener feedback. The [development dictionary](narrative-dictionary.md)
    keeps scene definitions and proposed musical mappings separate from taste.
 
 Use the existing unique/resumable evaluator jobs and pinned caches. The first

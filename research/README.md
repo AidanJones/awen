@@ -25,7 +25,7 @@ chapter epochs and bed-harmony targets, with explicit coverage limits.
 | CLAP probes and grid evolution | [Probe](clap-probe.md), [bounded grid search](grid-clap-evolution.md) | Their linked proofs; optimisation gains did not establish a reliable reward |
 | Evaluator and encoder comparisons | [Experiment ledger](experiment-ledger.md), [MuQ comparison](muq-comparison.md) | Completed diagnostics, model identities and remaining decision gates |
 | Multi-objective ML feedback | [Roadmap and prototype](multiobjective-roadmap.md), [reward research](multiobjective-reward.md) | Native-audio/CLAP plus fitted synthetic-label test-head prototype; pretrained enjoyment/comfort replacement and scientific calibration remain open |
-| Released pretrained critics | [Model inventory](pretrained-evaluators.md) | Primary sources and pinned public metadata; new quality-model inference has not run |
+| Released pretrained critics | [Model inventory](pretrained-evaluators.md), [Audiobox probe](audiobox-probe.md) | Audiobox strict CPU loading and actual four-axis inference; other quality-model candidates remain untested |
 | Score-only musical criticism | [Symbolic critic](symbolic-critic.md) | [Proof](symbolic-critic-proof.json), 18 verified note traces, no waveform analysis; style-dependent advisory rules |
 | Narrative-to-music dictionary | [Dictionary guide](narrative-dictionary.md), [original scope](narrative-dictionary-plan.md) | [Versioned labels/mappings](narrative-dictionary.json), [proof](narrative-dictionary-proof.json); 15 authored controls, no classifier or independent annotation claim |
 | Real preference calibration | [Listening protocol](listening-calibration.md) | Prepared interface; no real listener ratings in the engineering proofs |

@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "id": "awen-audiobox-local-1",
+  "modelId": "facebook/audiobox-aesthetics",
+  "revision": "9b1dd8e5df9af7216e836a98974fe3b82c56ded6",
+  "sourceRepository": "https://github.com/facebookresearch/audiobox-aesthetics",
+  "sourceRevision": "2618e9d451b456e9328b39495b5e6234678aa550",
+  "license": "CC-BY-4.0; copied WavLM portions MIT, retain upstream notices",
+  "axes": {
+    "CE": "Content Enjoyment",
+    "CU": "Content Usefulness",
+    "PC": "Production Complexity",
+    "PQ": "Production Quality"
+  },
+  "files": {
+    "source/LICENSE": {
+      "bytes": 18656,
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94"
+    },
+    "source/pyproject.toml": {
+      "bytes": 1235,
+      "sha256": "d242dbafbf0cd24907aad3be8708cbd7126dd1e07e59afa2d655e7f6fd84f32c"
+    },
+    "source/README.md": {
+      "bytes": 5745,
+      "sha256": "37763f4452ac480a1818825adc658a50830a053d8d989fa1c90158490801acaa"
+    },
+    "source/src/audiobox_aesthetics/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "source/src/audiobox_aesthetics/cli.py": {
+      "bytes": 4168,
+      "sha256": "218967b1634411f8f8fc8c06cc9c5d76b56c7ddd960a9ef5b023416e590ac433"
+    },
+    "source/src/audiobox_aesthetics/infer.py": {
+      "bytes": 7440,
+      "sha256": "0dd81c8952f0fdb9c706da5cae0b75b859e26720a6c08034dcfb23244f8c9733"
+    },
+    "source/src/audiobox_aesthetics/model/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "source/src/audiobox_aesthetics/model/aes.py": {
+      "bytes": 6138,
+      "sha256": "2f339d5d2526ccee45f1daf7722d2b9d36bd9c99212134be12439057d1196238"
+    },
+    "source/src/audiobox_aesthetics/model/utils.py": {
+      "bytes": 877,
+      "sha256": "6af4d2acb03b9dad5ee34698f2ce96d423d4adb6bbdc6f3c591015c4da22ff3b"
+    },
+    "source/src/audiobox_aesthetics/model/wavlm.py": {
+      "bytes": 59108,
+      "sha256": "ed010d90278d5a8414049041a0c8ff60826fbd53045f32f0551c66dee8cac29f"
+    },
+    "source/src/audiobox_aesthetics/utils.py": {
+      "bytes": 2586,
+      "sha256": "c69c8c033518ae1274707aa055c8768ec2088b4a9604e8b513f039acaeb6e035"
+    },
+    "config.json": {
+      "bytes": 492,
+      "sha256": "0b8eabc5ced92cefed116a3aca8f1e59d2a33dc4d376b9e86dfb9c072e1d280d"
+    },
+    "model/model.safetensors": {
+      "bytes": 415472992,
+      "sha256": "a5a3c2412649cc2384ec525ffd5180ce6c4778f43bed6108e0a1303de04d014e"
+    }
+  },
+  "packages": {
+    "torch": "2.8.0+cpu",
+    "torchaudio": "2.8.0+cpu",
+    "numpy": "2.3.5",
+    "safetensors": "0.8.0",
+    "huggingface-hub": "0.36.2"
+  },
+  "preprocessing": {
+    "device": "cpu",
+    "precision": "float32",
+    "threads": 2,
+    "seed": 0,
+    "sampleRate": 16000,
+    "windowSeconds": 10,
+    "hopSeconds": 10,
+    "zeroPadLastWindow": true,
+    "weightByUnpaddedDuration": true,
+    "mono": "channel mean",
+    "resample": "torchaudio.functional.resample defaults",
+    "levelNormalization": false,
+    "windowBatchSize": 1
+  },
+  "validatedForReadingComfort": false
+}

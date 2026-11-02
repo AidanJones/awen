@@ -1,0 +1,734 @@
+{
+  "attempts": 27,
+  "completedReplayNewAttempts": 0,
+  "completedReplayNoModelLoad": true,
+  "completedReplayPreservedReport": true,
+  "crashHookSha256": "7c44ab736b1b352a4f9f4dac740747f9b6c0e7589a31f83f858f7a4d21dd6800",
+  "diagnosticControls": 9,
+  "environment": {
+    "diagnosticPackages": {
+      "requests": "2.34.2",
+      "rich": "14.2.0",
+      "tqdm": "4.70.1"
+    },
+    "isolation": "dedicated venv sharing read-only pinned CPU packages via pth; no parent environment upgrade",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "experiment": ".score-lab/audiobox-probe/20261102T103357.393064Z-dcc04c328b9f479080a2737ce10216d0",
+  "humanRatings": 0,
+  "identity": {
+    "backendSha256": "64043de2b29c295cc1d457613b3b1031eb830797d5f5e4ebe1a73e1b9f067725",
+    "missingKeys": [],
+    "packages": {
+      "huggingface-hub": "0.36.2",
+      "numpy": "2.3.5",
+      "safetensors": "0.8.0",
+      "torch": "2.8.0+cpu",
+      "torchaudio": "2.8.0+cpu"
+    },
+    "spec": {
+      "axes": {
+        "CE": "Content Enjoyment",
+        "CU": "Content Usefulness",
+        "PC": "Production Complexity",
+        "PQ": "Production Quality"
+      },
+      "files": {
+        "config.json": {
+          "bytes": 492,
+          "sha256": "0b8eabc5ced92cefed116a3aca8f1e59d2a33dc4d376b9e86dfb9c072e1d280d"
+        },
+        "model/model.safetensors": {
+          "bytes": 415472992,
+          "sha256": "a5a3c2412649cc2384ec525ffd5180ce6c4778f43bed6108e0a1303de04d014e"
+        },
+        "source/LICENSE": {
+          "bytes": 18656,
+          "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94"
+        },
+        "source/README.md": {
+          "bytes": 5745,
+          "sha256": "37763f4452ac480a1818825adc658a50830a053d8d989fa1c90158490801acaa"
+        },
+        "source/pyproject.toml": {
+          "bytes": 1235,
+          "sha256": "d242dbafbf0cd24907aad3be8708cbd7126dd1e07e59afa2d655e7f6fd84f32c"
+        },
+        "source/src/audiobox_aesthetics/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "source/src/audiobox_aesthetics/cli.py": {
+          "bytes": 4168,
+          "sha256": "218967b1634411f8f8fc8c06cc9c5d76b56c7ddd960a9ef5b023416e590ac433"
+        },
+        "source/src/audiobox_aesthetics/infer.py": {
+          "bytes": 7440,
+          "sha256": "0dd81c8952f0fdb9c706da5cae0b75b859e26720a6c08034dcfb23244f8c9733"
+        },
+        "source/src/audiobox_aesthetics/model/__init__.py": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "source/src/audiobox_aesthetics/model/aes.py": {
+          "bytes": 6138,
+          "sha256": "2f339d5d2526ccee45f1daf7722d2b9d36bd9c99212134be12439057d1196238"
+        },
+        "source/src/audiobox_aesthetics/model/utils.py": {
+          "bytes": 877,
+          "sha256": "6af4d2acb03b9dad5ee34698f2ce96d423d4adb6bbdc6f3c591015c4da22ff3b"
+        },
+        "source/src/audiobox_aesthetics/model/wavlm.py": {
+          "bytes": 59108,
+          "sha256": "ed010d90278d5a8414049041a0c8ff60826fbd53045f32f0551c66dee8cac29f"
+        },
+        "source/src/audiobox_aesthetics/utils.py": {
+          "bytes": 2586,
+          "sha256": "c69c8c033518ae1274707aa055c8768ec2088b4a9604e8b513f039acaeb6e035"
+        }
+      },
+      "id": "awen-audiobox-local-1",
+      "license": "CC-BY-4.0; copied WavLM portions MIT, retain upstream notices",
+      "modelId": "facebook/audiobox-aesthetics",
+      "packages": {
+        "huggingface-hub": "0.36.2",
+        "numpy": "2.3.5",
+        "safetensors": "0.8.0",
+        "torch": "2.8.0+cpu",
+        "torchaudio": "2.8.0+cpu"
+      },
+      "preprocessing": {
+        "device": "cpu",
+        "hopSeconds": 10,
+        "levelNormalization": false,
+        "mono": "channel mean",
+        "precision": "float32",
+        "resample": "torchaudio.functional.resample defaults",
+        "sampleRate": 16000,
+        "seed": 0,
+        "threads": 2,
+        "weightByUnpaddedDuration": true,
+        "windowBatchSize": 1,
+        "windowSeconds": 10,
+        "zeroPadLastWindow": true
+      },
+      "revision": "9b1dd8e5df9af7216e836a98974fe3b82c56ded6",
+      "sourceRepository": "https://github.com/facebookresearch/audiobox-aesthetics",
+      "sourceRevision": "2618e9d451b456e9328b39495b5e6234678aa550",
+      "validatedForReadingComfort": false,
+      "version": 1
+    },
+    "strictStateLoad": true,
+    "unexpectedKeys": []
+  },
+  "inferenceExecuted": true,
+  "invocationLogs": 5,
+  "jobs": 27,
+  "localWeightChecksumVerified": true,
+  "manifestSha256": "dcd0d2db39bb8ace4ac0c81ab0887f36a9b074274d69743c0a29b98ec0a05649",
+  "nativeClips": 18,
+  "newRenders": 0,
+  "officialEquivalences": [
+    {
+      "adapter": {
+        "CE": 5.385375308120548,
+        "CU": 7.434811244656443,
+        "PC": 1.8215796128904818,
+        "PQ": 7.579975376291275
+      },
+      "id": "rat-escape/classical-flowing",
+      "maxAbsoluteError": 3.4744560739596864e-07,
+      "official": {
+        "CE": 5.385375022888184,
+        "CU": 7.434811592102051,
+        "PC": 1.8215795755386353,
+        "PQ": 7.579975128173828
+      },
+      "tolerance": 1e-05
+    },
+    {
+      "adapter": {
+        "CE": 4.695256734607816,
+        "CU": 6.945407606761456,
+        "PC": 1.887706908277869,
+        "PQ": 7.507910014567376
+      },
+      "id": "rat-escape/classical-elegy",
+      "maxAbsoluteError": 2.6067018499276173e-07,
+      "official": {
+        "CE": 4.69525671005249,
+        "CU": 6.945407867431641,
+        "PC": 1.8877068758010864,
+        "PQ": 7.507909774780273
+      },
+      "tolerance": 1e-05
+    },
+    {
+      "adapter": {
+        "CE": 3.940308830616474,
+        "CU": 6.754577950519919,
+        "PC": 1.9356640012717243,
+        "PQ": 6.880434571945965
+      },
+      "id": "rat-escape/classical-spring",
+      "maxAbsoluteError": 2.597546577831622e-07,
+      "official": {
+        "CE": 3.9403085708618164,
+        "CU": 6.754578113555908,
+        "PC": 1.9356640577316284,
+        "PQ": 6.880434513092041
+      },
+      "tolerance": 1e-05
+    }
+  ],
+  "promotionAllowed": false,
+  "publishedResultRecoveredWithZeroBudget": true,
+  "readingComfortValidated": false,
+  "realProcessTerminationAfterPublication": true,
+  "reportSha256": "78e6caaac7923c2c6419f53aac467d2ce7d3581ca9e2a01494ed27b0521c215f",
+  "rows": [
+    {
+      "audioSha256": "c1d0e84ce656dc0842a92a82e7352a13c406b92532dfd109f9d452af030d6cbe",
+      "axes": {
+        "CE": 5.399471785362856,
+        "CU": 7.437613292475565,
+        "PC": 1.8107985711637509,
+        "PQ": 7.609951402337104
+      },
+      "control": null,
+      "id": "rat-escape/classical-flowing",
+      "inferenceSeconds": 15.703597399988212,
+      "originalGateEligible": true
+    },
+    {
+      "audioSha256": "444206525131044130514f503d560a3e33a07e543ac4ba2520de3b86325385b6",
+      "axes": {
+        "CE": 3.252216427160091,
+        "CU": 6.4630019683462,
+        "PC": 1.7015813929785784,
+        "PQ": 6.750795055606003
+      },
+      "control": "silence",
+      "id": "rat-escape/control-silence",
+      "inferenceSeconds": 13.90860490000341,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "4fcc0bc46000e1192413957c3f9da9e317d908f7ff837f40e5c95ec129a7a4f3",
+      "axes": {
+        "CE": 5.349589540779116,
+        "CU": 7.463471913821325,
+        "PC": 1.7062241329934447,
+        "PQ": 7.640463397109136
+      },
+      "control": "half-level",
+      "id": "rat-escape/control-half-level",
+      "inferenceSeconds": 11.66622869996354,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "85570e083b10e9061f8411364af479ebb151fc743e28b51995abb9e31827047f",
+      "axes": {
+        "CE": 5.120368494230463,
+        "CU": 7.466500154685378,
+        "PC": 1.8190958192218092,
+        "PQ": 7.837725347529277
+      },
+      "control": "two-second-loop",
+      "id": "rat-escape/control-two-second-loop",
+      "inferenceSeconds": 11.16691999998875,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "82d09060f5a1bfea74658edc480667e0bb535f0600798a21ebd1046afe2e9c90",
+      "axes": {
+        "CE": 4.921908852564334,
+        "CU": 7.439483363957815,
+        "PC": 1.8911789130599048,
+        "PQ": 7.910190811061188
+      },
+      "control": null,
+      "id": "rat-escape/classical-storm",
+      "inferenceSeconds": 11.203040599939413,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "196e73144768057b310fc232cd8f3ddf55865c01f3bb9aabec43f0ca8fae17ae",
+      "axes": {
+        "CE": 4.932986102251326,
+        "CU": 7.089245651374458,
+        "PC": 1.938164714506324,
+        "PQ": 7.6550831830788395
+      },
+      "control": null,
+      "id": "rat-escape/classical-elegy",
+      "inferenceSeconds": 11.502722200006247,
+      "originalGateEligible": true
+    },
+    {
+      "audioSha256": "cef79e62993f600cd8aa1d7846d1653bdafded7176f05b58abe74126f3467f0a",
+      "axes": {
+        "CE": 3.801665029596649,
+        "CU": 6.55478746528802,
+        "PC": 1.9916165642921995,
+        "PQ": 6.678089503058669
+      },
+      "control": null,
+      "id": "rat-escape/classical-spring",
+      "inferenceSeconds": 11.593268199940212,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "767e2fd8286a8eecb6f1f1cd69bb73ea7d9951a2f2a2fa7b725279ab3ec3818e",
+      "axes": {
+        "CE": 4.9414306769997856,
+        "CU": 7.086662362411543,
+        "PC": 1.9414708401004035,
+        "PQ": 7.649785304289833
+      },
+      "control": null,
+      "id": "rat-escape/g1-0-kksbpu",
+      "inferenceSeconds": 11.355439300066791,
+      "originalGateEligible": true
+    },
+    {
+      "audioSha256": "3a8618d47dd9bed231f7e599f302c7d3e305bf6006b87113913b5e24d37673ad",
+      "axes": {
+        "CE": 5.386336034476469,
+        "CU": 7.428005984372384,
+        "PC": 1.8081164497292783,
+        "PQ": 7.617064692014903
+      },
+      "control": null,
+      "id": "rat-escape/g1-1-m16su1",
+      "inferenceSeconds": 13.834605399984866,
+      "originalGateEligible": true
+    },
+    {
+      "audioSha256": "f94e3c38301d21175a6ce35282ec9475bbd70074ddb2fbb85e7ff59b151afa3a",
+      "axes": {
+        "CE": 5.410234376957388,
+        "CU": 7.434721268722676,
+        "PC": 1.8059890341952813,
+        "PQ": 7.609673456055149
+      },
+      "control": null,
+      "id": "riders-landscape/classical-flowing",
+      "inferenceSeconds": 14.344938300084323,
+      "originalGateEligible": true
+    },
+    {
+      "audioSha256": "444206525131044130514f503d560a3e33a07e543ac4ba2520de3b86325385b6",
+      "axes": {
+        "CE": 3.252216427160091,
+        "CU": 6.4630019683462,
+        "PC": 1.7015813929785784,
+        "PQ": 6.750795055606003
+      },
+      "control": "silence",
+      "id": "riders-landscape/control-silence",
+      "inferenceSeconds": 10.859098499990068,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "3392ca907d211becb1bd76fd19d88e6a0a826f09d6d3dc88071ddc6113d7e7dd",
+      "axes": {
+        "CE": 5.366284052642165,
+        "CU": 7.463379732498825,
+        "PC": 1.7065301661201564,
+        "PQ": 7.643162888092994
+      },
+      "control": "half-level",
+      "id": "riders-landscape/control-half-level",
+      "inferenceSeconds": 11.313568200101145,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "edbc2c758acbe08f0b14f21154972115b6866abfa3150094420e094fcd32aff9",
+      "axes": {
+        "CE": 5.1188423400561085,
+        "CU": 7.46800377170816,
+        "PC": 1.8156426981632408,
+        "PQ": 7.839647966833933
+      },
+      "control": "two-second-loop",
+      "id": "riders-landscape/control-two-second-loop",
+      "inferenceSeconds": 10.900007000076585,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "c35d7f2817cb9565ee6b5e64c3455d94626e527c4c7125146180d83d1e9e4be8",
+      "axes": {
+        "CE": 4.892320525531755,
+        "CU": 7.439242008047327,
+        "PC": 1.8853566634164003,
+        "PQ": 7.912745858453587
+      },
+      "control": null,
+      "id": "riders-landscape/classical-storm",
+      "inferenceSeconds": 11.981967800064012,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "3929669cb4ce53be9073c35c5506fb6678c31450fc05f69a62acf67fdc8f7c75",
+      "axes": {
+        "CE": 4.909077741960925,
+        "CU": 7.085388066551834,
+        "PC": 1.928931561024021,
+        "PQ": 7.662523063446655
+      },
+      "control": null,
+      "id": "riders-landscape/classical-elegy",
+      "inferenceSeconds": 11.773723599966615,
+      "originalGateEligible": true
+    },
+    {
+      "audioSha256": "7feadfd73955eef120d86f66870f764e646db3977a950f7f170345bdbd6fd197",
+      "axes": {
+        "CE": 3.80741417540308,
+        "CU": 6.5592821399608985,
+        "PC": 2.003493327815644,
+        "PQ": 6.683596529950024
+      },
+      "control": null,
+      "id": "riders-landscape/classical-spring",
+      "inferenceSeconds": 11.600328900036402,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "693a6999775ba12c8d5737cb58f3a7a4a12d971e1e9b77076ca076f3a17a790c",
+      "axes": {
+        "CE": 4.901803582635163,
+        "CU": 7.083082381713613,
+        "PC": 1.927893102241475,
+        "PQ": 7.661915710843131
+      },
+      "control": null,
+      "id": "riders-landscape/g1-0-s7shmu",
+      "inferenceSeconds": 11.90071600000374,
+      "originalGateEligible": true
+    },
+    {
+      "audioSha256": "cd34a87018d6368402f1cbff4f5efcd1e1d7bf1293165cc683dbb27a8340447e",
+      "axes": {
+        "CE": 4.921626341348346,
+        "CU": 7.082210336979143,
+        "PC": 1.9288946765788828,
+        "PQ": 7.656139118264541
+      },
+      "control": null,
+      "id": "riders-landscape/g1-1-15xnyf7",
+      "inferenceSeconds": 11.499325399985537,
+      "originalGateEligible": true
+    },
+    {
+      "audioSha256": "f6518a5f1f6a2d0374eeeabc5a9288a4a00326f48b272b74afa00c808b398ca2",
+      "axes": {
+        "CE": 5.411298450793158,
+        "CU": 7.435491741236038,
+        "PC": 1.8043825410520655,
+        "PQ": 7.609900292135477
+      },
+      "control": null,
+      "id": "time-discussion/classical-flowing",
+      "inferenceSeconds": 10.86116469989065,
+      "originalGateEligible": true
+    },
+    {
+      "audioSha256": "444206525131044130514f503d560a3e33a07e543ac4ba2520de3b86325385b6",
+      "axes": {
+        "CE": 3.252216427160091,
+        "CU": 6.4630019683462,
+        "PC": 1.7015813929785784,
+        "PQ": 6.750795055606003
+      },
+      "control": "silence",
+      "id": "time-discussion/control-silence",
+      "inferenceSeconds": 11.204085599980317,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "a3e0718d4c57d61558644fc7e615c805cbcc7c51b757f42e1a60d320a0a9ee53",
+      "axes": {
+        "CE": 5.371309446993875,
+        "CU": 7.4642915134955565,
+        "PC": 1.7046839414654669,
+        "PQ": 7.640457212876305
+      },
+      "control": "half-level",
+      "id": "time-discussion/control-half-level",
+      "inferenceSeconds": 10.963129599927925,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "e344179a374569c081d2109f4a9fb7fb633827e9f9a34d7c3c844bce215582cb",
+      "axes": {
+        "CE": 5.121141131157274,
+        "CU": 7.471442227964774,
+        "PC": 1.8170047597224264,
+        "PQ": 7.846387262774259
+      },
+      "control": "two-second-loop",
+      "id": "time-discussion/control-two-second-loop",
+      "inferenceSeconds": 13.51639540004544,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "3dc733fbe39ac24931d9c6b9c9d074f2a222b41ac24c5de0e8cce20f4d71e1b5",
+      "axes": {
+        "CE": 4.892326804527549,
+        "CU": 7.439253427641801,
+        "PC": 1.8853443222495538,
+        "PQ": 7.912765110828057
+      },
+      "control": null,
+      "id": "time-discussion/classical-storm",
+      "inferenceSeconds": 13.794020600034855,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "754ce396c25f2314065326f9534ebd8010c5c97dc397398b059d01e6700be3db",
+      "axes": {
+        "CE": 4.909125785199953,
+        "CU": 7.085414688276946,
+        "PC": 1.9288982398735357,
+        "PQ": 7.66247543469727
+      },
+      "control": null,
+      "id": "time-discussion/classical-elegy",
+      "inferenceSeconds": 13.382998900022358,
+      "originalGateEligible": true
+    },
+    {
+      "audioSha256": "5d50e5ff089892b5ef3d0cb414a28ca65651fc26505a6e0fcaccf2c117823699",
+      "axes": {
+        "CE": 3.8074207622588796,
+        "CU": 6.559300236255237,
+        "PC": 2.003563279635161,
+        "PQ": 6.683515493083363
+      },
+      "control": null,
+      "id": "time-discussion/classical-spring",
+      "inferenceSeconds": 10.76179629995022,
+      "originalGateEligible": false
+    },
+    {
+      "audioSha256": "a3da2a3396a6c6ab3cffa6cf48f8e90dd6a964377445545a6c46e99e25b92c72",
+      "axes": {
+        "CE": 4.9315262238191435,
+        "CU": 7.095917240233458,
+        "PC": 1.9294646368568573,
+        "PQ": 7.667936749894991
+      },
+      "control": null,
+      "id": "time-discussion/g1-0-1olm9ib",
+      "inferenceSeconds": 11.451517600100487,
+      "originalGateEligible": true
+    },
+    {
+      "audioSha256": "b4ffe891e066a3cbaba862877030eeebee9864bdf85ddd434b05827059923e90",
+      "axes": {
+        "CE": 4.884522551172659,
+        "CU": 7.080188211469612,
+        "PC": 1.926194530088044,
+        "PQ": 7.671267145478576
+      },
+      "control": null,
+      "id": "time-discussion/g1-1-159tkfj",
+      "inferenceSeconds": 11.410953699960373,
+      "originalGateEligible": true
+    }
+  ],
+  "scenes": [
+    {
+      "controls": [
+        {
+          "axes": {
+            "CE": 3.252216427160091,
+            "CU": 6.4630019683462,
+            "PC": 1.7015813929785784,
+            "PQ": 6.750795055606003
+          },
+          "deltaFromFlowing": {
+            "CE": -2.1472553582027647,
+            "CU": -0.9746113241293655,
+            "PC": -0.10921717818517251,
+            "PQ": -0.8591563467311012
+          },
+          "kind": "silence"
+        },
+        {
+          "axes": {
+            "CE": 5.349589540779116,
+            "CU": 7.463471913821325,
+            "PC": 1.7062241329934447,
+            "PQ": 7.640463397109136
+          },
+          "deltaFromFlowing": {
+            "CE": -0.04988224458374013,
+            "CU": 0.025858621345759225,
+            "PC": -0.1045744381703062,
+            "PQ": 0.03051199477203248
+          },
+          "kind": "half-level"
+        },
+        {
+          "axes": {
+            "CE": 5.120368494230463,
+            "CU": 7.466500154685378,
+            "PC": 1.8190958192218092,
+            "PQ": 7.837725347529277
+          },
+          "deltaFromFlowing": {
+            "CE": -0.27910329113239296,
+            "CU": 0.028886862209812847,
+            "PC": 0.008297248058058315,
+            "PQ": 0.22777394519217342
+          },
+          "kind": "two-second-loop"
+        }
+      ],
+      "flowing": {
+        "CE": 5.399471785362856,
+        "CU": 7.437613292475565,
+        "PC": 1.8107985711637509,
+        "PQ": 7.609951402337104
+      },
+      "scene": "rat-escape"
+    },
+    {
+      "controls": [
+        {
+          "axes": {
+            "CE": 3.252216427160091,
+            "CU": 6.4630019683462,
+            "PC": 1.7015813929785784,
+            "PQ": 6.750795055606003
+          },
+          "deltaFromFlowing": {
+            "CE": -2.158017949797297,
+            "CU": -0.9717193003764759,
+            "PC": -0.10440764121670298,
+            "PQ": -0.8588784004491465
+          },
+          "kind": "silence"
+        },
+        {
+          "axes": {
+            "CE": 5.366284052642165,
+            "CU": 7.463379732498825,
+            "PC": 1.7065301661201564,
+            "PQ": 7.643162888092994
+          },
+          "deltaFromFlowing": {
+            "CE": -0.04395032431522328,
+            "CU": 0.028658463776149112,
+            "PC": -0.09945886807512494,
+            "PQ": 0.033489432037844935
+          },
+          "kind": "half-level"
+        },
+        {
+          "axes": {
+            "CE": 5.1188423400561085,
+            "CU": 7.46800377170816,
+            "PC": 1.8156426981632408,
+            "PQ": 7.839647966833933
+          },
+          "deltaFromFlowing": {
+            "CE": -0.29139203690127946,
+            "CU": 0.033282502985484186,
+            "PC": 0.009653663967959414,
+            "PQ": 0.22997451077878406
+          },
+          "kind": "two-second-loop"
+        }
+      ],
+      "flowing": {
+        "CE": 5.410234376957388,
+        "CU": 7.434721268722676,
+        "PC": 1.8059890341952813,
+        "PQ": 7.609673456055149
+      },
+      "scene": "riders-landscape"
+    },
+    {
+      "controls": [
+        {
+          "axes": {
+            "CE": 3.252216427160091,
+            "CU": 6.4630019683462,
+            "PC": 1.7015813929785784,
+            "PQ": 6.750795055606003
+          },
+          "deltaFromFlowing": {
+            "CE": -2.159082023633067,
+            "CU": -0.9724897728898378,
+            "PC": -0.10280114807348717,
+            "PQ": -0.8591052365294747
+          },
+          "kind": "silence"
+        },
+        {
+          "axes": {
+            "CE": 5.371309446993875,
+            "CU": 7.4642915134955565,
+            "PC": 1.7046839414654669,
+            "PQ": 7.640457212876305
+          },
+          "deltaFromFlowing": {
+            "CE": -0.03998900379928294,
+            "CU": 0.028799772259518797,
+            "PC": -0.09969859958659866,
+            "PQ": 0.030556920740827387
+          },
+          "kind": "half-level"
+        },
+        {
+          "axes": {
+            "CE": 5.121141131157274,
+            "CU": 7.471442227964774,
+            "PC": 1.8170047597224264,
+            "PQ": 7.846387262774259
+          },
+          "deltaFromFlowing": {
+            "CE": -0.29015731963588376,
+            "CU": 0.03595048672873613,
+            "PC": 0.01262221867036084,
+            "PQ": 0.236486970638782
+          },
+          "kind": "two-second-loop"
+        }
+      ],
+      "flowing": {
+        "CE": 5.411298450793158,
+        "CU": 7.435491741236038,
+        "PC": 1.8043825410520655,
+        "PQ": 7.609900292135477
+      },
+      "scene": "time-discussion"
+    }
+  ],
+  "sourceReportSha256": "ead8686653f2cfc16089d4bca9a5c1f76f5146fd972dd20b0da468979e96b8b9",
+  "sources": {
+    "research/audiobox-model.json": "469da18c97fbe79dadb374a264f5e13c8dca3bbb9eaf11f08364a7914a22951f",
+    "tools/audiobox_backend.py": "64043de2b29c295cc1d457613b3b1031eb830797d5f5e4ebe1a73e1b9f067725",
+    "tools/audiobox_lab.py": "310926773e005db1e4684605168aeb9d334ec75d26e5befa2145bc263d514c43",
+    "tools/prepare_audiobox.py": "e8c75621a8c074f96a84b016cefdb39fe7c5d7f52941f793cc008306e49bee71",
+    "tools/score_lab.py": "c83453aab83c02a34d7bffdab02e48e991b207ecec51f8e07917e60fc0531926"
+  },
+  "status": "completed-diagnostic-not-validated-reward",
+  "strictStateLoadVerified": true,
+  "timing": {
+    "maximumClipSeconds": 15.703597399988212,
+    "minimumClipSeconds": 10.76179629995022,
+    "modelLoadSeconds": [
+      28.96081600000616,
+      13.498199000023305,
+      16.414840300101787
+    ],
+    "totalInferenceSeconds": 325.4541628001025
+  },
+  "version": "awen-audiobox-probe-1",
+  "windows": 108
+}

@@ -224,7 +224,8 @@ The [27 October calibration roadmap](research/clap-probe.md#calibration-roadmap-
 
 - [x] Inventory pretrained quality/preference/emotion models using primary
   sources and artifact metadata; [findings](research/pretrained-evaluators.md).
-  No new quality checkpoint has been downloaded or inferred.
+  The [Audiobox follow-up](research/audiobox-probe.md) now verifies a pinned
+  quality checkpoint and runs actual CPU inference; other candidates remain untested.
 - [x] Implement and replay a [score-only advisory critic](research/symbolic-critic.md)
   over 18 verified score traces. It supplements acoustic evaluation and is not
   a validated music/comfort reward or an automatic preference update.
