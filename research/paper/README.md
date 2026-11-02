@@ -1,5 +1,10 @@
 # Academic working paper
 
+Version 0.8 (2 November 2026) adds the implemented development narrative
+dictionary and supplied-annotation mapper, four scoped scholarly references,
+15 authored controls and explicit outstanding classifier/annotation/UI gates.
+It does not claim text-classifier accuracy or independent listener results.
+
 Version 0.7 (1 November 2026) records the 17 controlled symbolic relations and
 the nine-home authored-part/chapter-context export pilot. These are engineering
 checks, not independent perceptual or reading-comfort validation. See the

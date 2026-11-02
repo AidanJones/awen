@@ -1,0 +1,1482 @@
+{
+  "schemaVersion": 1,
+  "id": "awen-narrative-dictionary",
+  "version": "0.1.0",
+  "reviewDate": "2026-11-02",
+  "status": "development-dictionary",
+  "runtimeIntegrated": false,
+  "humanPreferenceValidated": false,
+  "sourceScope": "Sources motivate dimensions and broad techniques. Entry definitions, labels, signals, exact mappings and bounds are original Awen proposals, not validated ontology or classifier.",
+  "dimensions": [
+    "dramatic",
+    "activation",
+    "tone",
+    "viewpoint",
+    "time",
+    "environment",
+    "structure"
+  ],
+  "sources": [
+    {
+      "id": "eerola-2013",
+      "title": "Emotional expression in music: contribution, linearity, and additivity of primary musical cues",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3726864/",
+      "kind": "original-experiment",
+      "reviewed": "Abstract; cue definitions; Discussion",
+      "observation": "Manipulated musical cues affect perceived emotional character in the tested excerpts. The study distinguishes cue dimensions; it does not validate narrative labels or reading benefit.",
+      "reviewDate": "2026-11-02"
+    },
+    {
+      "id": "zentner-2008",
+      "title": "Emotions evoked by the sound of music",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18729581/",
+      "kind": "original-experiment-abstract",
+      "reviewed": "PubMed abstract only",
+      "observation": "Music-related emotion measurement distinguishes perceived and felt response and varies with musical preference. This is not a paragraph ontology or an enjoyment reward for reading.",
+      "reviewDate": "2026-11-02"
+    },
+    {
+      "id": "niederhoff-perspective",
+      "title": "Perspective - Point of View",
+      "url": "https://www-archiv.fdm.uni-hamburg.de/lhn/node/26.html",
+      "kind": "author-theoretical-entry",
+      "reviewed": "Definition and opening Explication",
+      "observation": "Narrative presentation depends on narrator or character position and values. Awen must record whose experience is represented rather than assume one objective emotion.",
+      "reviewDate": "2026-11-02"
+    },
+    {
+      "id": "speer-2007",
+      "title": "Human brain activity time-locked to narrative event boundaries",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17576286/",
+      "kind": "original-experiment-abstract",
+      "reviewed": "PubMed abstract only",
+      "observation": "Readers segment brief narratives at situation changes, including character goals. This motivates contextual boundary annotations, not musical resets at every paragraph.",
+      "reviewDate": "2026-11-02"
+    },
+    {
+      "id": "lee-2025",
+      "title": "The Semantic Evolution of Chromatic Mediants",
+      "url": "https://www.mtosmt.org/issues/mto.25.31.2/mto.25.31.2.lee_jason.html",
+      "kind": "original-analysis",
+      "reviewed": "Abstract and introduction [0.1]-[0.3]",
+      "observation": "Treats mediant associations as historically conventional; its film example shows magical harmony supporting comic mockery.",
+      "reviewDate": "2026-11-02"
+    },
+    {
+      "id": "houston-theatre",
+      "title": "Interview with Chris Houston",
+      "url": "https://www.marintheatre.org/press-release-details/239/interview-with-sound-designer-composer-and-musical-director-chris-houston-web-exclusive",
+      "kind": "composer-account",
+      "reviewed": "Questions on composition, script spotting and underscoring",
+      "observation": "Describes reducing melody around theatrical speech and adapting music to script, period and production; this is one practitioner account.",
+      "reviewDate": "2026-11-02"
+    },
+    {
+      "id": "classical-reviewed",
+      "title": "Awen work-specific classical source review",
+      "url": "research/classical-inspiration.md",
+      "kind": "local-source-index",
+      "reviewed": "Previously scoped Bach/Vivaldi/Chopin references; source claims remain in their original records",
+      "observation": "Programme and analysis evidence is section-specific. Seasonal/environment mappings below are Awen alternatives, not universal emotions or new score analysis.",
+      "reviewDate": "2026-11-02"
+    }
+  ],
+  "musicalOptions": [
+    {
+      "id": "light-motion",
+      "evidenceStatus": "awen-proposal",
+      "targets": {
+        "classicalPreset": "concertino",
+        "harmonyFamily": "minor-sixth-intrigue",
+        "criticProfile": "active"
+      },
+      "transition": {
+        "structural": "chapter-boundary",
+        "expression": "smoothed"
+      },
+      "rationale": "Keep comic motion light rather than maximise threat.",
+      "features": {
+        "provenance": "compiled-preset-before-harmony-override",
+        "texture": "line",
+        "gate": 0.7,
+        "holdBars": 1,
+        "phraseShape": "answer",
+        "figure": [
+          "b",
+          "1",
+          "2",
+          "-",
+          "2",
+          "1",
+          "-",
+          "-"
+        ],
+        "tempoBpm": 72,
+        "registerPolicy": "compiler-bounded-voicing-not-free-register-control",
+        "tension": "contextual-harmony-alternative-not-validated-scalar",
+        "density": "existing-preset-and-smoothed-expression-no-tempo-change"
+      }
+    },
+    {
+      "id": "driving-motion",
+      "evidenceStatus": "awen-proposal",
+      "targets": {
+        "classicalPreset": "storm",
+        "harmonyFamily": "minor-drive",
+        "criticProfile": "active"
+      },
+      "transition": {
+        "structural": "chapter-boundary",
+        "expression": "smoothed"
+      },
+      "rationale": "Test short articulated movement at the existing 72 BPM clock.",
+      "features": {
+        "provenance": "compiled-preset-before-harmony-override",
+        "texture": "line",
+        "gate": 0.55,
+        "holdBars": 1,
+        "phraseShape": "swell",
+        "figure": [
+          "b",
+          "1",
+          "2",
+          "1",
+          "b",
+          "2",
+          "1",
+          "2"
+        ],
+        "tempoBpm": 72,
+        "registerPolicy": "compiler-bounded-voicing-not-free-register-control",
+        "tension": "contextual-harmony-alternative-not-validated-scalar",
+        "density": "existing-preset-and-smoothed-expression-no-tempo-change"
+      }
+    },
+    {
+      "id": "held-anticipation",
+      "evidenceStatus": "awen-proposal",
+      "targets": {
+        "classicalPreset": "frost",
+        "harmonyFamily": "static-suspension",
+        "criticProfile": "neutral"
+      },
+      "transition": {
+        "structural": "chapter-boundary",
+        "expression": "smoothed"
+      },
+      "rationale": "Test held harmony and space instead of constant escalation.",
+      "features": {
+        "provenance": "compiled-preset-before-harmony-override",
+        "texture": "pulse",
+        "gate": 0.4,
+        "holdBars": 2,
+        "phraseShape": "steady",
+        "figure": [
+          "b",
+          "1",
+          "1",
+          "1",
+          "b",
+          "2",
+          "2",
+          "2"
+        ],
+        "tempoBpm": 72,
+        "registerPolicy": "compiler-bounded-voicing-not-free-register-control",
+        "tension": "contextual-harmony-alternative-not-validated-scalar",
+        "density": "existing-preset-and-smoothed-expression-no-tempo-change"
+      }
+    },
+    {
+      "id": "quiet-intrigue",
+      "evidenceStatus": "awen-proposal",
+      "targets": {
+        "classicalPreset": "sequence",
+        "harmonyFamily": "minor-sixth-intrigue",
+        "criticProfile": "neutral"
+      },
+      "transition": {
+        "structural": "chapter-boundary",
+        "expression": "smoothed"
+      },
+      "rationale": "Retain a small figure while preserving tonal identity.",
+      "features": {
+        "provenance": "compiled-preset-before-harmony-override",
+        "texture": "line",
+        "gate": 0.85,
+        "holdBars": 1,
+        "phraseShape": "steady",
+        "figure": [
+          "b",
+          "1",
+          "2",
+          "1",
+          "b",
+          "2",
+          "1",
+          "2"
+        ],
+        "tempoBpm": 72,
+        "registerPolicy": "compiler-bounded-voicing-not-free-register-control",
+        "tension": "contextual-harmony-alternative-not-validated-scalar",
+        "density": "existing-preset-and-smoothed-expression-no-tempo-change"
+      }
+    },
+    {
+      "id": "spacious-discovery",
+      "evidenceStatus": "awen-proposal",
+      "targets": {
+        "classicalPreset": "flowing",
+        "harmonyFamily": "open-modal",
+        "criticProfile": "neutral"
+      },
+      "transition": {
+        "structural": "chapter-boundary",
+        "expression": "smoothed"
+      },
+      "rationale": "Connected figuration offers discovery without a large harmonic surprise.",
+      "features": {
+        "provenance": "compiled-preset-before-harmony-override",
+        "texture": "line",
+        "gate": 0.95,
+        "holdBars": 1,
+        "phraseShape": "steady",
+        "figure": [
+          "b",
+          "1",
+          "2",
+          "n2",
+          "2",
+          "1",
+          "2",
+          "1"
+        ],
+        "tempoBpm": 72,
+        "registerPolicy": "compiler-bounded-voicing-not-free-register-control",
+        "tension": "contextual-harmony-alternative-not-validated-scalar",
+        "density": "existing-preset-and-smoothed-expression-no-tempo-change"
+      }
+    },
+    {
+      "id": "coloured-discovery",
+      "evidenceStatus": "awen-proposal",
+      "targets": {
+        "classicalPreset": "concertino",
+        "harmonyFamily": "major-third-colour",
+        "criticProfile": "neutral"
+      },
+      "transition": {
+        "structural": "chapter-boundary",
+        "expression": "smoothed"
+      },
+      "rationale": "Test a more noticeable harmonic colour only at a permitted boundary.",
+      "features": {
+        "provenance": "compiled-preset-before-harmony-override",
+        "texture": "line",
+        "gate": 0.7,
+        "holdBars": 1,
+        "phraseShape": "answer",
+        "figure": [
+          "b",
+          "1",
+          "2",
+          "-",
+          "2",
+          "1",
+          "-",
+          "-"
+        ],
+        "tempoBpm": 72,
+        "registerPolicy": "compiler-bounded-voicing-not-free-register-control",
+        "tension": "contextual-harmony-alternative-not-validated-scalar",
+        "density": "existing-preset-and-smoothed-expression-no-tempo-change"
+      }
+    },
+    {
+      "id": "dialogue-space",
+      "evidenceStatus": "awen-proposal",
+      "targets": {
+        "classicalPreset": "dialogue",
+        "harmonyFamily": "warm-added-notes",
+        "criticProfile": "calm"
+      },
+      "transition": {
+        "structural": "chapter-boundary",
+        "expression": "smoothed"
+      },
+      "rationale": "Leave upper-line gaps; the theatre analogy is a reading hypothesis.",
+      "features": {
+        "provenance": "compiled-preset-before-harmony-override",
+        "texture": "line",
+        "gate": 0.8,
+        "holdBars": 1,
+        "phraseShape": "steady",
+        "figure": [
+          "b",
+          "1",
+          "2",
+          "-",
+          "2",
+          "1",
+          "-",
+          "1"
+        ],
+        "tempoBpm": 72,
+        "registerPolicy": "compiler-bounded-voicing-not-free-register-control",
+        "tension": "contextual-harmony-alternative-not-validated-scalar",
+        "density": "existing-preset-and-smoothed-expression-no-tempo-change"
+      }
+    },
+    {
+      "id": "reflective-flow",
+      "evidenceStatus": "awen-proposal",
+      "targets": {
+        "classicalPreset": "flowing",
+        "harmonyFamily": "open-modal",
+        "criticProfile": "calm"
+      },
+      "transition": {
+        "structural": "chapter-boundary",
+        "expression": "smoothed"
+      },
+      "rationale": "Reflection can keep gentle motion and need not sound sorrowful.",
+      "features": {
+        "provenance": "compiled-preset-before-harmony-override",
+        "texture": "line",
+        "gate": 0.95,
+        "holdBars": 1,
+        "phraseShape": "steady",
+        "figure": [
+          "b",
+          "1",
+          "2",
+          "n2",
+          "2",
+          "1",
+          "2",
+          "1"
+        ],
+        "tempoBpm": 72,
+        "registerPolicy": "compiler-bounded-voicing-not-free-register-control",
+        "tension": "contextual-harmony-alternative-not-validated-scalar",
+        "density": "existing-preset-and-smoothed-expression-no-tempo-change"
+      }
+    },
+    {
+      "id": "restrained-elegy",
+      "evidenceStatus": "awen-proposal",
+      "targets": {
+        "classicalPreset": "elegy",
+        "harmonyFamily": "warm-added-notes",
+        "criticProfile": "calm"
+      },
+      "transition": {
+        "structural": "chapter-boundary",
+        "expression": "smoothed"
+      },
+      "rationale": "A sparse repeated gesture is one possible treatment of loss.",
+      "features": {
+        "provenance": "compiled-preset-before-harmony-override",
+        "texture": "chords",
+        "gate": 1.05,
+        "holdBars": 4,
+        "phraseShape": "steady",
+        "figure": [
+          "b",
+          "1",
+          "-",
+          "-",
+          "b",
+          "1",
+          "-",
+          "-"
+        ],
+        "tempoBpm": 72,
+        "registerPolicy": "compiler-bounded-voicing-not-free-register-control",
+        "tension": "contextual-harmony-alternative-not-validated-scalar",
+        "density": "existing-preset-and-smoothed-expression-no-tempo-change"
+      }
+    },
+    {
+      "id": "warm-repose",
+      "evidenceStatus": "awen-proposal",
+      "targets": {
+        "classicalPreset": "hearth",
+        "harmonyFamily": "gentle-release",
+        "criticProfile": "calm"
+      },
+      "transition": {
+        "structural": "chapter-boundary",
+        "expression": "smoothed"
+      },
+      "rationale": "A held spacious alternative for safety, intimacy or aftermath.",
+      "features": {
+        "provenance": "compiled-preset-before-harmony-override",
+        "texture": "lyric",
+        "gate": 1.05,
+        "holdBars": 2,
+        "phraseShape": "steady",
+        "figure": [
+          "b",
+          "1",
+          "-",
+          "-",
+          "2",
+          "-",
+          "-",
+          "-"
+        ],
+        "tempoBpm": 72,
+        "registerPolicy": "compiler-bounded-voicing-not-free-register-control",
+        "tension": "contextual-harmony-alternative-not-validated-scalar",
+        "density": "existing-preset-and-smoothed-expression-no-tempo-change"
+      }
+    },
+    {
+      "id": "open-landscape",
+      "evidenceStatus": "awen-proposal",
+      "targets": {
+        "classicalPreset": "spring",
+        "harmonyFamily": "open-modal",
+        "criticProfile": "neutral"
+      },
+      "transition": {
+        "structural": "chapter-boundary",
+        "expression": "smoothed"
+      },
+      "rationale": "Separated calls offer one landscape treatment; setting alone does not determine mood.",
+      "features": {
+        "provenance": "compiled-preset-before-harmony-override",
+        "texture": "lyric",
+        "gate": 0.6,
+        "holdBars": 1,
+        "phraseShape": "answer",
+        "figure": [
+          "b",
+          "1",
+          "2",
+          "-",
+          "2",
+          "1",
+          "-",
+          "-"
+        ],
+        "tempoBpm": 72,
+        "registerPolicy": "compiler-bounded-voicing-not-free-register-control",
+        "tension": "contextual-harmony-alternative-not-validated-scalar",
+        "density": "existing-preset-and-smoothed-expression-no-tempo-change"
+      }
+    },
+    {
+      "id": "dry-cold",
+      "evidenceStatus": "awen-proposal",
+      "targets": {
+        "classicalPreset": "frost",
+        "harmonyFamily": "static-suspension",
+        "criticProfile": "neutral"
+      },
+      "transition": {
+        "structural": "chapter-boundary",
+        "expression": "smoothed"
+      },
+      "rationale": "Dry repeated articulation is a programme-inspired cold alternative, not winter equals sadness.",
+      "features": {
+        "provenance": "compiled-preset-before-harmony-override",
+        "texture": "pulse",
+        "gate": 0.4,
+        "holdBars": 2,
+        "phraseShape": "steady",
+        "figure": [
+          "b",
+          "1",
+          "1",
+          "1",
+          "b",
+          "2",
+          "2",
+          "2"
+        ],
+        "tempoBpm": 72,
+        "registerPolicy": "compiler-bounded-voicing-not-free-register-control",
+        "tension": "contextual-harmony-alternative-not-validated-scalar",
+        "density": "existing-preset-and-smoothed-expression-no-tempo-change"
+      }
+    }
+  ],
+  "entries": [
+    {
+      "id": "pursuit",
+      "dimension": "dramatic",
+      "definition": "An agent actively chases, escapes or evades an obstacle now.",
+      "aliases": [
+        "chase",
+        "fled",
+        "pursuit",
+        "escape"
+      ],
+      "examples": {
+        "positive": "She raced for the exit as the guards followed.",
+        "counter": "He recalled a chase from childhood."
+      },
+      "cues": {
+        "lexical": [
+          "chase",
+          "fled",
+          "pursuit",
+          "escape"
+        ],
+        "context": "Require an actual event and direction; distinguish a metaphor or quoted plan.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "eerola-2013"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "driving-motion",
+        "light-motion"
+      ]
+    },
+    {
+      "id": "anticipation",
+      "dimension": "dramatic",
+      "definition": "Waiting or preparation whose outcome remains unresolved.",
+      "aliases": [
+        "waited",
+        "expected",
+        "approaching"
+      ],
+      "examples": {
+        "positive": "They waited for the latch to move.",
+        "counter": "The door had already opened and the danger passed."
+      },
+      "cues": {
+        "lexical": [
+          "waited",
+          "expected",
+          "approaching"
+        ],
+        "context": "Stillness can coexist with high threat; do not infer low activation from waiting.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "eerola-2013"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "held-anticipation",
+        "quiet-intrigue"
+      ]
+    },
+    {
+      "id": "confrontation",
+      "dimension": "dramatic",
+      "definition": "An active opposition, collision or decisive encounter.",
+      "aliases": [
+        "blocked",
+        "struck",
+        "confronted"
+      ],
+      "examples": {
+        "positive": "The two rivals blocked each other at the gate.",
+        "counter": "She wondered whether they might meet."
+      },
+      "cues": {
+        "lexical": [
+          "blocked",
+          "struck",
+          "confronted"
+        ],
+        "context": "Separate actual impact from a possible future encounter.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "eerola-2013"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "driving-motion",
+        "held-anticipation"
+      ]
+    },
+    {
+      "id": "revelation",
+      "dimension": "dramatic",
+      "definition": "New information changes a character or narrator understanding.",
+      "aliases": [
+        "realised",
+        "discovered",
+        "understood"
+      ],
+      "examples": {
+        "positive": "Only then did she understand who had sent the letter.",
+        "counter": "She repeated what everyone already knew."
+      },
+      "cues": {
+        "lexical": [
+          "realised",
+          "discovered",
+          "understood"
+        ],
+        "context": "Distinguish revelation from a neutral visual description.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "lee-2025",
+        "niederhoff-perspective"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "spacious-discovery",
+        "coloured-discovery"
+      ]
+    },
+    {
+      "id": "conversation",
+      "dimension": "dramatic",
+      "definition": "An exchange, explanation or verbal negotiation occupies the scene.",
+      "aliases": [
+        "said",
+        "asked",
+        "replied"
+      ],
+      "examples": {
+        "positive": "He asked; she answered quietly.",
+        "counter": "No one said a word as they ran."
+      },
+      "cues": {
+        "lexical": [
+          "said",
+          "asked",
+          "replied"
+        ],
+        "context": "A speech verb may frame recalled action; dialogue may also contain threat or humour.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "houston-theatre"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "dialogue-space",
+        "quiet-intrigue"
+      ]
+    },
+    {
+      "id": "reflection",
+      "dimension": "dramatic",
+      "definition": "A pause in outward action develops thought, memory or evaluation.",
+      "aliases": [
+        "considered",
+        "pondered",
+        "remembered"
+      ],
+      "examples": {
+        "positive": "She considered what the promise meant.",
+        "counter": "She sprinted without time to think."
+      },
+      "cues": {
+        "lexical": [
+          "considered",
+          "pondered",
+          "remembered"
+        ],
+        "context": "Reflection is a function, not a synonym for sadness or low stakes.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "niederhoff-perspective"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "reflective-flow",
+        "dialogue-space"
+      ]
+    },
+    {
+      "id": "aftermath",
+      "dimension": "dramatic",
+      "definition": "The consequences after an event become the main focus.",
+      "aliases": [
+        "afterwards",
+        "settled",
+        "remained"
+      ],
+      "examples": {
+        "positive": "After the struggle they counted the missing.",
+        "counter": "The struggle was about to begin."
+      },
+      "cues": {
+        "lexical": [
+          "afterwards",
+          "settled",
+          "remained"
+        ],
+        "context": "A temporal link must establish the preceding event; dust alone may be scenery.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "speer-2007"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "warm-repose",
+        "restrained-elegy"
+      ]
+    },
+    {
+      "id": "intrigue",
+      "dimension": "dramatic",
+      "definition": "Concealment, planning or manoeuvring with incomplete information.",
+      "aliases": [
+        "concealed",
+        "secret",
+        "deceived"
+      ],
+      "examples": {
+        "positive": "He hid the key and gave a deliberately false name.",
+        "counter": "He plainly introduced himself."
+      },
+      "cues": {
+        "lexical": [
+          "concealed",
+          "secret",
+          "deceived"
+        ],
+        "context": "Do not equate every unknown detail with deception.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "lee-2025"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "quiet-intrigue",
+        "held-anticipation"
+      ]
+    },
+    {
+      "id": "high-activation",
+      "dimension": "activation",
+      "definition": "Rapid or effortful activity is established in this passage.",
+      "aliases": [
+        "raced",
+        "scrambled",
+        "hurried"
+      ],
+      "examples": {
+        "positive": "They scrambled across the falling bridge.",
+        "counter": "The word run appeared on the old sign."
+      },
+      "cues": {
+        "lexical": [
+          "raced",
+          "scrambled",
+          "hurried"
+        ],
+        "context": "Activation and emotional valence are independent; humour and danger can both be active.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "eerola-2013"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "driving-motion",
+        "light-motion"
+      ]
+    },
+    {
+      "id": "low-activation",
+      "dimension": "activation",
+      "definition": "Movement or outward activity is sparse or sustained.",
+      "aliases": [
+        "still",
+        "rested",
+        "quietly"
+      ],
+      "examples": {
+        "positive": "They sat beside the fire and watched.",
+        "counter": "They sat on horses galloping downhill."
+      },
+      "cues": {
+        "lexical": [
+          "still",
+          "rested",
+          "quietly"
+        ],
+        "context": "Low outward movement does not establish safety or pleasantness.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "eerola-2013"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "reflective-flow",
+        "held-anticipation"
+      ]
+    },
+    {
+      "id": "threat",
+      "dimension": "tone",
+      "definition": "A character or narrator perceives potential harm or coercion.",
+      "aliases": [
+        "danger",
+        "threatened",
+        "terrified"
+      ],
+      "examples": {
+        "positive": "She heard the pursuer unlocking the door.",
+        "counter": "There was no danger in the empty room."
+      },
+      "cues": {
+        "lexical": [
+          "danger",
+          "threatened",
+          "terrified"
+        ],
+        "context": "Record whose threat assessment this is; do not treat a negated danger as present.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "eerola-2013",
+        "niederhoff-perspective"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "held-anticipation",
+        "driving-motion"
+      ]
+    },
+    {
+      "id": "wonder",
+      "dimension": "tone",
+      "definition": "Awe or astonishment colours a perception or discovery.",
+      "aliases": [
+        "astonished",
+        "marvellous",
+        "awe"
+      ],
+      "examples": {
+        "positive": "The impossible city left her astonished.",
+        "counter": "I wonder whether the kettle is ready."
+      },
+      "cues": {
+        "lexical": [
+          "astonished",
+          "marvellous",
+          "awe"
+        ],
+        "context": "Question-form wonder is not necessarily awe; source conventions can be ironic.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "lee-2025"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "spacious-discovery",
+        "coloured-discovery"
+      ]
+    },
+    {
+      "id": "grief",
+      "dimension": "tone",
+      "definition": "Loss or mourning is represented for a specified experiencer.",
+      "aliases": [
+        "mourned",
+        "grief",
+        "wept"
+      ],
+      "examples": {
+        "positive": "He mourned the friend who would not return.",
+        "counter": "There was no sorrow in her voice."
+      },
+      "cues": {
+        "lexical": [
+          "mourned",
+          "grief",
+          "wept"
+        ],
+        "context": "Tears may also indicate joy; a funeral setting alone does not establish every viewpoint.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "zentner-2008",
+        "niederhoff-perspective"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "restrained-elegy",
+        "reflective-flow"
+      ]
+    },
+    {
+      "id": "humour",
+      "dimension": "tone",
+      "definition": "A comic, playful or incongruous framing is supported by context.",
+      "aliases": [
+        "joked",
+        "absurd",
+        "ridiculous"
+      ],
+      "examples": {
+        "positive": "A safe landed on the indestructible officer, who complained about the inconvenience.",
+        "counter": "A silent account of a fatal injury."
+      },
+      "cues": {
+        "lexical": [
+          "joked",
+          "absurd",
+          "ridiculous"
+        ],
+        "context": "Irony and deadpan understatement need context, not a fixed adjective or assumed low stakes.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "lee-2025"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "light-motion",
+        "quiet-intrigue"
+      ]
+    },
+    {
+      "id": "tenderness",
+      "dimension": "tone",
+      "definition": "Care, affection or interpersonal gentleness is foregrounded.",
+      "aliases": [
+        "gently",
+        "embraced",
+        "comforted"
+      ],
+      "examples": {
+        "positive": "She covered his sleeping shoulders with the blanket.",
+        "counter": "He covered the tracks to hide the robbery."
+      },
+      "cues": {
+        "lexical": [
+          "gently",
+          "embraced",
+          "comforted"
+        ],
+        "context": "Identify the relationship and action; soft movement alone is insufficient.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "zentner-2008",
+        "houston-theatre"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "warm-repose",
+        "dialogue-space"
+      ]
+    },
+    {
+      "id": "release",
+      "dimension": "tone",
+      "definition": "A previously established strain eases for an experiencer.",
+      "aliases": [
+        "relieved",
+        "safe at last",
+        "eased"
+      ],
+      "examples": {
+        "positive": "At last the alarm stopped and they breathed freely.",
+        "counter": "The quiet before the ambush."
+      },
+      "cues": {
+        "lexical": [
+          "relieved",
+          "safe at last",
+          "eased"
+        ],
+        "context": "Require prior tension; silence may instead increase anticipation.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "eerola-2013"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "warm-repose",
+        "reflective-flow"
+      ]
+    },
+    {
+      "id": "ironic-framing",
+      "dimension": "viewpoint",
+      "definition": "Presentation invites a gap between literal wording and an evaluated event.",
+      "aliases": [
+        "apparently",
+        "of course",
+        "excellent"
+      ],
+      "examples": {
+        "positive": "An excellent landing, he said from the wreckage.",
+        "counter": "He sincerely praised a smooth landing."
+      },
+      "cues": {
+        "lexical": [
+          "apparently",
+          "of course",
+          "excellent"
+        ],
+        "context": "Signals are illustrative only; positive words during harm do not prove irony.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "lee-2025",
+        "niederhoff-perspective"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "light-motion",
+        "quiet-intrigue"
+      ]
+    },
+    {
+      "id": "character-interior",
+      "dimension": "viewpoint",
+      "definition": "A perception or feeling is situated in a particular character.",
+      "aliases": [
+        "to her",
+        "he feared",
+        "she felt"
+      ],
+      "examples": {
+        "positive": "To her the familiar corridor seemed threatening.",
+        "counter": "The corridor was forty feet long."
+      },
+      "cues": {
+        "lexical": [
+          "to her",
+          "he feared",
+          "she felt"
+        ],
+        "context": "Store the experiencer separately; do not transfer one character feeling to every speaker.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "niederhoff-perspective"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "held-anticipation",
+        "reflective-flow"
+      ]
+    },
+    {
+      "id": "recalled-action",
+      "dimension": "time",
+      "definition": "An event is represented as remembered or recounted rather than current.",
+      "aliases": [
+        "remembered",
+        "years ago",
+        "had once"
+      ],
+      "examples": {
+        "positive": "Yesterday, he remembered, the guards had chased him.",
+        "counter": "The guards were chasing him now."
+      },
+      "cues": {
+        "lexical": [
+          "remembered",
+          "years ago",
+          "had once"
+        ],
+        "context": "Quoted narration can contain a complete remembered scene; annotation should mark the performance scope.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "niederhoff-perspective"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": []
+    },
+    {
+      "id": "hypothetical-action",
+      "dimension": "time",
+      "definition": "An event is conditional, planned, wished or counterfactual.",
+      "aliases": [
+        "if",
+        "would",
+        "might"
+      ],
+      "examples": {
+        "positive": "If they followed, he would flee.",
+        "counter": "They followed and he fled."
+      },
+      "cues": {
+        "lexical": [
+          "if",
+          "would",
+          "might"
+        ],
+        "context": "Conditional scope may cover only one clause; do not suppress actual action elsewhere.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "niederhoff-perspective"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": []
+    },
+    {
+      "id": "current-action",
+      "dimension": "time",
+      "definition": "The represented event is situated in the active story scene.",
+      "aliases": [
+        "now",
+        "at that moment"
+      ],
+      "examples": {
+        "positive": "Now she crossed the bridge.",
+        "counter": "She described crossing it years earlier."
+      },
+      "cues": {
+        "lexical": [
+          "now",
+          "at that moment"
+        ],
+        "context": "Past grammatical tense can still narrate the active scene; tense alone is not actuality.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "niederhoff-perspective"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": []
+    },
+    {
+      "id": "cold-exposure",
+      "dimension": "environment",
+      "definition": "Physical cold or exposure is established in the setting.",
+      "aliases": [
+        "snow",
+        "frost",
+        "shivering"
+      ],
+      "examples": {
+        "positive": "Snow stung their faces and their hands shook.",
+        "counter": "His cold reply ended the conversation."
+      },
+      "cues": {
+        "lexical": [
+          "snow",
+          "frost",
+          "shivering"
+        ],
+        "context": "Distinguish metaphor, season name and actual exposure.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "classical-reviewed"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "dry-cold",
+        "held-anticipation"
+      ]
+    },
+    {
+      "id": "shelter",
+      "dimension": "environment",
+      "definition": "Protection or a sheltered interior is materially present.",
+      "aliases": [
+        "fireside",
+        "sheltered",
+        "fireplace"
+      ],
+      "examples": {
+        "positive": "Inside the cabin the fire warmed their hands.",
+        "counter": "They searched for shelter in the storm."
+      },
+      "cues": {
+        "lexical": [
+          "fireside",
+          "sheltered",
+          "fireplace"
+        ],
+        "context": "Seeking protection is not attaining it; comfort and threat can coexist indoors.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "classical-reviewed"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "warm-repose",
+        "dialogue-space"
+      ]
+    },
+    {
+      "id": "open-landscape",
+      "dimension": "environment",
+      "definition": "An expansive natural setting is described.",
+      "aliases": [
+        "meadow",
+        "horizon",
+        "birdsong"
+      ],
+      "examples": {
+        "positive": "The meadow opened toward distant hills.",
+        "counter": "Meadow was the name on his office door."
+      },
+      "cues": {
+        "lexical": [
+          "meadow",
+          "horizon",
+          "birdsong"
+        ],
+        "context": "Scenery can accompany violence or grief; do not overwrite tone.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "classical-reviewed"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "open-landscape",
+        "reflective-flow"
+      ]
+    },
+    {
+      "id": "severe-weather",
+      "dimension": "environment",
+      "definition": "A storm or intense weather is actually affecting the scene.",
+      "aliases": [
+        "thunder",
+        "lightning",
+        "blizzard"
+      ],
+      "examples": {
+        "positive": "Thunder shook the windows as the rain drove in.",
+        "counter": "A storm of applause greeted them."
+      },
+      "cues": {
+        "lexical": [
+          "thunder",
+          "lightning",
+          "blizzard"
+        ],
+        "context": "Separate literal weather from idiom and reports about another place/time.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "classical-reviewed"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": [
+        "driving-motion",
+        "held-anticipation"
+      ]
+    },
+    {
+      "id": "chapter-boundary",
+      "dimension": "structure",
+      "definition": "A chapter boundary supplied by document structure.",
+      "aliases": [
+        "document chapter identifier"
+      ],
+      "examples": {
+        "positive": "A new chapter begins in the parsed book.",
+        "counter": "The word chapter occurs in a speech."
+      },
+      "cues": {
+        "lexical": [
+          "document chapter identifier"
+        ],
+        "context": "Use trusted book metadata, not word matching; musical commitment waits for a phrase boundary.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "speer-2007"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": []
+    },
+    {
+      "id": "situation-change",
+      "dimension": "structure",
+      "definition": "Time, place, goal or participating agents change materially.",
+      "aliases": [
+        "hours later",
+        "elsewhere",
+        "new goal"
+      ],
+      "examples": {
+        "positive": "Hours later, in another town, she began a different search.",
+        "counter": "The next paragraph continues the same conversation."
+      },
+      "cues": {
+        "lexical": [
+          "hours later",
+          "elsewhere",
+          "new goal"
+        ],
+        "context": "A candidate event boundary is not permission for an abrupt within-chapter score reset.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "speer-2007"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": []
+    },
+    {
+      "id": "continuation",
+      "dimension": "structure",
+      "definition": "The established situation and musical identity can continue.",
+      "aliases": [
+        "continued",
+        "still"
+      ],
+      "examples": {
+        "positive": "The conversation continued with the same people.",
+        "counter": "A new chapter changes the location and goal."
+      },
+      "cues": {
+        "lexical": [
+          "continued",
+          "still"
+        ],
+        "context": "Lack of evidence should retain music by default, not assert that nothing changed.",
+        "negation": "Check clause scope, experiencer and event actuality; a keyword alone is insufficient."
+      },
+      "uncertainty": "Use uncertain or abstain when text/context does not establish this label; do not force a winner.",
+      "sourceIds": [
+        "speer-2007"
+      ],
+      "evidenceStatus": "awen-proposal",
+      "optionIds": []
+    }
+  ],
+  "reconciliation": {
+    "runtimeScenes": {
+      "caper": [
+        "intrigue"
+      ],
+      "dialogue": [
+        "conversation"
+      ],
+      "chase": [
+        "pursuit"
+      ],
+      "suspense": [
+        "anticipation"
+      ],
+      "discovery": [
+        "revelation"
+      ],
+      "reflective": [
+        "reflection"
+      ]
+    },
+    "sceneFunctions": {
+      "conversation": [
+        "conversation"
+      ],
+      "intrigue": [
+        "intrigue"
+      ],
+      "anticipation": [
+        "anticipation"
+      ],
+      "pursuit": [
+        "pursuit"
+      ],
+      "revelation": [
+        "revelation"
+      ],
+      "reflection": [
+        "reflection"
+      ],
+      "aftermath": [
+        "aftermath"
+      ],
+      "tenderness": [
+        "tenderness"
+      ]
+    },
+    "classicalCues": {
+      "storm": [
+        "severe-weather",
+        "confrontation"
+      ],
+      "pursuit": [
+        "pursuit"
+      ],
+      "cold": [
+        "cold-exposure"
+      ],
+      "shelter": [
+        "shelter"
+      ],
+      "grief": [
+        "grief"
+      ],
+      "nature": [
+        "open-landscape"
+      ],
+      "dialogue": [
+        "conversation"
+      ],
+      "wonder": [
+        "wonder"
+      ],
+      "neutral": []
+    }
+  },
+  "constraints": {
+    "tempoBpm": 72,
+    "tempoChangeSupported": false,
+    "structuralChanges": "chapter-boundary-at-next-32-step-phrase",
+    "expressionChanges": "smoothed",
+    "paletteSelection": "preserve-user-choice",
+    "repetition": "diagnostic-not-universal-penalty",
+    "qualityReward": "none"
+  },
+  "futureFeatures": [
+    {
+      "id": "tension-trajectory",
+      "status": "proposed",
+      "note": "No validated tension-to-scene model; do not maximise consonance."
+    },
+    {
+      "id": "rhetorical-silence",
+      "status": "proposed",
+      "note": "Requires explicit rest/spotting control and listener calibration, not just lower gain."
+    }
+  ]
+}

@@ -228,11 +228,13 @@ The [27 October calibration roadmap](research/clap-probe.md#calibration-roadmap-
 - [x] Implement and replay a [score-only advisory critic](research/symbolic-critic.md)
   over 18 verified score traces. It supplements acoustic evaluation and is not
   a validated music/comfort reward or an automatic preference update.
-- [ ] `awen-xfp.7`: build the [literature-backed text-to-music dictionary](research/narrative-dictionary-plan.md),
-  reconciling current scene IDs with dramatic function, pace, tone, viewpoint,
-  irony, environment and structural boundaries. Include definitions,
-  counterexamples, uncertainty and source-scoped alternative musical mappings;
-  test on independent held-out book/chapter annotations before runtime changes.
+- [x] `awen-xfp.7`: implement the development [text-to-music dictionary](research/narrative-dictionary.md),
+  reconciling current vocabularies with 28 labels in seven dimensions and 12
+  source-scoped musical alternatives. Supplied-annotation mapping and 15 authored
+  controls pass; this is not a text-classifier or listener result.
+- [ ] Existing `awen-xfp.1`, `.2`, `.3`, `.5`: independently annotate grouped
+  book/chapter fixtures, evaluate detection/context and integrate an inspector
+  with evidence, uncertainty and explicit user choice before runtime adoption.
 
 The [staged implementation roadmap](research/multiobjective-roadmap.md) tracks
 M0/M1 prototype plumbing and real-encoder integration, then M2 pretrained audio

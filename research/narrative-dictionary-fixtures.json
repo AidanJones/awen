@@ -1,0 +1,551 @@
+{
+  "version": 1,
+  "status": "engineering-controls-only",
+  "independentlyAnnotated": false,
+  "classifierAccuracyMeasured": false,
+  "records": [
+    {
+      "id": "comic-impact",
+      "text": "The safe flattened the indestructible officer. He complained that it had spoiled his hat.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "confrontation",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 4,
+            "end": 18,
+            "quote": "safe flattened"
+          }
+        },
+        {
+          "id": "humour",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 73,
+            "end": 88,
+            "quote": "spoiled his hat"
+          }
+        },
+        {
+          "id": "high-activation",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 4,
+            "end": 18,
+            "quote": "safe flattened"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [
+          "driving-motion",
+          "held-anticipation",
+          "light-motion",
+          "quiet-intrigue"
+        ],
+        "ignoredLabelIds": []
+      }
+    },
+    {
+      "id": "recalled-pursuit",
+      "text": "Years ago, he remembered, the guards had chased him.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "pursuit",
+          "state": "supported",
+          "eventScope": "recalled",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 30,
+            "end": 51,
+            "quote": "guards had chased him"
+          }
+        },
+        {
+          "id": "recalled-action",
+          "state": "supported",
+          "eventScope": "recalled",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 0,
+            "end": 9,
+            "quote": "Years ago"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [],
+        "ignoredLabelIds": [
+          "pursuit"
+        ]
+      }
+    },
+    {
+      "id": "conditional-escape",
+      "text": "If the guards followed, he would flee.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "pursuit",
+          "state": "supported",
+          "eventScope": "hypothetical",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 27,
+            "end": 37,
+            "quote": "would flee"
+          }
+        },
+        {
+          "id": "hypothetical-action",
+          "state": "supported",
+          "eventScope": "hypothetical",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 0,
+            "end": 22,
+            "quote": "If the guards followed"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [],
+        "ignoredLabelIds": [
+          "pursuit"
+        ]
+      }
+    },
+    {
+      "id": "negated-threat",
+      "text": "There was no danger in the empty room.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "threat",
+          "state": "rejected",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 10,
+            "end": 19,
+            "quote": "no danger"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [],
+        "ignoredLabelIds": [
+          "threat"
+        ]
+      }
+    },
+    {
+      "id": "dialogue-about-memory",
+      "text": "She asked how he had escaped years ago.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "conversation",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 0,
+            "end": 9,
+            "quote": "She asked"
+          }
+        },
+        {
+          "id": "pursuit",
+          "state": "supported",
+          "eventScope": "recalled",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 21,
+            "end": 38,
+            "quote": "escaped years ago"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [
+          "dialogue-space",
+          "quiet-intrigue"
+        ],
+        "ignoredLabelIds": [
+          "pursuit"
+        ]
+      }
+    },
+    {
+      "id": "waiting-with-threat",
+      "text": "They waited silently as someone tried the lock.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "anticipation",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 5,
+            "end": 20,
+            "quote": "waited silently"
+          }
+        },
+        {
+          "id": "threat",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 32,
+            "end": 46,
+            "quote": "tried the lock"
+          }
+        },
+        {
+          "id": "low-activation",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 5,
+            "end": 20,
+            "quote": "waited silently"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [
+          "driving-motion",
+          "held-anticipation",
+          "quiet-intrigue",
+          "reflective-flow"
+        ],
+        "ignoredLabelIds": []
+      }
+    },
+    {
+      "id": "winter-shelter",
+      "text": "It was winter, but the cabin fire warmed their hands.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "cold-exposure",
+          "state": "rejected",
+          "eventScope": "current",
+          "holder": "setting",
+          "evidence": {
+            "source": "text",
+            "start": 0,
+            "end": 13,
+            "quote": "It was winter"
+          }
+        },
+        {
+          "id": "shelter",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "setting",
+          "evidence": {
+            "source": "text",
+            "start": 23,
+            "end": 52,
+            "quote": "cabin fire warmed their hands"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [
+          "dialogue-space",
+          "warm-repose"
+        ],
+        "ignoredLabelIds": [
+          "cold-exposure"
+        ]
+      }
+    },
+    {
+      "id": "reflection-without-grief",
+      "text": "She considered the discovery with interest, not sorrow.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "reflection",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 4,
+            "end": 28,
+            "quote": "considered the discovery"
+          }
+        },
+        {
+          "id": "grief",
+          "state": "rejected",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 44,
+            "end": 54,
+            "quote": "not sorrow"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [
+          "dialogue-space",
+          "reflective-flow"
+        ],
+        "ignoredLabelIds": [
+          "grief"
+        ]
+      }
+    },
+    {
+      "id": "ambiguous-irony",
+      "text": "Excellent, she said, looking at the result.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "ironic-framing",
+          "state": "uncertain",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 0,
+            "end": 9,
+            "quote": "Excellent"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [],
+        "ignoredLabelIds": [
+          "ironic-framing"
+        ]
+      }
+    },
+    {
+      "id": "grief-in-landscape",
+      "text": "He mourned his friend as the meadow opened toward the hills.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "grief",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 3,
+            "end": 21,
+            "quote": "mourned his friend"
+          }
+        },
+        {
+          "id": "open-landscape",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "setting",
+          "evidence": {
+            "source": "text",
+            "start": 29,
+            "end": 59,
+            "quote": "meadow opened toward the hills"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [
+          "open-landscape",
+          "reflective-flow",
+          "restrained-elegy"
+        ],
+        "ignoredLabelIds": []
+      }
+    },
+    {
+      "id": "parsed-chapter-boundary",
+      "text": "Hours later, she entered a different town.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "chapter-boundary",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "structure",
+          "evidence": {
+            "source": "metadata"
+          }
+        },
+        {
+          "id": "situation-change",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 0,
+            "end": 11,
+            "quote": "Hours later"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [],
+        "ignoredLabelIds": []
+      },
+      "metadata": {
+        "chapterBoundary": true
+      }
+    },
+    {
+      "id": "chapter-word-is-not-boundary",
+      "text": "He said the chapter was too long.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "chapter-boundary",
+          "state": "rejected",
+          "eventScope": "current",
+          "holder": "structure",
+          "evidence": {
+            "source": "text",
+            "start": 12,
+            "end": 19,
+            "quote": "chapter"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [],
+        "ignoredLabelIds": [
+          "chapter-boundary"
+        ]
+      }
+    },
+    {
+      "id": "metaphorical-cold",
+      "text": "Her cold reply ended the discussion.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "cold-exposure",
+          "state": "rejected",
+          "eventScope": "current",
+          "holder": "setting",
+          "evidence": {
+            "source": "text",
+            "start": 4,
+            "end": 14,
+            "quote": "cold reply"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [],
+        "ignoredLabelIds": [
+          "cold-exposure"
+        ]
+      }
+    },
+    {
+      "id": "uncertain-event-scope",
+      "text": "Danger, he said, was all around.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "threat",
+          "state": "supported",
+          "eventScope": "unknown",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 0,
+            "end": 6,
+            "quote": "Danger"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [],
+        "ignoredLabelIds": [
+          "threat"
+        ]
+      }
+    },
+    {
+      "id": "explicit-personal-choice",
+      "text": "They quietly discussed the letter.",
+      "provenance": "developer-authored-engineering-control-not-independent-annotation",
+      "annotations": [
+        {
+          "id": "conversation",
+          "state": "supported",
+          "eventScope": "current",
+          "holder": "narrator",
+          "evidence": {
+            "source": "text",
+            "start": 13,
+            "end": 33,
+            "quote": "discussed the letter"
+          }
+        }
+      ],
+      "expected": {
+        "optionIds": [
+          "dialogue-space",
+          "quiet-intrigue"
+        ],
+        "ignoredLabelIds": []
+      },
+      "explicitChoice": "restrained-elegy"
+    }
+  ],
+  "holdoutPlan": {
+    "status": "proposed-not-annotated",
+    "grouping": "whole-work-then-chapter",
+    "developmentBooks": [
+      "rat",
+      "riders"
+    ],
+    "annotationHoldoutBooks": [
+      "time",
+      "war"
+    ],
+    "precautions": [
+      "Freeze book revision, chapter IDs, preceding-context policy and annotations before evaluating a classifier.",
+      "Use independent annotators, retain disagreements, uncertain labels and evidence spans.",
+      "No classifier predictions or musical preferences shown to annotators.",
+      "These works have appeared in other Awen research: this proposed annotation split is not an untouched end-to-end research holdout.",
+      "A subsequent final benchmark needs newly reserved works or independently collected passages; no labels are invented here."
+    ]
+  }
+}

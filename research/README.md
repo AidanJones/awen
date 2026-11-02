@@ -1,7 +1,7 @@
 # Research and implementation map
 
-Documentation audited 1 November 2026. The latest classical implementation and
-engineering measurements were completed on 31 October. This index separates
+Documentation updated 2 November 2026. Classical audio work dates from 31 October;
+critic and dictionary engineering runs extend through 2 November. This index separates
 what runs in the reader from design evidence, development experiments and
 uncompleted listener studies.
 
@@ -27,7 +27,7 @@ chapter epochs and bed-harmony targets, with explicit coverage limits.
 | Multi-objective ML feedback | [Roadmap and prototype](multiobjective-roadmap.md), [reward research](multiobjective-reward.md) | Native-audio/CLAP plus fitted synthetic-label test-head prototype; pretrained enjoyment/comfort replacement and scientific calibration remain open |
 | Released pretrained critics | [Model inventory](pretrained-evaluators.md) | Primary sources and pinned public metadata; new quality-model inference has not run |
 | Score-only musical criticism | [Symbolic critic](symbolic-critic.md) | [Proof](symbolic-critic-proof.json), 18 verified note traces, no waveform analysis; style-dependent advisory rules |
-| Narrative-to-music dictionary | [Backlog specification](narrative-dictionary-plan.md) | `awen-xfp.7`: future literature-backed multi-label definitions, musical mappings and held-out fixtures |
+| Narrative-to-music dictionary | [Dictionary guide](narrative-dictionary.md), [original scope](narrative-dictionary-plan.md) | [Versioned labels/mappings](narrative-dictionary.json), [proof](narrative-dictionary-proof.json); 15 authored controls, no classifier or independent annotation claim |
 | Real preference calibration | [Listening protocol](listening-calibration.md) | Prepared interface; no real listener ratings in the engineering proofs |
 | Academic account | [Paper source](paper/main.tex), [paper guide](paper/README.md) | Compiled editor preview; measured results distinguished from proposed experiments |
 

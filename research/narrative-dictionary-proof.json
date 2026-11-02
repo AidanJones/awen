@@ -1,0 +1,198 @@
+{
+  "auditedReplayNoWaveformOpens": true,
+  "classifierExecuted": false,
+  "completedReplayNewAttempts": 0,
+  "completedReplayPreservedReport": true,
+  "controls": 15,
+  "dimensions": 7,
+  "expectedMappingChecksPassed": 15,
+  "experiment": ".score-lab/narrative-dictionary/20261102T000757.071268Z-3fdcef1658014100a7db291bccec1b85",
+  "humanListeningRatings": 0,
+  "independentlyAnnotated": false,
+  "labels": 28,
+  "manifestSha256": "6826ae8511776c44aed2935476724faf3d12572b405ceb7138661baa7f57664d",
+  "musicalOptions": 12,
+  "promotionAllowed": false,
+  "reportSha256": "92d9a69e688a4a41cabc554a1b474939b9f8031ec44ea55fc27a12e719b4ac2d",
+  "rows": [
+    {
+      "explicitChoice": null,
+      "id": "comic-impact",
+      "ignoredLabels": [],
+      "optionIds": [
+        "driving-motion",
+        "held-anticipation",
+        "light-motion",
+        "quiet-intrigue"
+      ]
+    },
+    {
+      "explicitChoice": null,
+      "id": "recalled-pursuit",
+      "ignoredLabels": [
+        {
+          "id": "pursuit",
+          "reason": "non-current-or-unknown-event-scope"
+        }
+      ],
+      "optionIds": []
+    },
+    {
+      "explicitChoice": null,
+      "id": "conditional-escape",
+      "ignoredLabels": [
+        {
+          "id": "pursuit",
+          "reason": "non-current-or-unknown-event-scope"
+        }
+      ],
+      "optionIds": []
+    },
+    {
+      "explicitChoice": null,
+      "id": "negated-threat",
+      "ignoredLabels": [
+        {
+          "id": "threat",
+          "reason": "rejected"
+        }
+      ],
+      "optionIds": []
+    },
+    {
+      "explicitChoice": null,
+      "id": "dialogue-about-memory",
+      "ignoredLabels": [
+        {
+          "id": "pursuit",
+          "reason": "non-current-or-unknown-event-scope"
+        }
+      ],
+      "optionIds": [
+        "dialogue-space",
+        "quiet-intrigue"
+      ]
+    },
+    {
+      "explicitChoice": null,
+      "id": "waiting-with-threat",
+      "ignoredLabels": [],
+      "optionIds": [
+        "driving-motion",
+        "held-anticipation",
+        "quiet-intrigue",
+        "reflective-flow"
+      ]
+    },
+    {
+      "explicitChoice": null,
+      "id": "winter-shelter",
+      "ignoredLabels": [
+        {
+          "id": "cold-exposure",
+          "reason": "rejected"
+        }
+      ],
+      "optionIds": [
+        "dialogue-space",
+        "warm-repose"
+      ]
+    },
+    {
+      "explicitChoice": null,
+      "id": "reflection-without-grief",
+      "ignoredLabels": [
+        {
+          "id": "grief",
+          "reason": "rejected"
+        }
+      ],
+      "optionIds": [
+        "dialogue-space",
+        "reflective-flow"
+      ]
+    },
+    {
+      "explicitChoice": null,
+      "id": "ambiguous-irony",
+      "ignoredLabels": [
+        {
+          "id": "ironic-framing",
+          "reason": "uncertain"
+        }
+      ],
+      "optionIds": []
+    },
+    {
+      "explicitChoice": null,
+      "id": "grief-in-landscape",
+      "ignoredLabels": [],
+      "optionIds": [
+        "open-landscape",
+        "reflective-flow",
+        "restrained-elegy"
+      ]
+    },
+    {
+      "explicitChoice": null,
+      "id": "parsed-chapter-boundary",
+      "ignoredLabels": [],
+      "optionIds": []
+    },
+    {
+      "explicitChoice": null,
+      "id": "chapter-word-is-not-boundary",
+      "ignoredLabels": [
+        {
+          "id": "chapter-boundary",
+          "reason": "rejected"
+        }
+      ],
+      "optionIds": []
+    },
+    {
+      "explicitChoice": null,
+      "id": "metaphorical-cold",
+      "ignoredLabels": [
+        {
+          "id": "cold-exposure",
+          "reason": "rejected"
+        }
+      ],
+      "optionIds": []
+    },
+    {
+      "explicitChoice": null,
+      "id": "uncertain-event-scope",
+      "ignoredLabels": [
+        {
+          "id": "threat",
+          "reason": "non-current-or-unknown-event-scope"
+        }
+      ],
+      "optionIds": []
+    },
+    {
+      "explicitChoice": "restrained-elegy",
+      "id": "explicit-personal-choice",
+      "ignoredLabels": [],
+      "optionIds": [
+        "dialogue-space",
+        "quiet-intrigue"
+      ]
+    }
+  ],
+  "runtimeIntegrated": false,
+  "sourceRecords": 7,
+  "sources": {
+    "index.html": "b8ea629ed1c304e0061a74bc171fa357d224a488591ff7f566c1c29d7feb73e6",
+    "research/classical-knowledge.json": "a8b0bcbca07a7af58d7af1171cd76f1bbbf603450b6b84f5a829bab133cfabf1",
+    "research/narrative-dictionary-fixtures.json": "1e4e0d0f8ad8a1283ab584d45c5338ba4ce9f9f9d389c5f3247cd6cdfc77566a",
+    "research/narrative-dictionary.json": "e893bcd4e16212d44a946dfd2bba0cfb1856cc010e9721972a6b8353c21799db",
+    "research/scoring-knowledge.json": "fd337bea976717bdada70ff3feff429db1e493e1147090154ae44c59373b8589",
+    "tools/narrative_dictionary.py": "0bba455c1937b3d5a315bba323a222da084a993ed84dfcb379f525ec27ab3ef7",
+    "tools/score-lab.cjs": "301a3633dc2521add70ab1a169a64064e98ae8a09cd5b30cfba2742a2c6f0c53",
+    "tools/score_lab.py": "c83453aab83c02a34d7bffdab02e48e991b207ecec51f8e07917e60fc0531926"
+  },
+  "version": "awen-narrative-mapping-1"
+}

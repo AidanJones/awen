@@ -1,13 +1,14 @@
 # Evaluator experiments and next gates
 
-Documentation updated 1 November 2026; the latest engineering runs completed on
-1 November. Earlier encoder comparisons retain their original dated snapshots.
+Documentation updated 2 November 2026; the latest engineering runs completed on
+2 November. Earlier encoder comparisons retain their original dated snapshots.
 This ledger distinguishes executed evidence, engineering preparation
 and proposed studies. No real human study labels are reported by the linked
 engineering and model-comparison proofs.
 
 | Stage | Status | Evidence / decision |
 | --- | --- | --- |
+| Narrative dictionary/mapping | Executed engineering controls | 28 labels in seven dimensions, 12 compiled-preset alternatives and 15 supplied-annotation controls. Journalled replay preserves reports without new attempts or waveform reads. [Guide](narrative-dictionary.md), [proof](narrative-dictionary-proof.json). No new text detector, independent labels or runtime integration. |
 | Authored-part/chapter-context export | Executed | Nine classical homes, 864 total planner steps, 27 context segments. Exact planner-event and mid-phrase continuation checks; nine journalled analyses replay without new attempts or waveform opens. [Guide](symbolic-score.md), [proof](symbolic-score-proof.json). Planned parts and bed targets are not rendered voices or perceptual evaluation. |
 | Score-only controlled contrasts | Executed | 14 authored notation fixtures; 17/17 expected relations pass. Completed replay preserves the report with no new attempts and an audit forbidding waveform opens. Recovery/tamper tests pass. [Proof](symbolic-contrasts-proof.json), [task sequence](critic-work-plan.md). These are rule-behaviour checks, not independent perceptual calibration. |
 | Checkpoint/backend sanity | Executed | Earlier music-only text tower failed the extreme-collapse guard; pinned general CLAP passed that guard, not semantic validation. `clap-probe-proof.json` and rejected-checkpoint record. |

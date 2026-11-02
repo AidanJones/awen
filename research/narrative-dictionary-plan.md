@@ -1,8 +1,11 @@
-# Narrative classification dictionary — backlog `awen-xfp.7`
+# Narrative classification dictionary — original scope `awen-xfp.7`
 
-Requested 1 November 2026. **Specification for future research/implementation,
-not a completed classification dictionary or a trained classifier.** Beads
-tracks it under the narrative-interpretation epic `awen-xfp`.
+Requested 1 November 2026. The original scope below now has a bounded
+[implemented dictionary and annotation mapper](narrative-dictionary.md), dated
+2 November: 28 labels and 12 musical alternatives. Independent annotation,
+classifier evaluation and reader integration remain open under the existing
+`awen-xfp.1`, `.2`, `.3` and `.5` tasks. This specification is not evidence that
+those remaining gates have been met.
 
 ## Reconcile what already exists
 
