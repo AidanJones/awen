@@ -4,6 +4,11 @@ Updated 27 October 2026.
 
 **Tracking:** Beads is authoritative for current status; run `bd ready` / `bd list`. This roadmap records the work and research strands, including the latest development-loop direction in section 8. Some older items combine shipped features with remaining evaluation; consult their Beads issue before starting work. See [.beads/README.md](.beads/README.md) for the workflow and epic index.
 
+3 November update: [blinded recurrence listening materials](research/recurrence-listening.md)
+provide longer controlled clips, four rating axes, backups and resumable preparation.
+Independent listening and any resulting variation-policy calibration remain open
+in `awen-3fr.6.2.3.7.2`; no reward or gate is promoted from engineering checks.
+
 This is the consolidated backlog, not a commitment to implement every research idea. The immediate direction is pleasant, continuous music that a listener can shape. **LLMs are welcome during development; the finished browser/device score must run without an LLM.** Python may support development-time ML, analysis and provider integration. Keep the runnable app self-contained in single-file HTML with inline JavaScript/CSS, no React/build step and minimal dependencies wherever practical.
 
 ## Already available

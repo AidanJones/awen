@@ -10,6 +10,9 @@ Active work is tracked in **Beads**: run `bd ready` for available tasks. See the
 
 See the [research and implementation map](research/README.md) for the classical
 features, source literature, evidence, reproduction commands and open studies.
+The development-only [recurrence listening pilot](research/recurrence-listening.md)
+prepares longer blinded comparisons and resumable ratings to investigate
+repetition, enjoyment and reading distraction.
 
 Download `index.html` and open it in a modern browser. Click **Start soundtrack** to enable audio. Everything needed for reading and synthesis is embedded; the external edition and licence links are optional.
 

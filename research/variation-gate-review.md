@@ -82,6 +82,10 @@ from current analysis code.
 
 ## Next acceptance gate
 
+The [recurrence listening pilot](recurrence-listening.md) now prepares longer
+native-audio controls, blinded pairs/repeats and separate rating axes. This
+supplies materials for the following gate, not completed listener evidence.
+
 Collect separate listener judgements for useful recurring material, unwanted
 repetition and reading distraction across styles and longer excerpts, including
 ties. Freeze comparisons and reserve seeds/styles before evaluating a new
