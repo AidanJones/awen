@@ -1,5 +1,12 @@
 # Academic working paper
 
+Version 0.11 (3 November 2026) adds the local automatic dictionary detector,
+authored 28-category/context regressions, runtime/native-renderer cue integration
+and a matched-book coverage audit. Output counts are not independent accuracy
+or listening-benefit results; manual interpretations remain separately recorded.
+The updated source is saved; the editor compiler did not return a result during
+this session, so PDF verification for v0.11 remains pending.
+
 Version 0.10 (2 November 2026) adds the actual manual reader integration of
 dictionary v0.2.0: separate rule/personal-choice provenance, scoped alternatives,
 auditions, compatible profiles and interpretation export. Browser/audio checks

@@ -235,6 +235,9 @@ The [27 October calibration roadmap](research/clap-probe.md#calibration-roadmap-
   controls pass; this is not a text-classifier or listener result.
 - [x] `awen-xfp.5`: expose [manual interpretations and source-linked auditions](research/narrative-reader-ui.md)
   in the inspector, separately from rule guesses and listening preferences.
+- [x] `awen-xfp.8`: implement [local automatic dictionary detection](research/automatic-detection.md)
+  with scoped evidence, ambiguity/negation handling and bounded runtime cue mapping;
+  independent classification and listener validation remain open.
 - [ ] Existing `awen-xfp.1`, `.2`, `.3`: independently annotate grouped
   book/chapter fixtures and evaluate detection/context before automatic adoption.
 

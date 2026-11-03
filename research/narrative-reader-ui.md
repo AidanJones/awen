@@ -1,5 +1,10 @@
 # Narrative research in the reader
 
+Update 3 November 2026: [dictionary v0.3.0 automatic detection](automatic-detection.md)
+now supplies multiple rule-estimated labels and scoped evidence to this panel.
+The v0.2.0 engineering proof below remains its historical implementation snapshot;
+the personal interpretation/audition contract continues alongside automatic cues.
+
 Implemented 2 November 2026, dictionary version 0.2.0. Open **Behind the
 soundtrack → Scene & musical direction** in the reader. The single HTML embeds
 the dictionary and all UI logic; no network fetch, build step or runtime model

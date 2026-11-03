@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "id": "awen-narrative-dictionary",
-  "version": "0.2.0",
-  "reviewDate": "2026-11-02",
+  "version": "0.3.0",
+  "reviewDate": "2026-11-03",
   "status": "development-dictionary",
   "runtimeIntegrated": true,
   "humanPreferenceValidated": false,
@@ -1479,5 +1479,213 @@
       "note": "Requires explicit rest/spotting control and listener calibration, not just lower gain."
     }
   ],
-  "runtimeScope": "manual-interpretation-and-audition-only"
+  "runtimeScope": "local-rule-detection-and-manual-auditions",
+  "detector": {
+    "version": "awen-narrative-rules-1",
+    "method": "local-rules",
+    "independentlyValidated": false,
+    "maxTextCharacters": 30000,
+    "additionalAliases": {
+      "pursuit": [
+        "ran",
+        "running",
+        "raced",
+        "racing",
+        "dodged",
+        "scrambled",
+        "leaped",
+        "jumped",
+        "escaping",
+        "escape panel",
+        "escaped",
+        "flee",
+        "fleeing"
+      ],
+      "confrontation": [
+        "gunfire",
+        "fired",
+        "shot",
+        "knocked",
+        "kick",
+        "kicked",
+        "squashed",
+        "exploded",
+        "explosion",
+        "black powder",
+        "fighting",
+        "crash",
+        "crashed",
+        "wrecked",
+        "flattened"
+      ],
+      "reflection": [
+        "thought",
+        "thinking",
+        "daydreams",
+        "motto"
+      ],
+      "intrigue": [
+        "racket",
+        "forgery",
+        "disguise",
+        "trick",
+        "theft",
+        "steal"
+      ],
+      "anticipation": [
+        "waiting",
+        "held their breath",
+        "listened for"
+      ],
+      "revelation": [
+        "realized",
+        "revealed",
+        "only then"
+      ],
+      "threat": [
+        "dangerous",
+        "armed",
+        "no escape",
+        "sirens"
+      ],
+      "low-activation": [
+        "relaxed",
+        "calm",
+        "peaceful"
+      ],
+      "grief": [
+        "mourning",
+        "sorrow"
+      ],
+      "cold-exposure": [
+        "icy",
+        "frozen"
+      ],
+      "shelter": [
+        "warmth",
+        "cabin fire"
+      ],
+      "severe-weather": [
+        "storm",
+        "rain drove"
+      ],
+      "situation-change": [
+        "meanwhile",
+        "later that day"
+      ]
+    },
+    "ambiguousAliases": {
+      "wonder": [
+        "wonder"
+      ],
+      "grief": [
+        "wept"
+      ],
+      "tenderness": [
+        "gently"
+      ],
+      "release": [
+        "eased"
+      ],
+      "ironic-framing": [
+        "apparently",
+        "of course",
+        "excellent"
+      ],
+      "shelter": [
+        "shelter"
+      ],
+      "low-activation": [
+        "still"
+      ]
+    },
+    "optionPriority": [
+      [
+        "humour",
+        "light-motion"
+      ],
+      [
+        "pursuit",
+        "driving-motion"
+      ],
+      [
+        "confrontation",
+        "driving-motion"
+      ],
+      [
+        "threat",
+        "held-anticipation"
+      ],
+      [
+        "anticipation",
+        "held-anticipation"
+      ],
+      [
+        "grief",
+        "restrained-elegy"
+      ],
+      [
+        "wonder",
+        "coloured-discovery"
+      ],
+      [
+        "revelation",
+        "spacious-discovery"
+      ],
+      [
+        "conversation",
+        "dialogue-space"
+      ],
+      [
+        "tenderness",
+        "warm-repose"
+      ],
+      [
+        "release",
+        "warm-repose"
+      ],
+      [
+        "cold-exposure",
+        "dry-cold"
+      ],
+      [
+        "shelter",
+        "warm-repose"
+      ],
+      [
+        "severe-weather",
+        "driving-motion"
+      ],
+      [
+        "open-landscape",
+        "open-landscape"
+      ],
+      [
+        "intrigue",
+        "quiet-intrigue"
+      ],
+      [
+        "reflection",
+        "reflective-flow"
+      ],
+      [
+        "aftermath",
+        "warm-repose"
+      ]
+    ],
+    "expressionModifiers": {
+      "active": {
+        "gate": 0.75,
+        "density": 1
+      },
+      "neutral": {
+        "gate": 1,
+        "density": 0.8
+      },
+      "calm": {
+        "gate": 1.05,
+        "density": 0.55
+      }
+    }
+  }
 }

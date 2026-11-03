@@ -5,9 +5,9 @@ vm.runInContext(html.match(/<script>\s*([\s\S]*?)<\/script>/)[1].split('const $=
 const a=vm.runInContext('({NARRATIVE_LIBRARY,narrativeOptions,narrativeGallery,normalNarrativeChoice,normalGenome,normalProfile,compileHarmonyRecipe,compileScoreDSL})',ctx);
 const plain=x=>JSON.parse(JSON.stringify(x)),knowledge=JSON.parse(fs.readFileSync('research/scoring-knowledge.json','utf8'));
 
-test('reader embeds exact current dictionary and does not claim an automatic classifier',()=>{
+test('reader embeds exact current dictionary with a local rule detector',()=>{
  assert.deepEqual(plain(a.NARRATIVE_LIBRARY),JSON.parse(fs.readFileSync('research/narrative-dictionary.json','utf8')));
- assert.equal(a.NARRATIVE_LIBRARY.runtimeScope,'manual-interpretation-and-audition-only');
+ assert.equal(a.NARRATIVE_LIBRARY.runtimeScope,'local-rule-detection-and-manual-auditions');
  assert.equal(a.NARRATIVE_LIBRARY.entries.length,28);
 });
 test('labels give alternatives with explicit event scope and no forced winner',()=>{

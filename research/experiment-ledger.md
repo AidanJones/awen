@@ -1,13 +1,14 @@
 # Evaluator experiments and next gates
 
-Documentation updated 2 November 2026; the latest engineering runs completed on
-2 November. Earlier encoder comparisons retain their original dated snapshots.
+Documentation updated 3 November 2026; the latest engineering runs completed on
+3 November. Earlier encoder comparisons retain their original dated snapshots.
 This ledger distinguishes executed evidence, engineering preparation
 and proposed studies. No real human study labels are reported by the linked
 engineering and model-comparison proofs.
 
 | Stage | Status | Evidence / decision |
 | --- | --- | --- |
+| Automatic dictionary detection | Engineering checks executed | Local dictionary v0.3.0 rules produce scoped multi-label evidence and bounded musical cues. Authored 28-category reachability/context regressions and native browser integration pass. Four-book matched coverage audit is descriptive, not classifier accuracy. [Guide](automatic-detection.md), [proof](automatic-detection-proof.json). Independent annotations remain open. |
 | Variation-gate audit | Read-only engineering checks executed | 18 archived symbolic traces plus seven notation controls. All six historical storm/spring rejections repeat a four-bar pattern with seven pitches; a 2 ms duration difference can satisfy the literal uniqueness gate. [Guide](variation-gate-review.md), [proof](variation-review-proof.json). No gate change or preference validation. |
 | Narrative reader integration | Engineering checks executed | Dictionary v0.2.0 embedded in standalone reader; personal labels/scope, rule evidence, source-linked alternatives, palette/chord retention and gallery provenance. [Guide](narrative-reader-ui.md), [proof](narrative-ui-proof.json). Isolated Playwright audio/evolution/UI checks pass; no new detector or listener validation. |
 | Pretrained aesthetics probe | Executed | Pinned Audiobox strictly loaded on CPU; five-clip pilot then 27 verified WAVs/108 windows, no new renders. CE baseline above silence/loop in all three scenes; PQ above baseline for loops. Actual publication-crash recovery and model-free completed replay verified. [Guide](audiobox-probe.md), [proof](audiobox-proof.json). No scene-fit/comfort/listener validation or reward adoption. |

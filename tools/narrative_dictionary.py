@@ -19,7 +19,7 @@ def sources():
 
 
 def validate_library(d):
-    if d['schemaVersion'] != 1 or d['id'] != 'awen-narrative-dictionary' or d['version'] != '0.2.0' or d['runtimeIntegrated'] is not True or d.get('runtimeScope') != 'manual-interpretation-and-audition-only' or d['humanPreferenceValidated']:
+    if d['schemaVersion'] != 1 or d['id'] != 'awen-narrative-dictionary' or d['version'] != '0.3.0' or d['runtimeIntegrated'] is not True or d.get('runtimeScope') != 'local-rule-detection-and-manual-auditions' or d['humanPreferenceValidated']:
         raise ValueError('Unsupported dictionary version/claims')
     def unique(items):
         ids = [x['id'] for x in items]
@@ -67,6 +67,16 @@ def validate_library(d):
         structuralChanges='chapter-boundary-at-next-32-step-phrase', expressionChanges='smoothed',
         paletteSelection='preserve-user-choice', repetition='diagnostic-not-universal-penalty', qualityReward='none'):
         raise ValueError('Unsupported engine constraints')
+    detector = d['detector']
+    if detector['method'] != 'local-rules' or detector['independentlyValidated'] is not False or detector['maxTextCharacters'] != 30000:
+        raise ValueError('Unsupported detector claims/bounds')
+    if any(k not in labels for k in detector['additionalAliases']) or any(k not in labels for k in detector['ambiguousAliases']):
+        raise ValueError('Unknown detector label')
+    if any(label not in labels or option not in options for label, option in detector['optionPriority']):
+        raise ValueError('Unknown detector musical routing')
+    for values in detector['expressionModifiers'].values():
+        if not .5 <= values['gate'] <= 1.15 or not .3 <= values['density'] <= 1:
+            raise ValueError('Unbounded expression modifier')
     return d
 
 

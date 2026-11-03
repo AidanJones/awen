@@ -22,7 +22,7 @@ class NarrativeDictionaryTests(unittest.TestCase):
         self.assertEqual(self.library['reconciliation']['runtimeScenes']['chase'], ['pursuit'])
         self.assertEqual(self.library['reconciliation']['classicalCues']['neutral'], [])
         self.assertTrue(self.library['runtimeIntegrated'])
-        self.assertEqual(self.library['runtimeScope'], 'manual-interpretation-and-audition-only')
+        self.assertEqual(self.library['runtimeScope'], 'local-rule-detection-and-manual-auditions')
         self.assertFalse(self.library['humanPreferenceValidated'])
 
     def test_controls_preserve_scope_uncertainty_and_multiple_alternatives(self):

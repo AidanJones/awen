@@ -1,0 +1,28 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const {pathToFileURL}=require('node:url'),{chromium}=require('playwright');
+const {renderCase}=require('../tools/score-lab.cjs');
+(async()=>{const browser=await chromium.launch({headless:true,channel:process.env.AWEN_BROWSER_CHANNEL||'msedge'});try{
+ const page=await browser.newPage({viewport:{width:1200,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(pathToFileURL(path.resolve('index.html')).href);assert.equal(await page.evaluate(()=>audio.ctx),null);
+ await page.locator('#jump').fill('3');await page.locator('#jump').press('Enter');
+ await page.locator('#inspector > summary').click();await page.locator('#narrative-controls > summary').click();
+ const labelText=await page.locator('#narrative-estimate').textContent();assert.match(labelText,/Confrontation/);assert.match(labelText,/Humour/);
+ assert.match(await page.locator('#narrative-evidence').textContent(),/supported, current/);
+ assert.equal(await page.locator('#narrative-labels input:checked').count(),0);assert.equal(await page.evaluate(()=>profile.history.length),0);
+ assert.equal(await page.evaluate(()=>audio.intent.narrative.optionId),'light-motion');
+ await page.locator('#play').click();await page.waitForFunction(()=>audio.running&&audio.composer.scene==='chase');assert.match(await page.locator('#audio-status').textContent(),/paragraph cues:/);
+ const graph=await page.evaluate(()=>{globalThis.detectionGraph=audio.master;return audio.tick;});
+ await page.locator('#next').click();assert(await page.evaluate(()=>audio.master===globalThis.detectionGraph));assert(await page.evaluate(()=>audio.tick>=0));
+ await page.locator('#mode').selectOption('fixed');assert.equal(await page.evaluate(()=>audio.intent.narrative),undefined);assert(await page.evaluate(()=>JSON.stringify(audio.target)===JSON.stringify(neutral)));
+ await page.locator('#mode').selectOption('adaptive');assert.equal(await page.evaluate(()=>audio.intent.narrative.method),'local-rules');
+ await page.locator('#mute').click();assert.equal(await page.evaluate(()=>audio.running),false);
+ await page.locator('#narrative-accept').click();assert(await page.locator('#narrative-labels input:checked').count()>0);assert.equal(await page.evaluate(()=>narrativeForm().basis),'accepted-rule-estimate');
+ const recalled=await page.evaluate(()=>{const text='She asked how he had escaped years ago.',p=directPassage(text,analyze(text).raw,'test');audio.setPassage(p);return {kind:audio.intent.kind,annotations:audio.intent.narrative.annotations};});
+ assert.equal(recalled.kind,'dialogue');assert(recalled.annotations.some(a=>a.id==='pursuit'&&a.eventScope==='recalled'));
+ const renderInput=await page.evaluate(()=>({candidate:{id:'DETECTION_TEST_ONLY',palette:'ensemble',genome:normalGenome()},fixture:{seed:'DETECTION_TEST_ONLY',book:'rat',timeline:[{step:0,chapterId:'chapter-1',chapterIndex:0,paragraphId:'test',text:'The guards fired and she fled.'}]},steps:64}));
+ const rendered=await page.evaluate(renderCase,renderInput);let peak=0;for(const value of rendered.samples){assert(Number.isFinite(value));peak=Math.max(peak,Math.abs(value));}assert(peak<=.140001);assert.equal(rendered.trace.at(-1).scene,'chase');
+ await page.reload();assert.equal(await page.evaluate(()=>audio.ctx),null);assert.deepEqual(errors,[]);
+ console.log(JSON.stringify({testOnly:true,labels:labelText,recalled,nativeEvaluatorPeak:peak,engineSha256:crypto.createHash('sha256').update(fs.readFileSync('index.html')).digest('hex')}));
+ console.log('PASS automatic Rat labels, exact rule evidence, playback integration, continuous graph, steady mode, accepted-estimate provenance and reload.');
+}finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

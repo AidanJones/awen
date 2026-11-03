@@ -1,7 +1,7 @@
 # Research and implementation map
 
-Documentation updated 2 November 2026. Classical audio work dates from 31 October;
-critic and dictionary engineering runs extend through 2 November. This index separates
+Documentation updated 3 November 2026. Classical audio work dates from 31 October;
+critic and dictionary engineering runs extend through 3 November. This index separates
 what runs in the reader from design evidence, development experiments and
 uncompleted listener studies.
 
@@ -28,7 +28,8 @@ chapter epochs and bed-harmony targets, with explicit coverage limits.
 | Released pretrained critics | [Model inventory](pretrained-evaluators.md), [Audiobox probe](audiobox-probe.md) | Audiobox strict CPU loading and actual four-axis inference; other quality-model candidates remain untested |
 | Score-only musical criticism | [Symbolic critic](symbolic-critic.md) | [Proof](symbolic-critic-proof.json), 18 verified note traces, no waveform analysis; style-dependent advisory rules |
 | Repetition and variation gates | [Read-only review](variation-gate-review.md) | [Proof](variation-review-proof.json), 18 archived traces plus seven notation controls; no threshold change or listener calibration |
-| Narrative-to-music dictionary | [Dictionary guide](narrative-dictionary.md), [reader panel](narrative-reader-ui.md) | [Versioned labels/mappings](narrative-dictionary.json), [original mapping proof](narrative-dictionary-proof.json), [reader proof](narrative-ui-proof.json); manual choices, no new classifier or independent annotation claim |
+| Narrative-to-music dictionary | [Dictionary guide](narrative-dictionary.md), [reader panel](narrative-reader-ui.md) | [Versioned labels/mappings](narrative-dictionary.json), original mapping/UI proofs retain their versions; manual choices and automatic rule estimates remain separate |
+| Automatic multi-label detection | [Implementation and limits](automatic-detection.md) | [Proof](automatic-detection-proof.json), all 28 categories reachable in authored controls, matched-book coverage audit; no independent accuracy claim |
 | Real preference calibration | [Listening protocol](listening-calibration.md) | Prepared interface; no real listener ratings in the engineering proofs |
 | Academic account | [Paper source](paper/main.tex), [paper guide](paper/README.md) | Compiled editor preview; measured results distinguished from proposed experiments |
 

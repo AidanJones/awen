@@ -47,7 +47,7 @@ function renderPreview(card,scene,seed,seconds){
   if(cache.has(key))return cache.get(key);
   const offline=new OfflineAudioContext(1,Math.ceil((seconds+1)*24000),24000),adapter=new AudioAdapter();
   adapter.resetScore(seed,scene.book.id);adapter.setGenome(card.genome);adapter.queueHarmonyRecipe(card.genome.harmony||null);adapter.setPalette(card.palette);adapter.background=.3;adapter.mix=[1,1,1,1];
-  const features=contextual(analyze(scene.text).raw,analyze(scene.context||'').raw);adapter.applyTarget(mapScore(features));adapter.setPassage(directPassage(scene.text,features,scene.id));adapter.initialize(offline);adapter.running=true;adapter.volume=.35;adapter.setPreviewGain(1);adapter.applyMix(0);
+  const features=contextual(analyze(scene.text).raw,analyze(scene.context||'').raw);const passage=directPassage(scene.text,features,scene.id);adapter.applyTarget(mapScore(narrativeTarget(features,passage.narrative)));adapter.setPassage(passage);adapter.initialize(offline);adapter.running=true;adapter.volume=.35;adapter.setPreviewGain(1);adapter.applyMix(0);
   for(let t=.12;t<seconds+.95;t+=STEP_SECONDS){adapter.state=smooth(adapter.state,adapter.target,STEP_SECONDS);adapter.applyMix(t);adapter.composeBeat(t);}
   const raw=await offline.startRendering(),buffer=offline.createBuffer(1,Math.round(seconds*24000),24000),samples=buffer.getChannelData(0);samples.set(raw.getChannelData(0).subarray(24000,24000+samples.length));let sum=0,peak=0;
   for(let i=0;i<samples.length;i++){samples[i]*=Math.min(1,i/4800,(samples.length-1-i)/4800);if(!Number.isFinite(samples[i]))throw Error('Preview contained invalid samples.');sum+=samples[i]**2;peak=Math.max(peak,Math.abs(samples[i]));}

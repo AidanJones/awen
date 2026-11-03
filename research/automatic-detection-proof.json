@@ -1,0 +1,461 @@
+{
+  "version": "awen-automatic-detection-proof-1",
+  "date": "2026-11-03",
+  "dictionaryVersion": "0.3.0",
+  "detectorVersion": "awen-narrative-rules-1",
+  "testOnly": true,
+  "independentAccuracyMeasured": false,
+  "humanAnnotations": 0,
+  "runtimeModelCalls": 0,
+  "codeAndTestSources": {
+    "index.html": "bcd6b2cd479d5aeef34243ec1612c1dcf4b1904a1ff843e110dddbf6186c7c43",
+    "research/narrative-dictionary.json": "31a41db9a84c6e6ae8551f0069f4e1eabbd170ef825ff40d32ff676dcabd5a0c",
+    "tools/compile_narrative.py": "c58e68eac393fb567f395059ca2104a5648666696ac09940707fa88f117b8904",
+    "tools/narrative_dictionary.py": "ef70e904e82b12aad41061c3855f9e61d6b928a5bfabda153fd933633df6325a",
+    "tools/score-lab.cjs": "a5ea9986da82cfaf7d7ad576d17eeed054b2165bc2366c03854023f55aaad944",
+    "tools/exploration-review.html": "230008a6a8c39627047e62894509ab76bfd0728a92c9aedc048a85772338bbd1",
+    "tools/audit_detection.cjs": "5c6c4f065feb96b488ba6daf1f575a6527b54b18181f3d07496abdf14e79abb9",
+    "tests/detection.test.cjs": "467ae2d0dd3dbb3e63f73874277e22ffa8dabbf34250c7d62dc8c2d1d8ae7a96",
+    "tests/detection.browser.cjs": "edc626ffa1c81310a9560b36a0943fe6fde51acc549d65770b64b7b359600db9"
+  },
+  "authoredCategoryReachability": 28,
+  "javascriptTestsPassed": 77,
+  "pythonTestsRun": 89,
+  "pythonTestsSkipped": 0,
+  "browser": {
+    "automaticRatLabels": true,
+    "exactEvidence": true,
+    "currentDialogueRecalledPursuit": true,
+    "graphContinuity": true,
+    "steadyModeSuppression": true,
+    "acceptedRuleProvenance": true,
+    "silentReload": true,
+    "nativeEvaluatorPeak": 0.08807140588760376,
+    "overloadRegressionPeak": 0.139970600605011,
+    "outputCeiling": 0.14,
+    "audioRegressionPassed": true,
+    "evolutionRegressionPassed": true
+  },
+  "audit": {
+    "directory": ".score-lab/tests/detection-audit-7ad46809411849e5a6dbf6bb4c1ec003",
+    "reportSha256": "78ab88b03363a69c5e2b11c0ccc79095d2de184f1fb7058448bb9333bac9fc40",
+    "completedReplayNewBookScans": 0,
+    "completedReplayPreservedReport": true,
+    "matchedParagraphs": 4351,
+    "baselineRevision": "b02e461",
+    "baselineSha256": "abab4e141edca7a1f3a2ea834e2a7bc00bfb0d64a2ae521fbab2036a0bf041d6",
+    "books": [
+      {
+        "book": "rat",
+        "revision": "25 October 2026 · source archive SHA256 e55d925cb64899e0343d42bb957e44598622f6f1a07976860194fc5d42620513",
+        "paragraphs": 883,
+        "baseline": {
+          "caper": 68,
+          "dialogue": 360,
+          "chase": 74,
+          "reflective": 361,
+          "discovery": 7,
+          "suspense": 13
+        },
+        "current": {
+          "caper": 52,
+          "dialogue": 388,
+          "chase": 83,
+          "reflective": 302,
+          "suspense": 39,
+          "discovery": 19
+        },
+        "currentLabels": {
+          "chapter-boundary": 19,
+          "conversation": 405,
+          "anticipation": 31,
+          "confrontation": 40,
+          "reflection": 59,
+          "aftermath": 11,
+          "humour": 2,
+          "ironic-framing": 1,
+          "high-activation": 76,
+          "intrigue": 23,
+          "pursuit": 40,
+          "current-action": 91,
+          "continuation": 77,
+          "threat": 17,
+          "low-activation": 26,
+          "revelation": 25,
+          "cold-exposure": 3,
+          "open-landscape": 1,
+          "character-interior": 10,
+          "severe-weather": 1,
+          "shelter": 3,
+          "situation-change": 1
+        },
+        "opening": [
+          {
+            "paragraph": 1,
+            "kind": "caper",
+            "labels": [
+              "chapter-boundary"
+            ],
+            "optionId": null
+          },
+          {
+            "paragraph": 2,
+            "kind": "dialogue",
+            "labels": [
+              "conversation"
+            ],
+            "optionId": "dialogue-space"
+          },
+          {
+            "paragraph": 3,
+            "kind": "chase",
+            "labels": [
+              "anticipation",
+              "confrontation",
+              "conversation",
+              "reflection",
+              "aftermath",
+              "humour",
+              "ironic-framing",
+              "high-activation"
+            ],
+            "optionId": "light-motion"
+          },
+          {
+            "paragraph": 4,
+            "kind": "dialogue",
+            "labels": [
+              "intrigue",
+              "conversation"
+            ],
+            "optionId": "dialogue-space"
+          },
+          {
+            "paragraph": 5,
+            "kind": "chase",
+            "labels": [
+              "pursuit",
+              "high-activation"
+            ],
+            "optionId": "driving-motion"
+          },
+          {
+            "paragraph": 6,
+            "kind": "dialogue",
+            "labels": [
+              "conversation"
+            ],
+            "optionId": "dialogue-space"
+          },
+          {
+            "paragraph": 7,
+            "kind": "dialogue",
+            "labels": [
+              "conversation"
+            ],
+            "optionId": "dialogue-space"
+          },
+          {
+            "paragraph": 8,
+            "kind": "chase",
+            "labels": [
+              "pursuit",
+              "anticipation",
+              "confrontation",
+              "current-action",
+              "high-activation",
+              "continuation"
+            ],
+            "optionId": "driving-motion"
+          },
+          {
+            "paragraph": 9,
+            "kind": "chase",
+            "labels": [
+              "confrontation",
+              "current-action",
+              "high-activation"
+            ],
+            "optionId": "driving-motion"
+          },
+          {
+            "paragraph": 10,
+            "kind": "caper",
+            "labels": [
+              "continuation"
+            ],
+            "optionId": null
+          },
+          {
+            "paragraph": 11,
+            "kind": "reflective",
+            "labels": [],
+            "optionId": null
+          },
+          {
+            "paragraph": 12,
+            "kind": "caper",
+            "labels": [
+              "continuation"
+            ],
+            "optionId": null
+          },
+          {
+            "paragraph": 13,
+            "kind": "reflective",
+            "labels": [
+              "reflection"
+            ],
+            "optionId": "reflective-flow"
+          },
+          {
+            "paragraph": 14,
+            "kind": "reflective",
+            "labels": [],
+            "optionId": null
+          },
+          {
+            "paragraph": 15,
+            "kind": "reflective",
+            "labels": [
+              "reflection"
+            ],
+            "optionId": "reflective-flow"
+          },
+          {
+            "paragraph": 16,
+            "kind": "reflective",
+            "labels": [
+              "reflection"
+            ],
+            "optionId": "reflective-flow"
+          },
+          {
+            "paragraph": 17,
+            "kind": "reflective",
+            "labels": [],
+            "optionId": null
+          },
+          {
+            "paragraph": 18,
+            "kind": "chase",
+            "labels": [
+              "pursuit",
+              "threat",
+              "high-activation"
+            ],
+            "optionId": "driving-motion"
+          },
+          {
+            "paragraph": 19,
+            "kind": "reflective",
+            "labels": [
+              "low-activation"
+            ],
+            "optionId": null
+          },
+          {
+            "paragraph": 20,
+            "kind": "suspense",
+            "labels": [
+              "threat",
+              "current-action"
+            ],
+            "optionId": "held-anticipation"
+          },
+          {
+            "paragraph": 21,
+            "kind": "reflective",
+            "labels": [
+              "continuation"
+            ],
+            "optionId": null
+          },
+          {
+            "paragraph": 22,
+            "kind": "suspense",
+            "labels": [
+              "threat"
+            ],
+            "optionId": "held-anticipation"
+          },
+          {
+            "paragraph": 23,
+            "kind": "chase",
+            "labels": [
+              "pursuit",
+              "high-activation"
+            ],
+            "optionId": "driving-motion"
+          },
+          {
+            "paragraph": 24,
+            "kind": "reflective",
+            "labels": [],
+            "optionId": null
+          }
+        ],
+        "independentlyValidated": false
+      },
+      {
+        "book": "war",
+        "revision": "25 October 2026 · source archive SHA256 aebfd46ab867589989082faa1dad39416202bf6390c98c9118b82e9f7ff55ed3",
+        "paragraphs": 884,
+        "baseline": {
+          "suspense": 17,
+          "discovery": 18,
+          "reflective": 484,
+          "chase": 138,
+          "dialogue": 221,
+          "caper": 6
+        },
+        "current": {
+          "suspense": 31,
+          "discovery": 31,
+          "chase": 178,
+          "reflective": 402,
+          "dialogue": 235,
+          "caper": 7
+        },
+        "currentLabels": {
+          "reflection": 45,
+          "threat": 22,
+          "chapter-boundary": 27,
+          "revelation": 20,
+          "current-action": 83,
+          "continuation": 81,
+          "pursuit": 99,
+          "high-activation": 180,
+          "confrontation": 86,
+          "conversation": 255,
+          "character-interior": 6,
+          "aftermath": 31,
+          "wonder": 7,
+          "low-activation": 13,
+          "anticipation": 22,
+          "severe-weather": 26,
+          "open-landscape": 5,
+          "cold-exposure": 4,
+          "intrigue": 6,
+          "shelter": 2,
+          "release": 3,
+          "grief": 2,
+          "situation-change": 1
+        },
+        "opening": [],
+        "independentlyValidated": false
+      },
+      {
+        "book": "time",
+        "revision": "25 October 2026 · source archive SHA256 683d30df3618dbfd11815e00cdf8455ad79597d9eff708b74de29038b21ab3a8",
+        "paragraphs": 308,
+        "baseline": {
+          "reflective": 40,
+          "dialogue": 226,
+          "caper": 2,
+          "chase": 40
+        },
+        "current": {
+          "reflective": 23,
+          "dialogue": 234,
+          "caper": 1,
+          "chase": 49,
+          "suspense": 1
+        },
+        "currentLabels": {
+          "reflection": 54,
+          "tenderness": 1,
+          "chapter-boundary": 13,
+          "conversation": 283,
+          "current-action": 57,
+          "continuation": 46,
+          "intrigue": 7,
+          "shelter": 3,
+          "pursuit": 31,
+          "high-activation": 49,
+          "anticipation": 10,
+          "aftermath": 8,
+          "low-activation": 10,
+          "cold-exposure": 2,
+          "confrontation": 20,
+          "severe-weather": 4,
+          "threat": 3,
+          "wonder": 1,
+          "revelation": 13,
+          "open-landscape": 5,
+          "character-interior": 5,
+          "humour": 1,
+          "grief": 2,
+          "release": 1
+        },
+        "opening": [],
+        "independentlyValidated": false
+      },
+      {
+        "book": "riders",
+        "revision": "26 October 2026 · source archive SHA256 76ba675276206c1fda3f7024bcdd0f4863ea719842f5cf9dbeb1e207f913f2b8 · source commit 03c724dab009e9e66648c19f5f5e7302e2d3f9f4",
+        "paragraphs": 2276,
+        "baseline": {
+          "reflective": 644,
+          "chase": 183,
+          "dialogue": 1409,
+          "suspense": 5,
+          "discovery": 30,
+          "caper": 5
+        },
+        "current": {
+          "reflective": 564,
+          "chase": 197,
+          "suspense": 47,
+          "dialogue": 1429,
+          "caper": 12,
+          "discovery": 27
+        },
+        "currentLabels": {
+          "chapter-boundary": 23,
+          "character-interior": 84,
+          "confrontation": 90,
+          "current-action": 233,
+          "high-activation": 191,
+          "reflection": 126,
+          "anticipation": 56,
+          "conversation": 1479,
+          "humour": 1,
+          "pursuit": 107,
+          "grief": 14,
+          "intrigue": 39,
+          "continuation": 77,
+          "severe-weather": 39,
+          "shelter": 7,
+          "open-landscape": 8,
+          "low-activation": 38,
+          "revelation": 24,
+          "threat": 22,
+          "aftermath": 19,
+          "cold-exposure": 3,
+          "release": 3
+        },
+        "opening": [],
+        "independentlyValidated": false
+      }
+    ]
+  },
+  "classicalRegression": {
+    "testSourceSha256": "ea4b746119c0cf1196363efb0d58e8266a6aba44f8531b5e0df151a6bbfa8060",
+    "proofSha256": "fd78eeaee9221f857876e7ecd9ff5f6fc3a01fea370134a234146176e3a8aa86",
+    "nativeRenderCount": 9,
+    "maximumNativePeak": 0.07646593451499939,
+    "chapterTransition": {
+      "before": "elegy",
+      "waiting": "elegy",
+      "after": "storm",
+      "offset": 5,
+      "epoch": 32,
+      "tick": 33
+    },
+    "nativeGate": {
+      "eligible": true,
+      "reasons": []
+    }
+  }
+}

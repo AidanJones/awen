@@ -1,13 +1,14 @@
 # Narrative labels and musical alternatives
 
 Research and implementation: 2 November 2026. The canonical
-[dictionary](narrative-dictionary.json), version 0.2.0, contains 28 proposed
+[dictionary](narrative-dictionary.json), version 0.3.0, contains 28 proposed
 labels in seven dimensions and 12 musical alternatives. It reconciles the
 existing runtime scenes, harmonic scene functions and classical cues.
-It is metadata and an annotation-to-music mapper, with a bounded
-[manual reader panel](narrative-reader-ui.md). It is not a new text classifier
-or validated music reward. Version 0.1.0's original mapping proof remains a
-historical engineering snapshot; version 0.2.0 adds manual reader integration.
+It supplies a [local automatic rule detector](automatic-detection.md), a Python
+annotation-to-music mapper and a [manual reader panel](narrative-reader-ui.md).
+It is not a trained or independently validated model or a validated music reward.
+Version 0.1.0's original mapping proof remains historical; v0.2.0 added manual
+reader integration and v0.3.0 adds inspectable automatic detection.
 
 ## What the sources support
 
@@ -42,7 +43,9 @@ Labels may coexist: a scene can be active, dangerous and comic; reflection need
 not be sad; a landscape can contain grief. Each entry includes a definition,
 positive/counterexample, illustrative aliases, contextual/negation guidance,
 uncertainty guidance, source references and musical option references.
-Aliases are **annotation aids**, not implemented keyword rules.
+Aliases remain annotation aids. Version 0.3.0 also uses them with explicit
+additional cues, negation/scope handling and ambiguity guards in a local detector;
+literal keyword presence is not treated as independent ground truth.
 
 Reconciliation is explicit: runtime `chase` maps to `pursuit`, `dialogue` to
 `conversation`, `discovery` to `revelation`, and so on. Classical `storm` offers
@@ -122,9 +125,10 @@ from annotators. These books have appeared elsewhere in Awen research, so this
 is not an untouched end-to-end research holdout; a final benchmark needs newly
 reserved material. No labels for those real passages are fabricated here.
 
-The reader UI is now implemented under `awen-xfp.5`; its scope and personal
-storage contract are documented [separately](narrative-reader-ui.md). Automatic
-detection and independently annotated evidence remain separate work.
+The reader UI is implemented under `awen-xfp.5`; its personal storage contract
+is documented [separately](narrative-reader-ui.md). Local automatic rules are
+implemented under `.8`; independent annotation and empirical accuracy validation
+remain separate work.
 
 Existing tasks cover the remainder: `awen-xfp.1` independent annotation,
 `awen-xfp.2` detector evaluation/tuning and `awen-xfp.3` viewpoint/context.
