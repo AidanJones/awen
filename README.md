@@ -24,6 +24,13 @@ python -m http.server 8000 --bind 127.0.0.1
 
 Visit `http://localhost:8000`. Static hosting can serve the same HTML unchanged. A downloaded copy works offline; offline relaunch of a hosted URL is not implemented. Browser storage for `file://` pages varies, so localhost is recommended for reliable progress saving. There is no autoplay after a reload.
 
+For an **M-VAVE FM1 or another MIDI synth**, open **External synthesizer · FM1 / MIDI**,
+find/select its USB MIDI output, match the receive channel, enable MIDI and test a
+note. Start soundtrack sends ambient harmony by default; full-score and browser
+monitoring options are available. The synth produces the audio, so set its own
+volume low first: the browser limiter only controls browser audio. See the
+[MIDI setup and controls](research/midi-output.md).
+
 ## Read and listen
 
 - Choose a book from the shelf. Each book remembers its own paragraph.

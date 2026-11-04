@@ -21,6 +21,7 @@ chapter epochs and bed-harmony targets, with explicit coverage limits.
 | Wider personal exploration and backups | [Nine-card explorer](nine-direction-exploration.md) | [Standalone-page generator](../tools/exploration_page.py) |
 | Film/theatre harmonic knowledge | [Scoring knowledge](scoring-knowledge.md) | [Library](scoring-knowledge.json), [schema](scoring-knowledge.schema.json) |
 | Instrument articulation and kinetic choices | [Articulation guide](instrument-articulation.md) | `tests/instruments.browser.cjs` |
+| External FM1 / MIDI synthesizer | [Setup, routing and limits](midi-output.md) | [Engineering proof](midi-output-proof.json), optional Web MIDI from the existing score; physical FM1 acceptance remains open |
 | Reproducible development audio evaluation | [JavaScript lab](score-lab.md), [Python bridge](score-lab-python.md), [judge contract](score-lab-judge.md) | Unique runs, source hashes, native renders, cache/checkpoint recovery; models remain development-only |
 | CLAP probes and grid evolution | [Probe](clap-probe.md), [bounded grid search](grid-clap-evolution.md) | Their linked proofs; optimisation gains did not establish a reliable reward |
 | Evaluator and encoder comparisons | [Experiment ledger](experiment-ledger.md), [MuQ comparison](muq-comparison.md) | Completed diagnostics, model identities and remaining decision gates |

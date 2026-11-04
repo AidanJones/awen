@@ -1,0 +1,74 @@
+{
+  "version": "awen-midi-output-proof-1",
+  "date": "2026-11-04",
+  "status": "engineering-validated-physical-acceptance-open",
+  "sources": {
+    "index.html": "82edd3ed4c04d6b99f0b96f82cd2ff3bb5b3bbf0fc719fdb87915cbee57dedd9",
+    "tests/midi.test.cjs": "239db4f9bd01e8fb73ea826b7074f7c2a5f6c66db6a900dea3c3a1efcb1f305c",
+    "tests/midi.browser.cjs": "a22741db38f4784c26081d4b1f43421afcb04518e6fc44a82dba4e7f29158027",
+    "research/midi-output.md": "ef318862020814ce8b2a320ff7dd933c5adb94873f8e67cd479284cbacf62571",
+    "tests/audio.browser.cjs": "ed04b40160f42694ef1ad76bee3b2cd2427b0c264212307197400552f6f97fdb",
+    "tests/evolution.browser.cjs": "214dae29750b39d585f2dda87692f6a3dd57a11b9059050d38dc2709e7ecb74e"
+  },
+  "tests": {
+    "mvp": 45,
+    "midiUnit": 6,
+    "midiBrowser": {
+      "testOnly": true,
+      "physicalMidiDeviceTested": false,
+      "ui": true,
+      "scheduledNotes": true,
+      "panic": true,
+      "volumeZero": true,
+      "backgroundZero": true,
+      "exclusiveHardware": true,
+      "browserMonitoring": true,
+      "channelSelection": true,
+      "previewsIsolated": true,
+      "disconnect": true,
+      "hiddenPause": true,
+      "reloadSilent": true,
+      "unsupportedAndDenied": true,
+      "mobileDark": true,
+      "screenshot": "C:\\Users\\aidan\\repos\\awen\\.score-lab\\tests\\midi-mobile-d8e7efd5-e27a-4f66-a53c-939db7b211b8.png",
+      "errors": [],
+      "htmlSha256": "82edd3ed4c04d6b99f0b96f82cd2ff3bb5b3bbf0fc719fdb87915cbee57dedd9"
+    },
+    "nativeAudioBrowser": "passed",
+    "evolutionBrowser": "passed"
+  },
+  "browserAudio": {
+    "finalLimiterPreserved": true,
+    "ceiling": 0.14,
+    "measuredOverloadPeak": 0.139970600605011,
+    "hardwareOutputCoveredByLimiter": false
+  },
+  "midi": {
+    "defaultVelocityLimit": 56,
+    "hardVelocityCeiling": 80,
+    "defaultChannel": 1,
+    "defaultParts": "harmony",
+    "uniquePitchLimit": 8,
+    "pitchRange": [
+      36,
+      84
+    ],
+    "bedLeaseMilliseconds": 1500,
+    "lookaheadMilliseconds": 25,
+    "pumpMilliseconds": 20,
+    "sysexRequested": false,
+    "programChangesSent": false,
+    "inputPortsOpened": false,
+    "automaticConnectionOnReload": false,
+    "hardwarePreviews": false
+  },
+  "physicalMidiDeviceTested": false,
+  "realFm1ListeningRatings": 0,
+  "openTask": "awen-tl6.1",
+  "limitations": [
+    "Web MIDI tests simulate a port; no physical FM1 firmware/patch/channel compatibility established.",
+    "MIDI velocity does not limit external acoustic output.",
+    "One output/channel/patch; native browser timbral traits are not hardware parameter mappings.",
+    "Page hiding pauses MIDI playback; cable/computer crashes cannot guarantee physical note release."
+  ]
+}
