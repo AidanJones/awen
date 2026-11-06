@@ -19,6 +19,7 @@ chapter epochs and bed-harmony targets, with explicit coverage limits.
 | Classical sound palettes and harpsichord | [Palette guide](classical-palettes.md) | [Engineering proof](classical-palettes-proof.json), `tests/classical-palettes.browser.cjs` |
 | Declarative score grammar and profile compatibility | [DSL guide](bach-dsl.md) | Inline parser/planner in the [reader](../index.html), `tests/score-dsl.test.cjs` |
 | Wider personal exploration and backups | [Nine-card explorer](nine-direction-exploration.md) | [Standalone-page generator](../tools/exploration_page.py) |
+| Sparse personal reader feedback | [Ratings, backups and development import](reader-feedback.md) | [Engineering proof](reader-feedback-proof.json), separate enjoyment/fit/reading-help, frozen browser/MIDI context; no learned reward or real study labels |
 | Film/theatre harmonic knowledge | [Scoring knowledge](scoring-knowledge.md) | [Library](scoring-knowledge.json), [schema](scoring-knowledge.schema.json) |
 | Instrument articulation and kinetic choices | [Articulation guide](instrument-articulation.md) | `tests/instruments.browser.cjs` |
 | External FM1 / MIDI synthesizer | [Setup, routing and limits](midi-output.md) | [Engineering proof](midi-output-proof.json), optional Web MIDI from the existing score; physical FM1 acceptance remains open |

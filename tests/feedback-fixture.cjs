@@ -1,0 +1,7 @@
+'use strict';
+const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const html=fs.readFileSync(path.resolve(__dirname,'../index.html'),'utf8'),script=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1],context=vm.createContext({setInterval:()=>1,clearInterval:()=>{},setTimeout,clearTimeout});vm.runInContext(script.split('const $=id=>')[0],context);
+const a=vm.runInContext('({validateReaderFeedback,mergeReaderFeedback,makeComposer,normalGenome,neutral,COMPOSER_VERSION,SKETCH_VERSION,FEEDBACK_VERSION})',context);
+function fixture(){const snapshot=a.makeComposer('TEST_ONLY','rat');return JSON.parse(JSON.stringify({version:a.FEEDBACK_VERSION,provenance:'personal-listening-not-independent-study',raterId:'SYNTHETIC_TEST_ONLY',records:[{id:'TEST_RECORD',at:'2026-11-06T12:00:01Z',context:{version:'awen-listening-moment-1',capturedAt:'2026-11-06T12:00:00Z',book:{id:'rat',title:'TEST ONLY',revision:'TEST REVISION'},passage:{id:'rat:one:0',number:1,chapterId:'one',textHash32:'1234abcd'},composer:{version:a.COMPOSER_VERSION,sketchVersion:a.SKETCH_VERSION,seed:'TEST_ONLY',step:0,snapshot},genome:a.normalGenome(),volume:.35,background:.3,mix:[1,1,1,1],palette:'ensemble',engineMode:'adaptive',activeScene:'caper',output:{mode:'browser',midi:null}},ratings:{enjoyment:5,fit:2,readingHelp:null},tags:['plonky'],notes:'SYNTHETIC TEST ONLY',setupNote:''}]}));}
+
+module.exports={fixture,a};

@@ -1,0 +1,143 @@
+{
+  "date": "2026-11-06",
+  "importProbe": {
+    "directory": ".score-lab/tests/READER-FEEDBACK-IMPORT-TEST-ONLY/20261106T235438.027978Z-5a008434a6294df8ac8ece3ba701896e",
+    "manifestSha256": "cc82b1d6185418bd89b89403479f9a136270aa78a6b8eb481c9c8e92c43f2dd5",
+    "receipt": {
+      "manifestSha256": "cc82b1d6185418bd89b89403479f9a136270aa78a6b8eb481c9c8e92c43f2dd5",
+      "outputs": {
+        "labels.jsonl": "ea1a254725785914ac2e33f280718f4cb16c40aa8467c7e03922f6d6270bed59",
+        "report.json": "503c6429c194499554eb6a3fe3020e1296202f7de88a6d091568d5135edc7c38"
+      }
+    },
+    "replay": {
+      "newValidations": 0,
+      "syntheticTestOnly": true,
+      "unchanged": {
+        "complete.json": "261b6e67a9ecb4eb91f9918e43d8fd45b1a1eab9a3d1284fc5dfc0c17c737834",
+        "labels.jsonl": "ea1a254725785914ac2e33f280718f4cb16c40aa8467c7e03922f6d6270bed59",
+        "report.json": "503c6429c194499554eb6a3fe3020e1296202f7de88a6d091568d5135edc7c38"
+      },
+      "uniqueInvocationLogs": 2
+    },
+    "report": {
+      "automaticRuntimeChange": false,
+      "axes": {
+        "enjoyment": {
+          "answered": 1,
+          "histogram": {
+            "1": 0,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 1
+          },
+          "unanswered": 1
+        },
+        "fit": {
+          "answered": 1,
+          "histogram": {
+            "1": 0,
+            "2": 1,
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "unanswered": 1
+        },
+        "readingHelp": {
+          "answered": 1,
+          "histogram": {
+            "1": 1,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "unanswered": 1
+        }
+      },
+      "limitations": [
+        "Sparse voluntary personal feedback, not a controlled independent study.",
+        "No listening exposure, comprehension or acoustic hardware measurements.",
+        "Unanswered axes remain null; notes/tags do not imply dislikes on other axes.",
+        "Versioned contexts remain archival; identical browser or external audio replay is not established.",
+        "No cross-listener pooling, overall quality score or training/test split is inferred."
+      ],
+      "modelTrained": false,
+      "outputCounts": {
+        "both": 0,
+        "browser": 1,
+        "midi": 1
+      },
+      "raterId": "25318c78-cda4-4075-b308-87779c73a05f",
+      "records": 2,
+      "rewardPromoted": false,
+      "tagCounts": {
+        "busy": 0,
+        "droney": 1,
+        "plonky": 1,
+        "tense": 0
+      },
+      "version": "awen-reader-feedback-import-1"
+    },
+    "syntheticTestOnly": true
+  },
+  "limitations": [
+    "Sparse voluntary feedback is not independent study evidence.",
+    "Reading help is self-report; attention, exposure and comprehension are not measured.",
+    "MIDI route is captured but patch/levels/audio are not observed.",
+    "Composer snapshots are scheduler state, not bit-identical acoustic replay.",
+    "Up to 120 moments per notebook; rotation/editing remain future work."
+  ],
+  "modelTrained": false,
+  "processDeathTest": {
+    "byteStableJsonlAfterRecovery": true,
+    "expectedExitCode": 72,
+    "test": "test_actual_process_death_after_labels_publish_resumes_same_rows"
+  },
+  "realListenerRatings": 0,
+  "rewardPromoted": false,
+  "runtimeCompositionChanged": false,
+  "sources": {
+    "index.html": "ce7ce10d8a19749b5c74680e7a06f77f3009b5ce7aee68e691ba6ff5101db2a1",
+    "research/reader-feedback.md": "ad597c78263cc598fed14d904cb46b65acd8ede73eaf2b3d3dedb4dc1c33b111",
+    "tests/feedback-fixture.cjs": "72ed3130d45a1bf8a0a2b8180932146e04379a4a0b5b83740eff0c1495363dd9",
+    "tests/feedback.browser.cjs": "ce61ecf4c6b8cee3e03331ea9d925fdc3e52cc7a8087bef03a33d265c973ddd1",
+    "tests/feedback.test.cjs": "44f4a90494b1da1ef14c5535f6817e7c2a13abe394562b0b8f71afee458d61e9",
+    "tests/test_reader_feedback.py": "20dbc893656e7ee9a5c6ffa9f99b8d8460a220ae698ca72d533cb2ab6a5cb623",
+    "tools/reader-feedback.cjs": "3d140b98ae23b5fea5c985b82adec11ed3aac6c82142dffc224aff51000f305b",
+    "tools/reader_feedback.py": "52e841cc039f7c161c7f28afc38edb335e3568d095e9099f68e7403aed7288ec"
+  },
+  "status": "engineering-validated-personal-model-work-remains-open",
+  "tests": {
+    "darkMobileVisuallyInspected": true,
+    "evolutionBrowser": "passed",
+    "feedbackBrowser": "passed",
+    "midiBrowser": "passed",
+    "nativeAudioBrowser": "passed",
+    "nodeFeedback": 5,
+    "nodeMidi": 6,
+    "nodeMvp": 45,
+    "pythonImporter": 4
+  },
+  "ui": {
+    "activeVsPendingGenome": true,
+    "backupRoundTrip": true,
+    "conflictRejects": true,
+    "corruptStoragePreserved": true,
+    "darkMobile": true,
+    "errors": [],
+    "exportFile": "C:\\Users\\aidan\\repos\\awen\\.score-lab\\tests\\READER-FEEDBACK-TEST-ONLY-70b2a9ce-706d-4340-b1af-a0bde52efc18.json",
+    "frozenCapture": true,
+    "htmlSha256": "ce7ce10d8a19749b5c74680e7a06f77f3009b5ce7aee68e691ba6ff5101db2a1",
+    "independentAxes": true,
+    "mergeDeduplicates": true,
+    "midiContext": true,
+    "playbackAndPreferencesPreserved": true,
+    "realListenerRatings": 0,
+    "screenshot": "C:\\Users\\aidan\\repos\\awen\\.score-lab\\tests\\feedback-dark-34db0ba2-1161-4d9a-a36b-8fb5d55d81c0.png",
+    "testOnly": true
+  },
+  "version": "awen-reader-feedback-proof-1"
+}

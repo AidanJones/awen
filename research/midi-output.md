@@ -119,6 +119,13 @@ Physical acceptance remains open: confirm the actual port name and receive
 channel, a suitable sustained patch, volume response, polyphony, a longer reading
 session, cable removal and stop behaviour on the user's installed firmware.
 
+6 November follow-up: the user reported MIDI triggering and patch changes working
+after disabling browser monitoring and using Test MIDI note. This is a report of
+basic physical playback, not agent-observed firmware/level/latency measurements.
+The remaining hardware checklist stays open. Optional
+[reader feedback](reader-feedback.md) now captures MIDI routing separately and
+lets the listener supply a patch/setup note; it cannot query or hear the patch.
+
 ```powershell
 node --test tests/mvp.test.cjs tests/midi.test.cjs
 # Set NODE_PATH to an isolated Playwright installation if needed.

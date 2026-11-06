@@ -31,6 +31,12 @@ monitoring options are available. The synth produces the audio, so set its own
 volume low first: the browser limiter only controls browser audio. See the
 [MIDI setup and controls](research/midi-output.md).
 
+**How is the music working for you?** optionally saves separate enjoyment,
+passage-fit and reading-help ratings, plus “too busy/plonky/droney/tense” tags.
+Capture a listening moment before answering; it keeps the passage, active score
+and browser/MIDI context fixed. Feedback has its own JSON backup and does not
+change your music. See [reader feedback and development import](research/reader-feedback.md).
+
 ## Read and listen
 
 - Choose a book from the shelf. Each book remembers its own paragraph.

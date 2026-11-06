@@ -13,6 +13,12 @@ in `awen-3fr.6.2.3.7.2`; no reward or gate is promoted from engineering checks.
 routes the existing score to a selected external synth. Software message/UI
 validation and physical FM1 listening/firmware acceptance are distinct tasks.
 
+6 November update: [optional reader feedback](research/reader-feedback.md) now
+collects separate enjoyment, fit and self-reported reading-help labels with
+independent complaint tags and browser/MIDI context. Frozen captures, backups and
+resumable development import are implemented; preference-model fitting and
+cross-book/listener validation remain open under `awen-3fr.4`.
+
 This is the consolidated backlog, not a commitment to implement every research idea. The immediate direction is pleasant, continuous music that a listener can shape. **LLMs are welcome during development; the finished browser/device score must run without an LLM.** Python may support development-time ML, analysis and provider integration. Keep the runnable app self-contained in single-file HTML with inline JavaScript/CSS, no React/build step and minimal dependencies wherever practical.
 
 ## Already available
