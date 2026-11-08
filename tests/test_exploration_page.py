@@ -11,6 +11,18 @@ spec.loader.exec_module(module)
 
 
 class ExplorationTests(unittest.TestCase):
+    def test_optional_reader_bundle_and_explicit_handoff_link(self):
+        root=module.ROOT/'.score-lab/tests';root.mkdir(parents=True,exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=root) as tmp:
+            file=module.build(Path(tmp)/'bundle',include_reader=True)
+            html=file.read_text(encoding='utf-8')
+            data=json.loads(re.search(r'id="exploration-data"[^>]*>(.*?)</script>',html,re.S)[1])
+            self.assertEqual(data['readerUrl'],'index.html?explorer=explore.html')
+            self.assertEqual((file.parent/'index.html').read_text(encoding='utf-8'),(module.ROOT/'index.html').read_text(encoding='utf-8'))
+            self.assertTrue(json.loads((file.parent/'manifest.json').read_text())['readerIncluded'])
+            for invalid in ['javascript:alert(1)','//example.com/explore','data:text/html,hi']:
+                with self.assertRaises(ValueError):module.build(Path(tmp)/'bad',reader_url=invalid)
+
     def test_standalone_and_no_overwrite(self):
         root = module.ROOT / '.score-lab/tests'
         root.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,231 @@
+{
+  "version": "awen-usability-flow-1",
+  "date": "2026-11-08",
+  "baselineRevision": "cbf32f1",
+  "storyCount": 44,
+  "storyIds": [
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10",
+    "M11",
+    "M12",
+    "F01",
+    "F02",
+    "F03",
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "D01",
+    "D02",
+    "D03",
+    "D04"
+  ],
+  "sources": {
+    "index.html": "74943268733e90c986360b50999a19af2c1f36812cc38688a606f6dcdeb21a1d",
+    "tools/exploration-review.html": "b34f0f42d0e020758d74fb9c2fe5bbbf0c5acb24703ab417b35739af7e8b6e00",
+    "tools/exploration_page.py": "8bdcc2b8a647a24f3d605d80750fd059ec7141f967a076995ba2a50aafe10246",
+    "tools/calibration-review.html": "f6e7dd9b42e594cae7bd6926e066c05fe72e4ed3afa4d3f6b49982bb139a48e3",
+    "tools/recurrence-review.html": "dc1f882691612cc0f124b29cb9a8c3b7ec875c665ddce554b0a458c678703169",
+    "tests/usability.browser.cjs": "f1ba0349511265c1dee76fa1e55faefbfb04ec992df29ce0dc0f69791a06dcd1",
+    "tests/review-flow.browser.cjs": "950c63b7789ddf1fd82e8577285d60a8b29a300ffb5fb204745eb88d92983dc7",
+    "tests/exploration.browser.cjs": "2bdefff5ec099981b941673e0770c0ade3ebb7bee0e831351d04754bd5713c45",
+    "tests/classical.browser.cjs": "a053f2787653a4ea3c727171486ba182d3612568f8b4b90f1f29bfea685aacd6",
+    "tests/test_exploration_page.py": "a8c78163d1ce309a0517ae0930a3db6ad4a8410e3ba4f492273e1e2e3eab0634",
+    "research/user-stories.md": "aee7c80474ec71433506bb095dbaf8a89da8ef8e27a232096664e5cf6774de93",
+    "research/usability-review.md": "e58512e6facc4e42276698a167cf091ed73a4db82fbb4dbd30b9816e7c297f15"
+  },
+  "coreUnchanged": true,
+  "booksUnchanged": true,
+  "coreSha256": "2afe396accfce6e49eacdb42f78c95384b732c2d4b97775017d7ee08526e5ea8",
+  "beforeLayout": {
+    "desktop": {
+      "startButtonTop": 772.53125,
+      "passageTop": 728.703125,
+      "viewport": 950,
+      "overflow": false,
+      "focusModeHasVisiblePlayback": false
+    },
+    "mobile": {
+      "startButtonTop": 2010.328125,
+      "passageTop": 1052.1875,
+      "viewport": 844,
+      "overflow": false,
+      "focusModeHasVisiblePlayback": false
+    }
+  },
+  "afterTask": {
+    "testOnly": true,
+    "humanUsabilityStudy": false,
+    "afterResume": {
+      "quickPlayTop": 9,
+      "transportHeight": 112,
+      "viewport": 844
+    },
+    "firstRead": true,
+    "focusControls": true,
+    "keyboard": true,
+    "hardwareSetupGate": true,
+    "profilePaletteHandoff": true,
+    "profileValidationAtomic": true,
+    "feedbackBackup": true,
+    "mobileNoOverflow": true,
+    "screenshots": {
+      "mobile": "C:\\Users\\aidan\\repos\\awen\\.score-lab\\tests\\usability-mobile-0e0614e8-8212-47ed-aa19-2d0fdfa5a895.png",
+      "desktop": "C:\\Users\\aidan\\repos\\awen\\.score-lab\\tests\\usability-desktop-008b9ed3-0ea6-4907-be0d-ffe54e382956.png",
+      "explorer": "C:\\Users\\aidan\\repos\\awen\\.score-lab\\tests\\usability-explorer-74c1b738-38e6-434b-a2ce-980257626225.png"
+    },
+    "errors": [],
+    "sourceSha256": "74943268733e90c986360b50999a19af2c1f36812cc38688a606f6dcdeb21a1d"
+  },
+  "reviewFlows": {
+    "testOnly": true,
+    "realListenerRatings": 0,
+    "results": [
+      {
+        "file": ".score-lab/tests/usability-review-5f53351d81c7416c85c984fb35af3d4e/calibration/review.html",
+        "testOnly": true,
+        "screenshot": "C:\\Users\\aidan\\repos\\awen\\.score-lab\\tests\\review-flow-b9f6f7cd-8ab4-4908-aa7d-0c8215872018.png",
+        "stickyPlayback": true,
+        "independentRatings": true,
+        "backup": true,
+        "reloadSilent": true,
+        "errors": []
+      },
+      {
+        "file": ".score-lab/tests/usability-review-5f53351d81c7416c85c984fb35af3d4e/recurrence/review.html",
+        "testOnly": true,
+        "screenshot": "C:\\Users\\aidan\\repos\\awen\\.score-lab\\tests\\review-flow-3f4783cb-637b-4455-9b03-98220a742c85.png",
+        "stickyPlayback": true,
+        "independentRatings": true,
+        "backup": true,
+        "reloadSilent": true,
+        "errors": []
+      }
+    ],
+    "pageHashes": {
+      ".score-lab/tests/usability-review-5f53351d81c7416c85c984fb35af3d4e/calibration/review.html": "77335f771d920e3587c95afd5be98211153b53151a0c9f5fddfbdbff9afc49bd",
+      ".score-lab/tests/usability-review-5f53351d81c7416c85c984fb35af3d4e/recurrence/review.html": "3fd0aeeea9b85537abda9c614b69ae7ec1d04432d88c4ccd67b7908df5562ae2"
+    }
+  },
+  "midi": {
+    "testOnly": true,
+    "physicalMidiDeviceTested": false,
+    "ui": true,
+    "scheduledNotes": true,
+    "panic": true,
+    "volumeZero": true,
+    "backgroundZero": true,
+    "exclusiveHardware": true,
+    "browserMonitoring": true,
+    "channelSelection": true,
+    "previewsIsolated": true,
+    "disconnect": true,
+    "hiddenPause": true,
+    "reloadSilent": true,
+    "unsupportedAndDenied": true,
+    "mobileDark": true,
+    "screenshot": "C:\\Users\\aidan\\repos\\awen\\.score-lab\\tests\\midi-mobile-2a862d39-bff5-4828-ab85-540676957376.png",
+    "errors": [],
+    "htmlSha256": "74943268733e90c986360b50999a19af2c1f36812cc38688a606f6dcdeb21a1d"
+  },
+  "feedback": {
+    "testOnly": true,
+    "realListenerRatings": 0,
+    "independentAxes": true,
+    "frozenCapture": true,
+    "activeVsPendingGenome": true,
+    "playbackAndPreferencesPreserved": true,
+    "midiContext": true,
+    "backupRoundTrip": true,
+    "mergeDeduplicates": true,
+    "conflictRejects": true,
+    "corruptStoragePreserved": true,
+    "darkMobile": true,
+    "exportFile": "C:\\Users\\aidan\\repos\\awen\\.score-lab\\tests\\READER-FEEDBACK-TEST-ONLY-1fbcdcc2-9c99-445a-a3cd-0d3f5cb4e37c.json",
+    "screenshot": "C:\\Users\\aidan\\repos\\awen\\.score-lab\\tests\\feedback-dark-967f34a0-4a65-4ef5-b4da-1e42101b365e.png",
+    "errors": [],
+    "htmlSha256": "74943268733e90c986360b50999a19af2c1f36812cc38688a606f6dcdeb21a1d"
+  },
+  "bundle": {
+    "directory": ".score-lab/exploration/20261108T143001Z-c47aafce3fdc4a118503a06ffc482431",
+    "manifest": {
+      "version": 1,
+      "engineSha256": "2afe396accfce6e49eacdb42f78c95384b732c2d4b97775017d7ee08526e5ea8",
+      "pageSha256": "a0802ab3a58d3ac29388d1826112b11293d183d58810b798288f9b52b820ef3d",
+      "createdAt": "2026-11-08T14:30:01.603054+00:00",
+      "scenes": [
+        "rat-escape",
+        "rat-reflection",
+        "riders-landscape",
+        "riders-aftermath",
+        "time-discussion",
+        "time-journey"
+      ],
+      "readerIncluded": true,
+      "readerSha256": "b5be96d34a2d6fd27f89df2916092f4f9441181467e32b00722d456929001858"
+    },
+    "indexMatchesWorkingCopy": true
+  },
+  "validation": {
+    "nodeChecks": 56,
+    "pythonChecks": 20,
+    "pythonSkipped": 0,
+    "browserSuites": [
+      "audio",
+      "evolution",
+      "midi",
+      "feedback",
+      "usability",
+      "exploration",
+      "classical",
+      "calibration",
+      "recurrence",
+      "review-flow"
+    ],
+    "allPassed": true,
+    "desktopAndMobileScreenshotsInspected": true,
+    "nativeOutputCap": 0.14,
+    "nativeOverloadPeak": 0.139970600605011
+  },
+  "frozenExperimentsModified": false,
+  "newReviewAudioRendered": false,
+  "realUserStudy": false,
+  "realListenerRatings": 0,
+  "limitations": [
+    "Heuristic/source review and automated tasks are not a recruited-user usability study.",
+    "Before initial-document and after-Continue geometry are different task states, not matched timing evidence.",
+    "No formal accessibility certification or musical-quality/reading-benefit claim.",
+    "Physical FM1 and wider device/session acceptance remain separate backlog work.",
+    "Profile/settings backup scope remains partial and explicit."
+  ],
+  "followupTask": "awen-r42.7"
+}

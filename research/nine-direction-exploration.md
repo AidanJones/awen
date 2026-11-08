@@ -8,6 +8,8 @@ Generate a portable page with the standard Python library:
 python tools/exploration_page.py
 # Optional: --output <new-directory> --paired-url http://127.0.0.1:50473/review.html
 # --previous-url <earlier-explorer-url> keeps older sounds/backups accessible
+# --include-reader packages the unchanged reader with round-trip links
+# --reader-url <reader-url> links a separately hosted reader
 ```
 
 Open the printed `explore.html` directly, or serve its directory locally. It embeds the production engine, harmonic library and six pilot passages in one HTML file; it needs no network, model, CDN or build tooling to run. The generator refuses to overwrite a directory and emits a manifest with page/engine hashes. Regenerate after engine changes; backups from a different engine hash are rejected rather than silently replayed differently. The main reader remains `index.html`.
@@ -38,7 +40,7 @@ The desktop grid is 3 × 3 (two columns on tablets, one on phones). The **Broad 
 
 These combine existing original synthesised material; they are not recordings or imitations of named film composers. Background led removes lead melody but retains sparse bass and the continuous bed. Each direction also varies numeric traits. Broad structural choices are deliberately authored rather than hoping small random mutations produce a different genre.
 
-Listen, mark up to three cards as promising, then **Explore selected directions**. The next nine-card round retains each selected parent unchanged and fills the remaining cards with deterministic mutations distributed across those parents. A child changes two bounded numeric traits and retains its parent's palette, phrase recipe and harmony. Parents are not averaged together. The original ensemble is always available through **Return to nine starting points**. Previous round restores earlier choices; exploring again branches and replaces later rounds. Backups retain up to 40 rounds. This bounded search is intentionally modest; it introduces no learned reward or automatic assertion that a child is better.
+Listen, use **Select for next round** on up to three cards, then **Explore selected directions**. This selects parents, not the reader's adopted music. The next nine-card round retains each selected parent unchanged and fills the remaining cards with deterministic mutations distributed across those parents. A child changes two bounded numeric traits and retains its parent's palette, phrase recipe and harmony. Parents are not averaged together. The original ensemble is always available through **Return to nine starting points**. Previous round restores earlier choices; exploring again branches and replaces later rounds. Backups retain up to 40 rounds. This bounded search is intentionally modest; it introduces no learned reward or automatic assertion that a child is better.
 
 Seed and passage apply equally to all nine cards. Playback renders a fresh excerpt from the start of the same seeded composition, not a resume of the live reader's playback cursor. Changing passage can change performance. Excerpts of 32/64 seconds allow phrase repetition and dialogue gaps to be heard. Listen across several passages before adopting a favourite.
 
@@ -48,7 +50,16 @@ Audio is rendered on demand using the exact production `AudioAdapter` in a nativ
 
 Selections and settings persist under `awen.exploration.1.<engine-hash>`. **Export exploration backup** gives a unique timestamp/UUID JSON download with full rounds and musical snapshots; restore validates version, engine hash, bounds and shape before replacing state. Storage failures leave export available. Downloads do not write directly into Git. Save a real exported backup into a chosen repo folder if you want it versioned; no listener choices have been fabricated or committed.
 
-Each card also downloads an existing reader-compatible preference profile. Import it using the reader's profile controls, then manually select the card's named **Sound palette**: the current reader profile format stores musical traits/harmony but not the active palette. Exploration JSON is a separate format and cannot be imported as calibration labels or a reader profile.
+Each card's **Download reader profile** produces one reader-compatible preference
+profile. As of 8 November, new exports include optional `readerSettings.palette`;
+the reader validates that palette before changing the profile, and applies it on
+import through **Backups → Import music profile**. Older exports without it keep
+the reader's existing palette. This browser colour does not select an FM1 patch.
+Exploration JSON is a separate format and cannot be imported as calibration labels
+or a reader profile. Sticky selection/stop actions and Advanced seed/excerpt
+controls support the [updated user flow](usability-review.md). With
+`--include-reader`, open the packaged `index.html?explorer=explore.html` to expose
+the reader's explorer link; the standalone reader has no required second page.
 
 This is preference exploration, not a calibrated listening experiment. “Promising” is not a fit/comfort judgement. Named cards, self-selected comparisons, transient preview levels and familiarity can bias choices. Use the existing blinded paired tool for independent fit, enjoyment and distraction labels. No exploration choices currently train CLAP or an automatic reward.
 

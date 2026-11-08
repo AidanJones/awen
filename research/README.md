@@ -1,7 +1,7 @@
 # Research and implementation map
 
-Documentation updated 3 November 2026. Classical audio work dates from 31 October;
-critic and dictionary engineering runs extend through 3 November. This index separates
+Documentation updated 8 November 2026. Classical audio work dates from 31 October;
+critic/dictionary, MIDI, feedback and user-flow engineering extend through 8 November. This index separates
 what runs in the reader from design evidence, development experiments and
 uncompleted listener studies.
 
@@ -14,6 +14,7 @@ chapter epochs and bed-harmony targets, with explicit coverage limits.
 
 | Strand | Guide / specification | Evidence or implementation |
 |---|---|---|
+| Feature user stories and page flow | [44 user stories](user-stories.md), [usability review](usability-review.md) | [Engineering proof](usability-proof.json), persistent controls, explicit MIDI routing, profile/palette handoff and task-specific backups/review templates; not a human usability study |
 | Classical repertoire and source scope | [Classical inspiration](classical-inspiration.md) | [Source-linked recipes and cue rules](classical-knowledge.json) |
 | Nine classical directions, text mapping and chapter route | [Directions and limits](classical-directions.md) | [Engineering proof](classical-directions-proof.json), `tests/classical.test.cjs`, `tests/classical.browser.cjs` |
 | Classical sound palettes and harpsichord | [Palette guide](classical-palettes.md) | [Engineering proof](classical-palettes-proof.json), `tests/classical-palettes.browser.cjs` |

@@ -1,5 +1,11 @@
 # Awen: open work and exploration
 
+8 November flow update: [44 feature user stories](research/user-stories.md) and
+the [usability review](research/usability-review.md) map the reader/explorer/review
+journeys. Persistent reading controls, explicit sound routing, clearer adoption
+and backup steps and new review-template controls are implemented. Real-user
+sessions and wider device/accessibility acceptance remain open.
+
 Updated 27 October 2026.
 
 **Tracking:** Beads is authoritative for current status; run `bd ready` / `bd list`. This roadmap records the work and research strands, including the latest development-loop direction in section 8. Some older items combine shipped features with remaining evaluation; consult their Beads issue before starting work. See [.beads/README.md](.beads/README.md) for the workflow and epic index.

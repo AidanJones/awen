@@ -39,12 +39,29 @@ change your music. See [reader feedback and development import](research/reader-
 
 ## Read and listen
 
+The [user stories](research/user-stories.md) and [usability review](research/usability-review.md)
+map the features and the current flow. **Continue reading** moves to a persistent
+Start/Pause, Mute and paragraph-control bar, which also works in Focus mode.
+**Sound settings** returns to the sidebar. Its task shortcuts lead to **FM1 setup**,
+**Explore music**, **Give feedback** and **Backups**. The output selector explicitly
+distinguishes browser synthesis from external MIDI; choosing an unconnected synth
+opens setup instead of starting laptop audio.
+
+For a linked reader and nine-direction explorer, optionally run
+`python tools/exploration_page.py --include-reader` and serve the printed folder.
+Open `index.html?explorer=explore.html`; the reader then exposes the explorer link.
+Standalone `index.html` still works by itself. In the explorer, **Select for next
+round** picks parents; **Download reader profile** exports one direction, including
+its browser palette, for **Backups → Import music profile**. A full exploration
+backup is a different file. Backups also exposes separate feedback and story-label
+downloads. See the review for the limits of each backup type.
+
 - Choose a book from the shelf. Each book remembers its own paragraph.
 - Use Previous/Next, Left/Right, or Space. Chapter selection jumps to the first paragraph in that chapter. Long paragraphs scroll naturally.
 - **Restart book** returns to paragraph 1 and restarts the composition with the same seed, preserving settings and other books' positions. **Go to paragraph** accepts a whole number from 1 to the book-wide total; it saves the destination while keeping musical time running.
 - **Aa / Reading preferences** adjusts text size, spacing and width. Night reading and focus mode reduce visual distraction.
 - Start/pause the soundtrack, set its volume, or mix bass notes, chords, melody and pulse independently. Zero volume mutes with a short click-free fade.
-- **Check sound** plays a short 440 Hz tone at the selected app volume. **Mute now** or Escape stops music and the check tone. Signal detection distinguishes generated audio from a muted mix; if a signal is detected but you hear nothing, check browser-tab mute, system volume and the selected output device.
+- **Test browser sound** plays a short 440 Hz tone at the selected app volume. **Test MIDI note** is the separate hardware test. **Mute now** or Escape stops music and the check tone. Signal detection distinguishes generated browser audio from a muted mix; external audio is not metered here.
 - The waveform above Start/Pause is drawn from the actual limited output, including the check tone. It settles to a flat line on pause or mute, stops drawing while the page is hidden, and stays static when reduced motion is requested. It uses native Canvas and Web Audio with no visualisation library.
 - **Sound palette** offers Warm ensemble (the default), Space synth, Frontier · guitar & whistle, Desert · strings & brass, Noir · muted reeds, and Chamber · felt & woodwind. Frontier uses guitar-like calls and whistle-like answers; Desert colours the lead with soft brass and strings. These are original synthesis approximations, not recordings or realistic orchestral samples. Palettes share the continuous score and limited audio graph; switching colours does not restart the phrase. Palette choice stays a separate browser setting from the saved preference genome.
 - **Continuous background** adds soft harmony under the foreground, initially at 30%. Chords follow an authored progression and crossfade at stable pitches, without pitch slides. Set it to zero for more space; the Chords mixer also scales it. All layers and effects use the same final limiter.

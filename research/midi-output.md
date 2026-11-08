@@ -11,7 +11,8 @@ browser API; no dependency, backend, model or build is required.
 2. Open Awen in Edge or Chrome using localhost or HTTPS. The browser may request
    MIDI permission. Browser/OS support varies; the panel reports unavailable or
    denied access without affecting browser playback.
-3. Open **External synthesizer · FM1 / MIDI** below Start soundtrack. Click
+3. In Sound settings choose **FM1 / external MIDI only**, or use **FM1 setup**.
+   Open **External synthesizer · FM1 / MIDI**. Click
    **Find MIDI devices**, grant permission, and select the FM1 MIDI output from
    the list. Port names depend on the installed driver/firmware.
 4. Choose a patch on the FM1 and match its receive channel to Awen's channel.
@@ -95,7 +96,7 @@ for `sysex:false` and does not open MIDI inputs.
 
 The browser master is attenuated before its existing limiter when hardware-only
 output is enabled. Every browser sound still passes through that limiter.
-**Gallery previews and Check sound use browser audio**; gallery entry releases
+**Gallery previews and Test browser sound use browser audio**; gallery entry releases
 hardware notes and suppresses MIDI until return. Offline measurement and
 development render adapters never attach a MIDI sink, so rendering cannot send
 hardware notes or reinterpret browser RMS balancing as hardware balancing.
@@ -125,6 +126,13 @@ basic physical playback, not agent-observed firmware/level/latency measurements.
 The remaining hardware checklist stays open. Optional
 [reader feedback](reader-feedback.md) now captures MIDI routing separately and
 lets the listener supply a patch/setup note; it cannot query or hear the patch.
+
+8 November flow update: the output selector now explicitly distinguishes Browser,
+External MIDI only and Both. Requesting MIDI without an enabled device opens setup
+and blocks Start, avoiding an accidental laptop-sound fallback. Disabling MIDI
+explicitly selects browser output; a disconnect still requires re-enabling the
+requested hardware. The persistent reader transport works in focus mode. See the
+[flow review](usability-review.md).
 
 ```powershell
 node --test tests/mvp.test.cjs tests/midi.test.cjs

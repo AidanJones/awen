@@ -9,6 +9,10 @@ change the score, default music, MIDI settings or evolution reward.
 
 Open **How is the music working for you?** below the soundtrack controls. While
 the reading soundtrack plays, choose **Capture current listening moment**.
+
+The 8 November flow pass adds **Give feedback** as a direct task shortcut and
+separate download/merge actions in **Backups**. Capturing, rating and storage
+semantics below are unchanged; see the [flow review](usability-review.md).
 The panel then offers three separate five-point agreement scales:
 
 - **I enjoy this music**: personal musical enjoyment.
