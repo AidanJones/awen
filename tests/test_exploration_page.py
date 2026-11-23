@@ -1,4 +1,5 @@
 import importlib.util
+import hashlib
 import json
 import re
 import tempfile
@@ -20,6 +21,10 @@ class ExplorationTests(unittest.TestCase):
             self.assertEqual(data['readerUrl'],'index.html?explorer=explore.html')
             self.assertEqual((file.parent/'index.html').read_text(encoding='utf-8'),(module.ROOT/'index.html').read_text(encoding='utf-8'))
             self.assertTrue(json.loads((file.parent/'manifest.json').read_text())['readerIncluded'])
+            manifest=json.loads((file.parent/'manifest.json').read_text())
+            self.assertEqual(manifest['pageSha256'],hashlib.sha256(file.read_bytes()).hexdigest())
+            self.assertEqual(manifest['readerSha256'],hashlib.sha256((file.parent/'index.html').read_bytes()).hexdigest())
+            self.assertEqual((file.parent/'index.html').read_bytes(),(module.ROOT/'index.html').read_bytes())
             for invalid in ['javascript:alert(1)','//example.com/explore','data:text/html,hi']:
                 with self.assertRaises(ValueError):module.build(Path(tmp)/'bad',reader_url=invalid)
 
@@ -34,6 +39,11 @@ class ExplorationTests(unittest.TestCase):
             self.assertEqual(len(data['scenes']), 6)
             self.assertEqual(len({s['book']['id'] for s in data['scenes']}), 3)
             self.assertNotIn('__PRODUCTION_RUNTIME__', html)
+            self.assertNotIn('__EXPLORATION_BRANCHING__', html)
+            self.assertIn('More different options', html)
+            self.assertEqual(data['branchingVersion'],'awen-branching-1')
+            manifest=json.loads((file.parent/'manifest.json').read_text(encoding='utf8'))
+            self.assertEqual(data['branchingSha256'],manifest['branchingSha256'])
             self.assertNotIn('<script src=', html)
             self.assertIn('class AudioAdapter', html)
             self.assertIn('OUTPUT_CEILING=.14', html)

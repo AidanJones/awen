@@ -2,7 +2,8 @@
 
 23 November 2026. The user requests larger future differences when a comparison
 sounds too similar, revisiting Picbreeder as the interaction model. This is a
-source review and next implementation scope, not an implemented adaptive search.
+source review and implementation rationale. The [adaptive explorer](adaptive-exploration.md)
+now implements the bounded first prototype; listener distinctness remains unmeasured.
 
 ## What the primary sources support
 
@@ -23,18 +24,18 @@ different treatments is a useful analogy. Automatic widening after similarity
 feedback is **our proposed adaptation**, not an algorithm verified as a feature
 of original Picbreeder.
 
-## Existing support and current limitation
+## Previous support and limitation
 
 Awen already has parent selection, pins, deterministic generations, previous
 rounds and backups. The [nine-card explorer](nine-direction-exploration.md)
-starts with authored structural/palette differences, but its descendants change
-two numeric traits and preserve the parent's palette, recipe and harmony. Thus
-many further generations can stay within one narrow musical neighbourhood.
+started with authored structural/palette differences, but its descendants changed
+two numeric traits and preserved the parent's palette, recipe and harmony. Thus
+many further generations could stay within one narrow musical neighbourhood.
 The recent controlled form comparison intentionally held the material fixed;
 it was a diagnostic, not an appropriate response to a request for much greater
 stylistic variety.
 
-## Proposed next behaviour
+## Implemented prototype behaviour
 
 - Keep selection simple: choose a card/parent, or A/B for a focused comparison.
   No explanation is required.
@@ -72,7 +73,7 @@ number, none, or more difference. Persist the action and actual generated
 differences, without inventing fit/comfort labels. Avoid repeating tiny form
 ablations in response to the user's request for greater contrast.
 
-Track implementation under `awen-syq.2`; coordinate richer structural mutation
+Implementation is documented under `awen-syq.2.6`; coordinate richer structural mutation
 with existing `awen-3fr.3`. The [latest listener observation](form-listener-feedback.json)
 is perceived similarity with no passage specified; it is not two fabricated
 trial ties. The [seeking fix](review-seeking-proof.json) also matters: the

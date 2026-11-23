@@ -13,7 +13,7 @@ class ReviewHandler(SimpleHTTPRequestHandler):
     def send_head(self):
         root=Path(self.directory).resolve()
         target=Path(self.translate_path(self.path)).resolve()
-        if target==root: target=root/'review.html'
+        if target==root: target=root/('review.html' if (root/'review.html').is_file() else 'explore.html')
         if not target.is_relative_to(root):
             self.send_error(403);return None
         if not target.is_file():
@@ -65,8 +65,8 @@ class ReviewHandler(SimpleHTTPRequestHandler):
 
 def make_server(directory,port=0):
     directory=Path(directory).resolve()
-    if not (directory/'review.html').is_file() or any((directory/name).exists() for name in ['private-key.json','experiment.json']):
-        raise ValueError('Serve only the packet public directory containing review.html')
+    if not any((directory/name).is_file() for name in ['review.html','explore.html']) or any((directory/name).exists() for name in ['private-key.json','experiment.json']):
+        raise ValueError('Serve only a public review directory or standalone explorer bundle')
     return ThreadingHTTPServer(('127.0.0.1',port),partial(ReviewHandler,directory=str(directory)))
 
 
@@ -75,6 +75,7 @@ if __name__=='__main__':
     parser.add_argument('directory',type=Path);parser.add_argument('--port',type=int,default=0)
     args=parser.parse_args()
     with make_server(args.directory,args.port) as server:
-        print(f'Review: http://127.0.0.1:{server.server_port}/review.html',flush=True)
+        entry='review.html' if (args.directory/'review.html').is_file() else 'explore.html'
+        print(f'Review: http://127.0.0.1:{server.server_port}/{entry}',flush=True)
         try:server.serve_forever()
         except KeyboardInterrupt:pass

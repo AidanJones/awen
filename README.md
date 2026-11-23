@@ -225,6 +225,9 @@ Its nine-card grid offers distinct phrase recipes, palettes and harmonic directi
 keep up to three parents, generate variations, back up rounds, or download a
 reader-compatible profile. See [nine-direction exploration](research/nine-direction-exploration.md)
 for playback, storage, palette-import details and isolated Playwright checks.
+The [adaptive explorer](research/adaptive-exploration.md) keeps favourites unchanged,
+adds structural alternatives through **More different options**, and provides
+**Refine selected directions** for closer variations. No descriptions are required.
 
 For development-only CLAP-guided search of that exact grid, see the
 [bounded evolution pilot](research/grid-clap-evolution.md). It uses the optional

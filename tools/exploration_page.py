@@ -32,16 +32,20 @@ def build(output, paired_url=None, previous_url=None, reader_url=None, include_r
     fingerprint = hashlib.sha256(runtime.encode()).hexdigest()
     data = dict(version=1, engineSha256=fingerprint, library=library, scenes=scenes, pairedUrl=paired_url, previousUrl=previous_url, readerUrl=reader_url)
     template = (ROOT / 'tools/exploration-review.html').read_text(encoding='utf-8')
+    branching = (ROOT / 'tools/exploration-branching.cjs').read_text(encoding='utf-8')
+    data['branchingVersion'] = 'awen-branching-1'
+    data['branchingSha256'] = hashlib.sha256(branching.encode()).hexdigest()
+    template = template.replace('__EXPLORATION_BRANCHING__', branching)
     page = template.replace('__EXPLORATION_DATA__', json.dumps(data, ensure_ascii=False).replace('<', '\\u003c'))
     page = page.replace('__PRODUCTION_RUNTIME__', runtime)
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
-    (output / 'explore.html').write_text(page, encoding='utf-8')
+    (output / 'explore.html').write_bytes(page.encode('utf-8'))
     if include_reader:
-        (output / 'index.html').write_text(html, encoding='utf-8')
-    manifest = dict(version=1, engineSha256=fingerprint, pageSha256=hashlib.sha256(page.encode()).hexdigest(),
+        (output / 'index.html').write_bytes((ROOT / 'index.html').read_bytes())
+    manifest = dict(version=1, engineSha256=fingerprint, branchingVersion=data['branchingVersion'], branchingSha256=data['branchingSha256'], pageSha256=hashlib.sha256(page.encode()).hexdigest(),
                     createdAt=datetime.now(timezone.utc).isoformat(), scenes=[s['id'] for s in scenes],
-                    readerIncluded=include_reader, readerSha256=hashlib.sha256(html.encode()).hexdigest() if include_reader else None)
+                    readerIncluded=include_reader, readerSha256=hashlib.sha256((output / 'index.html').read_bytes()).hexdigest() if include_reader else None)
     (output / 'manifest.json').write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf-8')
     return output / 'explore.html'
 

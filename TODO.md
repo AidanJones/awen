@@ -20,7 +20,9 @@ overall preferences stay separate from unknown fit/distraction ratings.
 Following the user's similarity report, [Picbreeder-inspired wider branching](research/picbreeder-adaptive-exploration.md)
 is the next exploration direction: preserve favourites, distinguish **More different
 options** from a preference tie, and offer meaningful structural/instrumental
-departures before refining again. This adaptive widening is queued, not shipped.
+departures before refining again. The [bounded adaptive explorer](research/adaptive-exploration.md)
+now implements this behaviour; actual listener distinctness and richer grammar
+evolution remain open.
 
 8 November flow update: [44 feature user stories](research/user-stories.md) and
 the [usability review](research/usability-review.md) map the reader/explorer/review

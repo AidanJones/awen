@@ -64,5 +64,10 @@ class RangeTests(unittest.TestCase):
             status,_,body=self.request(path=path);self.assertEqual(status,404);self.assertNotIn(b'PRIVATE',body)
         with self.assertRaises(ValueError):serve_review.make_server(self.root)
 
+    def test_standalone_explorer_bundle_is_accepted(self):
+        folder=self.root/'explorer';folder.mkdir();(folder/'explore.html').write_text('EXPLORER',encoding='utf8')
+        server=serve_review.make_server(folder)
+        self.assertEqual(server.server_address[0],'127.0.0.1');server.server_close()
+
 
 if __name__=='__main__':unittest.main()

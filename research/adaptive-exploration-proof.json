@@ -1,0 +1,175 @@
+{
+  "version": "awen-adaptive-exploration-proof-1",
+  "reviewDate": "2026-11-23",
+  "scope": "Engineering only; automated choices are synthetic, no listener preference or audible-quality claim.",
+  "bundle": ".score-lab/exploration/20261123T194431Z-ab675f41d4124fe6855ced8bf1c8b49c",
+  "bundleManifest": {
+    "version": 1,
+    "engineSha256": "2afe396accfce6e49eacdb42f78c95384b732c2d4b97775017d7ee08526e5ea8",
+    "branchingVersion": "awen-branching-1",
+    "branchingSha256": "3894625ad70075e630d9ee2f6a7288b795139ec2d3eb1d2fabcb467ef95ab8ea",
+    "pageSha256": "043cf88db579c22722aa1bb7c45064df9c31212f517ea59eabf4611e9cc4e1a8",
+    "createdAt": "2026-11-23T19:44:31.454597+00:00",
+    "scenes": [
+      "rat-escape",
+      "rat-reflection",
+      "riders-landscape",
+      "riders-aftermath",
+      "time-discussion",
+      "time-journey"
+    ],
+    "readerIncluded": true,
+    "readerSha256": "74943268733e90c986360b50999a19af2c1f36812cc38688a606f6dcdeb21a1d"
+  },
+  "bundleManifestSha256": "b8616997daf50a9e5f37577cd38a4fef51a06877cd17cab8bd1e02ef9ef3ab33",
+  "sources": {
+    "index.html": "74943268733e90c986360b50999a19af2c1f36812cc38688a606f6dcdeb21a1d",
+    "tools/exploration-branching.cjs": "3894625ad70075e630d9ee2f6a7288b795139ec2d3eb1d2fabcb467ef95ab8ea",
+    "tools/exploration-review.html": "7b770a573305b8eed91efdc0616757dac32b310c8eba028ec178046cd0db5e67",
+    "tools/exploration_page.py": "238531fba6bf277f6063f310136fc2a3e20eff27f10096335b75e687f9f4956b",
+    "tools/serve_review.py": "fd03df492c45590ae24b08642385df2ce418983f6441ad8efecc826e1c669e84",
+    "research/scoring-knowledge.json": "fd337bea976717bdada70ff3feff429db1e493e1147090154ae44c59373b8589",
+    "tests/exploration-branching.test.cjs": "f3f3736a37edcc54230386913ed70b4dc7474d61d59f934a44e133f53c50ee22",
+    "tests/adaptive-exploration.browser.cjs": "cd9e0c26098fe3e1e6015bd79f16a050c7b0e0dbb9abd5d7af6272f339764e2c"
+  },
+  "browserEvidenceFile": ".score-lab/tests/adaptive-proof-427ae8a9-421e-4dd8-b2a8-6378a7aa0226.json",
+  "browserEvidenceSha256": "f5557b1fa30d996590e57ac2c2cf18d51391d62510a15d9f15092b15baa96bcf",
+  "nativeAudio": [
+    {
+      "id": "warm",
+      "tier": "parent",
+      "hash": -989819192,
+      "peak": 0.047482515182384416,
+      "rms": 0.018,
+      "gain": 0.5242509045045913
+    },
+    {
+      "id": "branch-2-0-tj3t8m",
+      "tier": "near",
+      "hash": -81131824,
+      "peak": 0.04750956652926192,
+      "rms": 0.018,
+      "gain": 0.5244722627655974
+    },
+    {
+      "id": "branch-2-1-tj3t8m",
+      "tier": "medium",
+      "hash": 267675266,
+      "peak": 0.048503933049771276,
+      "rms": 0.018,
+      "gain": 0.5192520010876557
+    },
+    {
+      "id": "branch-2-2-tj3t8m",
+      "tier": "medium",
+      "hash": -1131533009,
+      "peak": 0.052454266724643914,
+      "rms": 0.018,
+      "gain": 0.5692189608407943
+    },
+    {
+      "id": "branch-2-3-tj3t8m",
+      "tier": "broad",
+      "hash": -1458239565,
+      "peak": 0.08073481172323227,
+      "rms": 0.015859156950506006,
+      "gain": 1
+    },
+    {
+      "id": "branch-2-4-tj3t8m",
+      "tier": "broad",
+      "hash": -1920234926,
+      "peak": 0.06627988815307617,
+      "rms": 0.012841641295976541,
+      "gain": 1
+    },
+    {
+      "id": "branch-2-5-tj3t8m",
+      "tier": "broad",
+      "hash": -2088618989,
+      "peak": 0.05983102269265726,
+      "rms": 0.018,
+      "gain": 0.7641749754961737
+    },
+    {
+      "id": "branch-2-6-tj3t8m",
+      "tier": "broad",
+      "hash": 195822474,
+      "peak": 0.06584001332521439,
+      "rms": 0.00820700446076573,
+      "gain": 1
+    },
+    {
+      "id": "branch-2-7-tj3t8m",
+      "tier": "broad",
+      "hash": -1082085572,
+      "peak": 0.06851039826869965,
+      "rms": 0.011321887144487347,
+      "gain": 1
+    }
+  ],
+  "checks": {
+    "testOnly": true,
+    "mixed": true,
+    "adaptiveWidening": [
+      2,
+      3
+    ],
+    "refinement": true,
+    "favouriteUnchanged": true,
+    "deterministicReplay": true,
+    "backupRestore": true,
+    "legacyRestore": true,
+    "invalidLineageRejected": true
+  },
+  "tests": {
+    "node": 50,
+    "python": 10,
+    "playwright": [
+      "tests/adaptive-exploration.browser.cjs",
+      "tests/exploration.browser.cjs",
+      "tests/audio.browser.cjs",
+      "tests/evolution.browser.cjs",
+      "tests/classical.browser.cjs",
+      "tests/score-dsl.browser.cjs"
+    ]
+  },
+  "singleParentMixes": {
+    "refine": [
+      "parent",
+      8,
+      0,
+      0
+    ],
+    "explore": [
+      "parent",
+      2,
+      3,
+      3
+    ],
+    "widen": [
+      "parent",
+      1,
+      2,
+      5
+    ],
+    "widest": [
+      "parent",
+      0,
+      2,
+      6
+    ]
+  },
+  "readerByteIdentical": true,
+  "regressionAndFinalHTMLTextIdentical": true,
+  "sourceBoundBackups": true,
+  "newUserRatings": 0,
+  "modelCalls": 0,
+  "defaultChanged": false,
+  "limitations": [
+    "Finite authored donor pool, not arbitrary score-grammar/NEAT evolution.",
+    "Component differences and sample hashes do not establish perceptual distinctness or artistic merit.",
+    "Offline explicit-note pilot arrangement is not the genotype of this explorer.",
+    "Only explicit previews/imports change a chosen direction; ordinary reader engine and MIDI routing unchanged."
+  ]
+}
