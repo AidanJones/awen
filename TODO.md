@@ -17,6 +17,11 @@ holds note/harmony inventory constant and streamlines the review to A, B, about
 the same or neither. Two passage pairs replace the previous repeated questionnaire;
 overall preferences stay separate from unknown fit/distraction ratings.
 
+Following the user's similarity report, [Picbreeder-inspired wider branching](research/picbreeder-adaptive-exploration.md)
+is the next exploration direction: preserve favourites, distinguish **More different
+options** from a preference tie, and offer meaningful structural/instrumental
+departures before refining again. This adaptive widening is queued, not shipped.
+
 8 November flow update: [44 feature user stories](research/user-stories.md) and
 the [usability review](research/usability-review.md) map the reader/explorer/review
 journeys. Persistent reading controls, explicit sound routing, clearer adoption

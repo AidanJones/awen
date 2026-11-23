@@ -1,0 +1,31 @@
+{
+  "version": "awen-review-seeking-proof-1",
+  "reviewDate": "2026-11-23",
+  "packetSha256": "459f15afe1e18083f1d1b042cfb38e077600ad6657b69ddaf47b32e0098ca495",
+  "cause": "Generic static server returned HTTP 200 to a byte-range request; native media seekable range was [0,0].",
+  "before": {
+    "requestedSeekSeconds": 60,
+    "resultingPlaybackSeconds": 0.955887,
+    "rangeStatus": 200
+  },
+  "after": {
+    "rangeStatus": 206,
+    "requestedBytes": 16,
+    "returnedBytes": 16,
+    "forwardSeekSeconds": 60,
+    "backwardSeekSeconds": 5,
+    "continuedPlaybackVerified": true,
+    "existingChoiceControlsVerified": true
+  },
+  "server": "tools/serve_review.py",
+  "serverSha256": "d96bfeb0b89d044503a55991469736de1555c4ba1c7cf726c6ef852682980433",
+  "validation": {
+    "serverUnitTests": 7,
+    "browserTest": "tests/choice.browser.cjs",
+    "testAnswersSynthetic": true
+  },
+  "publicURLUnchanged": true,
+  "packetAndAudioUnchanged": true,
+  "browserSavedChoicesPreservedBySameOrigin": true,
+  "limiterAndEngineUnchanged": true
+}

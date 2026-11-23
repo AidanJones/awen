@@ -102,7 +102,7 @@ defaults to `msedge`.
 python tools/recurrence_listening.py start --max-new-renders 2
 python tools/recurrence_listening.py resume PRINTED_DIRECTORY --max-new-renders 2
 python tools/recurrence_listening.py resume PRINTED_DIRECTORY
-python -m http.server 8001 --bind 127.0.0.1 --directory PRINTED_DIRECTORY/public
+python tools/serve_review.py PRINTED_DIRECTORY/public --port 8001
 python tools/recurrence_ratings.py PRINTED_DIRECTORY EXPORTED_RATINGS.json
 ```
 

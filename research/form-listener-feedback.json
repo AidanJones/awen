@@ -1,0 +1,20 @@
+{
+  "version": "awen-form-conversational-feedback-1",
+  "recordedDate": "2026-11-23",
+  "source": "User message in the development conversation; not a browser choice export.",
+  "experiment": ".score-lab/adventure-listening/20261123T191931.336802Z-e4f47ed2ed0e40c781140be87408219a",
+  "packetSha256": "459f15afe1e18083f1d1b042cfb38e077600ad6657b69ddaf47b32e0098ca495",
+  "userStatement": "on the last comparison both seemed the same to me",
+  "scope": "Latest form experiment; passage/trial not specified.",
+  "perceivedDifference": "No clear difference reported",
+  "overallPreference": null,
+  "trialChoices": [],
+  "fit": null,
+  "enjoyment": null,
+  "lessDistracting": null,
+  "listenedSeconds": null,
+  "context": "Reported while native seeking was broken; forward/backward seeking subsequently repaired without changing audio.",
+  "interpretation": "Keep as an experiment-level similarity observation. Do not fabricate two per-passage ties or infer liking, comfort or listening duration.",
+  "runtimeDefaultChanged": false,
+  "rewardModelTrained": false
+}

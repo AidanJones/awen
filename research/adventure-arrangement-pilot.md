@@ -79,7 +79,7 @@ an isolated headless Edge profile through Playwright by default.
 ```powershell
 python tools/adventure_listening.py start --max-new-renders 1
 python tools/adventure_listening.py resume PRINTED_DIRECTORY
-python -m http.server 8002 --bind 127.0.0.1 --directory PRINTED_DIRECTORY/public
+python tools/serve_review.py PRINTED_DIRECTORY/public --port 8002
 python tools/recurrence_ratings.py PRINTED_DIRECTORY EXPORTED_RATINGS.json
 ```
 

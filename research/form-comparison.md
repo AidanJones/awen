@@ -65,7 +65,7 @@ in feedback burden; order-consistency evidence is not collected here.
 ```powershell
 python tools/adventure_listening.py start --study form --max-new-renders 1
 python tools/adventure_listening.py resume PRINTED_DIRECTORY
-python -m http.server 8003 --bind 127.0.0.1 --directory PRINTED_DIRECTORY/public
+python tools/serve_review.py PRINTED_DIRECTORY/public --port 8003
 python tools/choice_ratings.py PRINTED_DIRECTORY DOWNLOADED_CHOICES.json
 ```
 
@@ -73,6 +73,13 @@ Open `http://127.0.0.1:8003/review.html`. Serve only `public`. Each passage has 
 fixed A/B assignment within its packet and a stable passage number. Labels are
 assigned independently of condition names; named phrase materials above are
 not the public candidate labels. The public folder excludes the treatment key.
+
+Use the supplied server rather than Python's generic static server: the latter
+did not honour media byte ranges in this environment. It advertised a duration
+but a seek to 60 seconds returned near the start. `serve_review.py` serves partial
+content, validates range bounds and supports native forward/backward seeking.
+The live review was repaired on the same origin with its packet, recordings and
+saved choices unchanged. See [seeking proof](review-seeking-proof.json).
 
 The existing lab provides unique run/invocation IDs, immutable source and input
 hashes, atomic artifacts, clip-level recovery, measured signal gates and paired
@@ -98,3 +105,13 @@ No new listener choices or musical winner are recorded at preparation time.
 No reward model, automatic default promotion, live MIDI arrangement path or
 chapter-transition planner is introduced. Feedback can guide the next small
 comparison; broader integration still needs continuity and device checks.
+
+### Subsequent listener observation
+
+The user reported that the latest comparison's versions seemed the same.
+[The conversational record](form-listener-feedback.json) retains this as perceived
+similarity at experiment level: the passage number was not specified, and it is
+not expanded into two trial answers or an inferred enjoyment/distraction score.
+Seeking was broken at that time and has since been fixed. How long the user
+listened is unknown. This is a reason to allow ties and avoid assuming that a
+symbolically different arrangement will be perceptually distinct.
