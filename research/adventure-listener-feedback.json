@@ -1,0 +1,50 @@
+{
+  "version": "awen-adventure-conversational-feedback-1",
+  "recordedDate": "2026-11-23",
+  "source": "User messages in the development conversation; not a browser ratings export.",
+  "listenerCount": 1,
+  "experiment": ".score-lab/adventure-listening/20261123T173210.358363Z-cd7f29b98f7649e493835bc67268eb40",
+  "packetSha256": "4cb37182cdece0646a92ca932db7d64bdc280549429ae250f752da96930ef583",
+  "userStatements": [
+    "okay i have a listen, the version A sounded better to me on that",
+    "Passage 1, A. Passage 2, A."
+  ],
+  "interpretation": "The first presented comparison for each passage, following the clarification about comparison 1; not the later reversed repeats.",
+  "preferences": [
+    {
+      "passage": 1,
+      "scene": "caper",
+      "trialId": "312dc0d69c3352a6b50f16c0070ffc2e",
+      "preferredSlot": "A",
+      "preferredTreatment": "arranged",
+      "overallPreference": "arranged",
+      "fit": null,
+      "enjoyment": null,
+      "lessDistracting": null,
+      "confidence": null,
+      "playedSeconds": null
+    },
+    {
+      "passage": 2,
+      "scene": "reflection",
+      "trialId": "666e220a7f755f959d863b56cf8212fe",
+      "preferredSlot": "A",
+      "preferredTreatment": "arranged",
+      "overallPreference": "arranged",
+      "fit": null,
+      "enjoyment": null,
+      "lessDistracting": null,
+      "confidence": null,
+      "playedSeconds": null
+    }
+  ],
+  "limitations": [
+    "One listener and two passages; no general preference or reading-benefit claim.",
+    "No separate fit, enjoyment or distraction ratings, listening duration, device context or reversed-repeat answers supplied.",
+    "The treatment changes theme and harmony as well as arrangement; preference cannot identify which change helped.",
+    "Candidate identity was discussed in conversation; this report is not an independent blinded study."
+  ],
+  "nextExperiment": "Hold theme and harmony constant and compare multi-section form against a shorter repeated arrangement before adaptive integration.",
+  "runtimeDefaultChanged": false,
+  "rewardModelTrained": false
+}

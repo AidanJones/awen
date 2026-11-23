@@ -54,6 +54,22 @@ No CLAP score selects a winner. No human ratings have been supplied during
 preparation. Automated playback/ratings tests use isolated synthetic answers;
 they do not enter the listener packet or constitute preference evidence.
 
+### First listener feedback, 23 November 2026
+
+The user subsequently reported “Passage 1, A. Passage 2, A.” Following the
+clarification about the first comparison, these refer to the first presentation
+of the caper and reflection passages: A is the authored arrangement in both.
+The [conversational feedback record](adventure-listener-feedback.json) preserves
+the report, packet identity and treatment mapping separately from browser exports.
+This is one listener's overall preference on two passages. Separate scene-fit,
+enjoyment and distraction scores, playback duration, device context and answers
+to the reversed repeats were not provided and remain unscored. The original
+engineering proof retains its zero-rating preparation snapshot.
+
+This supports trying a controlled follow-up, rather than changing defaults or
+training a reward. Hold theme/harmony constant and compare form alone next;
+the present preference does not identify which musical change helped.
+
 ## Run, resume and listen
 
 Python uses the standard library. Node and Playwright are test/development

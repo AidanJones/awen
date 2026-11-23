@@ -16,7 +16,7 @@ chapter epochs and bed-harmony targets, with explicit coverage limits.
 | Strand | Guide / specification | Evidence or implementation |
 |---|---|---|
 | Adventure-game form and adaptive transitions | [Scrimshaw / iMUSE review](adventure-game-scoring.md) | Source-pinned authoring review and small proposed arrangement comparison; no runtime change or listener results |
-| Original adventure arrangement comparison | [Pilot and recovery](adventure-arrangement-pilot.md) | [Engineering proof](adventure-arrangement-proof.json), four matched native clips and a blinded review; real listener ratings remain absent |
+| Original adventure arrangement comparison | [Pilot and recovery](adventure-arrangement-pilot.md) | [Engineering proof](adventure-arrangement-proof.json), four matched native clips; [two conversational preferences](adventure-listener-feedback.json) favour the arrangement, with separate fit/distraction ratings still absent |
 | Feature user stories and page flow | [44 user stories](user-stories.md), [usability review](usability-review.md) | [Engineering proof](usability-proof.json), persistent controls, explicit MIDI routing, profile/palette handoff and task-specific backups/review templates; not a human usability study |
 | Classical repertoire and source scope | [Classical inspiration](classical-inspiration.md) | [Source-linked recipes and cue rules](classical-knowledge.json) |
 | Nine classical directions, text mapping and chapter route | [Directions and limits](classical-directions.md) | [Engineering proof](classical-directions-proof.json), `tests/classical.test.cjs`, `tests/classical.browser.cjs` |
