@@ -4,6 +4,7 @@ const {pathToFileURL}=require('node:url');
 const {loadRuntime}=require('./score-lab.cjs');
 const {digest,signalMetrics,pcmWav}=require('./score-lab-metrics.cjs');
 const arrangement=require('./adventure-arrangement.cjs');
+const {formScore}=require('./form-arrangement.cjs');
 const ROOT=path.resolve(__dirname,'..');
 function plan(){
  const {books,api}=loadRuntime(),book=books.find(b=>b.id==='rat');
@@ -40,8 +41,9 @@ async function main(){
  const [command,inputFile,outFile]=process.argv.slice(2),raw=fs.readFileSync(inputFile),input=JSON.parse(raw);let result;
  if(command==='plan')result=plan();
  else if(command==='render'){
-  if(!['baseline','arranged'].includes(input.treatment))throw Error('Unknown treatment');
-  const score=arrangement.compile(undefined,{seed:input.seed,quiet:input.scene.id==='reflection'}),notation=arrangement.window(score),steps=arrangement.STEPS*arrangement.REPEATS;
+  if(!['baseline','arranged','alternating','grouped'].includes(input.treatment))throw Error('Unknown treatment');
+  const options={seed:input.seed,quiet:input.scene.id==='reflection'};
+  const score=['alternating','grouped'].includes(input.treatment)?formScore(input.treatment,options):arrangement.compile(undefined,options),notation=arrangement.window(score),steps=arrangement.STEPS*arrangement.REPEATS;
   const {chromium}=require('playwright'),browser=await chromium.launch({headless:true,channel:process.env.AWEN_BROWSER_CHANNEL||'msedge'});
   try{
    const page=await browser.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(pathToFileURL(path.join(ROOT,'index.html')).href);
@@ -49,7 +51,7 @@ async function main(){
    const samples=Float32Array.from(data.samples),signal=signalMetrics(samples,data.sampleRate);
    if(!signal.finite||signal.peak>data.cap+1e-6||signal.rms<.0001)throw Error('Physical signal check failed');
    // Save raw first; paired attenuation-only matching is performed by the orchestrator.
-   const wav=pcmWav(samples,data.sampleRate,1),trace=Buffer.from(JSON.stringify({treatment:input.treatment,score:input.treatment==='arranged'?score:null,notes:data.notes,harmony:data.harmony,snapshots:data.snapshots})+'\n');
+   const wav=pcmWav(samples,data.sampleRate,1),trace=Buffer.from(JSON.stringify({treatment:input.treatment,score:input.treatment!=='baseline'?score:null,notes:data.notes,harmony:data.harmony,snapshots:data.snapshots})+'\n');
    fs.writeFileSync(path.join(path.dirname(outFile),'audio.wav'),wav,{flag:'wx'});fs.writeFileSync(path.join(path.dirname(outFile),'trace.json'),trace,{flag:'wx'});
    result={file:'audio.wav',sha256:digest(wav),traceFile:'trace.json',traceSha256:digest(trace),seconds:data.seconds,signal,cap:data.cap,noteCount:data.notes.length,renderer:{browser:browser.version(),playwright:require('playwright/package.json').version,node:process.version}};
   }finally{await browser.close();}

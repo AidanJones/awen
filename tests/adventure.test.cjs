@@ -27,3 +27,17 @@ test('invalid grammar fails before scheduling',()=>{
  }
  assert.throws(()=>compile(FAMILY,{quiet:'yes'}));assert.throws(()=>compile(FAMILY,{seed:'x'.repeat(129)}));
 });
+test('form ablation preserves harmony, note inventory and phrase-local timing',()=>{
+ const {formScore}=require('../tools/form-arrangement.cjs');
+ for(const quiet of [false,true]){
+  const a=formScore('alternating',{quiet}),b=formScore('grouped',{quiet});
+  assert.deepEqual(a.bars.map(({step,chord,harmony})=>({step,chord,harmony})),b.bars.map(({step,chord,harmony})=>({step,chord,harmony})));
+  const inventory=p=>p.notes.map(e=>JSON.stringify([e.step%32,e.midi,e.durationSteps,e.layer,e.level])).sort();
+  assert.deepEqual(inventory(a),inventory(b));assert.equal(a.notes.length,b.notes.length);
+  assert.deepEqual(a.notes.filter(e=>e.step<32),b.notes.filter(e=>e.step<32));
+  assert.notDeepEqual(a.notes,b.notes);
+  assert.deepEqual(a.bars.map(b=>b.section),['A','B','A','B'].flatMap(s=>Array(4).fill(s)));
+  assert.deepEqual(b.bars.map(b=>b.section),['A','A','B','B'].flatMap(s=>Array(4).fill(s)));
+ }
+ assert.throws(()=>formScore('unknown'));
+});

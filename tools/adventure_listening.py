@@ -18,19 +18,22 @@ SOURCES = ['index.html', 'tools/adventure_listening.py', 'tools/adventure-worker
            'tools/adventure-arrangement.cjs', 'tools/score_lab.py', 'tools/score-lab.cjs',
            'tools/score-lab-metrics.cjs', 'tools/recurrence_listening.py',
            'tools/recurrence-review.html', 'tools/recurrence_ratings.py']
+SOURCES += ['tools/form-arrangement.cjs', 'tools/choice-review.html', 'tools/choice_ratings.py']
 
 
 def sources():
     return {p: lab.sha((lab.ROOT/p).read_bytes()) for p in SOURCES}
 
 
-def create(root):
+def create(root, study='initial'):
+    if study not in ['initial', 'form']: raise ValueError('Unknown study')
     directory = Path(root).resolve()/(lab.stamp()+'-'+uuid.uuid4().hex)
     directory.mkdir(parents=True)
     manifest = dict(version=VERSION, id=uuid.uuid4().hex, createdAt=lab.now(),
-                    sources=sources(), seed='adventure-pilot-1', steps=384,
-                    treatments=TREATMENTS, palette='romantic', humanRatings=0,
-                    scope='Two fixed passages, one palette, three 16-bar cycles; static arrangement, not adaptive transitions.')
+                    sources=sources(), seed='adventure-pilot-1', steps=384, study=study,
+                    treatments=['alternating', 'grouped'] if study=='form' else TREATMENTS,
+                    palette='romantic', humanRatings=0,
+                    scope='Two fixed passages, one palette, three 16-bar cycles; form ordering only.' if study=='form' else 'Two fixed passages, one palette, three 16-bar cycles; static arrangement, not adaptive transitions.')
     raw = lab.encode(manifest)
     lab.atomic(directory/'experiment.json', raw, exclusive=True)
     lab.atomic(directory/'state.json', lab.encode(dict(manifestSha256=lab.sha(raw),
@@ -93,7 +96,7 @@ class Engine(recurrence.Engine):
         clips, measures = {}, []
         for scene in scenes:
             pair = []
-            for treatment in TREATMENTS:
+            for treatment in self.manifest['treatments']:
                 payload = dict(scene=scene, treatment=treatment, seed=self.manifest['seed'])
                 result = self.execute('render', payload)
                 _, job = self.ensure_job('render', payload)
@@ -114,7 +117,7 @@ class Engine(recurrence.Engine):
                     publishedSha256=lab.sha(wav)))
         packet, key = make_packet(self.manifest, scenes, clips)
         raw = lab.encode(packet); packet_sha = lab.sha(raw)
-        template = (lab.ROOT/'tools/recurrence-review.html').read_text(encoding='utf8')
+        template = (lab.ROOT/('tools/choice-review.html' if self.manifest.get('study')=='form' else 'tools/recurrence-review.html')).read_text(encoding='utf8')
         template = template.replace('Recurring figures review', 'Adventure arrangement review').replace(
             'Which recurring accompaniment works while reading?', 'Which arrangement works while reading?')
         template = template.replace('excerpts are 86 seconds.', 'excerpts are 165 seconds.')
@@ -126,6 +129,7 @@ class Engine(recurrence.Engine):
             clips=len(clips), trials=len(packet['trials']), measures=measures, humanRatings=0,
             thresholdChanged=False, promotionAllowed=False,
             levelMatching='Paired whole-clip RMS, attenuation only; not perceptual loudness matching.',
+            study=self.manifest.get('study','initial'),
             limits='One seed/palette, two authored passage choices. No timbre realism, reading benefit or musical winner established.')
         lab.atomic(self.directory/'report.json', lab.encode(report), exclusive=True)
         self.state['status'] = 'awaiting-listener'; self.save()
@@ -134,18 +138,19 @@ class Engine(recurrence.Engine):
 
 def make_packet(manifest, scenes, clips):
     rng = random.Random(manifest['seed']); trials, key = [], {}
+    simple = manifest.get('study')=='form'
     for scene in scenes:
-        a, b = TREATMENTS
+        a, b = manifest['treatments']
         if rng.randrange(2): a, b = b, a
         first = uuid.uuid5(uuid.NAMESPACE_URL, manifest['id']+scene['id']).hex
-        for repeat in [False, True]:
+        for repeat in ([False] if simple else [False, True]):
             ident = first if not repeat else uuid.uuid5(uuid.NAMESPACE_URL, first+'repeat').hex
             x, y = (a, b) if not repeat else (b, a)
             trials.append(dict(id=ident, scene=scene['id'], A=clips[scene['id'], x], B=clips[scene['id'], y]))
             key[ident] = dict(scene=scene['id'], A=x, B=y, repeatOf=first if repeat else None)
-    rng.shuffle(trials)
+    if not simple: rng.shuffle(trials)
     return dict(id=manifest['id'], version=VERSION,
-        instructions='Compare while reading. Each clip lasts 165 seconds: three 16-bar cycles plus a tail. Fit, enjoyment and distraction are separate questions. Reversed repeats are optional consistency checks, not correct-answer tests. You may skip, pause or stop; download a ratings backup to continue later.',
+        instructions='Listen to A and B while reading, then pick the one you prefer overall. No explanation needed. Each clip is 165 seconds; listen as much as you need. You can choose about the same, neither, or skip.' if simple else 'Compare while reading. Each clip lasts 165 seconds: three 16-bar cycles plus a tail. Fit, enjoyment and distraction are separate questions. Reversed repeats are optional consistency checks, not correct-answer tests. You may skip, pause or stop; download a ratings backup to continue later.',
         scenes=[{k:v for k,v in s.items() if k not in ['genome', 'palette']} for s in scenes], trials=trials), key
 
 
@@ -169,10 +174,11 @@ if __name__ == '__main__':
     parser.add_argument('directory', nargs='?', type=Path)
     parser.add_argument('--root', type=Path, default=lab.ROOT/'.score-lab/adventure-listening')
     parser.add_argument('--max-new-renders', type=int)
+    parser.add_argument('--study', choices=['initial','form'], default='initial', help='New experiments only; resume keeps its original study')
     args = parser.parse_args()
     if args.command == 'resume' and not args.directory: parser.error('Resume needs a directory')
     if args.max_new_renders is not None and args.max_new_renders < 0: parser.error('Render budget must be nonnegative')
-    directory = create(args.root) if args.command == 'start' else args.directory.resolve()
+    directory = create(args.root,args.study) if args.command == 'start' else args.directory.resolve()
     print('Experiment:', directory, flush=True)
     try:
         result = run(directory, args.max_new_renders)

@@ -12,6 +12,11 @@ persistent composer, paired level matching, resumable native renders and separat
 fit/enjoyment/distraction feedback. It does not change reader defaults; listening
 evidence must precede adaptive integration or larger searches.
 
+23 November follow-up: [controlled phrase ordering](research/form-comparison.md)
+holds note/harmony inventory constant and streamlines the review to A, B, about
+the same or neither. Two passage pairs replace the previous repeated questionnaire;
+overall preferences stay separate from unknown fit/distraction ratings.
+
 8 November flow update: [44 feature user stories](research/user-stories.md) and
 the [usability review](research/usability-review.md) map the reader/explorer/review
 journeys. Persistent reading controls, explicit sound routing, clearer adoption
