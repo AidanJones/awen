@@ -1,0 +1,133 @@
+{
+  "version": "awen-adventure-explorer-link-proof-1",
+  "reviewDate": "2026-11-23",
+  "scope": "Engineering connection to the actual preferred score; no new user ratings or artistic-quality claim.",
+  "bundle": ".score-lab/exploration/20261123T220733Z-4d1bddfdb11841a3b0ba1e7d087dd530",
+  "manifest": {
+    "version": 1,
+    "initialSet": "adventure",
+    "adventureSha256": "cba923cbf453117d38a89ff6b2230053b0cd13e39d3918c60578c56272efb718",
+    "reviewPacketSha256": "4cb37182cdece0646a92ca932db7d64bdc280549429ae250f752da96930ef583",
+    "engineSha256": "2afe396accfce6e49eacdb42f78c95384b732c2d4b97775017d7ee08526e5ea8",
+    "branchingVersion": "awen-branching-1",
+    "branchingSha256": "6e42520935620ff08b18dbe7fde9708bc42ca8762be981f0a62a3250e92c5e49",
+    "pageSha256": "e5ca220b628a49eef7775a0cf0ea617187c293a47638fd819a772a746c38d2fc",
+    "createdAt": "2026-11-23T22:07:34.039850+00:00",
+    "scenes": [
+      "rat-escape",
+      "rat-reflection",
+      "riders-landscape",
+      "riders-aftermath",
+      "time-discussion",
+      "time-journey",
+      "adventure-caper",
+      "adventure-reflection"
+    ],
+    "readerIncluded": true,
+    "readerSha256": "74943268733e90c986360b50999a19af2c1f36812cc38688a606f6dcdeb21a1d"
+  },
+  "sources": {
+    "tools/adventure-explorer.cjs": "9e396e24799d02a3dc9c05cf937bc65e79e2e6f2438dcbac04b69640ff9c42d8",
+    "tools/adventure-seed.cjs": "97185507ea6e13fdf2bc06e9844ebbc326cf93ad55d88e44d778f14745c5afe0",
+    "research/adventure-starting-score.json": "cba923cbf453117d38a89ff6b2230053b0cd13e39d3918c60578c56272efb718",
+    "tools/exploration-branching.cjs": "6e42520935620ff08b18dbe7fde9708bc42ca8762be981f0a62a3250e92c5e49",
+    "tools/exploration-review.html": "0daa32cce660978caf4dd874d94fdb5e91a4ff956c5fadca33dbe70c46eed703",
+    "tools/exploration_page.py": "085c3a7004ce05f60ffb5a1545c6a4dd9549357ce795505ee43ce90fd1a874e9",
+    "index.html": "74943268733e90c986360b50999a19af2c1f36812cc38688a606f6dcdeb21a1d"
+  },
+  "browserEvidenceSha256": "48ce0ff45788f67e82d168ec833d1e77a4e60754f1334342e0997f00a5ae4a76",
+  "checks": {
+    "testOnly": true,
+    "originalScheduledNotesVerified": true,
+    "originalPassage": true,
+    "familyPreserved": true,
+    "favouriteUnchanged": true,
+    "backupRestore": true,
+    "readerExportGuarded": true,
+    "errors": []
+  },
+  "native": [
+    {
+      "id": "adventure-0",
+      "hash": 310000763,
+      "peak": 0.06462349742650986,
+      "rms": 0.015048764009617847,
+      "gain": 1
+    },
+    {
+      "id": "adventure-1",
+      "hash": -129854345,
+      "peak": 0.06873448193073273,
+      "rms": 0.017477696687710077,
+      "gain": 1
+    },
+    {
+      "id": "adventure-2",
+      "hash": 706256936,
+      "peak": 0.06892165541648865,
+      "rms": 0.017334982078673775,
+      "gain": 1
+    },
+    {
+      "id": "adventure-3",
+      "hash": -1625056106,
+      "peak": 0.06733061373233795,
+      "rms": 0.014715026219171168,
+      "gain": 1
+    },
+    {
+      "id": "adventure-4",
+      "hash": -2008892953,
+      "peak": 0.06504523754119873,
+      "rms": 0.01504759063028454,
+      "gain": 1
+    },
+    {
+      "id": "adventure-5",
+      "hash": -1193438059,
+      "peak": 0.0723176971077919,
+      "rms": 0.011950338595854527,
+      "gain": 1
+    },
+    {
+      "id": "adventure-6",
+      "hash": -842160537,
+      "peak": 0.07660344243049622,
+      "rms": 0.014539803054683807,
+      "gain": 1
+    },
+    {
+      "id": "adventure-7",
+      "hash": -1786334212,
+      "peak": 0.07707613706588745,
+      "rms": 0.017049438865153154,
+      "gain": 1
+    },
+    {
+      "id": "adventure-8",
+      "hash": -1486466367,
+      "peak": 0.07309743762016296,
+      "rms": 0.0114367794026187,
+      "gain": 1
+    }
+  ],
+  "originalReviewCopiedByteForByte": true,
+  "earlierExplorerCopiedByteForByte": true,
+  "originalReviewNavigationPacketVerified": true,
+  "readerUnchanged": true,
+  "tests": {
+    "node": 52,
+    "python": 3,
+    "playwright": [
+      "tests/adventure-explorer.browser.cjs",
+      "tests/audio.browser.cjs",
+      "tests/evolution.browser.cjs"
+    ]
+  },
+  "limitations": [
+    "Reference score/seed/palette are preserved; preview fades, duration and balancing differ from archived WAV bytes.",
+    "Explicit-note adventure cards currently require explorer backups; reader-profile export is disabled.",
+    "Native reference trace checks caper scheduling; both passage plans also match the original compiler in pure tests.",
+    "Sample differences do not establish audible preference; no new listener feedback."
+  ]
+}

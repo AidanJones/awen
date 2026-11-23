@@ -3,7 +3,7 @@
 const AwenBranching=(()=>{
  const VERSION='awen-branching-1',TRAITS=['activity','softness','warmth','space','bedPresence','bedMotion'];
  const hash=s=>{let n=2166136261;for(const c of s)n=Math.imul(n^c.codePointAt(0),16777619);return n>>>0;};
- const recipe=(c,api)=>JSON.stringify([c.genome.scoreStyle,c.genome.scoreDSL?api.compileScoreDSL(c.genome.scoreDSL.source).id:null,c.genome.classical||null]);
+ const recipe=(c,api)=>JSON.stringify([c.genome.scoreStyle,c.genome.scoreDSL?api.compileScoreDSL(c.genome.scoreDSL.source).id:null,c.genome.classical||null,c.adventure||null]);
  const harmony=c=>{const h=c.genome.harmony;return JSON.stringify(h?[h.tonicPc,h.bars,h.chords,h.form]:null);};
  function key(c,api){return JSON.stringify([c.palette,recipe(c,api),harmony(c),TRAITS.map(k=>c.genome[k])]);}
  function changes(a,b,api){return [...(recipe(a,api)!==recipe(b,api)?['composition']:[]),...(harmony(a)!==harmony(b)?['harmony']:[]),...(a.palette!==b.palette?['instruments']:[]),...TRAITS.filter(k=>a.genome[k]!==b.genome[k])];}
@@ -16,13 +16,15 @@ const AwenBranching=(()=>{
   while(cards.length<9){
    const i=offspring.length,parent=parents[i%parents.length],tier=schedules[breadth][i];let child=null,donorId=null;
    for(let attempt=0;attempt<500&&!child;attempt++){
-    const token=seed+'|'+breadth+'|'+i+'|'+attempt,donor=pool[hash(token)%pool.length];let c;
-    if(tier==='near')c={palette:parent.palette,genome:api.mutateGenome(parent.genome,'both',token)};
+    const token=seed+'|'+breadth+'|'+i+'|'+attempt,eligible=pool.filter(d=>!!d.adventure===!!parent.adventure),donor=eligible[hash(token)%eligible.length];let c;
+    if(!donor)throw Error('No compatible score-family donors');
+    if(tier==='near')c={palette:parent.palette,genome:api.mutateGenome(parent.genome,'both',token),...(parent.adventure?{adventure:{...parent.adventure}}:{})};
     else if(tier==='medium'){
-     const axis=['composition','harmony','instruments'][i%3];c={palette:parent.palette,genome:{...parent.genome}};
+     const axis=['composition','harmony','instruments'][i%3];c={palette:parent.palette,genome:{...parent.genome},...(parent.adventure?{adventure:{...parent.adventure}}:{})};
      if(axis==='instruments')c.palette=donor.palette;
      if(axis==='harmony'){delete c.genome.harmony;if(donor.genome.harmony)c.genome.harmony=donor.genome.harmony;}
      if(axis==='composition'){
+      if(donor.adventure)c.adventure={...donor.adventure};else delete c.adventure;
       delete c.genome.scoreDSL;delete c.genome.classical;c.genome.scoreStyle=donor.genome.scoreStyle;
       if(donor.genome.scoreDSL)c.genome.scoreDSL=donor.genome.scoreDSL;
       if(donor.genome.classical)c.genome.classical=donor.genome.classical;
@@ -30,7 +32,7 @@ const AwenBranching=(()=>{
      c.genome=api.normalGenome(c.genome);
      if(structural(c,parent,api).length!==1)continue;
     }else{
-     c={palette:donor.palette,genome:api.normalGenome({...donor.genome,warmth:parent.genome.warmth,softness:parent.genome.softness})};
+     c={palette:donor.palette,genome:api.normalGenome({...donor.genome,warmth:parent.genome.warmth,softness:parent.genome.softness}),...(donor.adventure?{adventure:{...donor.adventure}}:{})};
      if(structural(c,parent,api).length<2)continue;
     }
     if(seen.has(key(c,api))){retries++;continue;}

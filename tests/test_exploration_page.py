@@ -12,6 +12,21 @@ spec.loader.exec_module(module)
 
 
 class ExplorationTests(unittest.TestCase):
+    def test_adventure_origin_and_frozen_review_copy(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);review=root/'public';review.mkdir()
+            seed=json.loads((module.ROOT/'research/adventure-starting-score.json').read_text(encoding='utf8'))
+            (review/'review.html').write_text('<script id="calibration-data" type="application/json">'+json.dumps({'packetSha256':seed['reviewPacketSha256']})+'</script>',encoding='utf8')
+            previous=root/'old.html';previous.write_text('FROZEN OLD EXPLORER',encoding='utf8')
+            file=module.build(root/'new',initial_set='adventure',review_public=review,previous_page=previous)
+            data=json.loads(re.search(r'id="exploration-data"[^>]*>(.*?)</script>',file.read_text(encoding='utf8'),re.S)[1])
+            self.assertEqual(data['initialSet'],'adventure');self.assertEqual(data['adventure']['reviewPacketSha256'],seed['reviewPacketSha256'])
+            self.assertEqual(data['pairedUrl'],'preferred-review/review.html')
+            self.assertEqual((file.parent/'previous-explore.html').read_bytes(),previous.read_bytes())
+            self.assertEqual((file.parent/'preferred-review/review.html').read_bytes(),(review/'review.html').read_bytes())
+            (review/'review.html').write_text('<script id="calibration-data">{"packetSha256":"WRONG"}</script>',encoding='utf8')
+            with self.assertRaises(ValueError):module.build(root/'wrong',review_public=review)
+
     def test_optional_reader_bundle_and_explicit_handoff_link(self):
         root=module.ROOT/'.score-lab/tests';root.mkdir(parents=True,exist_ok=True)
         with tempfile.TemporaryDirectory(dir=root) as tmp:
@@ -36,7 +51,7 @@ class ExplorationTests(unittest.TestCase):
             file = module.build(target, 'http://127.0.0.1:50473/review.html')
             html = file.read_text(encoding='utf-8')
             data = json.loads(re.search(r'id="exploration-data"[^>]*>(.*?)</script>', html, re.S)[1])
-            self.assertEqual(len(data['scenes']), 6)
+            self.assertEqual(len(data['scenes']), 8)
             self.assertEqual(len({s['book']['id'] for s in data['scenes']}), 3)
             self.assertNotIn('__PRODUCTION_RUNTIME__', html)
             self.assertNotIn('__EXPLORATION_BRANCHING__', html)

@@ -228,6 +228,9 @@ for playback, storage, palette-import details and isolated Playwright checks.
 The [adaptive explorer](research/adaptive-exploration.md) keeps favourites unchanged,
 adds structural alternatives through **More different options**, and provides
 **Refine selected directions** for closer variations. No descriptions are required.
+Use `--initial-set adventure` to start from the actual preferred point-and-click
+review arrangement and its relatives. Those experimental scores are saved in
+exploration backups; ordinary reader-profile export is disabled for them.
 
 For development-only CLAP-guided search of that exact grid, see the
 [bounded evolution pilot](research/grid-clap-evolution.md). It uses the optional

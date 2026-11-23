@@ -24,6 +24,11 @@ departures before refining again. The [bounded adaptive explorer](research/adapt
 now implements this behaviour; actual listener distinctness and richer grammar
 evolution remain open.
 
+The [review-to-grid connection](research/adventure-explorer-link.md) now anchors
+the Adventure set to the actual preferred 16-bar score, preserving that first
+card and developing its family. Reader/MIDI import of explicit-note arrangements
+is a separate remaining integration task.
+
 8 November flow update: [44 feature user stories](research/user-stories.md) and
 the [usability review](research/usability-review.md) map the reader/explorer/review
 journeys. Persistent reading controls, explicit sound routing, clearer adoption

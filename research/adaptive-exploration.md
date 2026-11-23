@@ -54,8 +54,11 @@ Volume is never used to create novelty, and busier music is not automatically
 preferred. The native renderer, final output limiter, attenuation-only preview
 balancing and single-playback/cancellation controls are unchanged.
 
-This branches reader-compatible presets/genomes. It does not yet evolve the
-offline explicit-note 16-bar arrangement from the earlier pilot. The user chooses
+Ordinary sets branch reader-compatible presets/genomes. The new
+[adventure starting set](adventure-explorer-link.md) also preserves and develops
+the actual preferred explicit-note arrangement from the pilot. Those experimental
+cards require a full exploration backup and deliberately disable reader-profile
+export until the reader supports their score representation. The user chooses
 the actual parent on this grid; no synthetic selection is saved as their taste.
 Ordinary reading, chapter continuity and the main reader's six-card preference
 gallery remain unchanged. Adoption still requires an explicit reader-profile

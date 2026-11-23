@@ -1,0 +1,5 @@
+'use strict';
+const fs=require('node:fs'),{compile}=require('./adventure-arrangement.cjs'),{loadRuntime}=require('./score-lab.cjs');
+function seed(){const options={seed:'adventure-pilot-1'},plans={};for(const [name,quiet] of [['caper',false],['reflection',true]]){const p=compile(undefined,{...options,quiet});plans[name]={notes:p.notes.map(e=>[e.step,e.midi,e.durationSteps,e.layer,e.level]),bars:p.bars.map(e=>[e.step,e.harmony])};}return {version:1,seed:options.seed,palette:'romantic',genome:loadRuntime().api.starterGenome('classic'),reviewPacketSha256:JSON.parse(fs.readFileSync('research/adventure-listener-feedback.json','utf8')).packetSha256,plans};}
+if(require.main===module){const target='research/adventure-starting-score.json',raw=JSON.stringify(seed())+'\n';if(process.argv.includes('--check')){if(fs.readFileSync(target,'utf8').trim()!==raw.trim())throw Error('Adventure seed differs from the original compiled score');console.log('Original adventure score seed verified');}else fs.writeFileSync(target,raw);}
+module.exports={seed};
