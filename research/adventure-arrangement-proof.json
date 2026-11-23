@@ -1,0 +1,133 @@
+{
+  "version": "awen-adventure-proof-1",
+  "reviewDate": "2026-11-23",
+  "scope": "Engineering preparation only; no artistic quality or reading-benefit claim.",
+  "experiment": ".score-lab/adventure-listening/20261123T173210.358363Z-cd7f29b98f7649e493835bc67268eb40",
+  "experimentSha256": "5f1db6da95092c1bcfb722ba33ce639de84ca7ae6ca6d8df295a137747e841ae",
+  "packetSha256": "4cb37182cdece0646a92ca932db7d64bdc280549429ae250f752da96930ef583",
+  "sources": {
+    "index.html": "74943268733e90c986360b50999a19af2c1f36812cc38688a606f6dcdeb21a1d",
+    "tools/adventure-arrangement.cjs": "1ed59620f04defa00083a17e1bba7e878e5e6a406e43a1f5de77f60fcca73537",
+    "tools/adventure-worker.cjs": "ee4a154a51a6bea432ad094e3a9a3c510a9c1f60751c7727cb5de60b665474a0",
+    "tools/adventure_listening.py": "081052898712a350286ab9e3d650c8d95b3c110235dc281a7fdf619284c6dd44",
+    "tools/recurrence-review.html": "dc1f882691612cc0f124b29cb9a8c3b7ec875c665ddce554b0a458c678703169",
+    "tools/recurrence_listening.py": "54f5ca67be9d0403c023f57505c9055a36c820713e23dae47073beb070d3b75a",
+    "tools/recurrence_ratings.py": "5009d12ef796303602cff9973b6af7ecd809d092c36c44c004face313581a493",
+    "tools/score-lab-metrics.cjs": "4cebcea37cb1dbd827f8bc7ab6118b9feed05af92101a76da4246ad1e4ef7dd9",
+    "tools/score-lab.cjs": "a5ea9986da82cfaf7d7ad576d17eeed054b2165bc2366c03854023f55aaad944",
+    "tools/score_lab.py": "c83453aab83c02a34d7bffdab02e48e991b207ecec51f8e07917e60fc0531926"
+  },
+  "settings": {
+    "seed": "adventure-pilot-1",
+    "palette": "romantic",
+    "steps": 384,
+    "repeats": 3,
+    "tempo": 72,
+    "sampleRate": 24000,
+    "volume": 0.35,
+    "background": 0.3,
+    "mix": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outputCeiling": 0.14
+  },
+  "renderer": {
+    "browser": "158.0.4370.33",
+    "node": "v24.22.3",
+    "playwright": "1.62.1"
+  },
+  "clips": [
+    {
+      "scene": "caper",
+      "treatment": "arranged",
+      "requestSha256": "124ac5337673669da75986867510a1aeaa5b1bf3bf4605e0d69caa5ebc116bd5",
+      "rawWavSha256": "efee741db67f479bfbf48b52d1f7fa1be485d72fca324918dff3fd03bb908322",
+      "publishedWavSha256": "efee741db67f479bfbf48b52d1f7fa1be485d72fca324918dff3fd03bb908322",
+      "traceSha256": "e48bfd1caee89ee59cad6ff15d7d071fc9eaaee96d45376e9a3211f6007fc357",
+      "seconds": 165,
+      "notes": 282,
+      "rawPeak": 0.06785956770181656,
+      "rawRms": 0.014970396400626425,
+      "matchedPeak": 0.06787316507461776,
+      "matchedRms": 0.014970402651740586,
+      "gain": 1.0,
+      "fixedLayerInstrumentsVerified": true
+    },
+    {
+      "scene": "caper",
+      "treatment": "baseline",
+      "requestSha256": "5af2f9d917c3bf0b030ef72c1b262b39fd52ac39cb07978df197d400961f081d",
+      "rawWavSha256": "c8e35f7c62114b5faff2d247c08a9b1515f50e2b8ae44900aea87623a53f29b2",
+      "publishedWavSha256": "c897d3df42d6c98fdf95f3cd4870ebaa50cbc043c7ea479164d90d1ebc6feefd",
+      "traceSha256": "9efb1cfabbe64bde58de922ff8785088822d94dcf3f47424c9e6daaf417fc5b6",
+      "seconds": 165,
+      "notes": 402,
+      "rawPeak": 0.09284377098083496,
+      "rawRms": 0.027578790711777698,
+      "matchedPeak": 0.05038605914487136,
+      "matchedRms": 0.014970403214972328,
+      "gain": 0.5428230436585014,
+      "fixedLayerInstrumentsVerified": true
+    },
+    {
+      "scene": "reflection",
+      "treatment": "arranged",
+      "requestSha256": "fef6ef673f089aec2e574f08f87d28cfb5ff36227ce5e4f8208ac1f51ce110cb",
+      "rawWavSha256": "b8545a28683eadb0f19024ef56ab1dd679f2a84257f3abc158778c7d4b229d83",
+      "publishedWavSha256": "b8545a28683eadb0f19024ef56ab1dd679f2a84257f3abc158778c7d4b229d83",
+      "traceSha256": "4d7c89515f7800b26f033f5d998ad7cef642d93cf35c1091d8b1458c6ae24dd0",
+      "seconds": 165,
+      "notes": 183,
+      "rawPeak": 0.06938640028238297,
+      "rawRms": 0.017836859336762607,
+      "matchedPeak": 0.06939909054841761,
+      "matchedRms": 0.017836862355945563,
+      "gain": 1.0,
+      "fixedLayerInstrumentsVerified": true
+    },
+    {
+      "scene": "reflection",
+      "treatment": "baseline",
+      "requestSha256": "9a17f32d97e28d3d19c9be433a15b5c27a09eca5aeefde6b852716ae25b31e7e",
+      "rawWavSha256": "50d4f27ef138c52508c2958100e097f93cff09b53db12eb667bd84502f61ac90",
+      "publishedWavSha256": "4c4a7c84512acc81645550bfaea64d82d267af3763a3e97941972df4d43ca74a",
+      "traceSha256": "abe709ca25950767e4c2cc19259b3241d224a76f289764ac3ebe331ee5d9d3ef",
+      "seconds": 165,
+      "notes": 124,
+      "rawPeak": 0.09032724797725677,
+      "rawRms": 0.02099936676764024,
+      "matchedPeak": 0.07672353282265694,
+      "matchedRms": 0.01783687386647381,
+      "gain": 0.8494001748721195,
+      "fixedLayerInstrumentsVerified": true
+    }
+  ],
+  "trials": 4,
+  "humanRatings": 0,
+  "promotionAllowed": false,
+  "validation": {
+    "nodeTests": 58,
+    "adventurePythonTests": 7,
+    "existingRecurrencePythonTests": 5,
+    "playwright": [
+      "tests/audio.browser.cjs",
+      "tests/evolution.browser.cjs",
+      "tests/adventure.browser.cjs"
+    ],
+    "syntheticBrowserAnswersOnly": true,
+    "completedRunResumedWithZeroRenderBudget": true,
+    "allFinalRenderAttempts": 1,
+    "sourceAndAudioHashesVerified": true,
+    "processDeathAndFailedAttemptRecoveryTested": true
+  },
+  "limitations": [
+    "Two selected passages, one seed and palette.",
+    "Authored treatment changes theme/harmony as well as arrangement.",
+    "RMS matching is not perceptual loudness matching.",
+    "No live MIDI integration or physical FM1 listening in this pilot.",
+    "No actual preference labels or musical winner."
+  ]
+}

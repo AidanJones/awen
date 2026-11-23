@@ -1,6 +1,7 @@
 # Research and implementation map
 
-Documentation updated 8 November 2026. Classical audio work dates from 31 October;
+Documentation updated 23 November 2026 with an adventure-game source review.
+Classical audio work dates from 31 October;
 critic/dictionary, MIDI, feedback and user-flow engineering extend through 8 November. This index separates
 what runs in the reader from design evidence, development experiments and
 uncompleted listener studies.
@@ -14,6 +15,8 @@ chapter epochs and bed-harmony targets, with explicit coverage limits.
 
 | Strand | Guide / specification | Evidence or implementation |
 |---|---|---|
+| Adventure-game form and adaptive transitions | [Scrimshaw / iMUSE review](adventure-game-scoring.md) | Source-pinned authoring review and small proposed arrangement comparison; no runtime change or listener results |
+| Original adventure arrangement comparison | [Pilot and recovery](adventure-arrangement-pilot.md) | [Engineering proof](adventure-arrangement-proof.json), four matched native clips and a blinded review; real listener ratings remain absent |
 | Feature user stories and page flow | [44 user stories](user-stories.md), [usability review](usability-review.md) | [Engineering proof](usability-proof.json), persistent controls, explicit MIDI routing, profile/palette handoff and task-specific backups/review templates; not a human usability study |
 | Classical repertoire and source scope | [Classical inspiration](classical-inspiration.md) | [Source-linked recipes and cue rules](classical-knowledge.json) |
 | Nine classical directions, text mapping and chapter route | [Directions and limits](classical-directions.md) | [Engineering proof](classical-directions-proof.json), `tests/classical.test.cjs`, `tests/classical.browser.cjs` |

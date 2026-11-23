@@ -1,5 +1,17 @@
 # Awen: open work and exploration
 
+23 November research update: [Scrimshaw and adventure-game scoring](research/adventure-game-scoring.md)
+identify reusable multi-bar form, related orchestration and prepared transition
+points as promising extensions. `awen-syq.2` holds the bounded comparison;
+`awen-cjl` retains chapter-bridge work. Research is documented; broader adaptive
+integration and listener validation remain open.
+
+The [arrangement pilot](research/adventure-arrangement-pilot.md) now implements
+the small comparison: two Rat passages, original multi-bar form versus the
+persistent composer, paired level matching, resumable native renders and separate
+fit/enjoyment/distraction feedback. It does not change reader defaults; listening
+evidence must precede adaptive integration or larger searches.
+
 8 November flow update: [44 feature user stories](research/user-stories.md) and
 the [usability review](research/usability-review.md) map the reader/explorer/review
 journeys. Persistent reading controls, explicit sound routing, clearer adoption
